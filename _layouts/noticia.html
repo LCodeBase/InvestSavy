@@ -21,24 +21,24 @@ layout: noticia
     <meta name="keywords" content="investimentos, finanças pessoais, educação financeira, {{ page.categories | join: ', ' }}, {{ page.title | downcase }}" />
     {% endif %}
 
-    <meta name="author" content="{{ page.author | default: 'InvestSmart' }}" />
+    <meta name="author" content="{{ page.author | default: 'InvestSavy' }}" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="article" />
     <meta property="og:url" content="{{ site.url }}{{ site.baseurl }}{{ page.url }}" />
-    <meta property="og:title" content="{{ page.title }} | InvestSmart" />
+    <meta property="og:title" content="{{ page.title }} | InvestSavy" />
     <meta property="og:description" content="{{ page.excerpt | strip_html | truncate: 160 }}" />
     <meta property="og:image" content="{{ site.url }}{{ site.baseurl }}{{ page.image }}" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="{{ site.url }}{{ site.baseurl }}{{ page.url }}" />
-    <meta property="twitter:title" content="{{ page.title }} | InvestSmart" />
+    <meta property="twitter:title" content="{{ page.title }} | InvestSavy" />
     <meta property="twitter:description" content="{{ page.excerpt | strip_html | truncate: 160 }}" />
     <meta property="twitter:image" content="{{ site.url }}{{ site.baseurl }}{{ page.image }}" />
 
     <!-- Título da página específico para cada notícia -->
-    <title>{{ page.title }} | InvestSmart</title>
+    <title>{{ page.title }} | InvestSavy</title>
 
     <!-- Favicon para diferentes dispositivos e navegadores -->
     <link rel="shortcut icon" href="{{ site.baseurl }}/images/Camada 1.png" type="image/x-icon" />
@@ -58,9 +58,9 @@ layout: noticia
       <div class="container-LOGO">
         <img
           src="{{ site.baseurl }}/images/Camada 1.png"
-          alt="Logo InvestSmart"
+          alt="Logo InvestSavy"
         />
-        <div class="logo">InvestSmart</div>
+        <div class="logo">InvestSavy</div>
       </div>
 
       <div class="menu-toggle" alt="Botão-Menu">
@@ -233,11 +233,11 @@ layout: noticia
   "dateModified": "{% if page.last_modified_at %}{{ page.last_modified_at | date_to_xmlschema }}{% else %}{{ page.date | date_to_xmlschema }}{% endif %}",
   "author": {
     "@type": "Person",
-    "name": "{{ page.author | default: 'InvestSmart' }}"
+    "name": "{{ page.author | default: 'InvestSavy' }}"
   },
   "publisher": {
     "@type": "Organization",
-    "name": "InvestSmart",
+    "name": "InvestSavy",
     "logo": {
       "@type": "ImageObject",
       "url": "{{ site.url }}{{ site.baseurl }}/images/Camada 1.png"
