@@ -1,0 +1,248 @@
+---
+layout: noticia
+---
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- SEO Meta Tags Dinâmicas -->
+    {% if page.description %}
+    <meta name="description" content="{{ page.description }}" />
+    {% else %}
+    <meta name="description" content="{{ page.excerpt | strip_html | truncate: 160 }}" />
+    {% endif %}
+
+    {% if page.keywords %}
+    <meta name="keywords" content="{{ page.keywords }}" />
+    {% else %}
+    <meta name="keywords" content="investimentos, finanças pessoais, educação financeira, {{ page.categories | join: ', ' }}, {{ page.title | downcase }}" />
+    {% endif %}
+
+    <meta name="author" content="{{ page.author | default: 'InvestSmart' }}" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="{{ site.url }}{{ site.baseurl }}{{ page.url }}" />
+    <meta property="og:title" content="{{ page.title }} | InvestSmart" />
+    <meta property="og:description" content="{{ page.excerpt | strip_html | truncate: 160 }}" />
+    <meta property="og:image" content="{{ site.url }}{{ site.baseurl }}{{ page.image }}" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="{{ site.url }}{{ site.baseurl }}{{ page.url }}" />
+    <meta property="twitter:title" content="{{ page.title }} | InvestSmart" />
+    <meta property="twitter:description" content="{{ page.excerpt | strip_html | truncate: 160 }}" />
+    <meta property="twitter:image" content="{{ site.url }}{{ site.baseurl }}{{ page.image }}" />
+
+    <!-- Título da página específico para cada notícia -->
+    <title>{{ page.title }} | InvestSmart</title>
+
+    <!-- Favicon para diferentes dispositivos e navegadores -->
+    <link rel="shortcut icon" href="{{ site.baseurl }}/images/Camada 1.png" type="image/x-icon" />
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ site.baseurl }}/images/favicon-16x16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ site.baseurl }}/images/favicon-32x32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ site.baseurl }}/images/apple-touch-icon.png" />
+    <link rel="manifest" href="{{ site.baseurl }}/site.webmanifest" />
+    <meta name="msapplication-TileColor" content="#118a5f" />
+    <meta name="theme-color" content="#118a5f" />
+
+    <link rel="stylesheet" href="{{ site.baseurl }}/css/style-noticia01.css" />
+    <link rel="stylesheet" href="{{ site.baseurl }}/css/universal-css.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container-LOGO">
+        <img
+          src="{{ site.baseurl }}/images/Camada 1.png"
+          alt="Logo InvestSmart"
+        />
+        <div class="logo">InvestSmart</div>
+      </div>
+
+      <div class="menu-toggle" alt="Botão-Menu">
+        <i class="fas fa-bars"></i>
+      </div>
+
+      <nav class="nav-menu">
+        <ul>
+          <li id="comment-header">
+            <a href="{{ site.baseurl }}/index.html">Home</a>
+          </li>
+          <li id="comment-header">
+            <a href="{{ site.baseurl }}/sobre.html">Sobre Nós</a>
+          </li>
+          <li id="comment-header">
+            <a href="{{ site.baseurl }}/blogs-main.html">Notícias</a>
+          </li>
+          <li>
+            <button
+              class="button-header"
+              onclick="window.location.href='{{ site.baseurl }}/servicos.html'"
+            >
+              Serviços
+              <i class="fa-solid fa-arrow-right" id="seta"></i>
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <button id="toggleForm" class="floating-button">
+      <i class="fa-solid fa-envelope fa-2x"></i>
+    </button>
+    <div id="registerForm" class="form-container" style="display: none">
+      <form class="form">
+        <div class="header-container">
+          <p class="title">Entre em Contato</p>
+          <button id="close-btn">X</button>
+        </div>
+        <p class="message">
+          Ficou com alguma dúvida ou está enfrentando alguma dificuldade em um
+          de nossos serviços?
+        </p>
+        <div class="flex">
+          <label>
+            <input
+              required=""
+              placeholder=""
+              type="text"
+              class="input"
+              maxlength="10"
+            />
+            <span>Nome</span>
+          </label>
+          <label>
+            <input
+              required=""
+              placeholder=""
+              type="text"
+              class="input"
+              maxlength="30"
+            />
+            <span>Sobrenome</span>
+          </label>
+        </div>
+        <label>
+          <input required="" placeholder="" type="text" class="input" />
+          <span>Email</span>
+        </label>
+        <textarea
+          id="myTextarea"
+          maxlength="1000"
+          rows="5"
+          placeholder="Escreva sua mensagem aqui..."
+        ></textarea>
+        <div id="charCount" class="char-count">1000 caracteres restantes</div>
+        <button class="submit">Enviar</button>
+      </form>
+    </div>
+
+    <main class="main-news-container">
+      <div>
+        <div class="news-header">
+          <h1>{{ page.title }}</h1>
+          <div class="meta">
+            Publicado em: {{ page.date | date: "%d-%m-%Y" }} | Autor:
+            <a href="{{ page.author_link }}">{{ page.author }}</a>
+          </div>
+        </div>
+        <div class="news-content">
+          <img
+            src="{{ site.baseurl }}{{ page.image }}"
+            alt="{{ page.alt_image }}"
+            class="news-image"
+          />
+          {{ content }}
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container-footer">
+        <div class="row-footer">
+          <div class="footer-col">
+            <h4>Site</h4>
+            <ul>
+              <li><a href="{{ site.baseurl }}/index.html">Home</a></li>
+              <li><a href="{{ site.baseurl }}/blogs-main.html">Blogs</a></li>
+              <li><a href="{{ site.baseurl }}/sobre.html">Quem somos</a></li>
+              <li><a href="{{ site.baseurl }}/servicos.html">Serviços</a></li>
+            </ul>
+          </div>
+          <!--end footer col-->
+          <!-- footer col-->
+          <div class="footer-col">
+            <h4>Redes Sociais</h4>
+            <ul>
+              <li><a href="#">Facebook</a></li>
+              <li><a href="#">Instragram</a></li>
+              <li><a href="#">Tiktok</a></li>
+              <li><a href="#">Youtube</a></li>
+            </ul>
+          </div>
+          <!--end footer col-->
+          <!-- footer col-->
+          <div class="footer-col">
+            <h4>Serviços</h4>
+            <ul>
+              <li><a href="#">Calculos de Despesas</a></li>
+              <li><a href="#">Investimentos</a></li>
+            </ul>
+          </div>
+          <!--end footer col-->
+          <!-- footer col-->
+          <div class="footer-col">
+            <h4>Inscreva-se na Newsletter</h4>
+            <div class="form-sub">
+              <form>
+                <input
+                  type="email"
+                  placeholder="Digite o seu e-mail"
+                  required
+                />
+                <button>Se inscrever</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+  <script src="{{ site.baseurl }}/script/js-universal.js"></script>
+  <script src="{{ site.baseurl }}/script/contact.js"></script>
+  <script src="{{ site.baseurl }}/script/script.js"></script>
+  <script
+    src="https://kit.fontawesome.com/e1063b7707.js"
+    crossorigin="anonymous"
+    async
+  ></script>
+</html>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "{{ page.title }}",
+  "image": [
+    "{{ site.url }}{{ site.baseurl }}{{ page.image }}"
+  ],
+  "datePublished": "{{ page.date | date_to_xmlschema }}",
+  "dateModified": "{% if page.last_modified_at %}{{ page.last_modified_at | date_to_xmlschema }}{% else %}{{ page.date | date_to_xmlschema }}{% endif %}",
+  "author": {
+    "@type": "Person",
+    "name": "{{ page.author | default: 'InvestSmart' }}"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "InvestSmart",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{ site.url }}{{ site.baseurl }}/images/Camada 1.png"
+    }
+  },
+  "description": "{{ page.excerpt | strip_html | truncate: 160 }}"
+}
+</script>
