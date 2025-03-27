@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="InvestSmart - Sua plataforma de educação financeira e investimentos"
+      content="InvestSavy - Sua plataforma de educação financeira e investimentos"
     />
-    <title>InvestSmart - Sobre Nós</title>
+    <title>InvestSavy - Sobre Nós</title>
     <link rel="stylesheet" href="css/universal-css.css" />
     <link rel="stylesheet" href="css/style-sobre.css" />
     <link rel="shortcut icon" href="images/Camada 1.png" type="image/x-icon" />
@@ -22,13 +22,8 @@
   <body>
     <header>
       <div class="container-LOGO">
-        <img
-          src="images/Camada 1.png"
-          alt="Logo InvestSmart"
-          width="[largura]"
-          height="[altura]"
-        />
-        <div class="logo">InvestSmart</div>
+        <img src="images/00000000000001.svg" alt="Logo InvestSmart"  style="width: 10%; margin: -19px 3px 0 0;"/>
+        <div class="logo">InvestSavy</div>
       </div>
 
       <div class="menu-toggle" alt="Botão-Menu">
@@ -56,7 +51,7 @@
     <main>
       <section class="about-hero">
         <div class="about-content">
-          <h1>Sobre a InvestSmart</h1>
+          <h1>Sobre a InvestSavy</h1>
           <p>
             Capacitando pessoas a tomarem melhores decisões financeiras desde
             2024
@@ -105,7 +100,7 @@
 
       <section class="why-us">
         <div class="container">
-          <h2>Por que escolher a InvestSmart?</h2>
+          <h2>Por que escolher a InvestSavy?</h2>
           <div class="features-grid">
             <div class="feature">
               <i class="fas fa-tools fa-3x"></i>
@@ -136,7 +131,7 @@
         <div class="container">
           <h2>Fundador</h2>
           <p>
-            Criador e desenvolvedor da InvestSmart, estudando e aplicando economia diariamente para aprimorar meus conhecimentos.
+            Criador e desenvolvedor da InvestSavy, estudando e aplicando economia diariamente para aprimorar meus conhecimentos.
           </p>
 
           <div class="team-grid" id="sobre-team">
@@ -149,6 +144,40 @@
           </div>
         </div>
       </section>
+      <button id="toggleForm" class="floating-button">
+        <i class="fa-solid fa-envelope fa-2x"></i>
+      </button>
+
+      <div id="registerForm" class="form-container" style="display: none">
+        <form class="form" id="contactForm" onsubmit="saveToFile(event)">
+          <div class="header-container">
+            <p class="title">Entre em Contato</p>
+            <button id="close-btn">X</button>
+          </div>
+          <p class="message">
+            Ficou com alguma dúvida ou está enfrentando alguma dificuldade em um
+            de nossos serviços?
+          </p>
+          <div class="flex">
+            <label>
+              <input required="" placeholder="" type="text" class="input" maxlength="10" name="nome" />
+              <span>Nome</span>
+            </label>
+            <label>
+              <input required="" placeholder="" type="text" class="input" maxlength="30" name="sobrenome" />
+              <span>Sobrenome</span>
+            </label>
+          </div>
+          <label>
+            <input required="" placeholder="" type="email" class="input" name="email" />
+            <span>Email</span>
+          </label>
+          <textarea id="myTextarea" maxlength="1000" rows="5" placeholder="Escreva sua mensagem aqui..."
+            name="mensagem"></textarea>
+          <div id="charCount" class="char-count">1000 caracteres restantes</div>
+          <button class="submit">Enviar</button>
+        </form>
+      </div>
     </main>
 
     <footer>

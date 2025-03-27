@@ -14,8 +14,8 @@ title: "Noticias da economia no mundo - InvestSavy"
     />
     <meta name="author" content="LcodeBase" />
     <title>InvestSavy - Melhorando a vida dos nossos clientes</title>
-    <link rel="preload" href="{{ site.baseurl }}/css/universal-css.css" as="style" />
-    <link rel="preload" href="{{ site.baseurl }}/css/style-blog-main.css" as="style" />
+    <link rel="stylesheet" href="css/style-blog-main.css">
+    <link rel="stylesheet" href="css/universal-css.css">
     <link
       rel="preload"
       href="{{ site.baseurl }}/images/Camada 1.png"
@@ -25,7 +25,7 @@ title: "Noticias da economia no mundo - InvestSavy"
     <link rel="stylesheet" href="{{ site.baseurl }}/css/style-blog-main.css" />
     <link
       rel="shortcut icon"
-      href="{{ site.baseurl }}/images/Camada 1.png"
+      href="images/Camada 1.png"
       type="image/x-icon"
     />
     <link
@@ -37,10 +37,7 @@ title: "Noticias da economia no mundo - InvestSavy"
   <body>
     <header>
       <div class="container-LOGO">
-        <img
-          src="{{ site.baseurl }}/images/Camada 1.png"
-          alt="Logo InvestSavy"
-        />
+        <img src="images/00000000000001.svg" alt="Logo InvestSmart" style="width: 10%; margin: -19px 3px 0 0;" />
         <div class="logo">InvestSavy</div>
       </div>
 
@@ -173,62 +170,42 @@ title: "Noticias da economia no mundo - InvestSavy"
         </li>
         {% endif %} {% endfor %}
       </ul>
-    </main>
 
-    <button
-      id="toggleForm"
-      class="floating-button"
-      aria-label="Abrir formulário de contato"
-    >
-      <i class="fa-solid fa-envelope fa-2x"></i>
-    </button>
-    <div id="registerForm" class="form-container" style="display: none">
-      <form class="form">
-        <div class="header-container">
-          <p class="title">Entre em Contato</p>
-          <button id="close-btn">X</button>
-        </div>
-        <p class="message">
-          Ficou com alguma dúvida ou está enfrentando alguma dificuldade em um
-          de nossos serviços?
-        </p>
-        <div class="flex">
-          <label>
-            <input
-              required=""
-              placeholder=""
-              type="text"
-              class="input"
-              maxlength="10"
-            />
-            <span>Nome</span>
-          </label>
-          <label>
-            <input
-              required=""
-              placeholder=""
-              type="text"
-              class="input"
-              maxlength="30"
-            />
-            <span>Sobrenome</span>
-          </label>
-        </div>
-        <label>
-          <input required="" placeholder="" type="text" class="input" />
-          <span>Email</span>
-        </label>
-        <textarea
-          id="myTextarea"
-          maxlength="1000"
-          rows="5"
-          placeholder="Escreva sua mensagem aqui..."
-        ></textarea>
-        <div id="charCount" class="char-count">1000 caracteres restantes</div>
-        <button class="submit">Enviar</button>
-      </form>
+<button id="toggleForm" class="floating-button">
+  <i class="fa-solid fa-envelope fa-2x"></i>
+</button>
+
+<div id="registerForm" class="form-container" style="display: none">
+  <form class="form" id="contactForm" onsubmit="saveToFile(event)">
+    <div class="header-container">
+      <p class="title">Entre em Contato</p>
+      <button id="close-btn">X</button>
     </div>
-
+    <p class="message">
+      Ficou com alguma dúvida ou está enfrentando alguma dificuldade em um
+      de nossos serviços?
+    </p>
+    <div class="flex">
+      <label>
+        <input required="" placeholder="" type="text" class="input" maxlength="10" name="nome" />
+        <span>Nome</span>
+      </label>
+      <label>
+        <input required="" placeholder="" type="text" class="input" maxlength="30" name="sobrenome" />
+        <span>Sobrenome</span>
+      </label>
+    </div>
+    <label>
+      <input required="" placeholder="" type="email" class="input" name="email" />
+      <span>Email</span>
+    </label>
+    <textarea id="myTextarea" maxlength="1000" rows="5" placeholder="Escreva sua mensagem aqui..."
+      name="mensagem"></textarea>
+    <div id="charCount" class="char-count">1000 caracteres restantes</div>
+    <button class="submit">Enviar</button>
+  </form>
+</div>
+</main>
     <footer>
       <div class="container-footer">
         <div class="row-footer">
