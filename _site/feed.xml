@@ -5,14 +5,14 @@
     <description>Plataforma completa para gestão financeira pessoal que combina organização prática com insights inteligentes para otimizar suas finanças.</description>
     <link>http://localhost:4000/InvestSavy/</link>
     <atom:link href="http://localhost:4000/InvestSavy/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 27 Mar 2025 17:18:33 -0300</pubDate>
-    <lastBuildDate>Thu, 27 Mar 2025 17:18:33 -0300</lastBuildDate>
+    <pubDate>Fri, 28 Mar 2025 11:39:29 -0300</pubDate>
+    <lastBuildDate>Fri, 28 Mar 2025 11:39:29 -0300</lastBuildDate>
     <generator>Jekyll v4.4.1</generator>
     
       <item>
         <title>Galípolo Descarta Influência de Sidônio na Comunicação do Banco Central</title>
         <description>O presidente do Banco Central, Gabriel Galípolo, afirmou que a instituição mantém sua autonomia na comunicação, negando interferências do ministro Sidônio Palmeira, cujas sugestões se limitaram a trilhas sonoras para vídeos.</description>
-        <pubDate>Thu, 27 Mar 2025 17:16:00 -0300</pubDate>
+        <pubDate>Fri, 28 Mar 2025 08:16:00 -0300</pubDate>
         <link>http://localhost:4000/InvestSavy/not%C3%ADcias/declaracao-presidente-banco-central/</link>
         <guid isPermaLink="true">http://localhost:4000/InvestSavy/not%C3%ADcias/declaracao-presidente-banco-central/</guid>
         
@@ -23,7 +23,7 @@
       <item>
         <title>Taxas Bilionárias dos EUA sobre Navios Chineses Ameaçam um Apocalipse Comercial</title>
         <description>Críticos alertarão em uma audiência na segunda-feira que as taxas contra navios comerciais chineses podem ser mais disruptivas para o comércio global do que as tarifas de Trump.</description>
-        <pubDate>Tue, 25 Mar 2025 14:31:00 -0300</pubDate>
+        <pubDate>Thu, 27 Mar 2025 11:10:00 -0300</pubDate>
         <link>http://localhost:4000/InvestSavy/not%C3%ADcias/taxas-eua-x-china/</link>
         <guid isPermaLink="true">http://localhost:4000/InvestSavy/not%C3%ADcias/taxas-eua-x-china/</guid>
         
@@ -32,9 +32,20 @@
       </item>
     
       <item>
+        <title>EUA Buscam Ovos do Brasil e Novas Fontes em Meio a Surto de Gripe Aviária</title>
+        <description>A gripe aviária, que dizimou quase 170 milhões de aves desde 2022, mantém a pressão econômica nos EUA, levando o governo Trump a quase dobrar as importações de ovos do Brasil e avaliar flexibilizações regulatórias.</description>
+        <pubDate>Thu, 27 Mar 2025 06:30:00 -0300</pubDate>
+        <link>http://localhost:4000/InvestSavy/not%C3%ADcias/crise-aviaria/</link>
+        <guid isPermaLink="true">http://localhost:4000/InvestSavy/not%C3%ADcias/crise-aviaria/</guid>
+        
+        <category>notícias</category>
+        
+      </item>
+    
+      <item>
         <title>&quot;Tese do Século&quot; Inflou a Carga Tributária, Diz Haddad: &quot;Meirelles Dormiu no Ponto&quot;</title>
         <description>O ministro Fernando Haddad afirmou que o governo manterá a responsabilidade fiscal mesmo em 2026, ano eleitoral, enquanto critica o impacto bilionário da &quot;tese do século&quot; na carga tributária.</description>
-        <pubDate>Tue, 25 Mar 2025 09:30:00 -0300</pubDate>
+        <pubDate>Wed, 26 Mar 2025 23:30:00 -0300</pubDate>
         <link>http://localhost:4000/InvestSavy/not%C3%ADcias/tese-do-seculo-haddad/</link>
         <guid isPermaLink="true">http://localhost:4000/InvestSavy/not%C3%ADcias/tese-do-seculo-haddad/</guid>
         
@@ -43,13 +54,24 @@
       </item>
     
       <item>
-        <title>EUA Buscam Ovos do Brasil e Novas Fontes em Meio a Surto de Gripe Aviária</title>
-        <description>A gripe aviária, que dizimou quase 170 milhões de aves desde 2022, mantém a pressão econômica nos EUA, levando o governo Trump a quase dobrar as importações de ovos do Brasil e avaliar flexibilizações regulatórias.</description>
-        <pubDate>Tue, 25 Mar 2025 06:30:00 -0300</pubDate>
-        <link>http://localhost:4000/InvestSavy/not%C3%ADcias/crise-aviaria/</link>
-        <guid isPermaLink="true">http://localhost:4000/InvestSavy/not%C3%ADcias/crise-aviaria/</guid>
+        <title>O que é Inflação e Como Ela Impacta os Preços?</title>
+        <description>Entenda como a inflação afeta seu bolso e a economia</description>
+        <pubDate>Wed, 26 Mar 2025 17:02:00 -0300</pubDate>
+        <link>http://localhost:4000/InvestSavy/educacao/oque-%C3%A9-infla%C3%A7%C3%A3o/</link>
+        <guid isPermaLink="true">http://localhost:4000/InvestSavy/educacao/oque-%C3%A9-infla%C3%A7%C3%A3o/</guid>
         
-        <category>notícias</category>
+        <category>educacao</category>
+        
+      </item>
+    
+      <item>
+        <title>Como Começar a Investir: Guia para Iniciantes</title>
+        <description>Aprenda os primeiros passos para começar sua jornada de investimentos de forma segura e consciente.</description>
+        <pubDate>Tue, 25 Mar 2025 20:28:00 -0300</pubDate>
+        <link>http://localhost:4000/InvestSavy/educacao/como-investir-iniciantes/</link>
+        <guid isPermaLink="true">http://localhost:4000/InvestSavy/educacao/como-investir-iniciantes/</guid>
+        
+        <category>educacao</category>
         
       </item>
     
@@ -61,28 +83,6 @@
         <guid isPermaLink="true">http://localhost:4000/InvestSavy/not%C3%ADcias/possivel-cessar-fogo-ucrania-x-russia/</guid>
         
         <category>notícias</category>
-        
-      </item>
-    
-      <item>
-        <title>O que é Inflação e Como Ela Impacta os Preços?</title>
-        <description>Entenda como a inflação afeta seu bolso e a economia</description>
-        <pubDate>Mon, 24 Mar 2025 17:02:00 -0300</pubDate>
-        <link>http://localhost:4000/InvestSavy/educacao/oque-%C3%A9-infla%C3%A7%C3%A3o/</link>
-        <guid isPermaLink="true">http://localhost:4000/InvestSavy/educacao/oque-%C3%A9-infla%C3%A7%C3%A3o/</guid>
-        
-        <category>educacao</category>
-        
-      </item>
-    
-      <item>
-        <title>Como Começar a Investir: Guia para Iniciantes</title>
-        <description>Aprenda os primeiros passos para começar sua jornada de investimentos de forma segura e consciente.</description>
-        <pubDate>Sat, 15 Mar 2025 20:28:00 -0300</pubDate>
-        <link>http://localhost:4000/InvestSavy/educacao/como-investir-iniciantes/</link>
-        <guid isPermaLink="true">http://localhost:4000/InvestSavy/educacao/como-investir-iniciantes/</guid>
-        
-        <category>educacao</category>
         
       </item>
     

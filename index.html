@@ -73,9 +73,11 @@
     }
     </script>
     <title>InvestSavy - Melhorando a vida dos nossos clientes</title>
-    <link rel="stylesheet" href="css/universal-css.css" />
+    <link rel="stylesheet" href="css/optimized-styles.css" />
     <link rel="stylesheet" href="css/style-main.css" />
     <link rel="shortcut icon" href="images/Camada 1.png" type="image/x-icon" />
+    <!-- Preload de fontes e recursos críticos -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -103,10 +105,10 @@
     </script>
   </head>
 
-  <body> 
+  <body>
     <header>
       <div class="container-LOGO">
-        <img src="images/00000000000001.svg" alt="Logo InvestSmart"  style="width: 10%; margin: -19px 3px 0 0;"/>
+        <img src="images/00000000000001.svg" alt="Logo InvestSmart" width="100" height="100" style="width: 10%; margin: -19px 3px 0 0;"/>
         <div class="logo">InvestSavy</div>
       </div>
 
@@ -253,7 +255,7 @@
         </p>
         <div class="blog-cards">
           <article class="card">
-            <img src="images/blog003.png" alt="Presidente do FED" />
+            <img src="images/blog003.png" alt="Presidente do FED" width="400" height="250" loading="lazy" />
             <div class="card-content">
               <a href="blogs-main.html" class="read-more">
                 <h3>
@@ -277,7 +279,7 @@
             </div>
           </article>
           <article class="card">
-            <img src="images/blog001.png" alt="Imagem do Donald Trump" />
+            <img src="images/blog001.png" alt="Imagem do Donald Trump" width="400" height="250" loading="lazy" />
             <div class="card-content">
               <a href="blogs-main.html" class="read-more">
                 <h3>
@@ -403,9 +405,13 @@
         </div>
       </div>
     </footer>
-    <script src="script/newsletter.js"></script>
-    <script src="script/js-universal.js"></script>
-    <script src="script/contact.js"></script>
-    <script src="script/script.js"></script>
+    <script src="script/newsletter.js" defer></script>
+    <script src="script/js-universal.js" defer></script>
+    <script src="script/contact.js" defer></script>
+    <script src="script/script.js" defer></script>
+    <script src="script/image-optimizer.js" defer></script>
+    <script src="script/webp-converter.js" defer></script>
+    <script src="script/css-optimizer.js" defer></script>
+    <script src="script/optimize-images.js" defer></script>
   </body>
 </html>

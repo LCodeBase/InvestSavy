@@ -1,4 +1,11 @@
 User-agent: *
 Allow: /
 
+# Bloqueio de arquivos sensíveis
+Disallow: /php/
+Disallow: /*.php$
+Disallow: /.htaccess
+Disallow: /cache.htaccess
+
+# Sitemap
 Sitemap: https://lcodebase.github.io/InvestSavy/sitemap.xml

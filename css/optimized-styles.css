@@ -1,0 +1,48 @@
+/* CSS Otimizado e Minificado para InvestSavy */
+/* Combinação de estilos essenciais de universal-css.css e outros arquivos CSS */
+
+/* Reset básico */
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+
+/* Estilos de cabeçalho */
+header{display:flex;justify-content:space-between;align-items:center;padding:15px 5%;background-color:#fff;box-shadow:0 2px 10px rgba(0,0,0,.1)}
+.container-LOGO{display:flex;align-items:center}
+.logo{font-size:1.8rem;font-weight:700;color:#118a5f}
+.nav-menu ul{display:flex;list-style:none;gap:20px;align-items:center}
+.nav-menu a{text-decoration:none;color:#333;font-weight:500;transition:color .3s}
+.nav-menu a:hover{color:#118a5f}
+.button-header{background-color:#118a5f;color:#fff;border:none;padding:10px 20px;border-radius:5px;cursor:pointer;display:flex;align-items:center;gap:5px;transition:background-color .3s}
+.button-header:hover{background-color:#0d6b48}
+.menu-toggle{display:none}
+
+/* Estilos responsivos */
+@media only screen and (max-width:768px){.menu-toggle{display:block;position:relative;font-size:24px;cursor:pointer;z-index:1000}.nav-menu{display:none;position:fixed;top:0;right:-100%;width:250px;height:100vh;background-color:#fff;padding-top:60px;transition:.3s;box-shadow:-2px 0 5px rgba(0,0,0,.1);z-index:999}.nav-menu.active{right:0;display:block}nav ul{flex-direction:column;align-items:center;width:100%;gap:15px}nav li{width:100%;text-align:center}nav li a{display:block;padding:10px 0}.button-header{width:80%;margin:10px auto}}
+
+/* Estilos de rodapé */
+footer{background-color:#118a5f;color:#fff;padding:40px 5%;margin-top:50px}
+.footer-content{display:flex;justify-content:space-between;flex-wrap:wrap;gap:30px}
+.footer-section{flex:1;min-width:250px}
+.footer-section h3{margin-bottom:20px;font-size:1.2rem}
+.footer-section p,.footer-section a{margin-bottom:10px;color:#fff;text-decoration:none;display:block}
+.footer-section a:hover{text-decoration:underline}
+.social-icons{display:flex;gap:15px;margin-top:20px}
+.social-icons a{color:#fff;font-size:1.5rem}
+.copyright{text-align:center;padding-top:30px;border-top:1px solid rgba(255,255,255,.2);margin-top:30px}
+
+/* Estilos de botões e formulários */
+.btn{background-color:#118a5f;color:#fff;border:none;padding:10px 20px;border-radius:5px;cursor:pointer;transition:background-color .3s}
+.btn:hover{background-color:#0d6b48}
+input,select,textarea{width:100%;padding:10px;margin-bottom:15px;border:1px solid #ddd;border-radius:5px}
+
+/* Estilos para artigos e notícias */
+.article{margin-bottom:30px;padding:20px;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,.1)}
+.article h2{margin-bottom:15px;color:#118a5f}
+.article-meta{color:#666;margin-bottom:15px;font-size:.9rem}
+.article-content{line-height:1.6}
+.article img{max-width:100%;height:auto;border-radius:5px;margin:15px 0}
+
+/* Utilitários */
+.container{width:90%;max-width:1200px;margin:0 auto;padding:20px 0}
+.section-title{text-align:center;margin-bottom:40px;color:#118a5f}
+.highlight{color:#118a5f;font-weight:700}
+.card{background-color:#fff;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,.1);padding:20px;margin-bottom:20px}

@@ -1,0 +1,48 @@
+/* Estilos para melhorar a acessibilidade */
+
+/* Classe para esconder visualmente elementos, mas mantê-los acessíveis para leitores de tela */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Melhorar o foco para navegação por teclado */
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid #4d90fe;
+  outline-offset: 2px;
+}
+
+/* Melhorar contraste para textos */
+.hero-section p,
+.hero-description p {
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Estilo para melhorar a visibilidade do botão de troca */
+#swap-btn:focus {
+  box-shadow: 0 0 0 3px rgba(77, 144, 254, 0.5);
+}
+
+/* Melhorar contraste para o resultado da conversão */
+#result {
+  font-weight: bold;
+  color: #222;
+}
+
+/* Melhorar a visibilidade dos labels */
+label {
+  font-weight: 500;
+  color: #333;
+}

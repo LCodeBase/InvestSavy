@@ -3,7 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>InvestSmart - Sobre Nós</title>
+    <title>Conversor de Moedas Online | InvestSmart</title>
+    <meta name="description" content="Converta valores entre diferentes moedas em tempo real com nosso conversor de moedas gratuito. Cotações atualizadas de mais de 100 moedas mundiais." />
+    <meta name="keywords" content="conversor de moedas, câmbio, cotação, dólar, euro, real, conversor online" />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content="Conversor de Moedas Online | InvestSmart" />
+    <meta property="og:description" content="Converta valores entre diferentes moedas em tempo real com nosso conversor de moedas gratuito. Cotações atualizadas de mais de 100 moedas mundiais." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://lcodebase.github.io/InvestSavy/conversor-moedas.html" />
     <link rel="stylesheet" href="css/style-conversor-moedas.css" />
     <link rel="shortcut icon" href="images/Camada 1.png" type="image/x-icon" />
     <link rel="stylesheet" href="css/universal-css.css" />
@@ -20,7 +27,7 @@
         <div class="logo">InvestSmart</div>
       </div>
 
-      <div class="menu-toggle" alt="Botão-Menu">
+      <div class="menu-toggle" role="button" aria-label="Abrir menu de navegação">
         <i class="fas fa-bars"></i>
       </div>
 
@@ -46,6 +53,9 @@
       <section class="hero-section">
         <h1>Conversor de Moedas</h1>
         <p>Converta valores entre diferentes moedas em tempo real</p>
+        <div class="hero-description">
+          <p>Utilize nossa ferramenta gratuita para converter entre mais de 100 moedas mundiais com taxas atualizadas. Ideal para planejamento de viagens, negócios internacionais ou acompanhamento de investimentos estrangeiros.</p>
+        </div>
       </section>
 
       <div class="converter-container">
@@ -181,8 +191,8 @@
               </select>
             </div>
 
-            <button id="swap-btn">
-              <i class="fas fa-exchange-alt"></i>
+            <button id="swap-btn" aria-label="Inverter moedas">
+              <i class="fas fa-exchange-alt" aria-hidden="true"></i>
             </button>
 
             <div class="to-currency">
@@ -358,13 +368,16 @@
           <div class="footer-col">
             <h4>Inscreva-se na Newsletter</h4>
             <div class="form-sub">
-              <form>
+              <form id="newsletter-form" onsubmit="sendNewsletter(event)">
+                <label for="newsletter-email" class="sr-only">E-mail para newsletter</label>
                 <input
                   type="email"
+                  id="newsletter-email"
                   placeholder="Digite o seu e-mail"
                   required
+                  aria-required="true"
                 />
-                <button>Se inscrever</button>
+                <button type="submit">Se inscrever</button>
               </form>
             </div>
           </div>
