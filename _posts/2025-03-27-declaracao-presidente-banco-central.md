@@ -1,7 +1,7 @@
 ---
 layout: noticia
 title: 'Galípolo Descarta Influência de Sidônio na Comunicação do Banco Central'
-date: '2025-03-27T17:16:00-03:00'
+date: '2025-03-28T08:16:00-03:00'
 categories: [notícias]
 image: /images/blog005.png
 excerpt: 'O presidente do Banco Central, Gabriel Galípolo, afirmou que a instituição mantém sua autonomia na comunicação, negando interferências do ministro Sidônio Palmeira, cujas sugestões se limitaram a trilhas sonoras para vídeos.'
