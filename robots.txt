@@ -1,4 +1,12 @@
 User-agent: *
 Allow: /
+Disallow: /php/
+Disallow: /*.php$
+Disallow: /.htaccess
+Disallow: /cache.htaccess
 
+# Crawl-delay para evitar sobrecarga do servidor
+Crawl-delay: 10
+
+# Sitemap
 Sitemap: https://lcodebase.github.io/InvestSavy/sitemap.xml
