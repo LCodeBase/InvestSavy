@@ -860,8 +860,7 @@ footer {
   }
 
   .hero-image {
-    max-width: 90%;
-    margin-top: 20px;
+    max-width: 100%;
   }
 
   /* Features */
@@ -953,8 +952,9 @@ footer {
 }
 
 .reduced-size {
-  margin-left: 50%;
-  width: 50%;
+  margin-left: 40%;
+  width: 65%;
+  margin-top: 3.5%;
   /* Adjust the percentage as needed */
   height: auto;
 }
