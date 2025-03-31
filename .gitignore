@@ -1,0 +1,8 @@
+# Ignorar diretório de configuração com chaves sensíveis
+/config/
+
+# Outros arquivos comuns para ignorar
+node_modules/
+.DS_Store
+.env
+*.log
