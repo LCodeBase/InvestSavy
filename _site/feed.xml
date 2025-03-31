@@ -5,49 +5,27 @@
     <description>Plataforma completa para gestão financeira pessoal que combina organização prática com insights inteligentes para otimizar suas finanças.</description>
     <link>http://localhost:4000/InvestSavy/</link>
     <atom:link href="http://localhost:4000/InvestSavy/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 31 Mar 2025 19:03:32 -0300</pubDate>
-    <lastBuildDate>Mon, 31 Mar 2025 19:03:32 -0300</lastBuildDate>
+    <pubDate>Mon, 31 Mar 2025 19:28:30 -0300</pubDate>
+    <lastBuildDate>Mon, 31 Mar 2025 19:28:30 -0300</lastBuildDate>
     <generator>Jekyll v4.4.1</generator>
     
       <item>
-        <title>Galípolo Descarta Influência de Sidônio na Comunicação do Banco Central</title>
-        <description>O presidente do Banco Central, Gabriel Galípolo, afirmou que a instituição mantém sua autonomia na comunicação, negando interferências do ministro Sidônio Palmeira, cujas sugestões se limitaram a trilhas sonoras para vídeos.</description>
-        <pubDate>Fri, 28 Mar 2025 08:16:00 -0300</pubDate>
-        <link>http://localhost:4000/InvestSavy/not%C3%ADcias/declaracao-presidente-banco-central/</link>
-        <guid isPermaLink="true">http://localhost:4000/InvestSavy/not%C3%ADcias/declaracao-presidente-banco-central/</guid>
+        <title>China Reafirma Abertura Econômica e Estimula Investimento Global</title>
+        <description>Pequim reforça que a China permanece um mercado promisso para companhias globais, apostando em cooperação e desenvolvimento mútuo.</description>
+        <pubDate>Mon, 31 Mar 2025 19:25:00 -0300</pubDate>
+        <link>http://localhost:4000/InvestSavy/not%C3%ADcias/china-tenta-aumentar-investimentos-estrangeiros/</link>
+        <guid isPermaLink="true">http://localhost:4000/InvestSavy/not%C3%ADcias/china-tenta-aumentar-investimentos-estrangeiros/</guid>
         
         <category>notícias</category>
         
       </item>
     
       <item>
-        <title>Taxas Bilionárias dos EUA sobre Navios Chineses Ameaçam um Apocalipse Comercial</title>
-        <description>Críticos alertarão em uma audiência na segunda-feira que as taxas contra navios comerciais chineses podem ser mais disruptivas para o comércio global do que as tarifas de Trump.</description>
-        <pubDate>Thu, 27 Mar 2025 11:10:00 -0300</pubDate>
-        <link>http://localhost:4000/InvestSavy/not%C3%ADcias/taxas-eua-x-china/</link>
-        <guid isPermaLink="true">http://localhost:4000/InvestSavy/not%C3%ADcias/taxas-eua-x-china/</guid>
-        
-        <category>notícias</category>
-        
-      </item>
-    
-      <item>
-        <title>EUA Buscam Ovos do Brasil e Novas Fontes em Meio a Surto de Gripe Aviária</title>
-        <description>A gripe aviária, que dizimou quase 170 milhões de aves desde 2022, mantém a pressão econômica nos EUA, levando o governo Trump a quase dobrar as importações de ovos do Brasil e avaliar flexibilizações regulatórias.</description>
-        <pubDate>Thu, 27 Mar 2025 06:30:00 -0300</pubDate>
-        <link>http://localhost:4000/InvestSavy/not%C3%ADcias/crise-aviaria/</link>
-        <guid isPermaLink="true">http://localhost:4000/InvestSavy/not%C3%ADcias/crise-aviaria/</guid>
-        
-        <category>notícias</category>
-        
-      </item>
-    
-      <item>
-        <title>&quot;Tese do Século&quot; Inflou a Carga Tributária, Diz Haddad: &quot;Meirelles Dormiu no Ponto&quot;</title>
-        <description>O ministro Fernando Haddad afirmou que o governo manterá a responsabilidade fiscal mesmo em 2026, ano eleitoral, enquanto critica o impacto bilionário da &quot;tese do século&quot; na carga tributária.</description>
-        <pubDate>Wed, 26 Mar 2025 23:30:00 -0300</pubDate>
-        <link>http://localhost:4000/InvestSavy/not%C3%ADcias/tese-do-seculo-haddad/</link>
-        <guid isPermaLink="true">http://localhost:4000/InvestSavy/not%C3%ADcias/tese-do-seculo-haddad/</guid>
+        <title>FMI Avalia como “Razoável” Pedido da Argentina por 40% de Novo Empréstimo</title>
+        <description>É um pedido razoável Eles conquistaram isso com seu desempenho,” declarou Kristalina Georgieva, diretora-gerente do FMI, sobre a solicitação argentina por um desembolso inicial expressivo.</description>
+        <pubDate>Mon, 31 Mar 2025 19:15:00 -0300</pubDate>
+        <link>http://localhost:4000/InvestSavy/not%C3%ADcias/fmi-avalia-pedido-argentina/</link>
+        <guid isPermaLink="true">http://localhost:4000/InvestSavy/not%C3%ADcias/fmi-avalia-pedido-argentina/</guid>
         
         <category>notícias</category>
         
@@ -68,21 +46,10 @@
         <title>Como Começar a Investir: Guia para Iniciantes</title>
         <description>Aprenda os primeiros passos para começar sua jornada de investimentos de forma segura e consciente.</description>
         <pubDate>Tue, 25 Mar 2025 20:28:00 -0300</pubDate>
-        <link>http://localhost:4000/InvestSavy/educacao/como-investir-iniciantes/</link>
-        <guid isPermaLink="true">http://localhost:4000/InvestSavy/educacao/como-investir-iniciantes/</guid>
+        <link>http://localhost:4000/InvestSavy/educacao/como-investir-iniciantes-copy/</link>
+        <guid isPermaLink="true">http://localhost:4000/InvestSavy/educacao/como-investir-iniciantes-copy/</guid>
         
         <category>educacao</category>
-        
-      </item>
-    
-      <item>
-        <title>Negociações em Riad Alimentam Esperança de Cessar-Fogo na Guerra Ucrânia-Rússia</title>
-        <description>Nesta segunda-feira, 24 de março de 2025, representantes dos EUA e da Rússia reúnem-se em Riad, Arábia Saudita, para discutir um cessar-fogo na guerra entre Ucrânia e Rússia, com foco em impactos econômicos e estabilidade global. Após conversas &quot;construtivas&quot; com a Ucrânia no domingo, a proposta de uma trégua de 30 dias ganha força, mas a resposta de Moscou ainda é incerta.</description>
-        <pubDate>Mon, 24 Mar 2025 22:20:00 -0300</pubDate>
-        <link>http://localhost:4000/InvestSavy/not%C3%ADcias/possivel-cessar-fogo-ucrania-x-russia/</link>
-        <guid isPermaLink="true">http://localhost:4000/InvestSavy/not%C3%ADcias/possivel-cessar-fogo-ucrania-x-russia/</guid>
-        
-        <category>notícias</category>
         
       </item>
     
