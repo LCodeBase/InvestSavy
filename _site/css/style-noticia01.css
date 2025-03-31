@@ -14,7 +14,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
+    padding: 25px 20px; /* Reduzido de 20px para 15px no padding vertical */
     background-color: #fff;
     border-bottom: 1px solid #eaeaea;
 }
@@ -25,12 +25,13 @@ header {
 }
 
 .container-LOGO img {
-    width: 7%;
-    margin: -15px 3px 0 0;
+    width: 10%;
+    margin: -12px 3px 0 0; /* Reduzido de -19px para -12px */
+    height: auto; /* Garantir proporção adequada */
 }
 
 .logo {
-    font-size: 24px;
+    font-size: 22px; /* Reduzido de 24px para 22px */
     font-weight: bold;
     color: #000;
 }
@@ -69,10 +70,10 @@ nav li a:hover::after {
 }
 
 .button-header {
-    margin-top: 0px;
+    margin-top: -5px;
     margin-left: -5px;
-    font-size: 15px;
-    padding: 10px;
+    font-size: 15px; /* Reduzido de 15px para 14px */
+    padding: 10px 10px; /* Reduzido de 10px para 8px no padding vertical */
     color: white;
     background-color: #118a5f;
     border: 0px;
@@ -93,7 +94,7 @@ nav li a:hover::after {
 
 
 #comment-header {
-    margin-top: 10px;
+    margin-top: 5px; /* Reduzido de 10px para 5px */
 }
 
 nav a {

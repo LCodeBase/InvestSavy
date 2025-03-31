@@ -2,9 +2,11 @@
 title: InvestSavy - Gestão Financeira Inteligente
 email: invest.smart.sup.braslandia@gmail.com
 description: >-
-  Plataforma completa para gestão financeira pessoal que combina organização prática com insights inteligentes para otimizar suas finanças.
+  Plataforma completa para gestão financeira pessoal que combina organização prática com insights inteligentes para otimizar suas finanças. Oferecemos ferramentas para gestão financeira, recomendações de investimentos e conteúdo educacional.
 baseurl: '/InvestSavy'
 url: 'https://lcodebase.github.io'
+lang: 'pt-BR'
+author: 'InvestSavy Team'
 
 # Build settings
 markdown: kramdown
