@@ -86,25 +86,35 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
+    <!-- Replace the direct Firebase config with a safer approach -->
     <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
     <script>
-      // Initialize Firebase
-      const firebaseConfig = {
-        apiKey: "AIzaSyB2LqFBob9YGUkYUYoA-56ltb3wb_ozoZ8",
-        authDomain: "investsmart-3be7f.firebaseapp.com",
-        projectId: "investsmart-3be7f",
-        storageBucket: "investsmart-3be7f.firebasestorage.app",
-        messagingSenderId: "283457890092",
-        appId: "1:283457890092:web:e04515b0abc76721fd2e89",
-        measurementId: "G-4EEPBJQ4RB",
-      };
-      firebase.initializeApp(firebaseConfig);
+      // Initialize Firebase using a function that loads config from a separate file
+      // This adds a layer of obfuscation
+      (function() {
+        fetch('config/firebase-config.json')
+          .then(response => response.json())
+          .then(firebaseConfig => {
+            firebase.initializeApp(firebaseConfig);
+          })
+          .catch(error => {
+            console.error("Error loading Firebase configuration:", error);
+          });
+      })();
     </script>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script>
       (function () {
-        emailjs.init("N5APdsvA2fYBgENZ_"); // Replace with your EmailJS public key
+        // Load EmailJS config from separate file
+        fetch('config/emailjs-config.json')
+          .then(response => response.json())
+          .then(config => {
+            emailjs.init(config.publicKey);
+          })
+          .catch(error => {
+            console.error("Error loading EmailJS configuration:", error);
+          });
       })();
     </script>
   </head>
@@ -256,7 +266,7 @@
         </p>
         <div class="blog-cards">
           <article class="card">
-            <img src="images/blog003.png" alt="Imagem mostrrando a sede do Banco Central do Brasil." />
+            <img src="images/blog003.png" alt="Imagem mostrrando a sede do Banco Central do Brasil." style="height: 500px; object-fit: cover;" />
             <div class="card-content">
               <a href="blogs-main.html" class="read-more">
                 <h3>
@@ -267,24 +277,27 @@
             </div>
           </article>
           <article class="card">
+            <!--  02-->
             <img
               src="images/blog002.png"
               alt="Imagem mostrando o aeroporto mais movimentado de pequim."
+              style="height: 500px; object-fit: cover;"
             />
             <div class="card-content">
               <a href="blogs-main.html" class="read-more">
                 <h3>
             China Reafirma Abertura Econômica e Estimula Investimento Global
-
+                </h3>
+                Ler Sobre →
               </a>
             </div>
           </article>
           <article class="card">
-            <img src="images/blog001.png" alt="Imagem do atual presidente argentino Javier Milei" />
+            <img src="images/blog001.png" alt="Imagem do atual presidente argentino Javier Milei" style="height: 500px; object-fit: cover;" />
             <div class="card-content">
               <a href="blogs-main.html" class="read-more">
                 <h3>
-                FMI Avalia como “Razoável” Pedido da Argentina por 40% de Novo Empréstimo
+                FMI Avalia como "Razoável" Pedido da Argentina por 40% de Novo Empréstimo
                   </h3>
                 Ler Sobre →
               </a>
