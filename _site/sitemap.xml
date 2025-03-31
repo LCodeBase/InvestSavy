@@ -4,7 +4,7 @@
     
     <url>
       <loc>http://localhost:4000/InvestSavy/blogs-main.html</loc>
-      <lastmod>2025-03-31T19:28:30-03:00</lastmod>
+      <lastmod>2025-03-31T19:38:26-03:00</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
     </url>
@@ -15,7 +15,7 @@
     
     <url>
       <loc>http://localhost:4000/InvestSavy/noticias.html</loc>
-      <lastmod>2025-03-31T19:28:30-03:00</lastmod>
+      <lastmod>2025-03-31T19:38:26-03:00</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
     </url>
@@ -26,7 +26,7 @@
     
     <url>
       <loc>http://localhost:4000/InvestSavy/search.html</loc>
-      <lastmod>2025-03-31T19:28:30-03:00</lastmod>
+      <lastmod>2025-03-31T19:38:26-03:00</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
     </url>
@@ -34,6 +34,13 @@
   
     
   
+  
+    <url>
+      <loc>http://localhost:4000/InvestSavy/not%C3%ADcias/banco-central-avalia-impacto/</loc>
+      <lastmod>2025-03-31T19:35:00-03:00</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
+    </url>
   
     <url>
       <loc>http://localhost:4000/InvestSavy/not%C3%ADcias/china-tenta-aumentar-investimentos-estrangeiros/</loc>
@@ -57,7 +64,7 @@
     </url>
   
     <url>
-      <loc>http://localhost:4000/InvestSavy/educacao/como-investir-iniciantes-copy/</loc>
+      <loc>http://localhost:4000/InvestSavy/educacao/como-investir-iniciantes/</loc>
       <lastmod>2025-03-25T20:28:00-03:00</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.7</priority>

@@ -5,9 +5,20 @@
     <description>Plataforma completa para gestão financeira pessoal que combina organização prática com insights inteligentes para otimizar suas finanças.</description>
     <link>http://localhost:4000/InvestSavy/</link>
     <atom:link href="http://localhost:4000/InvestSavy/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 31 Mar 2025 19:28:30 -0300</pubDate>
-    <lastBuildDate>Mon, 31 Mar 2025 19:28:30 -0300</lastBuildDate>
+    <pubDate>Mon, 31 Mar 2025 19:38:26 -0300</pubDate>
+    <lastBuildDate>Mon, 31 Mar 2025 19:38:26 -0300</lastBuildDate>
     <generator>Jekyll v4.4.1</generator>
+    
+      <item>
+        <title>Banco Central Avalia Impacto do Consignado Privado, Afirma Diretor</title>
+        <description>Durante evento online do Itaú, o diretor Nilton David indicou que o consignado privado pode gerar um leve aumento da renda disponível, mas os efeitos ainda estão em estudo.</description>
+        <pubDate>Mon, 31 Mar 2025 19:35:00 -0300</pubDate>
+        <link>http://localhost:4000/InvestSavy/not%C3%ADcias/banco-central-avalia-impacto/</link>
+        <guid isPermaLink="true">http://localhost:4000/InvestSavy/not%C3%ADcias/banco-central-avalia-impacto/</guid>
+        
+        <category>notícias</category>
+        
+      </item>
     
       <item>
         <title>China Reafirma Abertura Econômica e Estimula Investimento Global</title>
@@ -46,8 +57,8 @@
         <title>Como Começar a Investir: Guia para Iniciantes</title>
         <description>Aprenda os primeiros passos para começar sua jornada de investimentos de forma segura e consciente.</description>
         <pubDate>Tue, 25 Mar 2025 20:28:00 -0300</pubDate>
-        <link>http://localhost:4000/InvestSavy/educacao/como-investir-iniciantes-copy/</link>
-        <guid isPermaLink="true">http://localhost:4000/InvestSavy/educacao/como-investir-iniciantes-copy/</guid>
+        <link>http://localhost:4000/InvestSavy/educacao/como-investir-iniciantes/</link>
+        <guid isPermaLink="true">http://localhost:4000/InvestSavy/educacao/como-investir-iniciantes/</guid>
         
         <category>educacao</category>
         
