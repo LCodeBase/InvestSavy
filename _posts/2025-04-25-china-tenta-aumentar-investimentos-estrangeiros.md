@@ -1,7 +1,7 @@
 ---
 layout: noticia
 title: 'China Reafirma Abertura Econômica e Estimula Investimento Global'
-date: '2025-03-31T19:25:00-03:00'
+date: '2025-04-25T09:25:00-03:00'
 categories: [notícias]
 image: /images/blog002.png
 excerpt: 'Pequim reforça que a China permanece um mercado promisso para companhias globais, apostando em cooperação e desenvolvimento mútuo.'

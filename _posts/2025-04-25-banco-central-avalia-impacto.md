@@ -1,7 +1,7 @@
 ---
 layout: noticia
 title: 'Banco Central Avalia Impacto do Consignado Privado, Afirma Diretor'
-date: '2025-03-31T19:35:00-03:00'
+date: '2025-04-25T19:35:00-03:00'
 categories: [notícias]
 image: /images/blog003.png
 excerpt: 'Durante evento online do Itaú, o diretor Nilton David indicou que o consignado privado pode gerar um leve aumento da renda disponível, mas os efeitos ainda estão em estudo.'
