@@ -27,13 +27,45 @@ O mercado financeiro ajustou suas projeções e agora espera estabilidade dos ju
 
 ## Indicadores Recentes e Perspectivas
 
-| **Indicador**                | **Abr/2024** | **Abr/2025** |
-|------------------------------|--------------|--------------|
-| IPCA-15 (mensal)             | 0,57%        | 0,32%        |
-| IPCA-15 (12 meses)           | 4,16%        | 3,85%        |
-| Selic (a.a.)                 | 13,75%       | 10,75%       |
-| PIB (projeção anual)         | 2,1%         | 1,8%         |
-| Dólar (R$)                   | 5,10         | 5,22         |
+<div style="overflow-x:auto; margin-bottom: 16px;">
+  <table style="width:100%; border-collapse:collapse; font-size:16px; background:#fff; border-radius:8px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+    <thead style="background:#f5f5f5;">
+      <tr>
+        <th style="padding:10px 16px; border-bottom:2px solid #e0e0e0; text-align:left; font-weight:bold;">Indicador</th>
+        <th style="padding:10px 16px; border-bottom:2px solid #e0e0e0; text-align:center; font-weight:bold;">Abr/2024</th>
+        <th style="padding:10px 16px; border-bottom:2px solid #e0e0e0; text-align:center; font-weight:bold;">Abr/2025</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="padding:8px 16px; border-bottom:1px solid #f0f0f0;">IPCA-15 (mensal)</td>
+        <td style="padding:8px 16px; text-align:center; border-bottom:1px solid #f0f0f0;">0,57%</td>
+        <td style="padding:8px 16px; text-align:center; border-bottom:1px solid #f0f0f0;">0,32%</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 16px; border-bottom:1px solid #f0f0f0;">IPCA-15 (12 meses)</td>
+        <td style="padding:8px 16px; text-align:center; border-bottom:1px solid #f0f0f0;">4,16%</td>
+        <td style="padding:8px 16px; text-align:center; border-bottom:1px solid #f0f0f0;">3,85%</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 16px; border-bottom:1px solid #f0f0f0;">Selic (a.a.)</td>
+        <td style="padding:8px 16px; text-align:center; border-bottom:1px solid #f0f0f0;">13,75%</td>
+        <td style="padding:8px 16px; text-align:center; border-bottom:1px solid #f0f0f0;">10,75%</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 16px; border-bottom:1px solid #f0f0f0;">PIB (projeção anual)</td>
+        <td style="padding:8px 16px; text-align:center; border-bottom:1px solid #f0f0f0;">2,1%</td>
+        <td style="padding:8px 16px; text-align:center; border-bottom:1px solid #f0f0f0;">1,8%</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 16px;">Dólar (R$)</td>
+        <td style="padding:8px 16px; text-align:center;">5,10</td>
+        <td style="padding:8px 16px; text-align:center;">5,22</td>
+      </tr>
+    </tbody>
+  </table>
+  <div style="font-size:13px; color:#888; margin-top:4px; text-align:right;">Fonte: IBGE, Banco Central</div>
+</div>
 
 _Fonte: IBGE, Banco Central, Focus_
 
