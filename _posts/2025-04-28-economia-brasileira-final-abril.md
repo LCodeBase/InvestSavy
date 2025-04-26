@@ -51,7 +51,3 @@ Economistas apontam que a manutenção dos juros elevados pode limitar o ritmo d
 ## Conclusão
 
 O final de abril de 2025 é marcado por sinais positivos no controle da inflação e pela cautela do Banco Central em relação à política monetária. O cenário exige atenção aos desdobramentos internacionais e à condução da política fiscal, mas mantém perspectivas de crescimento moderado e estabilidade para a economia brasileira.
-
----
-
-<strong>Nota:</strong> Os dados apresentados são baseados em divulgações oficiais e projeções de mercado até 27/04/2025. Recomenda-se acompanhar atualizações para decisões financeiras.
