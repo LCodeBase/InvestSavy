@@ -1,7 +1,7 @@
 ---
 layout: noticia
 title: 'China Analisa Isenção de Tarifas para Produtos dos EUA em Meio à Alta de Custos'
-date: '2025-04-26T01:08:00-03:00'
+date: '2025-04-26T11:08:00-03:00'
 categories: [notícias]
 image: /images/blog006.png
 excerpt: 'Pequim avalia suspender tarifas sobre alguns produtos americanos para conter custos internos, em resposta à inflação e tensões comerciais com os EUA.'
