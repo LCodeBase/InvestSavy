@@ -26,14 +26,40 @@ O governo chinês avalia que, ao isentar certos produtos, pode mitigar efeitos n
 
 ### Tabela: Tarifas Sino-Americanas em 2025
 
-| **Produto**           | **Tarifa Atual** | **Possível Nova Tarifa** |
-|-----------------------|------------------|-------------------------|
-| Soja                  | 25%              | 0%                      |
-| Chips eletrônicos     | 20%              | 10%                     |
-| Equipamentos médicos  | 15%              | 0%                      |
-| Veículos              | 40%              | 25%                     |
-
-_Fonte: Ministério do Comércio da China, Bloomberg_
+<div style="overflow-x:auto; margin-bottom: 16px;">
+  <table style="width:100%; border-collapse:collapse; font-size:16px; background:#fff; border-radius:8px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+    <thead style="background:#f5f5f5;">
+      <tr>
+        <th style="padding:10px 16px; border-bottom:2px solid #e0e0e0; text-align:left; font-weight:bold;">Produto</th>
+        <th style="padding:10px 16px; border-bottom:2px solid #e0e0e0; text-align:center; font-weight:bold;">Tarifa Atual</th>
+        <th style="padding:10px 16px; border-bottom:2px solid #e0e0e0; text-align:center; font-weight:bold;">Possível Nova Tarifa</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="padding:8px 16px; border-bottom:1px solid #f0f0f0;">Soja</td>
+        <td style="padding:8px 16px; text-align:center; border-bottom:1px solid #f0f0f0;">25%</td>
+        <td style="padding:8px 16px; text-align:center; border-bottom:1px solid #f0f0f0;">0%</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 16px; border-bottom:1px solid #f0f0f0;">Chips eletrônicos</td>
+        <td style="padding:8px 16px; text-align:center; border-bottom:1px solid #f0f0f0;">20%</td>
+        <td style="padding:8px 16px; text-align:center; border-bottom:1px solid #f0f0f0;">10%</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 16px; border-bottom:1px solid #f0f0f0;">Equipamentos médicos</td>
+        <td style="padding:8px 16px; text-align:center; border-bottom:1px solid #f0f0f0;">15%</td>
+        <td style="padding:8px 16px; text-align:center; border-bottom:1px solid #f0f0f0;">0%</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 16px;">Veículos</td>
+        <td style="padding:8px 16px; text-align:center;">40%</td>
+        <td style="padding:8px 16px; text-align:center;">25%</td>
+      </tr>
+    </tbody>
+  </table>
+  <div style="font-size:13px; color:#888; margin-top:4px; text-align:right;">Fonte: Ministério do Comércio da China, Bloomberg</div>
+</div>
 
 <div style="float: right; margin: 0 0 20px 20px;">
     <img src="https://cdn-site.fazcomex.com.br/cms/2022/06/1654186943-china-international-marine.jpeg" alt="Contêineres China EUA" style="border-radius: 10px;">
