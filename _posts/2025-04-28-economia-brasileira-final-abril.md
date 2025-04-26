@@ -3,7 +3,7 @@ layout: noticia
 title: 'Economia Brasileira: IPCA-15, Copom e Perspectivas no Final de Abril de 2025'
 date: '2025-04-26T01:50:00-03:00'
 categories: [notícias]
-image: /images/blog006.png
+image: /images/blog005.png
 excerpt: 'No final de abril, inflação desacelera, Banco Central mantém juros e mercado financeiro projeta desafios e oportunidades para a economia brasileira.'
 author: 'Leonardo F. Figueiredo'
 author_link: 'https://www.linkedin.com/in/leonardo-f-figueiredo-4820a5230/'
