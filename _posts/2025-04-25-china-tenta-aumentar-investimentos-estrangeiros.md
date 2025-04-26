@@ -40,11 +40,39 @@ Apesar de desafios, como tensões comerciais com os EUA — que impuseram tarifa
 
 ### Tabela: Investimento Estrangeiro na China
 
-| **Ano**      | **IDE (US$ bilhões)** | **Crescimento do PIB** | **Posição no Ranking de Negócios** |
-| ------------ | --------------------- | ---------------------- | ---------------------------------- |
-| 2023         | 148                   | 5,2%                   | 36º                                |
-| 2024         | 153                   | 4,8%                   | 31º                                |
-| 2025 (Proj.) | 160                   | 4,5%                   | -                                  |
+<div style="overflow-x:auto; margin-bottom: 16px;">
+  <table style="width:100%; border-collapse:collapse; font-size:16px; background:#fff; border-radius:8px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+    <thead style="background:#f5f5f5;">
+      <tr>
+        <th style="padding:10px 16px; border-bottom:2px solid #e0e0e0; text-align:left; font-weight:bold;">Ano</th>
+        <th style="padding:10px 16px; border-bottom:2px solid #e0e0e0; text-align:center; font-weight:bold;">IDE (US$ bilhões)</th>
+        <th style="padding:10px 16px; border-bottom:2px solid #e0e0e0; text-align:center; font-weight:bold;">Crescimento do PIB</th>
+        <th style="padding:10px 16px; border-bottom:2px solid #e0e0e0; text-align:center; font-weight:bold;">Posição no Ranking de Negócios</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="padding:8px 16px; border-bottom:1px solid #f0f0f0;">2023</td>
+        <td style="padding:8px 16px; text-align:center; border-bottom:1px solid #f0f0f0;">148</td>
+        <td style="padding:8px 16px; text-align:center; border-bottom:1px solid #f0f0f0;">5,2%</td>
+        <td style="padding:8px 16px; text-align:center; border-bottom:1px solid #f0f0f0;">36º</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 16px; border-bottom:1px solid #f0f0f0;">2024</td>
+        <td style="padding:8px 16px; text-align:center; border-bottom:1px solid #f0f0f0;">153</td>
+        <td style="padding:8px 16px; text-align:center; border-bottom:1px solid #f0f0f0;">4,8%</td>
+        <td style="padding:8px 16px; text-align:center; border-bottom:1px solid #f0f0f0;">31º</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 16px;">2025 (Proj.)</td>
+        <td style="padding:8px 16px; text-align:center;">160</td>
+        <td style="padding:8px 16px; text-align:center;">4,5%</td>
+        <td style="padding:8px 16px; text-align:center;">-</td>
+      </tr>
+    </tbody>
+  </table>
+  <div style="font-size:13px; color:#888; margin-top:4px; text-align:right;">Fonte: Banco Mundial, FMI</div>
+</div>
 
 _Fonte: MOFCOM, Banco Mundial, FMI (projeções ajustadas)_
 
