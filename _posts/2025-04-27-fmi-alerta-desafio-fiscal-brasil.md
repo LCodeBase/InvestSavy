@@ -1,7 +1,7 @@
 ---
 layout: noticia
 title: 'FMI Alerta: Brasil Enfrenta Desafio Fiscal Relevante e Projeta Desaceleração em 2025'
-date: '2025-04-2612:32:00-03:00'
+date: '2025-04-26T12:28:00-03:00'
 categories: [notícias]
 image: /images/blog007.png
 excerpt: 'FMI destaca aumento da dívida pública, necessidade de medidas fiscais adicionais e prevê crescimento menor para o Brasil em 2025.'
