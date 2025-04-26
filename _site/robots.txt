@@ -5,6 +5,7 @@ Allow: /
 # Configurações específicas para Googlebot
 User-agent: Googlebot
 Allow: /
+Allow: /images/logo-to-index.png
 Disallow: /php/
 Disallow: /*.php$
 
@@ -30,6 +31,8 @@ Allow: /sitemap.xml
 Allow: /images/
 Allow: /css/
 Allow: /script/
+Allow: /favicon.ico
+Allow: /site.webmanifest
 
 # Sitemap
 Sitemap: https://lcodebase.github.io/InvestSavy/sitemap.xml

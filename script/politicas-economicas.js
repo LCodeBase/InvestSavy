@@ -57,6 +57,19 @@ document.addEventListener('DOMContentLoaded', () => {
     resetButton.addEventListener('click', resetSimulation)
   }
 
+  // Inicializar botões de cenários
+  const scenarioButtons = document.querySelectorAll('.scenario-presets button')
+  if (scenarioButtons.length > 0) {
+    scenarioButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        // Remover classe ativa de todos os botões
+        scenarioButtons.forEach(btn => btn.classList.remove('active'))
+        // Adicionar classe ativa ao botão clicado
+        this.classList.add('active')
+      })
+    })
+  }
+
   // Initialize charts
   initializeCharts()
 
@@ -67,6 +80,69 @@ document.addEventListener('DOMContentLoaded', () => {
 // Global variables to store current economic data and charts
 let currentEconomicData = {}
 let gdpChart, inflationChart, unemploymentChart
+
+// Função para definir cenários pré-definidos
+function setScenario(scenario) {
+  // Valores para cada cenário baseados em dados históricos do Brasil
+  const scenarios = {
+    expansionista: {
+      taxRate: 7.5,        // Taxa Selic média 2010-2012
+      publicSpending: 39,  // Gastos públicos elevados
+      taxBurden: 33        // Carga tributária média
+    },
+    contracionista: {
+      taxRate: 14.25,      // Taxa Selic alta 2015-2016
+      publicSpending: 32,  // Contenção de gastos
+      taxBurden: 35        // Aumento de impostos
+    },
+    equilibrio: {
+      taxRate: 13.25,      // Taxa Selic 2022-2023
+      publicSpending: 33,  // Gastos moderados
+      taxBurden: 33        // Carga tributária estável
+    }
+  }
+
+  // Verificar se o cenário existe
+  if (!scenarios[scenario]) return
+
+  // Obter valores do cenário selecionado
+  const { taxRate, publicSpending, taxBurden } = scenarios[scenario]
+
+  // Atualizar sliders e valores exibidos
+  const taxRateSlider = document.getElementById('taxRate')
+  const publicSpendingSlider = document.getElementById('publicSpending')
+  const taxBurdenSlider = document.getElementById('taxBurden')
+
+  if (taxRateSlider) {
+    taxRateSlider.value = taxRate
+    document.getElementById('taxRateValue').textContent = `${taxRate}%`
+  }
+
+  if (publicSpendingSlider) {
+    publicSpendingSlider.value = publicSpending
+    document.getElementById('publicSpendingValue').textContent = `${publicSpending}%`
+  }
+
+  if (taxBurdenSlider) {
+    taxBurdenSlider.value = taxBurden
+    document.getElementById('taxBurdenValue').textContent = `${taxBurden}%`
+  }
+
+  // Atualizar a classe ativa nos botões de cenário
+  const scenarioButtons = document.querySelectorAll('.scenario-presets button')
+  scenarioButtons.forEach(button => {
+    // Remover classe ativa de todos os botões
+    button.classList.remove('active')
+
+    // Verificar se o texto do botão contém o nome do cenário e adicionar classe ativa
+    if (button.textContent.toLowerCase().includes(scenario)) {
+      button.classList.add('active')
+    }
+  })
+
+  // Atualizar a simulação com os novos valores
+  updateSimulation()
+}
 
 function updateSimulation() {
   // Get values from sliders

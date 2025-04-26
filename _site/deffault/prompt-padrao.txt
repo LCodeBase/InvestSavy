@@ -6,49 +6,95 @@
 
     <!-- SEO Meta Tags Dinâmicas -->
     
-    <meta name="description" content="Aprenda os primeiros passos para começar sua jornada de investimentos de forma segura e consciente." />
-    
-
-    
-    <meta name="keywords" content="investimentos, finanças pessoais, educação financeira, educacao ou notícias, como começar a investir: guia para iniciantes" />
+    <meta
+      name="description"
+      content="Aprenda os primeiros passos para começar sua jornada de investimentos de forma segura e consciente."
+    />
+     
+    <meta
+      name="keywords"
+      content="investimentos, finanças pessoais, educação financeira, educacao ou notícias, como começar a investir: guia para iniciantes"
+    />
     
 
     <meta name="author" content="Leonardo" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="http://localhost:4000/InvestSavy/deffault/prompt-padrao.txt" />
+    <meta
+      property="og:url"
+      content="http://localhost:4000/InvestSavy/deffault/prompt-padrao.txt"
+    />
     <meta property="og:title" content="Como Começar a Investir: Guia para Iniciantes | InvestSavy" />
-    <meta property="og:description" content="Aprenda os primeiros passos para começar sua jornada de investimentos de forma segura e consciente." />
-    <meta property="og:image" content="http://localhost:4000/InvestSavy/images/edu01.png" />
+    <meta
+      property="og:description"
+      content="Aprenda os primeiros passos para começar sua jornada de investimentos de forma segura e consciente."
+    />
+    <meta
+      property="og:image"
+      content="http://localhost:4000/InvestSavy/images/edu01.png"
+    />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="http://localhost:4000/InvestSavy/deffault/prompt-padrao.txt" />
+    <meta
+      property="twitter:url"
+      content="http://localhost:4000/InvestSavy/deffault/prompt-padrao.txt"
+    />
     <meta property="twitter:title" content="Como Começar a Investir: Guia para Iniciantes | InvestSavy" />
-    <meta property="twitter:description" content="Aprenda os primeiros passos para começar sua jornada de investimentos de forma segura e consciente." />
-    <meta property="twitter:image" content="http://localhost:4000/InvestSavy/images/edu01.png" />
+    <meta
+      property="twitter:description"
+      content="Aprenda os primeiros passos para começar sua jornada de investimentos de forma segura e consciente."
+    />
+    <meta
+      property="twitter:image"
+      content="http://localhost:4000/InvestSavy/images/edu01.png"
+    />
 
     <!-- Título da página específico para cada notícia -->
     <title>Como Começar a Investir: Guia para Iniciantes | InvestSavy</title>
 
     <!-- Favicon para diferentes dispositivos e navegadores -->
-    <link rel="shortcut icon" href="/InvestSavy/images/Camada 1.png" type="image/x-icon" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/InvestSavy/images/favicon-16x16.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/InvestSavy/images/favicon-32x32.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/InvestSavy/images/apple-touch-icon.png" />
+    <link
+      rel="shortcut icon"
+      href="/InvestSavy/images/logo-to-index.png"
+      type="image/x-icon"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/InvestSavy/images/logo-to-index.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/InvestSavy/images/logo-to-index.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/InvestSavy/images/logo-to-index.png"
+    />
     <link rel="manifest" href="/InvestSavy/site.webmanifest" />
     <meta name="msapplication-TileColor" content="#118a5f" />
     <meta name="theme-color" content="#118a5f" />
 
     <link rel="stylesheet" href="/InvestSavy/css/style-noticia01.css" />
     <link rel="stylesheet" href="/InvestSavy/css/universal-css.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
   </head>
   <body>
     <header>
       <div class="container-LOGO">
-        <img src="/InvestSavy/images/00000000000001.svg" alt="Logo InvestSavy" />
+        <img
+          src="/InvestSavy/images/00000000000001.svg"
+          alt="Logo InvestSavy"
+        />
         <div class="logo">InvestSavy</div>
       </div>
 
@@ -214,27 +260,25 @@
   ></script>
 </html>
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "NewsArticle",
-  "headline": "Como Começar a Investir: Guia para Iniciantes",
-  "image": [
-    "http://localhost:4000/InvestSavy/images/edu01.png"
-  ],
-  "datePublished": "2025-02-25T10:00:00-03:00",
-  "dateModified": "2025-02-25T10:00:00-03:00",
-  "author": {
-    "@type": "Person",
-    "name": "Leonardo"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "InvestSavy",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "http://localhost:4000/InvestSavy/images/Camada 1.png"
-    }
-  },
-  "description": "Aprenda os primeiros passos para começar sua jornada de investimentos de forma segura e consciente."
-}
+  {
+    "@context": "https://schema.org",
+    "@type": "NewsArticle",
+    "headline": "Como Começar a Investir: Guia para Iniciantes",
+    "image": ["http://localhost:4000/InvestSavy/images/edu01.png"],
+    "datePublished": "2025-02-25T10:00:00-03:00",
+    "dateModified": "2025-02-25T10:00:00-03:00",
+    "author": {
+      "@type": "Person",
+      "name": "Leonardo"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "InvestSavy",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "http://localhost:4000/InvestSavy/images/Camada 1.png"
+      }
+    },
+    "description": "Aprenda os primeiros passos para começar sua jornada de investimentos de forma segura e consciente."
+  }
 </script>

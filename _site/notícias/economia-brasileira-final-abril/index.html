@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- SEO Meta Tags Dinâmicas -->
+    
+    <meta name="description" content="Resumo dos principais indicadores econômicos do Brasil no final de abril de 2025: IPCA-15, decisão do Copom, expectativas para juros, inflação e atividade." />
+     
+    <meta name="keywords" content="IPCA-15, inflação, Copom, Selic, Banco Central, economia brasileira, abril 2025, juros, mercado financeiro, expectativas" />
+    
+
+    <meta name="author" content="Leonardo F. Figueiredo" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article" />
+    <meta
+      property="og:url"
+      content="http://localhost:4000/InvestSavy/not%C3%ADcias/economia-brasileira-final-abril/"
+    />
+    <meta property="og:title" content="Economia Brasileira: IPCA-15, Copom e Perspectivas no Final de Abril de 2025 | InvestSavy" />
+    <meta
+      property="og:description"
+      content="No final de abril, inflação desacelera, Banco Central mantém juros e mercado financeiro projeta desafios e oportunidades para a economia brasileira."
+    />
+    <meta
+      property="og:image"
+      content="http://localhost:4000/InvestSavy/images/blog005.png"
+    />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta
+      property="twitter:url"
+      content="http://localhost:4000/InvestSavy/not%C3%ADcias/economia-brasileira-final-abril/"
+    />
+    <meta property="twitter:title" content="Economia Brasileira: IPCA-15, Copom e Perspectivas no Final de Abril de 2025 | InvestSavy" />
+    <meta
+      property="twitter:description"
+      content="No final de abril, inflação desacelera, Banco Central mantém juros e mercado financeiro projeta desafios e oportunidades para a economia brasileira."
+    />
+    <meta
+      property="twitter:image"
+      content="http://localhost:4000/InvestSavy/images/blog005.png"
+    />
+
+    <!-- Título da página específico para cada notícia -->
+    <title>Economia Brasileira: IPCA-15, Copom e Perspectivas no Final de Abril de 2025 | InvestSavy</title>
+
+    <!-- Favicon para diferentes dispositivos e navegadores -->
+    <link
+      rel="shortcut icon"
+      href="/InvestSavy/images/logo-to-index.png"
+      type="image/x-icon"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/InvestSavy/images/logo-to-index.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/InvestSavy/images/logo-to-index.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/InvestSavy/images/logo-to-index.png"
+    />
+    <link rel="manifest" href="/InvestSavy/site.webmanifest" />
+    <meta name="msapplication-TileColor" content="#118a5f" />
+    <meta name="theme-color" content="#118a5f" />
+
+    <link rel="stylesheet" href="/InvestSavy/css/style-noticia01.css" />
+    <link rel="stylesheet" href="/InvestSavy/css/universal-css.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="container-LOGO">
+        <img
+          src="/InvestSavy/images/00000000000001.svg"
+          alt="Logo InvestSavy"
+        />
+        <div class="logo">InvestSavy</div>
+      </div>
+
+      <div class="menu-toggle" alt="Botão-Menu">
+        <i class="fas fa-bars"></i>
+      </div>
+
+      <nav class="nav-menu">
+        <ul>
+          <li id="comment-header">
+            <a href="/InvestSavy/index.html">Home</a>
+          </li>
+          <li id="comment-header">
+            <a href="/InvestSavy/sobre.html">Sobre Nós</a>
+          </li>
+          <li id="comment-header">
+            <a href="/InvestSavy/blogs-main.html">Notícias</a>
+          </li>
+          <li>
+            <button
+              class="button-header"
+              onclick="window.location.href='/InvestSavy/servicos.html'"
+            >
+              Serviços
+              <i class="fa-solid fa-arrow-right" id="seta"></i>
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <button id="toggleForm" class="floating-button">
+      <i class="fa-solid fa-envelope fa-2x"></i>
+    </button>
+    <div id="registerForm" class="form-container" style="display: none">
+      <form class="form">
+        <div class="header-container">
+          <p class="title">Entre em Contato</p>
+          <button id="close-btn">X</button>
+        </div>
+        <p class="message">
+          Ficou com alguma dúvida ou está enfrentando alguma dificuldade em um
+          de nossos serviços?
+        </p>
+        <div class="flex">
+          <label>
+            <input
+              required=""
+              placeholder=""
+              type="text"
+              class="input"
+              maxlength="10"
+            />
+            <span>Nome</span>
+          </label>
+          <label>
+            <input
+              required=""
+              placeholder=""
+              type="text"
+              class="input"
+              maxlength="30"
+            />
+            <span>Sobrenome</span>
+          </label>
+        </div>
+        <label>
+          <input required="" placeholder="" type="text" class="input" />
+          <span>Email</span>
+        </label>
+        <textarea
+          id="myTextarea"
+          maxlength="1000"
+          rows="5"
+          placeholder="Escreva sua mensagem aqui..."
+        ></textarea>
+        <div id="charCount" class="char-count">1000 caracteres restantes</div>
+        <button class="submit">Enviar</button>
+      </form>
+    </div>
+
+    <main class="main-news-container">
+      <div>
+        <div class="news-header">
+          <h1>Economia Brasileira: IPCA-15, Copom e Perspectivas no Final de Abril de 2025</h1>
+          <div class="meta">
+            Publicado em: 26-04-2025 | Autor:
+            <a href="https://www.linkedin.com/in/leonardo-f-figueiredo-4820a5230/">Leonardo F. Figueiredo</a>
+          </div>
+        </div>
+        <div class="news-content">
+          <img
+            src="/InvestSavy/images/blog005.png"
+            alt="Gráfico de inflação, notas de real e sede do Banco Central."
+            class="news-image"
+          />
+          <p>O IPCA-15, considerado a prévia da inflação oficial, registrou alta de <span class="highlight">0,32%</span> em abril de 2025, abaixo das expectativas do mercado (0,36%) e menor que o índice de março (0,45%). No acumulado de 12 meses, a inflação ficou em <span class="highlight">3,85%</span>, aproximando-se do centro da meta estabelecida pelo Conselho Monetário Nacional.</p>
+
+<p>Os principais destaques foram a desaceleração dos preços de alimentos e combustíveis, enquanto serviços ainda apresentaram pressão moderada. O resultado reforça a percepção de que a inflação está sob controle, apesar de incertezas no cenário internacional e da volatilidade do câmbio.</p>
+
+<h2 id="copom-mantém-juros-e-sinaliza-cautela">Copom Mantém Juros e Sinaliza Cautela</h2>
+
+<p>Na reunião do dia 24 de abril, o Comitê de Política Monetária (Copom) do Banco Central decidiu manter a taxa Selic em <span class="highlight">10,75% ao ano</span>, interrompendo o ciclo de cortes iniciado em 2023. A decisão foi unânime e acompanhada de comunicado ressaltando a necessidade de cautela diante de riscos externos e da dinâmica fiscal doméstica.</p>
+
+<blockquote>
+  <p>“O cenário global segue desafiador, com pressões inflacionárias persistentes em economias avançadas e volatilidade nos mercados financeiros”, destacou o Copom em nota.</p>
+</blockquote>
+
+<p>O mercado financeiro ajustou suas projeções e agora espera estabilidade dos juros até o segundo semestre, com possibilidade de retomada dos cortes apenas se houver melhora consistente nos indicadores.</p>
+
+<h2 id="indicadores-recentes-e-perspectivas">Indicadores Recentes e Perspectivas</h2>
+
+<div style="overflow-x:auto; margin-bottom: 16px;">
+  <table style="width:100%; border-collapse:collapse; font-size:16px; background:#fff; border-radius:8px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+    <thead style="background:#f5f5f5;">
+      <tr>
+        <th style="padding:10px 16px; border-bottom:2px solid #e0e0e0; text-align:left; font-weight:bold;">Indicador</th>
+        <th style="padding:10px 16px; border-bottom:2px solid #e0e0e0; text-align:center; font-weight:bold;">Abr/2024</th>
+        <th style="padding:10px 16px; border-bottom:2px solid #e0e0e0; text-align:center; font-weight:bold;">Abr/2025</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="padding:8px 16px; border-bottom:1px solid #f0f0f0;">IPCA-15 (mensal)</td>
+        <td style="padding:8px 16px; text-align:center; border-bottom:1px solid #f0f0f0;">0,57%</td>
+        <td style="padding:8px 16px; text-align:center; border-bottom:1px solid #f0f0f0;">0,32%</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 16px; border-bottom:1px solid #f0f0f0;">IPCA-15 (12 meses)</td>
+        <td style="padding:8px 16px; text-align:center; border-bottom:1px solid #f0f0f0;">4,16%</td>
+        <td style="padding:8px 16px; text-align:center; border-bottom:1px solid #f0f0f0;">3,85%</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 16px; border-bottom:1px solid #f0f0f0;">Selic (a.a.)</td>
+        <td style="padding:8px 16px; text-align:center; border-bottom:1px solid #f0f0f0;">13,75%</td>
+        <td style="padding:8px 16px; text-align:center; border-bottom:1px solid #f0f0f0;">10,75%</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 16px; border-bottom:1px solid #f0f0f0;">PIB (projeção anual)</td>
+        <td style="padding:8px 16px; text-align:center; border-bottom:1px solid #f0f0f0;">2,1%</td>
+        <td style="padding:8px 16px; text-align:center; border-bottom:1px solid #f0f0f0;">1,8%</td>
+      </tr>
+      <tr>
+        <td style="padding:8px 16px;">Dólar (R$)</td>
+        <td style="padding:8px 16px; text-align:center;">5,10</td>
+        <td style="padding:8px 16px; text-align:center;">5,22</td>
+      </tr>
+    </tbody>
+  </table>
+  <div style="font-size:13px; color:#888; margin-top:4px; text-align:right;">Fonte: IBGE, Banco Central</div>
+</div>
+
+<p><em>Fonte: IBGE, Banco Central, Focus</em></p>
+
+<div style="float: center; margin: 0 0 20px 20px;">
+    <img src="https://editalconcursosbrasil.com.br/wp-content/uploads/2019/06/banco-central.jpg" alt="Sede do Banco Central do Brasil" style="border-radius: 10px;" />
+    <p style="font-size: 12px; color: #555; text-align: center;">Banco Central mantém postura cautelosa diante do cenário global</p>
+</div>
+
+<h2 id="mercado-de-trabalho-e-consumo">Mercado de Trabalho e Consumo</h2>
+
+<p>Os dados mais recentes do mercado de trabalho mostram estabilidade na taxa de desemprego, em torno de <span class="highlight">7,8%</span>, e crescimento moderado do rendimento real. O consumo das famílias segue resiliente, mas há sinais de desaceleração no crédito e na produção industrial.</p>
+
+<p>Economistas apontam que a manutenção dos juros elevados pode limitar o ritmo de recuperação, mas a inflação sob controle abre espaço para um cenário mais favorável no segundo semestre, caso o ambiente externo permita.</p>
+
+<h2 id="conclusão">Conclusão</h2>
+
+<p>O final de abril de 2025 é marcado por sinais positivos no controle da inflação e pela cautela do Banco Central em relação à política monetária. O cenário exige atenção aos desdobramentos internacionais e à condução da política fiscal, mas mantém perspectivas de crescimento moderado e estabilidade para a economia brasileira.</p>
+
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container-footer">
+        <div class="row-footer">
+          <div class="footer-col">
+            <h4>Site</h4>
+            <ul>
+              <li><a href="/InvestSavy/index.html">Home</a></li>
+              <li><a href="/InvestSavy/blogs-main.html">Blogs</a></li>
+              <li><a href="/InvestSavy/sobre.html">Quem somos</a></li>
+              <li><a href="/InvestSavy/servicos.html">Serviços</a></li>
+            </ul>
+          </div>
+          <!--end footer col-->
+          <!-- footer col-->
+          <div class="footer-col">
+            <h4>Redes Sociais</h4>
+            <ul>
+              <li><a href="#">Facebook</a></li>
+              <li><a href="#">Instragram</a></li>
+              <li><a href="#">Tiktok</a></li>
+              <li><a href="#">Youtube</a></li>
+            </ul>
+          </div>
+          <!--end footer col-->
+          <!-- footer col-->
+          <div class="footer-col">
+            <h4>Serviços</h4>
+            <ul>
+              <li><a href="#">Calculos de Despesas</a></li>
+              <li><a href="#">Investimentos</a></li>
+            </ul>
+          </div>
+          <!--end footer col-->
+          <!-- footer col-->
+          <div class="footer-col">
+            <h4>Inscreva-se na Newsletter</h4>
+            <div class="form-sub">
+              <form>
+                <input
+                  type="email"
+                  placeholder="Digite o seu e-mail"
+                  required
+                />
+                <button>Se inscrever</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+  <script src="/InvestSavy/script/js-universal.js"></script>
+  <script src="/InvestSavy/script/contact.js"></script>
+  <script src="/InvestSavy/script/script.js"></script>
+  <script src="/InvestSavy/script/image-optimizer.js" defer></script>
+  <script src="/InvestSavy/script/webp-converter.js" defer></script>
+  <script
+    src="https://kit.fontawesome.com/e1063b7707.js"
+    crossorigin="anonymous"
+    async
+  ></script>
+</html>
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "NewsArticle",
+    "headline": "Economia Brasileira: IPCA-15, Copom e Perspectivas no Final de Abril de 2025",
+    "image": ["http://localhost:4000/InvestSavy/images/blog005.png"],
+    "datePublished": "2025-04-26T09:50:00-03:00",
+    "dateModified": "2025-04-26T09:50:00-03:00",
+    "author": {
+      "@type": "Person",
+      "name": "Leonardo F. Figueiredo"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "InvestSavy",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "http://localhost:4000/InvestSavy/images/Camada 1.png"
+      }
+    },
+    "description": "No final de abril, inflação desacelera, Banco Central mantém juros e mercado financeiro projeta desafios e oportunidades para a economia brasileira."
+  }
+</script>
