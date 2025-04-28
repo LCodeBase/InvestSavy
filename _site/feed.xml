@@ -5,9 +5,31 @@
     <description>Plataforma completa para gestão financeira pessoal que combina organização prática com insights inteligentes para otimizar suas finanças. Oferecemos ferramentas para gestão financeira, recomendações de investimentos e conteúdo educacional.</description>
     <link>http://localhost:4000/InvestSavy/</link>
     <atom:link href="http://localhost:4000/InvestSavy/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 26 Apr 2025 13:01:05 -0300</pubDate>
-    <lastBuildDate>Sat, 26 Apr 2025 13:01:05 -0300</lastBuildDate>
+    <pubDate>Mon, 28 Apr 2025 03:10:32 -0300</pubDate>
+    <lastBuildDate>Mon, 28 Apr 2025 03:10:32 -0300</lastBuildDate>
     <generator>Jekyll v4.4.1</generator>
+    
+      <item>
+        <title>Iene e Política de Juros do BOJ Permanecem no Foco das Negociações Comerciais entre Japão e EUA</title>
+        <description>Ministro das Finanças japonês mantém discrição sobre reunião com Secretário do Tesouro americano, enquanto analistas apontam que questões cambiais continuarão influenciando as negociações comerciais.</description>
+        <pubDate>Mon, 28 Apr 2025 03:01:00 -0300</pubDate>
+        <link>http://localhost:4000/InvestSavy/not%C3%ADcias/japao-eua-negociacoes-comerciais-iene/</link>
+        <guid isPermaLink="true">http://localhost:4000/InvestSavy/not%C3%ADcias/japao-eua-negociacoes-comerciais-iene/</guid>
+        
+        <category>notícias</category>
+        
+      </item>
+    
+      <item>
+        <title>Chanceleres dos BRICS Criticam Medidas Unilaterais em Meio à Guerra Comercial Global</title>
+        <description>Em reunião no Rio de Janeiro, representantes do bloco reafirmam compromisso com o sistema multilateral de comércio e rejeitam ações protecionistas unilaterais.</description>
+        <pubDate>Mon, 28 Apr 2025 03:00:00 -0300</pubDate>
+        <link>http://localhost:4000/InvestSavy/not%C3%ADcias/brics-criticam-medidas-unilaterais-guerra-comercial/</link>
+        <guid isPermaLink="true">http://localhost:4000/InvestSavy/not%C3%ADcias/brics-criticam-medidas-unilaterais-guerra-comercial/</guid>
+        
+        <category>notícias</category>
+        
+      </item>
     
       <item>
         <title>FMI Alerta: Brasil Enfrenta Desafio Fiscal Relevante e Projeta Desaceleração em 2025</title>
@@ -94,28 +116,6 @@
         <guid isPermaLink="true">http://localhost:4000/InvestSavy/not%C3%ADcias/china-tenta-aumentar-investimentos-estrangeiros/</guid>
         
         <category>notícias</category>
-        
-      </item>
-    
-      <item>
-        <title>Como Começar a Investir: Guia para Iniciantes</title>
-        <description>Aprenda os primeiros passos para começar sua jornada de investimentos de forma segura e consciente.</description>
-        <pubDate>Thu, 24 Apr 2025 20:28:00 -0300</pubDate>
-        <link>http://localhost:4000/InvestSavy/educacao/como-investir-iniciantes/</link>
-        <guid isPermaLink="true">http://localhost:4000/InvestSavy/educacao/como-investir-iniciantes/</guid>
-        
-        <category>educacao</category>
-        
-      </item>
-    
-      <item>
-        <title>O que é Inflação e Como Ela Impacta os Preços?</title>
-        <description>Entenda como a inflação afeta seu bolso e a economia</description>
-        <pubDate>Tue, 22 Apr 2025 17:02:00 -0300</pubDate>
-        <link>http://localhost:4000/InvestSavy/educacao/oque-%C3%A9-infla%C3%A7%C3%A3o/</link>
-        <guid isPermaLink="true">http://localhost:4000/InvestSavy/educacao/oque-%C3%A9-infla%C3%A7%C3%A3o/</guid>
-        
-        <category>educacao</category>
         
       </item>
     

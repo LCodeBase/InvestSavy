@@ -24,6 +24,39 @@
     <meta property="og:type" content="website" />
   </head>
 <style>
+    /* Estilos para os botões de cenários pré-definidos */
+    .scenario-presets {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin: 20px 0 30px 0;
+      flex-wrap: wrap;
+    }
+
+    .scenario-presets button {
+      background-color: #f5f5f5;
+      border: 2px solid #ddd;
+      border-radius: 6px;
+      padding: 10px 15px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #333;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .scenario-presets button:hover {
+      background-color: #e9e9e9;
+      border-color: #ccc;
+    }
+
+    .scenario-presets button.active {
+      background-color: #118a5f;
+      border-color: #0e7a53;
+      color: white;
+    }
+
+    /* Estilos responsivos */
     @media (max-width: 600px) {
       .comparador-container {
         padding: 20px;
@@ -45,6 +78,16 @@
 
       #resultados p {
         font-size: 1em;
+      }
+
+      .scenario-presets {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .scenario-presets button {
+        width: 100%;
+        max-width: 280px;
       }
     }
   </style>
@@ -133,33 +176,40 @@
     <!-- Indicadores econômicos atuais -->
     <div class="indicators">
       <div class="indicator-card">
-        <h3>PIB Atual</h3>
+        <h3>PIB Atual <span class="info-tooltip" title="Fonte: IBGE. Clique para acessar."><a href="https://www.ibge.gov.br/explica/pib.php" target="_blank">🔗</a></span></h3>
         <p id="currentGDP">
           <span class="loading-spinner"></span>
           Carregando...
         </p>
+        <small class="indicator-source">Fonte: IBGE (dados oficiais em tempo real)</small>
       </div>
       <div class="indicator-card">
-        <h3>Inflação</h3>
+        <h3>Inflação <span class="info-tooltip" title="Fonte: Banco Central do Brasil. Clique para acessar."><a href="https://www.bcb.gov.br/estabilidadefinanceira/inflacao" target="_blank">🔗</a></span></h3>
         <p id="currentInflation">
           <span class="loading-spinner"></span>
           Carregando...
         </p>
+        <small class="indicator-source">Fonte: Banco Central (IPCA/INPC)</small>
       </div>
       <div class="indicator-card">
-        <h3>Taxa de Desemprego</h3>
+        <h3>Taxa de Desemprego <span class="info-tooltip" title="Fonte: IBGE. Clique para acessar."><a href="https://www.ibge.gov.br/explica/desemprego.php" target="_blank">🔗</a></span></h3>
         <p id="currentUnemployment">
           <span class="loading-spinner"></span>
           Carregando...
         </p>
+        <small class="indicator-source">Fonte: IBGE (PNAD Contínua)</small>
       </div>
       <div class="indicator-card">
-        <h3>Taxa de Juros (Selic)</h3>
+        <h3>Taxa de Juros (Selic) <span class="info-tooltip" title="Fonte: Banco Central do Brasil. Clique para acessar."><a href="https://www.bcb.gov.br/controleinflacao/taxaselic" target="_blank">🔗</a></span></h3>
         <p id="currentInterestRate">
           <span class="loading-spinner"></span>
           Carregando...
         </p>
+        <small class="indicator-source">Fonte: Banco Central (Selic)</small>
       </div>
+    </div>
+    <div class="indicator-explanation">
+      <p><strong>Sobre os Indicadores:</strong> Todos os dados apresentados são obtidos automaticamente de APIs oficiais do IBGE e Banco Central do Brasil, garantindo confiabilidade e atualização em tempo real. Clique nos ícones 🔗 para acessar as fontes e metodologias.<br><span style="color:#118a5f;font-weight:bold;">Os valores são atualizados automaticamente a cada hora.</span></p>
     </div>
 
 
@@ -167,9 +217,13 @@
   <section id="simulator" class="section">
     <h2>Simulador Econômico</h2>
     <p class="section-description">
-      Ajuste os parâmetros abaixo para simular diferentes cenários econômicos e ver como
-      eles afetam indicadores como PIB, inflação e desemprego.
+      Ajuste os parâmetros abaixo para simular diferentes cenários econômicos e veja como eles afetam indicadores como PIB, inflação e desemprego. Os cálculos utilizam modelos econômicos reais (Curva de Phillips, Regra de Taylor, Okun, etc.) e refletem políticas já adotadas no Brasil. <br><strong>Escolha um cenário pré-definido ou personalize os parâmetros:</strong>
     </p>
+    <div class="scenario-presets">
+      <button onclick="setScenario('expansionista')">Política Expansionista (2010-2012)</button>
+      <button onclick="setScenario('contracionista')">Política Contracionista (2015-2016)</button>
+      <button onclick="setScenario('equilibrio')">Equilíbrio Fiscal (2022-2023)</button>
+    </div>
 
     <div class="simulator-container">
       <div class="controls">
@@ -209,7 +263,7 @@
 
       <div class="simulation-summary">
         <h3>Análise do Cenário</h3>
-        <p id="simulationAnalysis">Ajuste os parâmetros para ver a análise do cenário econômico.</p>
+        <p id="simulationAnalysis">Ajuste os parâmetros para ver a análise do cenário econômico. <br><small>Os resultados são baseados em dados reais e modelos econômicos reconhecidos. Para saber mais sobre cada modelo, consulte as <a href="#referencias">referências</a> abaixo.</small></p>
       </div>
     </div>
   </section>
@@ -224,12 +278,13 @@
         <div class="row-footer">
           <!-- footer col-->
           <div class="footer-col">
-            <h4>Site</h4>
+            <h4>Referências e Fontes</h4>
             <ul>
-              <li><a href="index.html">Home</a></li>
-              <li><a href="blogs-main.html">Blogs</a></li>
-              <li><a href="sobre.html">Quem somos</a></li>
-              <li><a href="servicos.html">Serviços</a></li>
+              <li><a href="https://servicodados.ibge.gov.br/api/docs/agregados?versao=3" target="_blank">API IBGE - Dados Econômicos</a></li>
+              <li><a href="https://dadosabertos.bcb.gov.br/dataset/series-temporais" target="_blank">API Banco Central - Séries Temporais</a></li>
+              <li><a href="https://www.tesourotransparente.gov.br/" target="_blank">Tesouro Nacional - Dados Fiscais</a></li>
+              <li><a href="https://www.bcb.gov.br/controleinflacao/regra-taylor" target="_blank">Regra de Taylor (BCB)</a></li>
+              <li><a href="https://www.ibge.gov.br/explica/desemprego.php" target="_blank">Curva de Phillips (IBGE)</a></li>
             </ul>
           </div>
           <!--end footer col-->
