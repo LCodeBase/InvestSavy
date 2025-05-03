@@ -186,7 +186,68 @@ nav a {
   color: #666;
 }
 
+/* Menu mobile */
+.menu-toggle {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Media queries para responsividade */
 @media (max-width: 768px) {
+
+  /* Header responsivo */
+  header {
+    flex-wrap: wrap;
+    padding: 15px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-menu {
+    display: none;
+    width: 100%;
+    margin-top: 15px;
+  }
+
+  .nav-menu.active {
+    display: block;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+
+  /* Hero section responsiva */
+  .hero {
+    flex-direction: column;
+    padding: 30px 20px;
+    height: auto;
+    text-align: center;
+  }
+
+  .hero-content {
+    margin-bottom: 30px;
+  }
+
+  .hero h1 {
+    font-size: 32px !important;
+  }
+
+  .hero-image img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Features section */
+  .features {
+    padding: 50px 15px;
+  }
+
   .login-item {
     margin-left: 0;
     margin-top: 10px;
@@ -239,6 +300,17 @@ nav a {
   gap: 40px;
 }
 
+@media (max-width: 600px) {
+  .clientes-stats {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .clientes-content h2 {
+    font-size: 24px;
+  }
+}
+
 .stat-item {
   display: flex;
   flex-direction: column;
@@ -280,6 +352,7 @@ nav a {
   cursor: pointer;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   transition: background-color 0.3s;
+  z-index: 100;
 }
 
 .floating-button:hover {
@@ -330,6 +403,7 @@ nav a {
   z-index: 1000;
   /* Z-index maior para sobrepor o fundo desfocado */
   max-width: 350px;
+  width: 90%;
 }
 
 /* Estilo do formulário */
@@ -570,6 +644,27 @@ nav a {
   gap: 20px;
 }
 
+@media (max-width: 768px) {
+  .blog-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 20px;
+  }
+
+  .blog-container h2 {
+    font-size: 24px;
+  }
+
+  .blog-container {
+    padding: 20px;
+  }
+}
+
 .card {
   background: rgb(255, 254, 254);
   border-radius: 10px;
@@ -579,6 +674,12 @@ nav a {
   max-width: 32%;
   display: flex;
   flex-direction: column;
+}
+
+@media (max-width: 768px) {
+  .card {
+    max-width: 100%;
+  }
 }
 
 .card img {
@@ -631,6 +732,17 @@ footer {
 .footer-col {
   width: 25%;
   padding: 0 15px;
+}
+
+@media (max-width: 768px) {
+  .row-footer {
+    flex-direction: column;
+  }
+
+  .footer-col {
+    width: 100%;
+    margin-bottom: 30px;
+  }
 }
 
 .footer-col h4 {
@@ -765,7 +877,6 @@ footer {
   /* Header */
   header {
     flex-direction: row;
-    /* Mudamos para row para manter logo e menu toggle na mesma linha */
     justify-content: space-between;
     padding: 15px;
     position: relative;
@@ -774,24 +885,31 @@ footer {
 
   .container-LOGO {
     width: auto;
-    /* Alterado de 100% para auto */
     margin-bottom: 0;
+  }
+
+  .container-LOGO img {
+    width: 40px !important;
+    margin: 0 10px 0 0 !important;
+  }
+
+  .logo {
+    font-size: 20px;
   }
 
   .menu-toggle {
     display: block;
-    /* Mostra o botão em telas pequenas */
     position: relative;
-    /* Alterado de absolute para relative */
     top: auto;
     right: auto;
+    z-index: 1001;
   }
 
   .nav-menu {
     display: none;
     position: fixed;
     top: 0;
-    right: -100%;
+    right: 0;
     width: 250px;
     height: 100vh;
     background-color: white;
@@ -802,19 +920,7 @@ footer {
   }
 
   .nav-menu.active {
-    right: 0;
     display: block;
-  }
-
-  .container-LOGO {
-    width: 100%;
-    justify-content: center;
-    margin-bottom: 15px;
-  }
-
-  .container-LOGO img {
-    width: 40px;
-    margin: 0 10px 0 0;
   }
 
   nav {
@@ -853,17 +959,33 @@ footer {
     flex-direction: column;
     padding: 30px 20px;
     height: auto;
+    text-align: center;
   }
 
   .hero-content {
     text-align: center;
+    margin-bottom: 30px;
+    max-width: 100%;
+  }
+
+  .hero h1 {
+    font-size: 32px !important;
   }
 
   .hero-image {
     max-width: 100%;
   }
 
+  .hero-image img {
+    max-width: 100%;
+    height: auto;
+  }
+
   /* Features */
+  .features {
+    padding: 50px 15px;
+  }
+
   .features-grid {
     flex-direction: column;
     gap: 30px;
@@ -871,16 +993,27 @@ footer {
 
   .feature-item {
     width: 100%;
+    max-width: 100%;
   }
 
   /* Blog Cards */
   .blog-cards {
     flex-direction: column;
     gap: 20px;
+    align-items: center;
   }
 
   .card {
     max-width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .blog-container {
+    padding: 20px;
+  }
+
+  .blog-container h2 {
+    font-size: 24px;
   }
 }
 
@@ -889,6 +1022,36 @@ footer {
   .container-LOGO {
     flex-direction: row;
     align-items: center;
+  }
+
+  .hero h1 {
+    font-size: 28px !important;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .features h2 {
+    font-size: 24px;
+  }
+
+  .clientes-content h2 {
+    font-size: 22px;
+  }
+
+  .form-container {
+    width: 95%;
+    padding: 15px;
+  }
+
+  .flex {
+    flex-direction: column;
+  }
+
+  .floating-button {
+    width: 50px;
+    height: 50px;
   }
 
   .logo {
