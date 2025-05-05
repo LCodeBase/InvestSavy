@@ -1,7 +1,7 @@
 ---
 layout: noticia
 title: 'Iene e Política de Juros do BOJ Permanecem no Foco das Negociações Comerciais entre Japão e EUA'
-date: '2025-04-28T03:01:00-03:00'
+date: '2025-05-04T03:01:00-03:00'
 categories: [notícias]
 image: /images/blog009.png
 excerpt: 'Ministro das Finanças japonês mantém discrição sobre reunião com Secretário do Tesouro americano, enquanto analistas apontam que questões cambiais continuarão influenciando as negociações comerciais.'

@@ -1,7 +1,7 @@
 ---
 layout: noticia
 title: 'Chanceleres dos BRICS Criticam Medidas Unilaterais em Meio à Guerra Comercial Global'
-date: '2025-04-28T03:00:00-03:00'
+date: '2025-05-03T03:00:00-03:00'
 categories: [notícias]
 image: /images/blog008.png
 excerpt: 'Em reunião no Rio de Janeiro, representantes do bloco reafirmam compromisso com o sistema multilateral de comércio e rejeitam ações protecionistas unilaterais.'
