@@ -31,7 +31,7 @@ layout: noticia
     <meta property="og:type" content="article" />
     <meta
       property="og:url"
-      content="{{ site.url }}{{ site.baseurl }}{{ page.url }}"
+      content="https://invest-savy.vercel.app{{ page.url }}"
     />
     <meta property="og:title" content="{{ page.title }} | InvestSavy" />
     <meta
@@ -40,14 +40,14 @@ layout: noticia
     />
     <meta
       property="og:image"
-      content="{{ site.url }}{{ site.baseurl }}{{ page.image }}"
+      content="https://invest-savy.vercel.app{{ page.image }}"
     />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta
       property="twitter:url"
-      content="{{ site.url }}{{ site.baseurl }}{{ page.url }}"
+      content="https://invest-savy.vercel.app{{ page.url }}"
     />
     <meta property="twitter:title" content="{{ page.title }} | InvestSavy" />
     <meta
@@ -56,7 +56,7 @@ layout: noticia
     />
     <meta
       property="twitter:image"
-      content="{{ site.url }}{{ site.baseurl }}{{ page.image }}"
+      content="https://invest-savy.vercel.app{{ page.image }}"
     />
 
     <!-- Título da página específico para cada notícia -->
@@ -89,8 +89,8 @@ layout: noticia
     <meta name="msapplication-TileColor" content="#118a5f" />
     <meta name="theme-color" content="#118a5f" />
 
-    <link rel="stylesheet" href="{{ site.baseurl }}/css/style-noticia01.css" />
-    <link rel="stylesheet" href="{{ site.baseurl }}/css/universal-css.css" />
+    <link rel="stylesheet" href="/css/style-noticia01.css" />
+    <link rel="stylesheet" href="/css/universal-css.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -113,18 +113,18 @@ layout: noticia
       <nav class="nav-menu">
         <ul>
           <li id="comment-header">
-            <a href="{{ site.baseurl }}/index.html">Home</a>
+            <a href="/index.html">Home</a>
           </li>
           <li id="comment-header">
-            <a href="{{ site.baseurl }}/sobre.html">Sobre Nós</a>
+            <a href="/sobre.html">Sobre Nós</a>
           </li>
           <li id="comment-header">
-            <a href="{{ site.baseurl }}/blogs-main.html">Notícias</a>
+            <a href="/blogs-main.html">Notícias</a>
           </li>
           <li>
             <button
               class="button-header"
-              onclick="window.location.href='{{ site.baseurl }}/servicos.html'"
+              onclick="window.location.href='/servicos.html'"
             >
               Serviços
               <i class="fa-solid fa-arrow-right" id="seta"></i>

@@ -18,11 +18,9 @@ title: "Noticias da economia no mundo - InvestSavy"
     <link rel="stylesheet" href="css/universal-css.css">
     <link
       rel="preload"
-      href="{{ site.baseurl }}/images/Camada 1.png"
+      href="images/Camada 1.png"
       as="image"
     />
-    <link rel="stylesheet" href="{{ site.baseurl }}/css/universal-css.css" />
-    <link rel="stylesheet" href="{{ site.baseurl }}/css/style-blog-main.css" />
     <link
       rel="shortcut icon"
       href="images/Camada 1.png"
@@ -48,18 +46,18 @@ title: "Noticias da economia no mundo - InvestSavy"
       <nav class="nav-menu">
         <ul>
           <li id="comment-header">
-            <a href="{{ site.baseurl }}/index.html">Home</a>
+            <a href="index.html">Home</a>
           </li>
           <li id="comment-header">
-            <a href="{{ site.baseurl }}/sobre.html">Sobre Nós</a>
+            <a href="sobre.html">Sobre Nós</a>
           </li>
           <li id="comment-header">
-            <a href="{{ site.baseurl }}/blogs-main.html">Notícias</a>
+            <a href="blogs-main.html">Notícias</a>
           </li>
           <li>
             <button
               class="button-header"
-              onclick="window.location.href='{{ site.baseurl }}/servicos.html'"
+              onclick="window.location.href='servicos.html'"
             >
               Serviços
               <i class="fa-solid fa-arrow-right" id="seta"></i>
@@ -85,9 +83,9 @@ title: "Noticias da economia no mundo - InvestSavy"
           {% assign recent_posts = news_posts | slice: 0, 6 %}
           {% for post in recent_posts %}
           <li class="news-item">
-            <a href="{{ site.baseurl }}{{ post.url }}" class="news-link">
+            <a href="/notícias/{{ post.title | slugify }}/" class="news-link">
               <img
-                src="{{ site.baseurl }}{{ post.image }}"
+                src="images{{ post.image }}"
                 alt="{{ post.title }}"
                 class="news-image"/>
               <div class="news-content">
