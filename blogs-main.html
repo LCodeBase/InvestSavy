@@ -85,7 +85,7 @@ title: "Noticias da economia no mundo - InvestSavy"
           <li class="news-item">
             <a href="/notícias/{{ post.title | slugify }}/" class="news-link">
               <img
-                src="images{{ post.image }}"
+                src="{{ post.image }}"
                 alt="{{ post.title }}"
                 class="news-image"/>
               <div class="news-content">
