@@ -89,8 +89,8 @@ layout: noticia
     <meta name="msapplication-TileColor" content="#118a5f" />
     <meta name="theme-color" content="#118a5f" />
 
-    <link rel="stylesheet" href="/css/style-noticia01.css" />
-    <link rel="stylesheet" href="/css/universal-css.css" />
+    <link rel="stylesheet" href="{{ site.baseurl }}/css/style-noticia01.css" />
+    <link rel="stylesheet" href="{{ site.baseurl }}/css/universal-css.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -113,18 +113,18 @@ layout: noticia
       <nav class="nav-menu">
         <ul>
           <li id="comment-header">
-            <a href="/index.html">Home</a>
+            <a href="{{ site.baseurl }}/index.html">Home</a>
           </li>
           <li id="comment-header">
-            <a href="/sobre.html">Sobre Nós</a>
+            <a href="{{ site.baseurl }}/sobre.html">Sobre Nós</a>
           </li>
           <li id="comment-header">
-            <a href="/blogs-main.html">Notícias</a>
+            <a href="{{ site.baseurl }}/blogs-main.html">Notícias</a>
           </li>
           <li>
             <button
               class="button-header"
-              onclick="window.location.href='/servicos.html'"
+              onclick="window.location.href='{{ site.baseurl }}/servicos.html'"
             >
               Serviços
               <i class="fa-solid fa-arrow-right" id="seta"></i>
@@ -232,8 +232,8 @@ layout: noticia
           <div class="footer-col">
             <h4>Serviços</h4>
             <ul>
-              <li><a href="#">Calculos de Despesas</a></li>
-              <li><a href="#">Investimentos</a></li>
+              <li><a href="{{ site.baseurl }}/calculo-despesas.html">Calculos de Despesas</a></li>
+              <li><a href="{{ site.baseurl }}/recomendacaoinvestimento.html">Investimentos</a></li>
             </ul>
           </div>
           <!--end footer col-->
@@ -256,8 +256,8 @@ layout: noticia
     </footer>
   </body>
   <script src="{{ site.baseurl }}/script/js-universal.js"></script>
+  <script src="{{ site.baseurl }}/script/notice-time.js"></script>
   <script src="{{ site.baseurl }}/script/contact.js"></script>
-  <script src="{{ site.baseurl }}/script/script.js"></script>
   <script src="{{ site.baseurl }}/script/image-optimizer.js" defer></script>
   <script src="{{ site.baseurl }}/script/webp-converter.js" defer></script>
   <script

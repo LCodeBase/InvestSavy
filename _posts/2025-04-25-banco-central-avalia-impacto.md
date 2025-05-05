@@ -66,7 +66,7 @@ O novo programa visa estimular a economia, que cresce a <span class="highlight">
 _Fonte: Banco Central, IBGE (projeções ajustadas)_
 
 <div style="float: center; margin: 0 0 20px 20px;">
-    <img src="https://istoedinheiro.com.br/wp-content/uploads/sites/17/2025/03/credito-consignado.jpg" alt="Consignado Privado" style="border-radius: 10px;">
+    <img src="https://istoedinheiro.com.br/wp-content/uploads/sites/17/2025/03/credito-consignado.jpg" alt="Consignado Privado" style="border-radius: 10px; max-width: 100%;">
     <p style="font-size: 12px; color: #555; text-align: center;">Novo crédito em análise</p>
 </div>
 

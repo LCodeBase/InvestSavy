@@ -83,9 +83,9 @@ title: "Noticias da economia no mundo - InvestSavy"
           {% assign recent_posts = news_posts | slice: 0, 6 %}
           {% for post in recent_posts %}
           <li class="news-item">
-            <a href="/notícias/{{ post.title | slugify }}/" class="news-link">
+            <a href="{{ site.baseurl }}{{ post.url }}" class="news-link">
               <img
-                src="{{ post.image }}"
+                src="{{ site.baseurl }}{{ post.image }}"
                 alt="{{ post.title }}"
                 class="news-image"/>
               <div class="news-content">

@@ -3,18 +3,18 @@
   <channel>
     <title>InvestSavy - Gestão Financeira Inteligente</title>
     <description>Plataforma completa para gestão financeira pessoal que combina organização prática com insights inteligentes para otimizar suas finanças. Oferecemos ferramentas para gestão financeira, recomendações de investimentos e conteúdo educacional.</description>
-    <link>https://lcodebase.github.io/InvestSavy/</link>
-    <atom:link href="https://lcodebase.github.io/InvestSavy/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 05 May 2025 18:39:15 -0300</pubDate>
-    <lastBuildDate>Mon, 05 May 2025 18:39:15 -0300</lastBuildDate>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Mon, 05 May 2025 19:31:11 -0300</pubDate>
+    <lastBuildDate>Mon, 05 May 2025 19:31:11 -0300</lastBuildDate>
     <generator>Jekyll v4.4.1</generator>
     
       <item>
         <title>Iene e Política de Juros do BOJ Permanecem no Foco das Negociações Comerciais entre Japão e EUA</title>
         <description>Ministro das Finanças japonês mantém discrição sobre reunião com Secretário do Tesouro americano, enquanto analistas apontam que questões cambiais continuarão influenciando as negociações comerciais.</description>
         <pubDate>Mon, 28 Apr 2025 03:01:00 -0300</pubDate>
-        <link>https://lcodebase.github.io/InvestSavy/not%C3%ADcias/japao-eua-negociacoes-comerciais-iene/</link>
-        <guid isPermaLink="true">https://lcodebase.github.io/InvestSavy/not%C3%ADcias/japao-eua-negociacoes-comerciais-iene/</guid>
+        <link>http://localhost:4000/not%C3%ADcias/japao-eua-negociacoes-comerciais-iene/</link>
+        <guid isPermaLink="true">http://localhost:4000/not%C3%ADcias/japao-eua-negociacoes-comerciais-iene/</guid>
         
         <category>notícias</category>
         
@@ -24,8 +24,8 @@
         <title>Chanceleres dos BRICS Criticam Medidas Unilaterais em Meio à Guerra Comercial Global</title>
         <description>Em reunião no Rio de Janeiro, representantes do bloco reafirmam compromisso com o sistema multilateral de comércio e rejeitam ações protecionistas unilaterais.</description>
         <pubDate>Mon, 28 Apr 2025 03:00:00 -0300</pubDate>
-        <link>https://lcodebase.github.io/InvestSavy/not%C3%ADcias/brics-criticam-medidas-unilaterais-guerra-comercial/</link>
-        <guid isPermaLink="true">https://lcodebase.github.io/InvestSavy/not%C3%ADcias/brics-criticam-medidas-unilaterais-guerra-comercial/</guid>
+        <link>http://localhost:4000/not%C3%ADcias/brics-criticam-medidas-unilaterais-guerra-comercial/</link>
+        <guid isPermaLink="true">http://localhost:4000/not%C3%ADcias/brics-criticam-medidas-unilaterais-guerra-comercial/</guid>
         
         <category>notícias</category>
         
@@ -35,8 +35,8 @@
         <title>FMI Alerta: Brasil Enfrenta Desafio Fiscal Relevante e Projeta Desaceleração em 2025</title>
         <description>FMI destaca aumento da dívida pública, necessidade de medidas fiscais adicionais e prevê crescimento menor para o Brasil em 2025.</description>
         <pubDate>Sat, 26 Apr 2025 12:28:00 -0300</pubDate>
-        <link>https://lcodebase.github.io/InvestSavy/not%C3%ADcias/fmi-alerta-desafio-fiscal-brasil/</link>
-        <guid isPermaLink="true">https://lcodebase.github.io/InvestSavy/not%C3%ADcias/fmi-alerta-desafio-fiscal-brasil/</guid>
+        <link>http://localhost:4000/not%C3%ADcias/fmi-alerta-desafio-fiscal-brasil/</link>
+        <guid isPermaLink="true">http://localhost:4000/not%C3%ADcias/fmi-alerta-desafio-fiscal-brasil/</guid>
         
         <category>notícias</category>
         
@@ -46,8 +46,8 @@
         <title>Começando a Investir: O Que Você Precisa Saber Antes de Aplicar Dinheiro</title>
         <description>Descubra tudo o que você precisa saber antes de dar os primeiros passos no mundo dos investimentos.</description>
         <pubDate>Sat, 26 Apr 2025 12:20:00 -0300</pubDate>
-        <link>https://lcodebase.github.io/InvestSavy/educacao/comecando-investir-o-que-saber/</link>
-        <guid isPermaLink="true">https://lcodebase.github.io/InvestSavy/educacao/comecando-investir-o-que-saber/</guid>
+        <link>http://localhost:4000/educacao/comecando-investir-o-que-saber/</link>
+        <guid isPermaLink="true">http://localhost:4000/educacao/comecando-investir-o-que-saber/</guid>
         
         <category>educacao</category>
         
@@ -57,8 +57,8 @@
         <title>China Analisa Isenção de Tarifas para Produtos dos EUA em Meio à Alta de Custos</title>
         <description>Pequim avalia suspender tarifas sobre alguns produtos americanos para conter custos internos, em resposta à inflação e tensões comerciais com os EUA.</description>
         <pubDate>Sat, 26 Apr 2025 11:08:00 -0300</pubDate>
-        <link>https://lcodebase.github.io/InvestSavy/not%C3%ADcias/china-analisa-isencao-tarifas-eua/</link>
-        <guid isPermaLink="true">https://lcodebase.github.io/InvestSavy/not%C3%ADcias/china-analisa-isencao-tarifas-eua/</guid>
+        <link>http://localhost:4000/not%C3%ADcias/china-analisa-isencao-tarifas-eua/</link>
+        <guid isPermaLink="true">http://localhost:4000/not%C3%ADcias/china-analisa-isencao-tarifas-eua/</guid>
         
         <category>notícias</category>
         
@@ -68,8 +68,8 @@
         <title>Quando e Como Declarar o IR? Guia Completo para Não Errar em 2025</title>
         <description>Descubra quando e como declarar o Imposto de Renda, passo a passo, evitando erros e multas.</description>
         <pubDate>Sat, 26 Apr 2025 10:30:00 -0300</pubDate>
-        <link>https://lcodebase.github.io/InvestSavy/educacao/quando-como-declarar-ir/</link>
-        <guid isPermaLink="true">https://lcodebase.github.io/InvestSavy/educacao/quando-como-declarar-ir/</guid>
+        <link>http://localhost:4000/educacao/quando-como-declarar-ir/</link>
+        <guid isPermaLink="true">http://localhost:4000/educacao/quando-como-declarar-ir/</guid>
         
         <category>educacao</category>
         
@@ -79,8 +79,8 @@
         <title>5 Passos Simples para Sair do Vermelho</title>
         <description>Descubra como sair das dívidas e recuperar o controle financeiro com um método prático e eficiente.</description>
         <pubDate>Sat, 26 Apr 2025 10:10:00 -0300</pubDate>
-        <link>https://lcodebase.github.io/InvestSavy/educacao/5-passos-sair-vermelho/</link>
-        <guid isPermaLink="true">https://lcodebase.github.io/InvestSavy/educacao/5-passos-sair-vermelho/</guid>
+        <link>http://localhost:4000/educacao/5-passos-sair-vermelho/</link>
+        <guid isPermaLink="true">http://localhost:4000/educacao/5-passos-sair-vermelho/</guid>
         
         <category>educacao</category>
         
@@ -90,8 +90,8 @@
         <title>Economia Brasileira: IPCA-15, Copom e Perspectivas no Final de Abril de 2025</title>
         <description>No final de abril, inflação desacelera, Banco Central mantém juros e mercado financeiro projeta desafios e oportunidades para a economia brasileira.</description>
         <pubDate>Sat, 26 Apr 2025 09:50:00 -0300</pubDate>
-        <link>https://lcodebase.github.io/InvestSavy/not%C3%ADcias/economia-brasileira-final-abril/</link>
-        <guid isPermaLink="true">https://lcodebase.github.io/InvestSavy/not%C3%ADcias/economia-brasileira-final-abril/</guid>
+        <link>http://localhost:4000/not%C3%ADcias/economia-brasileira-final-abril/</link>
+        <guid isPermaLink="true">http://localhost:4000/not%C3%ADcias/economia-brasileira-final-abril/</guid>
         
         <category>notícias</category>
         
@@ -101,8 +101,8 @@
         <title>Banco Central Avalia Impacto do Consignado Privado, Afirma Diretor</title>
         <description>Durante evento online do Itaú, o diretor Nilton David indicou que o consignado privado pode gerar um leve aumento da renda disponível, mas os efeitos ainda estão em estudo.</description>
         <pubDate>Fri, 25 Apr 2025 19:35:00 -0300</pubDate>
-        <link>https://lcodebase.github.io/InvestSavy/not%C3%ADcias/banco-central-avalia-impacto/</link>
-        <guid isPermaLink="true">https://lcodebase.github.io/InvestSavy/not%C3%ADcias/banco-central-avalia-impacto/</guid>
+        <link>http://localhost:4000/not%C3%ADcias/banco-central-avalia-impacto/</link>
+        <guid isPermaLink="true">http://localhost:4000/not%C3%ADcias/banco-central-avalia-impacto/</guid>
         
         <category>notícias</category>
         
@@ -112,8 +112,8 @@
         <title>China Reafirma Abertura Econômica e Estimula Investimento Global</title>
         <description>Pequim reforça que a China permanece um mercado promisso para companhias globais, apostando em cooperação e desenvolvimento mútuo.</description>
         <pubDate>Fri, 25 Apr 2025 09:25:00 -0300</pubDate>
-        <link>https://lcodebase.github.io/InvestSavy/not%C3%ADcias/china-tenta-aumentar-investimentos-estrangeiros/</link>
-        <guid isPermaLink="true">https://lcodebase.github.io/InvestSavy/not%C3%ADcias/china-tenta-aumentar-investimentos-estrangeiros/</guid>
+        <link>http://localhost:4000/not%C3%ADcias/china-tenta-aumentar-investimentos-estrangeiros/</link>
+        <guid isPermaLink="true">http://localhost:4000/not%C3%ADcias/china-tenta-aumentar-investimentos-estrangeiros/</guid>
         
         <category>notícias</category>
         
