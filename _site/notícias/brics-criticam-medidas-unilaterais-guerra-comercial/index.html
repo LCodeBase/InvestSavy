@@ -26,7 +26,7 @@
     />
     <meta
       property="og:image"
-      content="https://invest-savy.vercel.app/images/blog008.png"
+      content="/images/blog008.png"
     />
 
     <!-- Twitter -->
@@ -42,11 +42,11 @@
     />
     <meta
       property="twitter:image"
-      content="https://invest-savy.vercel.app/images/blog008.png"
+      content="/images/blog008.png"
     />
 
-    <!-- Título da página específico para cada notícia -->
-    <title>Chanceleres dos BRICS Criticam Medidas Unilaterais em Meio à Guerra Comercial Global | InvestSavy</title>
+    <!-- Título da página específico para cada página -->
+    <title>Chanceleres dos BRICS Criticam Medidas Unilaterais em Meio à Guerra Comercial Global</title>
 
     <!-- Favicon para diferentes dispositivos e navegadores -->
     <link
@@ -75,7 +75,8 @@
     <meta name="msapplication-TileColor" content="#118a5f" />
     <meta name="theme-color" content="#118a5f" />
 
-    <link rel="stylesheet" href="/css/style-noticia01.css" />
+    <!-- CSS -->
+    
     <link rel="stylesheet" href="/css/universal-css.css" />
     <link
       rel="stylesheet"
@@ -88,6 +89,7 @@
         <img
           src="/images/00000000000001.svg"
           alt="Logo InvestSavy"
+          style="width: 10%; margin: -19px 3px 0 0;"
         />
         <div class="logo">InvestSavy</div>
       </div>
@@ -120,7 +122,7 @@
       </nav>
     </header>
 
-    <button id="toggleForm" class="floating-button">
+    <button id="toggleForm" class="floating-button" aria-label="Abrir formulário de contato">
       <i class="fa-solid fa-envelope fa-2x"></i>
     </button>
     <div id="registerForm" class="form-container" style="display: none">
@@ -170,12 +172,12 @@
       </form>
     </div>
 
-    <main class="main-news-container">
+        <main class="main-news-container">
       <div>
         <div class="news-header">
           <h1>Chanceleres dos BRICS Criticam Medidas Unilaterais em Meio à Guerra Comercial Global</h1>
           <div class="meta">
-            Publicado em: 28-04-2025 | Autor:
+            Publicado em: 03-05-2025 | Autor:
             <a href="https://www.linkedin.com/in/leonardo-f-figueiredo-4820a5230/">Leonardo F. Figueiredo</a>
           </div>
         </div>
@@ -376,9 +378,9 @@ th {
     "@context": "https://schema.org",
     "@type": "NewsArticle",
     "headline": "Chanceleres dos BRICS Criticam Medidas Unilaterais em Meio à Guerra Comercial Global",
-    "image": ["http://localhost:4000/images/blog008.png"],
-    "datePublished": "2025-04-28T03:00:00-03:00",
-    "dateModified": "2025-04-28T03:00:00-03:00",
+    "image": ["/images/blog008.png"],
+    "datePublished": "2025-05-03T03:00:00-03:00",
+    "dateModified": "2025-05-03T03:00:00-03:00",
     "author": {
       "@type": "Person",
       "name": "Leonardo F. Figueiredo"
@@ -388,9 +390,71 @@ th {
       "name": "InvestSavy",
       "logo": {
         "@type": "ImageObject",
-        "url": "http://localhost:4000/images/Camada 1.png"
+        "url": "/images/Camada 1.png"
       }
     },
     "description": "Em reunião no Rio de Janeiro, representantes do bloco reafirmam compromisso com o sistema multilateral de comércio e rejeitam ações protecionistas unilaterais."
   }
 </script>
+
+
+    <footer>
+      <div class="container-footer">
+        <div class="row-footer">
+          <div class="footer-col">
+            <h4>Site</h4>
+            <ul>
+              <li><a href="/index.html">Home</a></li>
+              <li><a href="/blogs-main.html">Blogs</a></li>
+              <li><a href="/sobre.html">Quem somos</a></li>
+              <li><a href="/servicos.html">Serviços</a></li>
+            </ul>
+          </div>
+          <!--end footer col-->
+          <!-- footer col-->
+          <div class="footer-col">
+            <h4>Redes Sociais</h4>
+            <ul>
+              <li><a href="#">Facebook</a></li>
+              <li><a href="#">Instragram</a></li>
+              <li><a href="#">Tiktok</a></li>
+              <li><a href="#">Youtube</a></li>
+            </ul>
+          </div>
+          <!--end footer col-->
+          <!-- footer col-->
+          <div class="footer-col">
+            <h4>Serviços</h4>
+            <ul>
+              <li><a href="/calculo-despesas.html">Calculos de Despesas</a></li>
+              <li><a href="/recomendacaoinvestimento.html">Investimentos</a></li>
+            </ul>
+          </div>
+          <!--end footer col-->
+          <!-- footer col-->
+          <div class="footer-col">
+            <h4>Inscreva-se na Newsletter</h4>
+            <div class="form-sub">
+              <form>
+                <input
+                  type="email"
+                  placeholder="Digite o seu e-mail"
+                  required
+                />
+                <button>Se inscrever</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+  <script src="/script/js-universal.js"></script>
+  <script src="/script/contact.js"></script>
+  <script
+    src="https://kit.fontawesome.com/e1063b7707.js"
+    crossorigin="anonymous"
+  ></script>
+
+  
+</html>

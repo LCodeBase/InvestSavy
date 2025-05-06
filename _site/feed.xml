@@ -5,14 +5,14 @@
     <description>Plataforma completa para gestão financeira pessoal que combina organização prática com insights inteligentes para otimizar suas finanças. Oferecemos ferramentas para gestão financeira, recomendações de investimentos e conteúdo educacional.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 05 May 2025 19:31:11 -0300</pubDate>
-    <lastBuildDate>Mon, 05 May 2025 19:31:11 -0300</lastBuildDate>
+    <pubDate>Tue, 06 May 2025 14:43:34 -0300</pubDate>
+    <lastBuildDate>Tue, 06 May 2025 14:43:34 -0300</lastBuildDate>
     <generator>Jekyll v4.4.1</generator>
     
       <item>
         <title>Iene e Política de Juros do BOJ Permanecem no Foco das Negociações Comerciais entre Japão e EUA</title>
         <description>Ministro das Finanças japonês mantém discrição sobre reunião com Secretário do Tesouro americano, enquanto analistas apontam que questões cambiais continuarão influenciando as negociações comerciais.</description>
-        <pubDate>Mon, 28 Apr 2025 03:01:00 -0300</pubDate>
+        <pubDate>Sun, 04 May 2025 03:01:00 -0300</pubDate>
         <link>http://localhost:4000/not%C3%ADcias/japao-eua-negociacoes-comerciais-iene/</link>
         <guid isPermaLink="true">http://localhost:4000/not%C3%ADcias/japao-eua-negociacoes-comerciais-iene/</guid>
         
@@ -23,9 +23,31 @@
       <item>
         <title>Chanceleres dos BRICS Criticam Medidas Unilaterais em Meio à Guerra Comercial Global</title>
         <description>Em reunião no Rio de Janeiro, representantes do bloco reafirmam compromisso com o sistema multilateral de comércio e rejeitam ações protecionistas unilaterais.</description>
-        <pubDate>Mon, 28 Apr 2025 03:00:00 -0300</pubDate>
+        <pubDate>Sat, 03 May 2025 03:00:00 -0300</pubDate>
         <link>http://localhost:4000/not%C3%ADcias/brics-criticam-medidas-unilaterais-guerra-comercial/</link>
         <guid isPermaLink="true">http://localhost:4000/not%C3%ADcias/brics-criticam-medidas-unilaterais-guerra-comercial/</guid>
+        
+        <category>notícias</category>
+        
+      </item>
+    
+      <item>
+        <title>Banco Central Avalia Impacto do Consignado Privado, Afirma Diretor</title>
+        <description>Durante evento online do Itaú, o diretor Nilton David indicou que o consignado privado pode gerar um leve aumento da renda disponível, mas os efeitos ainda estão em estudo.</description>
+        <pubDate>Fri, 02 May 2025 19:35:00 -0300</pubDate>
+        <link>http://localhost:4000/not%C3%ADcias/banco-central-avalia-impacto/</link>
+        <guid isPermaLink="true">http://localhost:4000/not%C3%ADcias/banco-central-avalia-impacto/</guid>
+        
+        <category>notícias</category>
+        
+      </item>
+    
+      <item>
+        <title>Economia Brasileira: IPCA-15, Copom e Perspectivas no Final de Abril de 2025</title>
+        <description>No final de abril, inflação desacelera, Banco Central mantém juros e mercado financeiro projeta desafios e oportunidades para a economia brasileira.</description>
+        <pubDate>Thu, 01 May 2025 09:50:00 -0300</pubDate>
+        <link>http://localhost:4000/not%C3%ADcias/economia-brasileira-final-abril/</link>
+        <guid isPermaLink="true">http://localhost:4000/not%C3%ADcias/economia-brasileira-final-abril/</guid>
         
         <category>notícias</category>
         
@@ -83,28 +105,6 @@
         <guid isPermaLink="true">http://localhost:4000/educacao/5-passos-sair-vermelho/</guid>
         
         <category>educacao</category>
-        
-      </item>
-    
-      <item>
-        <title>Economia Brasileira: IPCA-15, Copom e Perspectivas no Final de Abril de 2025</title>
-        <description>No final de abril, inflação desacelera, Banco Central mantém juros e mercado financeiro projeta desafios e oportunidades para a economia brasileira.</description>
-        <pubDate>Sat, 26 Apr 2025 09:50:00 -0300</pubDate>
-        <link>http://localhost:4000/not%C3%ADcias/economia-brasileira-final-abril/</link>
-        <guid isPermaLink="true">http://localhost:4000/not%C3%ADcias/economia-brasileira-final-abril/</guid>
-        
-        <category>notícias</category>
-        
-      </item>
-    
-      <item>
-        <title>Banco Central Avalia Impacto do Consignado Privado, Afirma Diretor</title>
-        <description>Durante evento online do Itaú, o diretor Nilton David indicou que o consignado privado pode gerar um leve aumento da renda disponível, mas os efeitos ainda estão em estudo.</description>
-        <pubDate>Fri, 25 Apr 2025 19:35:00 -0300</pubDate>
-        <link>http://localhost:4000/not%C3%ADcias/banco-central-avalia-impacto/</link>
-        <guid isPermaLink="true">http://localhost:4000/not%C3%ADcias/banco-central-avalia-impacto/</guid>
-        
-        <category>notícias</category>
         
       </item>
     

@@ -5,48 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- SEO Meta Tags Dinâmicas -->
-    
-    <meta name="description" content="Encontre artigos, ferramentas e conteúdos sobre educação financeira e investimentos no InvestSavy." />
-     
-    <meta name="keywords" content="pesquisa, busca, investimentos, finanças pessoais, educação financeira" />
-    
+    {% if page.description %}
+    <meta name="description" content="{{ page.description }}" />
+    {% else %}
+    <meta
+      name="description"
+      content="{{ page.excerpt | strip_html | truncate: 160 }}"
+    />
+    {% endif %} {% if page.keywords %}
+    <meta name="keywords" content="{{ page.keywords }}" />
+    {% else %}
+    <meta
+      name="keywords"
+      content="investimentos, finanças pessoais, educação financeira, {{ page.categories | join: ', ' }}, {{ page.title | downcase }}"
+    />
+    {% endif %}
 
-    <meta name="author" content="InvestSavy" />
+    <meta name="author" content="{{ page.author | default: 'InvestSavy' }}" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="article" />
     <meta
       property="og:url"
-      content="https://invest-savy.vercel.app/search.html"
+      content="https://invest-savy.vercel.app{{ page.url }}"
     />
-    <meta property="og:title" content="Pesquisar no InvestSavy | InvestSavy" />
+    <meta property="og:title" content="{{ page.title }} | InvestSavy" />
     <meta
       property="og:description"
-      content=""
+      content="{{ page.excerpt | strip_html | truncate: 160 }}"
     />
     <meta
       property="og:image"
-      content=""
+      content="{{ page.image }}"
     />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta
       property="twitter:url"
-      content="https://invest-savy.vercel.app/search.html"
+      content="https://invest-savy.vercel.app{{ page.url }}"
     />
-    <meta property="twitter:title" content="Pesquisar no InvestSavy | InvestSavy" />
+    <meta property="twitter:title" content="{{ page.title }} | InvestSavy" />
     <meta
       property="twitter:description"
-      content=""
+      content="{{ page.excerpt | strip_html | truncate: 160 }}"
     />
     <meta
       property="twitter:image"
-      content=""
+      content="{{ page.image }}"
     />
 
     <!-- Título da página específico para cada página -->
-    <title>Pesquisar no InvestSavy</title>
+    <title>{{ page.title | default: "InvestSavy - Melhorando a vida dos nossos clientes" }}</title>
 
     <!-- Favicon para diferentes dispositivos e navegadores -->
     <link
@@ -76,7 +86,11 @@
     <meta name="theme-color" content="#118a5f" />
 
     <!-- CSS -->
-    
+    {% if page.custom_css %}
+      {% for css_file in page.custom_css %}
+        <link rel="stylesheet" href="/css/{{ css_file }}.css">
+      {% endfor %}
+    {% endif %}
     <link rel="stylesheet" href="/css/universal-css.css" />
     <link
       rel="stylesheet"
@@ -172,21 +186,7 @@
       </form>
     </div>
 
-    <main class="search-container">
-  <div class="search-header">
-    <h1>Pesquisar no InvestSavy</h1>
-    <div class="search-form">
-      <input type="text" id="search-input" placeholder="Digite sua pesquisa..." />
-      <button id="search-button">Buscar</button>
-    </div>
-  </div>
-
-  <div id="search-results" class="search-results">
-    <!-- Resultados da pesquisa serão exibidos aqui -->
-  </div>
-</main>
-
-<script src="/script/search.js"></script>
+    {{ content }}
 
     <footer>
       <div class="container-footer">
@@ -246,5 +246,9 @@
     crossorigin="anonymous"
   ></script>
 
-  
+  {% if page.custom_js %}
+    {% for js_file in page.custom_js %}
+      <script src="/script/{{ js_file }}.js"></script>
+    {% endfor %}
+  {% endif %}
 </html>

@@ -26,7 +26,7 @@
     />
     <meta
       property="og:image"
-      content="https://invest-savy.vercel.app/images/edu05.png"
+      content="/images/edu05.png"
     />
 
     <!-- Twitter -->
@@ -42,11 +42,11 @@
     />
     <meta
       property="twitter:image"
-      content="https://invest-savy.vercel.app/images/edu05.png"
+      content="/images/edu05.png"
     />
 
-    <!-- Título da página específico para cada notícia -->
-    <title>Começando a Investir: O Que Você Precisa Saber Antes de Aplicar Dinheiro | InvestSavy</title>
+    <!-- Título da página específico para cada página -->
+    <title>Começando a Investir: O Que Você Precisa Saber Antes de Aplicar Dinheiro</title>
 
     <!-- Favicon para diferentes dispositivos e navegadores -->
     <link
@@ -75,7 +75,8 @@
     <meta name="msapplication-TileColor" content="#118a5f" />
     <meta name="theme-color" content="#118a5f" />
 
-    <link rel="stylesheet" href="/css/style-noticia01.css" />
+    <!-- CSS -->
+    
     <link rel="stylesheet" href="/css/universal-css.css" />
     <link
       rel="stylesheet"
@@ -88,6 +89,7 @@
         <img
           src="/images/00000000000001.svg"
           alt="Logo InvestSavy"
+          style="width: 10%; margin: -19px 3px 0 0;"
         />
         <div class="logo">InvestSavy</div>
       </div>
@@ -120,7 +122,7 @@
       </nav>
     </header>
 
-    <button id="toggleForm" class="floating-button">
+    <button id="toggleForm" class="floating-button" aria-label="Abrir formulário de contato">
       <i class="fa-solid fa-envelope fa-2x"></i>
     </button>
     <div id="registerForm" class="form-container" style="display: none">
@@ -170,7 +172,7 @@
       </form>
     </div>
 
-    <main class="main-news-container">
+        <main class="main-news-container">
       <div>
         <div class="news-header">
           <h1>Começando a Investir: O Que Você Precisa Saber Antes de Aplicar Dinheiro</h1>
@@ -348,7 +350,7 @@ blockquote {
     "@context": "https://schema.org",
     "@type": "NewsArticle",
     "headline": "Começando a Investir: O Que Você Precisa Saber Antes de Aplicar Dinheiro",
-    "image": ["http://localhost:4000/images/edu05.png"],
+    "image": ["/images/edu05.png"],
     "datePublished": "2025-04-26T12:20:00-03:00",
     "dateModified": "2025-04-26T12:20:00-03:00",
     "author": {
@@ -360,9 +362,71 @@ blockquote {
       "name": "InvestSavy",
       "logo": {
         "@type": "ImageObject",
-        "url": "http://localhost:4000/images/Camada 1.png"
+        "url": "/images/Camada 1.png"
       }
     },
     "description": "Descubra tudo o que você precisa saber antes de dar os primeiros passos no mundo dos investimentos."
   }
 </script>
+
+
+    <footer>
+      <div class="container-footer">
+        <div class="row-footer">
+          <div class="footer-col">
+            <h4>Site</h4>
+            <ul>
+              <li><a href="/index.html">Home</a></li>
+              <li><a href="/blogs-main.html">Blogs</a></li>
+              <li><a href="/sobre.html">Quem somos</a></li>
+              <li><a href="/servicos.html">Serviços</a></li>
+            </ul>
+          </div>
+          <!--end footer col-->
+          <!-- footer col-->
+          <div class="footer-col">
+            <h4>Redes Sociais</h4>
+            <ul>
+              <li><a href="#">Facebook</a></li>
+              <li><a href="#">Instragram</a></li>
+              <li><a href="#">Tiktok</a></li>
+              <li><a href="#">Youtube</a></li>
+            </ul>
+          </div>
+          <!--end footer col-->
+          <!-- footer col-->
+          <div class="footer-col">
+            <h4>Serviços</h4>
+            <ul>
+              <li><a href="/calculo-despesas.html">Calculos de Despesas</a></li>
+              <li><a href="/recomendacaoinvestimento.html">Investimentos</a></li>
+            </ul>
+          </div>
+          <!--end footer col-->
+          <!-- footer col-->
+          <div class="footer-col">
+            <h4>Inscreva-se na Newsletter</h4>
+            <div class="form-sub">
+              <form>
+                <input
+                  type="email"
+                  placeholder="Digite o seu e-mail"
+                  required
+                />
+                <button>Se inscrever</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+  <script src="/script/js-universal.js"></script>
+  <script src="/script/contact.js"></script>
+  <script
+    src="https://kit.fontawesome.com/e1063b7707.js"
+    crossorigin="anonymous"
+  ></script>
+
+  
+</html>
