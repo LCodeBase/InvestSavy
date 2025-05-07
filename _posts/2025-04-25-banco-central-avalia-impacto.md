@@ -1,7 +1,7 @@
 ---
 layout: noticia
 title: 'Banco Central Avalia Impacto do Consignado Privado, Afirma Diretor'
-date: '2025-05-02T19:35:00-03:00'
+date: '2025-04-25T19:35:00-03:00'
 categories: [notícias]
 image: /images/blog003.png
 excerpt: 'Durante evento online do Itaú, o diretor Nilton David indicou que o consignado privado pode gerar um leve aumento da renda disponível, mas os efeitos ainda estão em estudo.'
@@ -66,7 +66,7 @@ O novo programa visa estimular a economia, que cresce a <span class="highlight">
 _Fonte: Banco Central, IBGE (projeções ajustadas)_
 
 <div style="float: center; margin: 0 0 20px 20px;">
-    <img src="https://istoedinheiro.com.br/wp-content/uploads/sites/17/2025/03/credito-consignado.jpg" alt="Consignado Privado" style="border-radius: 10px; max-width: 100%;">
+    <img src="https://istoedinheiro.com.br/wp-content/uploads/sites/17/2025/03/credito-consignado.jpg" alt="Consignado Privado" style="border-radius: 10px;">
     <p style="font-size: 12px; color: #555; text-align: center;">Novo crédito em análise</p>
 </div>
 

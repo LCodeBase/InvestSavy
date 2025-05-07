@@ -18,9 +18,11 @@ title: "Noticias da economia no mundo - InvestSavy"
     <link rel="stylesheet" href="css/universal-css.css">
     <link
       rel="preload"
-      href="images/Camada 1.png"
+      href="{{ site.baseurl }}/images/Camada 1.png"
       as="image"
     />
+    <link rel="stylesheet" href="{{ site.baseurl }}/css/universal-css.css" />
+    <link rel="stylesheet" href="{{ site.baseurl }}/css/style-blog-main.css" />
     <link
       rel="shortcut icon"
       href="images/Camada 1.png"
@@ -46,18 +48,18 @@ title: "Noticias da economia no mundo - InvestSavy"
       <nav class="nav-menu">
         <ul>
           <li id="comment-header">
-            <a href="index.html">Home</a>
+            <a href="{{ site.baseurl }}/index.html">Home</a>
           </li>
           <li id="comment-header">
-            <a href="sobre.html">Sobre Nós</a>
+            <a href="{{ site.baseurl }}/sobre.html">Sobre Nós</a>
           </li>
           <li id="comment-header">
-            <a href="blogs-main.html">Notícias</a>
+            <a href="{{ site.baseurl }}/blogs-main.html">Notícias</a>
           </li>
           <li>
             <button
               class="button-header"
-              onclick="window.location.href='servicos.html'"
+              onclick="window.location.href='{{ site.baseurl }}/servicos.html'"
             >
               Serviços
               <i class="fa-solid fa-arrow-right" id="seta"></i>

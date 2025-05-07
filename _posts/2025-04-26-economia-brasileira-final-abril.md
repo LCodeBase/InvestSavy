@@ -1,7 +1,7 @@
 ---
 layout: noticia
 title: 'Economia Brasileira: IPCA-15, Copom e Perspectivas no Final de Abril de 2025'
-date: '2025-05-03T14:50:00-03:00'
+date: '2025-04-26T09:50:00-03:00'
 categories: [notícias]
 image: /images/blog005.png
 excerpt: 'No final de abril, inflação desacelera, Banco Central mantém juros e mercado financeiro projeta desafios e oportunidades para a economia brasileira.'
