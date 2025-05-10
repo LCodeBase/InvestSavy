@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="InvestSavy - Sua plataforma de educação financeira e investimentos. Oferecemos ferramentas para gestão financeira, recomendações de investimentos e conteúdo educacional."
+      content="InvestSavy - Sua plataforma completa de educação financeira e investimentos"
     />
     <meta
       name="keywords"
-      content="investimentos, finanças pessoais, educação financeira, gestão financeira, InvestSavy, blogs, economia, finanças, mundo, economico, politica, governo, brasil, eua, usa, russia, ucrania"
+      content="finanças, investimentos, educação financeira, planejamento financeiro"
     />
     <meta name="author" content="InvestSavy" />
 
@@ -72,10 +72,12 @@
       }
     }
     </script>
-    <title>InvestSavy - Melhorando a vida dos nossos clientes</title>
+    <title>InvestSavy - Transformando sua vida financeira</title>
     <link rel="stylesheet" href="css/style-main.css" />
+    <link rel="stylesheet" href="css/universal-css.css" />
+    <link rel="stylesheet" href="css/animations.css" />
     <!-- Favicons para diferentes dispositivos e navegadores -->
-    <link rel="shortcut icon" href="images/logo-to-index.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="images/Camada 1.png" type="image/x-icon" />
     <link rel="icon" type="image/png" sizes="16x16" href="images/logo-to-index.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="images/logo-to-index.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="images/logo-to-index.png" />
@@ -90,6 +92,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- Replace the direct Firebase config with a safer approach -->
     <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
@@ -124,298 +127,160 @@
   </head>
 
   <body>
-  <header>
-    <div class="container-LOGO">
-      <img src="images/00000000000001.svg" alt="Logo InvestSmart" style="width: 10%; margin: -19px 3px 0 0;" />
-      <div class="logo">InvestSavy</div>
-    </div>
+    <header>
+      <div class="container-LOGO">
+        <img src="images/00000000000001.svg" alt="Logo InvestSavy" style="width: 10%; margin: -19px 3px 0 0;" />
+        <div class="logo">InvestSavy</div>
+      </div>
 
-    <div class="menu-toggle" alt="Botão-Menu">
-      <i class="fas fa-bars"></i>
-    </div>
+      <div class="menu-toggle" alt="Botão-Menu">
+        <i class="fas fa-bars"></i>
+      </div>
 
-    <nav class="nav-menu">
-      <ul>
-        <li id="comment-header"><a href="index.html">Home</a></li>
-        <li id="comment-header"><a href="sobre.html">Sobre Nós</a></li>
-        <li id="comment-header"><a href="blogs-main.html">Notícias</a></li>
-        <li>
-          <button class="button-header" onclick="window.location.href='servicos.html'">
-            Serviços
-            <i class="fa-solid fa-arrow-right" id="seta"></i>
-          </button>
-        </li>
-      </ul>
-    </nav>
-  </header>
+      <nav class="nav-menu">
+        <ul>
+          <li id="comment-header"><a href="index.html">Home</a></li>
+          <li id="comment-header"><a href="sobre.html">Sobre Nós</a></li>
+          <li id="comment-header"><a href="blogs-main.html">Notícias</a></li>
+          <li>
+            <button class="button-header" onclick="window.location.href='servicos.html'">
+              Serviços
+              <i class="fa-solid fa-arrow-right" id="seta"></i>
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </header>
 
     <main>
+      <!-- Hero Section -->
       <section class="hero">
         <div class="hero-content">
-          <h1>Melhorando a vida dos nossos clientes</h1>
-          <p>
-            Quer melhorar sua vida financeira e não sabe como? Aqui na
-            InvestSavy você descobre!
+          <h1>Transforme sua vida financeira com a InvestSavy</h1>
+          <p class="hero-subtitle">
+            Aprenda a investir, gerencie suas finanças e alcance sua independência financeira com nossas ferramentas e conteúdos especializados.
           </p>
-          <a href="servicos.html"
-            ><button
-              class="button-header"
-              onclick="window.location.href='servicos.html'"
-            >
-              Serviços
-              <i class="fa-solid fa-arrow-right" id="seta"></i></button
-          ></a>
+          <div class="hero-buttons">
+            <a href="servicos.html" class="button-primary">
+              Começar Agora
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+            <a href="sobre.html" class="button-secondary">
+              Conheça Nossa História
+            </a>
+          </div>
         </div>
         <div class="hero-image">
-          <img
-            src="images/01.png"
-            alt="Imagem ilustrativa"
-            class="reduced-size"
-          />
+          <img src="images/01.png" alt="Ilustração de finanças e investimentos" class="reduced-size" />
         </div>
       </section>
 
+      <!-- Features Section -->
       <section class="features">
-        <h2>Gerencie todas suas finanças em um só lugar!</h2>
-        <p>O que oferecemos?</p>
+        <div class="section-header">
+          <h2>Por que escolher a InvestSavy?</h2>
+          <p>Ferramentas e recursos para impulsionar sua jornada financeira</p>
+        </div>
         <div class="features-grid">
-                          <div class="features-grid">
-                            <div class="feature-item">
-                              <i class="fas fa-newspaper fa-3x" style="color: #118a5f; margin-bottom: 15px;"></i>
-                              <h3>Notícias Financeiras </h3>
-                              <p>
-                                Acompanhe as últimas tendências e análises do mercado financeiro com nosso conteúdo
-                                atualizado diariamente por especialistas do setor, ajudando você a tomar decisões
-                                mais informadas.
-                              </p>
-                            </div>
-                            <div class="feature-item">
-                              <i class="fas fa-tools fa-3x" style="color: #118a5f; margin-bottom: 15px;"></i>
-                              <h3>Planejamento Financeiro</h3>
-                              <p>
-                                Utilize nossas ferramentas avançadas de simulação e análise para otimizar seus
-                                investimentos, calcular rendimentos e planejar seu futuro financeiro com precisão
-                                e segurança.
-                              </p>
-                            </div>
-                            <div class="feature-item">
-                              <i class="fas fa-graduation-cap fa-3x" style="color: #118a5f; margin-bottom: 15px;"></i>
-                              <h3>Dominando a Economia</h3>
-                              <p>
-                                Desenvolva seu conhecimento financeiro com nossos recursos educacionais, desde
-                                conceitos básicos até estratégias avançadas de investimento, preparando você
-                                para o sucesso financeiro.
-                              </p>
-                            </div>
-                          </div>
-      </section>
-
-      <section class="clientes-lista">
-        <div class="clientes-content">
-          <h2>Já ajudamos centenas de pessoas pelo Brasil.</h2>
-          <p>Nós da InvestSavy estamos a cada dia maior!</p>
-        </div>
-        <div class="clientes-stats">
-          <div class="stat-item">
-            <i
-              class="fa-solid fa-envelope fa-3x"
-              aria-hidden="true"
-              title="Assinantes Newsletter"
-            ></i>
-            <h3>192</h3>
-            <p>Assinantes <br />Newsletter</p>
-          </div>
-          <div class="stat-item">
-            <i
-              class="fa-solid fa-eye fa-3x"
-              aria-hidden="true"
-              title="Visualizações no Blog"
-            ></i>
-            <h3>681</h3>
+          <div class="feature-item">
+            <i class="fas fa-chart-line fa-3x"></i>
+            <h3>Análise de Investimentos</h3>
             <p>
-              Visualizações no<br />
-              Blog
+              Acesse análises detalhadas e recomendações personalizadas para seus investimentos, baseadas em dados reais do mercado.
             </p>
           </div>
-          <div class="stat-item">
-            <i
-              class="fa-solid fa-users fa-3x"
-              aria-hidden="true"
-              title="Seguidores nas Redes Sociais"
-            ></i>
-            <h3>2,867</h3>
+          <div class="feature-item">
+            <i class="fas fa-calculator fa-3x"></i>
+            <h3>Planejamento Financeiro</h3>
             <p>
-              Seguidores nas <br />
-              Redes Sociais
+              Utilize nossas ferramentas avançadas para planejar suas finanças, estabelecer metas e acompanhar seu progresso.
+            </p>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-graduation-cap fa-3x"></i>
+            <h3>Educação Financeira</h3>
+            <p>
+              Aprenda com nossos especialistas através de conteúdos exclusivos e atualizados sobre o mercado financeiro.
             </p>
           </div>
         </div>
       </section>
 
+      <!-- Latest News Section -->
       <section class="blog-container">
-        <style>
-          .blog-container .card img {
-            width: 100%;
-            height: 90%;
-            max-width: 100%;
-            border-radius: 8px 8px 0 0;
-          }
-        </style>
-        <h2>Algumas de Nossas Principais Notícias sobre o Mercado Econômico</h2>
-        <p class="description">
-          Mantenha-se informado com as últimas atualizações e análises sobre o
-          mercado financeiro. Nesta seção, destacamos as notícias mais
-          relevantes e impactantes que estão moldando o cenário econômico global
-          e local.
-        </p>
+        <div class="section-header">
+          <h2>Últimas Notícias do Mercado</h2>
+          <p>Mantenha-se informado com as análises mais relevantes do mercado financeiro</p>
+        </div>
         <div class="blog-cards">
           <article class="card">
-            <img src="images/blog009.png" alt="Imagem mostrrando a sede do Banco Central do Brasil." style="height: 500px; object-fit: cover;" />
+            <img src="images/blog009.png" alt="Banco Central do Brasil" />
             <div class="card-content">
               <a href="blogs-main.html" class="read-more">
-                <h3>
-                  Iene e Política de Juros do BOJ Permanecem no Foco das Negociações Comerciais entre Japão e EUA
-                </h3>
-                Ler Sobre →
+                <h3>Iene e Política de Juros do BOJ Permanecem no Foco das Negociações Comerciais entre Japão e EUA</h3>
+                <span class="read-more-text">Ler Sobre →</span>
               </a>
             </div>
           </article>
           <article class="card">
-            <!--  02-->
-            <img
-              src="images/blog006.png"
-              alt="Imagem mostrando o aeroporto mais movimentado de pequim."
-              style="height: 500px; object-fit: cover;"
-            />
+            <img src="images/blog006.png" alt="Aeroporto de Pequim" />
             <div class="card-content">
               <a href="blogs-main.html" class="read-more">
-                <h3>
-            China Analisa Isenção de Tarifas para Produtos dos EUA em Meio à Alta de Custos
-                </h3>
-                Ler Sobre →
-              </a>
-            </div>
-          </article>
-          <article class="card">
-            <img src="images/blog005.png" alt="Imagem do atual presidente argentino Javier Milei" style="height: 500px; object-fit: cover;" />
-            <div class="card-content">
-              <a href="blogs-main.html" class="read-more">
-                <h3>
-Economia Brasileira: IPCA-15, Copom e Perspectivas no Final de Abril de 2025                  </h3>
-                Ler Sobre →
+                <h3>China Analisa Isenção de Tarifas para Produtos dos EUA em Meio à Alta de Custos</h3>
+                <span class="read-more-text">Ler Sobre →</span>
               </a>
             </div>
           </article>
         </div>
       </section>
 
-      <button id="toggleForm" class="floating-button">
-        <i class="fa-solid fa-envelope fa-2x"></i>
-      </button>
-
-      <div id="registerForm" class="form-container" style="display: none">
-        <form class="form" id="contactForm" onsubmit="saveToFile(event)">
-          <div class="header-container">
-            <p class="title">Entre em Contato</p>
-            <button id="close-btn">X</button>
-          </div>
-          <p class="message">
-            Ficou com alguma dúvida ou está enfrentando alguma dificuldade em um
-            de nossos serviços?
-          </p>
-          <div class="flex">
-            <label>
-              <input
-                required=""
-                placeholder=""
-                type="text"
-                class="input"
-                maxlength="10"
-                name="nome"
-              />
-              <span>Nome</span>
-            </label>
-            <label>
-              <input
-                required=""
-                placeholder=""
-                type="text"
-                class="input"
-                maxlength="30"
-                name="sobrenome"
-              />
-              <span>Sobrenome</span>
-            </label>
-          </div>
-          <label>
-            <input
-              required=""
-              placeholder=""
-              type="email"
-              class="input"
-              name="email"
-            />
-            <span>Email</span>
-          </label>
-          <textarea
-            id="myTextarea"
-            maxlength="1000"
-            rows="5"
-            placeholder="Escreva sua mensagem aqui..."
-            name="mensagem"
-          ></textarea>
-          <div id="charCount" class="char-count">1000 caracteres restantes</div>
-          <button class="submit">Enviar</button>
-        </form>
-      </div>
+      <!-- CTA Section -->
+      <section class="cta-section">
+        <div class="cta-content">
+          <h2>Pronto para começar sua jornada financeira?</h2>
+          <p>Junte-se a milhares de investidores que já transformaram suas vidas com a InvestSavy</p>
+          <a href="servicos.html" class="button-primary">
+            Comece Agora
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </section>
     </main>
 
     <footer>
       <div class="container-footer">
         <div class="row-footer">
-          <!-- footer col-->
           <div class="footer-col">
             <h4>Site</h4>
             <ul>
               <li><a href="index.html">Home</a></li>
-              <li><a href="blogs-main.html">Notícias</a></li>
+              <li><a href="blogs-main.html">Blogs</a></li>
               <li><a href="sobre.html">Quem somos</a></li>
               <li><a href="servicos.html">Serviços</a></li>
             </ul>
           </div>
-          <!--end footer col-->
-          <!-- footer col-->
           <div class="footer-col">
             <h4>Redes Sociais</h4>
             <ul>
               <li><a href="#">Facebook</a></li>
-              <li><a href="#">Instragram</a></li>
-              <li><a href="#">Tiktok</a></li>
-              <li><a href="#">Youtube</a></li>
+              <li><a href="#">Instagram</a></li>
+              <li><a href="#">TikTok</a></li>
+              <li><a href="#">YouTube</a></li>
             </ul>
           </div>
-          <!--end footer col-->
-          <!-- footer col-->
           <div class="footer-col">
             <h4>Serviços</h4>
             <ul>
-              <li><a href="calculo-despesas.html">Calculos de Despesas</a></li>
+              <li><a href="calculo-despesas.html">Cálculo de Despesas</a></li>
               <li><a href="recomendacaoinvestimento.html">Investimentos</a></li>
             </ul>
           </div>
-          <!--end footer col-->
-          <!-- footer col-->
           <div class="footer-col">
-            <h4>Inscreva-se na Newsletter</h4>
+            <h4>Newsletter</h4>
             <div class="form-sub">
-              <form id="newsletter-form" onsubmit="sendNewsletter(event)">
-                <input
-                  type="email"
-                  id="newsletter-email"
-                  placeholder="Digite o seu e-mail"
-                  required
-                />
-                <button type="submit">Se inscrever</button>
+              <form>
+                <input type="email" placeholder="Digite seu e-mail" required />
+                <button>Inscrever-se</button>
               </form>
             </div>
           </div>
@@ -426,5 +291,6 @@ Economia Brasileira: IPCA-15, Copom e Perspectivas no Final de Abril de 2025    
     <script src="script/js-universal.js"></script>
     <script src="script/contact.js"></script>
     <script src="script/script.js"></script>
+    <script src="script/main.js"></script>
   </body>
 </html>

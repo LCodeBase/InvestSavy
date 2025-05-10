@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="As últimas notícias de economia e finanças no mundo" />
+  <meta name="keywords" content="finanças, tecnologia, estudos-financeiros, conteúdo financeiro, investimentos, notícias, economia, mercado financeiro" />
+  <meta name="author" content="InvestSavy" />
+  <title>InvestSavy - Notícias Econômicas</title>
+  <link rel="stylesheet" href="css/universal-css.css" />
+  <link rel="stylesheet" href="css/style-blog-main.css" />
+  <link rel="shortcut icon" href="images/Camada 1.png" type="image/x-icon" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    .news-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .news-card {
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .news-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+
+    .news-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .news-content {
+      padding: 20px;
+    }
+
+    .news-title {
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .news-excerpt {
+      color: #666;
+      margin-bottom: 15px;
+      line-height: 1.5;
+    }
+
+    .news-meta {
+      display: flex;
+      justify-content: space-between;
+      color: #888;
+      font-size: 0.9rem;
+    }
+
+    .news-date {
+      display: flex;
+      align-items: center;
+    }
+
+    .news-date i {
+      margin-right: 5px;
+    }
+
+    .news-author {
+      display: flex;
+      align-items: center;
+    }
+
+    .news-author i {
+      margin-right: 5px;
+    }
+
+    .news-link {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 8px 15px;
+      background: #0066cc;
+      color: white;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background 0.3s ease;
+    }
+
+    .news-link:hover {
+      background: #0055aa;
+    }
+
+    .news-filters {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .search-box {
+      position: relative;
+      width: 300px;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 10px 15px;
+      padding-left: 40px;
+      border: 1px solid #ddd;
+      border-radius: 30px;
+      font-size: 1rem;
+    }
+
+    .search-box i {
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #888;
+    }
+
+    .category-filters button {
+      background: none;
+      border: 1px solid #ddd;
+      padding: 8px 15px;
+      margin-left: 10px;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .category-filters button.active {
+      background: #0066cc;
+      color: white;
+      border-color: #0066cc;
+    }
+
+    .load-more {
+      display: block;
+      width: 200px;
+      margin: 30px auto;
+      padding: 12px 0;
+      background: #0066cc;
+      color: white;
+      text-align: center;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      border: none;
+      font-size: 1rem;
+    }
+
+    .load-more:hover {
+      background: #0055aa;
+    }
+
+    /* Estilos para a página de notícia individual */
+    .single-news-container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 30px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .single-news-header {
+      margin-bottom: 30px;
+    }
+
+    .single-news-title {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      color: #333;
+    }
+
+    .single-news-meta {
+      display: flex;
+      color: #888;
+      margin-bottom: 20px;
+    }
+
+    .single-news-date, .single-news-author {
+      margin-right: 20px;
+      display: flex;
+      align-items: center;
+    }
+
+    .single-news-date i, .single-news-author i {
+      margin-right: 5px;
+    }
+
+    .single-news-image {
+      width: 100%;
+      max-height: 500px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 30px;
+    }
+
+    .single-news-content {
+      line-height: 1.8;
+      color: #444;
+      font-size: 1.1rem;
+    }
+
+    .single-news-content h2 {
+      margin-top: 30px;
+      margin-bottom: 15px;
+      color: #333;
+    }
+
+    .single-news-content p {
+      margin-bottom: 20px;
+    }
+
+    .single-news-content blockquote {
+      border-left: 4px solid #0066cc;
+      padding-left: 20px;
+      margin: 20px 0;
+      font-style: italic;
+      color: #555;
+    }
+
+    .highlight {
+      background-color: #fff3cd;
+      padding: 2px 4px;
+      border-radius: 3px;
+    }
+
+    .back-button {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 10px 20px;
+      background: #0066cc;
+      color: white;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background 0.3s ease;
+    }
+
+    .back-button:hover {
+      background: #0055aa;
+    }
+
+    /* Responsividade */
+    @media (max-width: 768px) {
+      .news-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .news-filters {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .search-box {
+        width: 100%;
+        margin-bottom: 15px;
+      }
+
+      .category-filters button {
+        margin: 5px;
+      }
+
+      .single-news-title {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <a href="index.html">
+        <img src="images/Logo-InvestSavy.svg" alt="Logo InvestSavy" />
+      </a>
+    </div>
+    <div class="menu-toggle">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+    <nav>
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="servicos.html">Serviços</a></li>
+        <li><a href="blogs-main.html">Blogs</a></li>
+        <li><a href="noticias-novo.html" class="active">Notícias</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+        <li><a href="login.html" class="login-btn">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Container para listagem de notícias -->
+    <div id="news-list-container" class="news-container">
+      <h1>Últimas Notícias Econômicas</h1>
+
+      <div class="news-filters">
+        <div class="search-box">
+          <i class="fas fa-search"></i>
+          <input type="text" id="news-search" placeholder="Buscar notícias..." />
+        </div>
+
+        <div class="category-filters">
+          <button class="filter-btn active" data-category="all">Todas</button>
+          <button class="filter-btn" data-category="notícias">Notícias</button>
+          <button class="filter-btn" data-category="análises">Análises</button>
+        </div>
+      </div>
+
+      <div id="news-grid" class="news-grid">
+        <!-- As notícias serão carregadas dinamicamente aqui -->
+      </div>
+
+      <button id="load-more" class="load-more">
+        Carregar mais <i class="fas fa-chevron-down"></i>
+      </button>
+    </div>
+
+    <!-- Container para notícia individual -->
+    <div id="single-news-container" class="single-news-container" style="display: none;">
+      <!-- O conteúdo da notícia será carregado dinamicamente aqui -->
+    </div>
+  </main>
+
+  <footer>
+    <div class="container-footer">
+      <div class="row-footer">
+        <div class="footer-col">
+          <h4>Site</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="blogs-main.html">Blogs</a></li>
+            <li><a href="sobre.html">Quem somos</a></li>
+            <li><a href="servicos.html">Serviços</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Redes Sociais</h4>
+          <ul>
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">Instragram</a></li>
+            <li><a href="#">Tiktok</a></li>
+            <li><a href="#">Youtube</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Serviços</h4>
+          <ul>
+            <li><a href="calculo-despesas.html">Calculos de Despesas</a></li>
+            <li><a href="recomendacaoinvestimento.html">Investimentos</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Inscreva-se na Newsletter</h4>
+          <div class="form-sub">
+            <form>
+              <input type="email" placeholder="Digite o seu e-mail" required />
+              <button>Se inscrever</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script/js-universal.js"></script>
+  <script src="script/noticias-sistema.js"></script>
+</body>
+</html>

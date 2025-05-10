@@ -255,16 +255,33 @@ footer {
   transform: translateY(-2px);
 }
 
-/* Conteúdo específico da página de Autenticação */
-.auth-container {
+/* Conteúdo específico da página de Cadastro */
+.cadastro-container {
   padding: 8rem 4% 4rem;
   max-width: 1200px;
   margin: 0 auto;
-  min-height: calc(100vh - 400px);
 }
 
-.auth-form {
-  max-width: 400px;
+.cadastro-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.cadastro-header h1 {
+  font-size: 3rem;
+  color: var(--secondary-color);
+  margin-bottom: 1rem;
+}
+
+.cadastro-header p {
+  font-size: 1.25rem;
+  color: var(--text-light);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cadastro-form {
+  max-width: 500px;
   margin: 0 auto;
   background-color: var(--white);
   padding: 2rem;
@@ -272,7 +289,7 @@ footer {
   box-shadow: var(--shadow-md);
 }
 
-.auth-form h2 {
+.cadastro-form h2 {
   color: var(--secondary-color);
   margin-bottom: 1.5rem;
   text-align: center;
@@ -303,7 +320,7 @@ footer {
   box-shadow: 0 0 0 2px rgba(var(--primary-rgb), 0.1);
 }
 
-.auth-form button {
+.cadastro-form button {
   width: 100%;
   padding: 0.75rem;
   background-color: var(--primary-color);
@@ -315,30 +332,38 @@ footer {
   font-weight: 600;
 }
 
-.auth-form button:hover {
+.cadastro-form button:hover {
   background-color: var(--primary-dark);
   transform: translateY(-2px);
 }
 
-.auth-links {
+.cadastro-links {
   margin-top: 1.5rem;
   text-align: center;
 }
 
-.auth-links a {
+.cadastro-links a {
   color: var(--primary-color);
   text-decoration: none;
   transition: var(--transition);
 }
 
-.auth-links a:hover {
+.cadastro-links a:hover {
   color: var(--primary-dark);
   text-decoration: underline;
 }
 
 /* Responsividade */
 @media (max-width: 768px) {
-  .auth-form {
+  .cadastro-header h1 {
+    font-size: 2.5rem;
+  }
+
+  .cadastro-header p {
+    font-size: 1.1rem;
+  }
+
+  .cadastro-form {
     padding: 1.5rem;
   }
 }
