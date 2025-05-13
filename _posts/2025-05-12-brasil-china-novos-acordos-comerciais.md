@@ -1,7 +1,7 @@
 ---
 layout: noticia
 title: "Brasil e China: Novos Acordos Comerciais em Meio à Guerra Tarifária Global"
-date: '2025-05-12T20:20:00-03:00'
+date: '2025-05-13T10:20:00-03:00'
 categories: [notícias]
 image: /images/blog003.png
 excerpt: 'Lula e Xi Jinping assinam novos acordos comerciais em Pequim, fortalecendo a parceria estratégica entre Brasil e China enquanto os EUA intensificam ameaças protecionistas.'
@@ -101,7 +101,6 @@ O presidente <span class="highlight">Luiz Inácio Lula da Silva</span> e o líde
   margin-top: 10px;
 }
 .highlight {
-  background-color: #e3f2fd;
   padding: 0 3px;
   border-radius: 3px;
   font-weight: 500;

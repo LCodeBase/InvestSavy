@@ -1,7 +1,7 @@
 ---
 layout: noticia
 title: "Coalizão Apresenta Plano de Descarbonização para Transportes com Potencial de R$ 600 Bilhões em Investimentos"
-date: '2025-05-12T20:05:00-03:00'
+date: '2025-05-13T08:08:00-03:00'
 categories: [notícias]
 image: /images/blog001.png
 excerpt: 'Iniciativa com mais de 50 entidades visa reduzir emissões de gases de efeito estufa no setor em até 70% até 2050, alinhando o Brasil às metas da COP30.'
@@ -106,7 +106,6 @@ Uma <span class="highlight">coalizão</span> composta por mais de 50 entidades p
   font-size: 36px;
 }
 .highlight {
-  background-color: #e8f5e9;
   padding: 0 3px;
   border-radius: 3px;
   font-weight: 500;

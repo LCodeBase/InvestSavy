@@ -1,7 +1,7 @@
 ---
 layout: noticia
 title: "EUA e China: Uma Pausa na Guerra Tarifária e o Impacto Global"
-date: '2025-05-12T20:08:00-03:00'
+date: '2025-05-13T06:08:00-03:00'
 categories: [notícias]
 image: /images/blog002.png
 excerpt: 'Analistas discutem o significado da trégua de 90 dias nas tarifas e as perspectivas para um acordo definitivo entre as duas maiores economias do mundo.'
@@ -106,7 +106,6 @@ O anúncio de uma <span class="highlight">pausa de 90 dias</span> na <span class
   background-color: #64b5f6;
 }
 .highlight {
-  background-color: #fff3cd;
   padding: 0 3px;
   border-radius: 3px;
   font-weight: 500;

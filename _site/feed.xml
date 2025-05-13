@@ -5,14 +5,25 @@
     <description>Plataforma completa para gestão financeira pessoal que combina organização prática com insights inteligentes para otimizar suas finanças. Oferecemos ferramentas para gestão financeira, recomendações de investimentos e conteúdo educacional.</description>
     <link>http://localhost:4000/InvestSavy/</link>
     <atom:link href="http://localhost:4000/InvestSavy/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 12 May 2025 20:25:56 -0300</pubDate>
-    <lastBuildDate>Mon, 12 May 2025 20:25:56 -0300</lastBuildDate>
+    <pubDate>Tue, 13 May 2025 12:46:09 -0300</pubDate>
+    <lastBuildDate>Tue, 13 May 2025 12:46:09 -0300</lastBuildDate>
     <generator>Jekyll v4.4.1</generator>
+    
+      <item>
+        <title>Copom Mantém Selic em 14,75%, mas Mercado Questiona se Ciclo de Alta Realmente Acabou</title>
+        <description>Ata da última reunião do Copom mantém incertezas sobre o fim do ciclo de alta dos juros, com analistas divididos sobre possível elevação adicional em junho.</description>
+        <pubDate>Tue, 13 May 2025 12:35:00 -0300</pubDate>
+        <link>http://localhost:4000/InvestSavy/not%C3%ADcias/copom-selic-1475-incerteza-mercado/</link>
+        <guid isPermaLink="true">http://localhost:4000/InvestSavy/not%C3%ADcias/copom-selic-1475-incerteza-mercado/</guid>
+        
+        <category>notícias</category>
+        
+      </item>
     
       <item>
         <title>Brasil e China: Novos Acordos Comerciais em Meio à Guerra Tarifária Global</title>
         <description>Lula e Xi Jinping assinam novos acordos comerciais em Pequim, fortalecendo a parceria estratégica entre Brasil e China enquanto os EUA intensificam ameaças protecionistas.</description>
-        <pubDate>Mon, 12 May 2025 20:20:00 -0300</pubDate>
+        <pubDate>Tue, 13 May 2025 10:20:00 -0300</pubDate>
         <link>http://localhost:4000/InvestSavy/not%C3%ADcias/brasil-china-novos-acordos-comerciais/</link>
         <guid isPermaLink="true">http://localhost:4000/InvestSavy/not%C3%ADcias/brasil-china-novos-acordos-comerciais/</guid>
         
@@ -21,22 +32,22 @@
       </item>
     
       <item>
-        <title>EUA e China: Uma Pausa na Guerra Tarifária e o Impacto Global</title>
-        <description>Analistas discutem o significado da trégua de 90 dias nas tarifas e as perspectivas para um acordo definitivo entre as duas maiores economias do mundo.</description>
-        <pubDate>Mon, 12 May 2025 20:08:00 -0300</pubDate>
-        <link>http://localhost:4000/InvestSavy/not%C3%ADcias/pausa-guerra-tarifaria-eua-china/</link>
-        <guid isPermaLink="true">http://localhost:4000/InvestSavy/not%C3%ADcias/pausa-guerra-tarifaria-eua-china/</guid>
+        <title>Coalizão Apresenta Plano de Descarbonização para Transportes com Potencial de R$ 600 Bilhões em Investimentos</title>
+        <description>Iniciativa com mais de 50 entidades visa reduzir emissões de gases de efeito estufa no setor em até 70% até 2050, alinhando o Brasil às metas da COP30.</description>
+        <pubDate>Tue, 13 May 2025 08:08:00 -0300</pubDate>
+        <link>http://localhost:4000/InvestSavy/not%C3%ADcias/plano-descarbonizacao-transporte-600bi/</link>
+        <guid isPermaLink="true">http://localhost:4000/InvestSavy/not%C3%ADcias/plano-descarbonizacao-transporte-600bi/</guid>
         
         <category>notícias</category>
         
       </item>
     
       <item>
-        <title>Coalizão Apresenta Plano de Descarbonização para Transportes com Potencial de R$ 600 Bilhões em Investimentos</title>
-        <description>Iniciativa com mais de 50 entidades visa reduzir emissões de gases de efeito estufa no setor em até 70% até 2050, alinhando o Brasil às metas da COP30.</description>
-        <pubDate>Mon, 12 May 2025 20:05:00 -0300</pubDate>
-        <link>http://localhost:4000/InvestSavy/not%C3%ADcias/plano-descarbonizacao-transporte-600bi/</link>
-        <guid isPermaLink="true">http://localhost:4000/InvestSavy/not%C3%ADcias/plano-descarbonizacao-transporte-600bi/</guid>
+        <title>EUA e China: Uma Pausa na Guerra Tarifária e o Impacto Global</title>
+        <description>Analistas discutem o significado da trégua de 90 dias nas tarifas e as perspectivas para um acordo definitivo entre as duas maiores economias do mundo.</description>
+        <pubDate>Tue, 13 May 2025 06:08:00 -0300</pubDate>
+        <link>http://localhost:4000/InvestSavy/not%C3%ADcias/pausa-guerra-tarifaria-eua-china/</link>
+        <guid isPermaLink="true">http://localhost:4000/InvestSavy/not%C3%ADcias/pausa-guerra-tarifaria-eua-china/</guid>
         
         <category>notícias</category>
         

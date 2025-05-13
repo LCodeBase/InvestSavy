@@ -4,7 +4,7 @@
     
     <url>
       <loc>http://localhost:4000/InvestSavy/blogs-main.html</loc>
-      <lastmod>2025-05-12T20:25:56-03:00</lastmod>
+      <lastmod>2025-05-13T12:46:09-03:00</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
     </url>
@@ -15,7 +15,7 @@
     
     <url>
       <loc>http://localhost:4000/InvestSavy/noticias.html</loc>
-      <lastmod>2025-05-12T20:25:56-03:00</lastmod>
+      <lastmod>2025-05-13T12:46:09-03:00</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
     </url>
@@ -26,7 +26,7 @@
     
     <url>
       <loc>http://localhost:4000/InvestSavy/search.html</loc>
-      <lastmod>2025-05-12T20:25:56-03:00</lastmod>
+      <lastmod>2025-05-13T12:46:09-03:00</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
     </url>
@@ -36,22 +36,29 @@
   
   
     <url>
-      <loc>http://localhost:4000/InvestSavy/not%C3%ADcias/brasil-china-novos-acordos-comerciais/</loc>
-      <lastmod>2025-05-12T20:20:00-03:00</lastmod>
+      <loc>http://localhost:4000/InvestSavy/not%C3%ADcias/copom-selic-1475-incerteza-mercado/</loc>
+      <lastmod>2025-05-13T12:35:00-03:00</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.7</priority>
     </url>
   
     <url>
-      <loc>http://localhost:4000/InvestSavy/not%C3%ADcias/pausa-guerra-tarifaria-eua-china/</loc>
-      <lastmod>2025-05-12T20:08:00-03:00</lastmod>
+      <loc>http://localhost:4000/InvestSavy/not%C3%ADcias/brasil-china-novos-acordos-comerciais/</loc>
+      <lastmod>2025-05-13T10:20:00-03:00</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.7</priority>
     </url>
   
     <url>
       <loc>http://localhost:4000/InvestSavy/not%C3%ADcias/plano-descarbonizacao-transporte-600bi/</loc>
-      <lastmod>2025-05-12T20:05:00-03:00</lastmod>
+      <lastmod>2025-05-13T08:08:00-03:00</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
+    </url>
+  
+    <url>
+      <loc>http://localhost:4000/InvestSavy/not%C3%ADcias/pausa-guerra-tarifaria-eua-china/</loc>
+      <lastmod>2025-05-13T06:08:00-03:00</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.7</priority>
     </url>
