@@ -1,7 +1,7 @@
 ---
 layout: noticia
 title: '5 Passos Simples para Sair do Vermelho'
-date: '2025-04-26T10:10:00-03:00'
+date: '2025-05-11T10:10:00-03:00'
 categories: [educacao]
 image: /images/edu04.png
 excerpt: 'Descubra como sair das dívidas e recuperar o controle financeiro com um método prático e eficiente.'
