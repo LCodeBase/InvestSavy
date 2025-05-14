@@ -1,186 +1,116 @@
-@media only screen and (max-width: 768px) {
-    .menu-toggle {
-        display: block;
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        font-size: 24px;
-        cursor: pointer;
-        z-index: 1000;
-    }
-
-    .nav-menu {
-        display: none;
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 250px;
-        height: 100vh;
-        background-color: white;
-        padding-top: 60px;
-        transition: 0.3s;
-        box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
-    }
-
-    .nav-menu.active {
-        right: 0;
-        display: block;
-    }
-
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    nav ul li {
-        margin: 15px 0;
-    }
-
-    .button-header {
-        width: 200px;
-        margin: 10px auto;
-    }
-
-    header {
-        flex-direction: row;
-        /* Mudamos para row para manter logo e menu toggle na mesma linha */
-        justify-content: space-between;
-        padding: 15px;
-        position: relative;
-        background-color: #fff;
-    }
-
-    .container-LOGO {
-        width: auto;
-        /* Alterado de 100% para auto */
-        margin-bottom: 0;
-    }
-
-    .menu-toggle {
-        display: block;
-        /* Mostra o botão em telas pequenas */
-        position: relative;
-        /* Alterado de absolute para relative */
-        top: auto;
-        right: auto;
-    }
-
-    .nav-menu {
-        display: none;
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 250px;
-        height: 100vh;
-        background-color: white;
-        padding-top: 60px;
-        transition: 0.3s ease;
-        box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
-        z-index: 999;
-    }
-
-    .nav-menu.active {
-        right: 0;
-        display: block;
-    }
-
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-        gap: 15px;
-    }
-
-    nav li {
-        width: 100%;
-        text-align: center;
-    }
-
-    nav li a {
-        display: block;
-        padding: 10px;
-        width: 100%;
-    }
-}
-
-
-@media only screen and (max-width: 768px) {
-    header {
-        position: relative;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 15px;
-    }
-
-    .menu-toggle {
-        display: block !important;
-        /* Força a exibição do botão */
-    }
-
-    .nav-menu {
-        display: none;
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 250px;
-        height: 100vh;
-        background-color: white;
-        padding-top: 60px;
-        transition: 0.3s ease;
-        box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
-        z-index: 999;
-    }
-
-    .nav-menu.active {
-        right: 0;
-        display: block;
-    }
-
-    /* ... resto do seu CSS mobile ... */
-}
-
+/* Regras base para o menu toggle e navegação */
 .menu-toggle {
-    display: none;
-    /* Esconde o botão em telas grandes */
-    cursor: pointer;
-    font-size: 24px;
-    color: #118a5f;
-}
-
-.nav-menu {
-    display: block;
-    /* Menu visível em telas grandes */
-}
-
-/* Primeiro, adicione estas regras fora da media query */
-.menu-toggle {
-    display: none;
-    /* Esconde o botão em telas grandes */
-    cursor: pointer;
-    font-size: 24px;
-    color: #118a5f;
-}
-
-.nav-menu {
-    display: block;
-    /* Menu visível em telas grandes */
-}
-
-/* Regras base para o menu toggle */
-.menu-toggle {
-    display: none;
-    /* Escondido por padrão em desktop */
-    font-size: 24px;
-    cursor: pointer;
-    color: #118a5f;
-    z-index: 1000;
-    padding: 10px;
+  display: none;
+  /* Escondido por padrão em desktop */
+  cursor: pointer;
+  font-size: 24px;
+  color: #118a5f;
+  z-index: 1001;
+  /* Valor maior para garantir que fique acima de outros elementos */
+  padding: 10px;
 }
 
 .menu-toggle i {
-    font-size: 28px;
-    /* Aumenta o tamanho do ícone */
+  font-size: 28px;
+  /* Tamanho do ícone */
+  transition: transform 0.3s ease;
+}
+
+.menu-toggle.active i {
+  transform: rotate(90deg);
+  /* Rotaciona o ícone quando o menu está ativo */
+}
+
+.nav-menu {
+  display: block;
+  /* Menu visível em telas grandes */
+}
+
+/* Regras para dispositivos móveis */
+@media only screen and (max-width: 768px) {
+  header {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #fff;
+    z-index: 1000;
+  }
+
+  .container-LOGO {
+    width: auto;
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+  }
+
+  .menu-toggle {
+    display: block;
+    /* Mostra o botão em telas pequenas */
+    position: relative;
+    top: auto;
+    right: auto;
+  }
+
+  .nav-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    /* Largura responsiva */
+    max-width: 300px;
+    /* Largura máxima */
+    height: 100vh;
+    background-color: white;
+    padding-top: 70px;
+    /* Espaço para o cabeçalho */
+    transition: all 0.3s ease;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    overflow-y: auto;
+    /* Permite rolagem se o menu for muito grande */
+  }
+
+  .nav-menu.active {
+    right: 0;
+    display: block;
+  }
+
+  .nav-menu ul {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .nav-menu li {
+    width: 100%;
+    text-align: center;
+    margin: 10px 0;
+  }
+
+  .nav-menu a {
+    display: block;
+    padding: 12px 15px;
+    width: 100%;
+    font-size: 16px;
+    color: #333;
+    transition: background-color 0.3s ease;
+  }
+
+  .nav-menu a:hover {
+    background-color: #f5f5f5;
+  }
+
+  .button-header {
+    width: 80%;
+    margin: 15px auto;
+    padding: 12px;
+    text-align: center;
+  }
 }
 
 /* Variáveis CSS Globais */
@@ -269,19 +199,41 @@ body {
 }
 
 /* Tipografia */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: var(--spacing-md);
   color: var(--secondary-color);
 }
 
-h1 { font-size: 3rem; }
-h2 { font-size: 2.5rem; }
-h3 { font-size: 2rem; }
-h4 { font-size: 1.5rem; }
-h5 { font-size: 1.25rem; }
-h6 { font-size: 1rem; }
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2.5rem;
+}
+
+h3 {
+  font-size: 2rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+
+h5 {
+  font-size: 1.25rem;
+}
+
+h6 {
+  font-size: 1rem;
+}
 
 p {
   margin-bottom: var(--spacing-md);
@@ -358,9 +310,17 @@ a:hover {
   gap: var(--spacing-lg);
 }
 
-.grid-2 { grid-template-columns: repeat(2, 1fr); }
-.grid-3 { grid-template-columns: repeat(3, 1fr); }
-.grid-4 { grid-template-columns: repeat(4, 1fr); }
+.grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
 
 /* Cards */
 .card {
@@ -397,69 +357,221 @@ a:hover {
 }
 
 /* Utilitários */
-.text-center { text-align: center; }
-.text-left { text-align: left; }
-.text-right { text-align: right; }
+.text-center {
+  text-align: center;
+}
 
-.text-primary { color: var(--primary-color); }
-.text-secondary { color: var(--secondary-color); }
-.text-accent { color: var(--accent-color); }
-.text-success { color: var(--success-color); }
-.text-error { color: var(--error-color); }
-.text-warning { color: var(--warning-color); }
-.text-info { color: var(--info-color); }
+.text-left {
+  text-align: left;
+}
 
-.bg-primary { background-color: var(--primary-color); }
-.bg-secondary { background-color: var(--secondary-color); }
-.bg-accent { background-color: var(--accent-color); }
-.bg-success { background-color: var(--success-color); }
-.bg-error { background-color: var(--error-color); }
-.bg-warning { background-color: var(--warning-color); }
-.bg-info { background-color: var(--info-color); }
+.text-right {
+  text-align: right;
+}
 
-.mt-1 { margin-top: var(--spacing-xs); }
-.mt-2 { margin-top: var(--spacing-sm); }
-.mt-3 { margin-top: var(--spacing-md); }
-.mt-4 { margin-top: var(--spacing-lg); }
-.mt-5 { margin-top: var(--spacing-xl); }
-.mt-6 { margin-top: var(--spacing-2xl); }
-.mt-7 { margin-top: var(--spacing-3xl); }
+.text-primary {
+  color: var(--primary-color);
+}
 
-.mb-1 { margin-bottom: var(--spacing-xs); }
-.mb-2 { margin-bottom: var(--spacing-sm); }
-.mb-3 { margin-bottom: var(--spacing-md); }
-.mb-4 { margin-bottom: var(--spacing-lg); }
-.mb-5 { margin-bottom: var(--spacing-xl); }
-.mb-6 { margin-bottom: var(--spacing-2xl); }
-.mb-7 { margin-bottom: var(--spacing-3xl); }
+.text-secondary {
+  color: var(--secondary-color);
+}
 
-.ml-1 { margin-left: var(--spacing-xs); }
-.ml-2 { margin-left: var(--spacing-sm); }
-.ml-3 { margin-left: var(--spacing-md); }
-.ml-4 { margin-left: var(--spacing-lg); }
-.ml-5 { margin-left: var(--spacing-xl); }
+.text-accent {
+  color: var(--accent-color);
+}
 
-.mr-1 { margin-right: var(--spacing-xs); }
-.mr-2 { margin-right: var(--spacing-sm); }
-.mr-3 { margin-right: var(--spacing-md); }
-.mr-4 { margin-right: var(--spacing-lg); }
-.mr-5 { margin-right: var(--spacing-xl); }
+.text-success {
+  color: var(--success-color);
+}
 
-.p-1 { padding: var(--spacing-xs); }
-.p-2 { padding: var(--spacing-sm); }
-.p-3 { padding: var(--spacing-md); }
-.p-4 { padding: var(--spacing-lg); }
-.p-5 { padding: var(--spacing-xl); }
+.text-error {
+  color: var(--error-color);
+}
 
-.rounded-sm { border-radius: var(--border-radius-sm); }
-.rounded { border-radius: var(--border-radius); }
-.rounded-lg { border-radius: var(--border-radius-lg); }
-.rounded-xl { border-radius: var(--border-radius-xl); }
+.text-warning {
+  color: var(--warning-color);
+}
 
-.shadow-sm { box-shadow: var(--shadow-sm); }
-.shadow { box-shadow: var(--shadow-md); }
-.shadow-lg { box-shadow: var(--shadow-lg); }
-.shadow-xl { box-shadow: var(--shadow-xl); }
+.text-info {
+  color: var(--info-color);
+}
+
+.bg-primary {
+  background-color: var(--primary-color);
+}
+
+.bg-secondary {
+  background-color: var(--secondary-color);
+}
+
+.bg-accent {
+  background-color: var(--accent-color);
+}
+
+.bg-success {
+  background-color: var(--success-color);
+}
+
+.bg-error {
+  background-color: var(--error-color);
+}
+
+.bg-warning {
+  background-color: var(--warning-color);
+}
+
+.bg-info {
+  background-color: var(--info-color);
+}
+
+.mt-1 {
+  margin-top: var(--spacing-xs);
+}
+
+.mt-2 {
+  margin-top: var(--spacing-sm);
+}
+
+.mt-3 {
+  margin-top: var(--spacing-md);
+}
+
+.mt-4 {
+  margin-top: var(--spacing-lg);
+}
+
+.mt-5 {
+  margin-top: var(--spacing-xl);
+}
+
+.mt-6 {
+  margin-top: var(--spacing-2xl);
+}
+
+.mt-7 {
+  margin-top: var(--spacing-3xl);
+}
+
+.mb-1 {
+  margin-bottom: var(--spacing-xs);
+}
+
+.mb-2 {
+  margin-bottom: var(--spacing-sm);
+}
+
+.mb-3 {
+  margin-bottom: var(--spacing-md);
+}
+
+.mb-4 {
+  margin-bottom: var(--spacing-lg);
+}
+
+.mb-5 {
+  margin-bottom: var(--spacing-xl);
+}
+
+.mb-6 {
+  margin-bottom: var(--spacing-2xl);
+}
+
+.mb-7 {
+  margin-bottom: var(--spacing-3xl);
+}
+
+.ml-1 {
+  margin-left: var(--spacing-xs);
+}
+
+.ml-2 {
+  margin-left: var(--spacing-sm);
+}
+
+.ml-3 {
+  margin-left: var(--spacing-md);
+}
+
+.ml-4 {
+  margin-left: var(--spacing-lg);
+}
+
+.ml-5 {
+  margin-left: var(--spacing-xl);
+}
+
+.mr-1 {
+  margin-right: var(--spacing-xs);
+}
+
+.mr-2 {
+  margin-right: var(--spacing-sm);
+}
+
+.mr-3 {
+  margin-right: var(--spacing-md);
+}
+
+.mr-4 {
+  margin-right: var(--spacing-lg);
+}
+
+.mr-5 {
+  margin-right: var(--spacing-xl);
+}
+
+.p-1 {
+  padding: var(--spacing-xs);
+}
+
+.p-2 {
+  padding: var(--spacing-sm);
+}
+
+.p-3 {
+  padding: var(--spacing-md);
+}
+
+.p-4 {
+  padding: var(--spacing-lg);
+}
+
+.p-5 {
+  padding: var(--spacing-xl);
+}
+
+.rounded-sm {
+  border-radius: var(--border-radius-sm);
+}
+
+.rounded {
+  border-radius: var(--border-radius);
+}
+
+.rounded-lg {
+  border-radius: var(--border-radius-lg);
+}
+
+.rounded-xl {
+  border-radius: var(--border-radius-xl);
+}
+
+.shadow-sm {
+  box-shadow: var(--shadow-sm);
+}
+
+.shadow {
+  box-shadow: var(--shadow-md);
+}
+
+.shadow-lg {
+  box-shadow: var(--shadow-lg);
+}
+
+.shadow-xl {
+  box-shadow: var(--shadow-xl);
+}
 
 /* Responsividade */
 @media (max-width: 1024px) {
@@ -473,21 +585,41 @@ a:hover {
     font-size: 14px;
   }
 
-  .grid-3, .grid-4 {
+  .grid-3,
+  .grid-4 {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  h1 { font-size: 2.5rem; }
-  h2 { font-size: 2rem; }
-  h3 { font-size: 1.75rem; }
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  h3 {
+    font-size: 1.75rem;
+  }
 }
 
 @media (max-width: 640px) {
-  .grid-2, .grid-3, .grid-4 {
+
+  .grid-2,
+  .grid-3,
+  .grid-4 {
     grid-template-columns: 1fr;
   }
 
-  h1 { font-size: 2rem; }
-  h2 { font-size: 1.75rem; }
-  h3 { font-size: 1.5rem; }
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
 }

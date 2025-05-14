@@ -1,35 +1,7 @@
-// Header Scroll Effect
-const header = document.querySelector('header')
-let lastScroll = 0
+// Nota: As funções de Header Scroll Effect e Menu Mobile foram movidas para js-universal.js
+// para centralizar o comportamento e evitar duplicação de código
 
-window.addEventListener('scroll', () => {
-  const currentScroll = window.pageYOffset
-
-  if (currentScroll > 50) {
-    header.classList.add('scrolled')
-  } else {
-    header.classList.remove('scrolled')
-  }
-
-  lastScroll = currentScroll
-})
-
-// Menu Mobile
-const menuToggle = document.querySelector('.menu-toggle')
-const navMenu = document.querySelector('.nav-menu')
-
-menuToggle.addEventListener('click', () => {
-  navMenu.classList.toggle('active')
-  menuToggle.classList.toggle('active')
-})
-
-// Fechar menu ao clicar em um link
-document.querySelectorAll('.nav-menu a').forEach((link) => {
-  link.addEventListener('click', () => {
-    navMenu.classList.remove('active')
-    menuToggle.classList.remove('active')
-  })
-})
+// Mantendo apenas as funções específicas desta página que não estão em js-universal.js
 
 // Animação suave ao rolar para links internos
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
