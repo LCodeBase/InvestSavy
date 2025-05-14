@@ -4,7 +4,7 @@
     
     <url>
       <loc>http://localhost:4000/InvestSavy/blogs-main.html</loc>
-      <lastmod>2025-05-14T12:47:11-03:00</lastmod>
+      <lastmod>2025-05-14T12:59:45-03:00</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
     </url>
@@ -15,7 +15,7 @@
     
     <url>
       <loc>http://localhost:4000/InvestSavy/noticias.html</loc>
-      <lastmod>2025-05-14T12:47:11-03:00</lastmod>
+      <lastmod>2025-05-14T12:59:45-03:00</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
     </url>
@@ -26,7 +26,7 @@
     
     <url>
       <loc>http://localhost:4000/InvestSavy/search.html</loc>
-      <lastmod>2025-05-14T12:47:11-03:00</lastmod>
+      <lastmod>2025-05-14T12:59:45-03:00</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
     </url>
@@ -37,63 +37,63 @@
   
     <url>
       <loc>http://localhost:4000/InvestSavy/not%C3%ADcias/copom-selic-1475-incerteza-mercado/</loc>
-      <lastmod>2025-05-13T12:35:00-03:00</lastmod>
+      <lastmod>2025-05-14T12:35:00-03:00</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.7</priority>
     </url>
   
     <url>
       <loc>http://localhost:4000/InvestSavy/not%C3%ADcias/brasil-china-novos-acordos-comerciais/</loc>
-      <lastmod>2025-05-13T10:20:00-03:00</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.7</priority>
-    </url>
-  
-    <url>
-      <loc>http://localhost:4000/InvestSavy/not%C3%ADcias/plano-descarbonizacao-transporte-600bi/</loc>
-      <lastmod>2025-05-13T08:08:00-03:00</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.7</priority>
-    </url>
-  
-    <url>
-      <loc>http://localhost:4000/InvestSavy/not%C3%ADcias/pausa-guerra-tarifaria-eua-china/</loc>
-      <lastmod>2025-05-13T06:08:00-03:00</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.7</priority>
-    </url>
-  
-    <url>
-      <loc>http://localhost:4000/InvestSavy/educacao/oque-%C3%A9-infla%C3%A7%C3%A3o/</loc>
-      <lastmod>2025-05-12T17:02:00-03:00</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.7</priority>
-    </url>
-  
-    <url>
-      <loc>http://localhost:4000/InvestSavy/educacao/quando-como-declarar-ir/</loc>
-      <lastmod>2025-05-12T10:30:00-03:00</lastmod>
+      <lastmod>2025-05-14T10:20:00-03:00</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.7</priority>
     </url>
   
     <url>
       <loc>http://localhost:4000/InvestSavy/educacao/como-investir-iniciantes/</loc>
-      <lastmod>2025-05-11T20:28:00-03:00</lastmod>
+      <lastmod>2025-05-14T09:28:00-03:00</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
+    </url>
+  
+    <url>
+      <loc>http://localhost:4000/InvestSavy/not%C3%ADcias/pausa-guerra-tarifaria-eua-china/</loc>
+      <lastmod>2025-05-14T06:08:00-03:00</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
+    </url>
+  
+    <url>
+      <loc>http://localhost:4000/InvestSavy/educacao/quando-como-declarar-ir/</loc>
+      <lastmod>2025-05-14T05:30:00-03:00</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
+    </url>
+  
+    <url>
+      <loc>http://localhost:4000/InvestSavy/not%C3%ADcias/plano-descarbonizacao-transporte-600bi/</loc>
+      <lastmod>2025-05-14T04:08:00-03:00</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
+    </url>
+  
+    <url>
+      <loc>http://localhost:4000/InvestSavy/educacao/oque-%C3%A9-infla%C3%A7%C3%A3o/</loc>
+      <lastmod>2025-05-13T17:02:00-03:00</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.7</priority>
     </url>
   
     <url>
       <loc>http://localhost:4000/InvestSavy/educacao/comecando-investir-o-que-saber/</loc>
-      <lastmod>2025-05-11T12:20:00-03:00</lastmod>
+      <lastmod>2025-05-13T12:20:00-03:00</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.7</priority>
     </url>
   
     <url>
       <loc>http://localhost:4000/InvestSavy/educacao/5-passos-sair-vermelho/</loc>
-      <lastmod>2025-05-11T10:10:00-03:00</lastmod>
+      <lastmod>2025-05-13T10:10:00-03:00</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.7</priority>
     </url>

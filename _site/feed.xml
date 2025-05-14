@@ -5,14 +5,14 @@
     <description>Plataforma completa para gestão financeira pessoal que combina organização prática com insights inteligentes para otimizar suas finanças. Oferecemos ferramentas para gestão financeira, recomendações de investimentos e conteúdo educacional.</description>
     <link>http://localhost:4000/InvestSavy/</link>
     <atom:link href="http://localhost:4000/InvestSavy/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 14 May 2025 12:47:11 -0300</pubDate>
-    <lastBuildDate>Wed, 14 May 2025 12:47:11 -0300</lastBuildDate>
+    <pubDate>Wed, 14 May 2025 12:59:45 -0300</pubDate>
+    <lastBuildDate>Wed, 14 May 2025 12:59:45 -0300</lastBuildDate>
     <generator>Jekyll v4.4.1</generator>
     
       <item>
         <title>Copom Mantém Selic em 14,75%, mas Mercado Questiona se Ciclo de Alta Realmente Acabou</title>
         <description>Ata da última reunião do Copom mantém incertezas sobre o fim do ciclo de alta dos juros, com analistas divididos sobre possível elevação adicional em junho.</description>
-        <pubDate>Tue, 13 May 2025 12:35:00 -0300</pubDate>
+        <pubDate>Wed, 14 May 2025 12:35:00 -0300</pubDate>
         <link>http://localhost:4000/InvestSavy/not%C3%ADcias/copom-selic-1475-incerteza-mercado/</link>
         <guid isPermaLink="true">http://localhost:4000/InvestSavy/not%C3%ADcias/copom-selic-1475-incerteza-mercado/</guid>
         
@@ -23,7 +23,7 @@
       <item>
         <title>Brasil e China: Novos Acordos Comerciais em Meio à Guerra Tarifária Global</title>
         <description>Lula e Xi Jinping assinam novos acordos comerciais em Pequim, fortalecendo a parceria estratégica entre Brasil e China enquanto os EUA intensificam ameaças protecionistas.</description>
-        <pubDate>Tue, 13 May 2025 10:20:00 -0300</pubDate>
+        <pubDate>Wed, 14 May 2025 10:20:00 -0300</pubDate>
         <link>http://localhost:4000/InvestSavy/not%C3%ADcias/brasil-china-novos-acordos-comerciais/</link>
         <guid isPermaLink="true">http://localhost:4000/InvestSavy/not%C3%ADcias/brasil-china-novos-acordos-comerciais/</guid>
         
@@ -32,53 +32,9 @@
       </item>
     
       <item>
-        <title>Coalizão Apresenta Plano de Descarbonização para Transportes com Potencial de R$ 600 Bilhões em Investimentos</title>
-        <description>Iniciativa com mais de 50 entidades visa reduzir emissões de gases de efeito estufa no setor em até 70% até 2050, alinhando o Brasil às metas da COP30.</description>
-        <pubDate>Tue, 13 May 2025 08:08:00 -0300</pubDate>
-        <link>http://localhost:4000/InvestSavy/not%C3%ADcias/plano-descarbonizacao-transporte-600bi/</link>
-        <guid isPermaLink="true">http://localhost:4000/InvestSavy/not%C3%ADcias/plano-descarbonizacao-transporte-600bi/</guid>
-        
-        <category>notícias</category>
-        
-      </item>
-    
-      <item>
-        <title>EUA e China: Uma Pausa na Guerra Tarifária e o Impacto Global</title>
-        <description>Analistas discutem o significado da trégua de 90 dias nas tarifas e as perspectivas para um acordo definitivo entre as duas maiores economias do mundo.</description>
-        <pubDate>Tue, 13 May 2025 06:08:00 -0300</pubDate>
-        <link>http://localhost:4000/InvestSavy/not%C3%ADcias/pausa-guerra-tarifaria-eua-china/</link>
-        <guid isPermaLink="true">http://localhost:4000/InvestSavy/not%C3%ADcias/pausa-guerra-tarifaria-eua-china/</guid>
-        
-        <category>notícias</category>
-        
-      </item>
-    
-      <item>
-        <title>O que é Inflação e Como Ela Impacta os Preços?</title>
-        <description>Entenda como a inflação afeta seu bolso e a economia</description>
-        <pubDate>Mon, 12 May 2025 17:02:00 -0300</pubDate>
-        <link>http://localhost:4000/InvestSavy/educacao/oque-%C3%A9-infla%C3%A7%C3%A3o/</link>
-        <guid isPermaLink="true">http://localhost:4000/InvestSavy/educacao/oque-%C3%A9-infla%C3%A7%C3%A3o/</guid>
-        
-        <category>educacao</category>
-        
-      </item>
-    
-      <item>
-        <title>Quando e Como Declarar o IR? Guia Completo para Não Errar em 2025</title>
-        <description>Descubra quando e como declarar o Imposto de Renda, passo a passo, evitando erros e multas.</description>
-        <pubDate>Mon, 12 May 2025 10:30:00 -0300</pubDate>
-        <link>http://localhost:4000/InvestSavy/educacao/quando-como-declarar-ir/</link>
-        <guid isPermaLink="true">http://localhost:4000/InvestSavy/educacao/quando-como-declarar-ir/</guid>
-        
-        <category>educacao</category>
-        
-      </item>
-    
-      <item>
         <title>Como Começar a Investir: Guia para Iniciantes</title>
         <description>Aprenda os primeiros passos para começar sua jornada de investimentos de forma segura e consciente.</description>
-        <pubDate>Sun, 11 May 2025 20:28:00 -0300</pubDate>
+        <pubDate>Wed, 14 May 2025 09:28:00 -0300</pubDate>
         <link>http://localhost:4000/InvestSavy/educacao/como-investir-iniciantes/</link>
         <guid isPermaLink="true">http://localhost:4000/InvestSavy/educacao/como-investir-iniciantes/</guid>
         
@@ -87,9 +43,53 @@
       </item>
     
       <item>
+        <title>EUA e China: Uma Pausa na Guerra Tarifária e o Impacto Global</title>
+        <description>Analistas discutem o significado da trégua de 90 dias nas tarifas e as perspectivas para um acordo definitivo entre as duas maiores economias do mundo.</description>
+        <pubDate>Wed, 14 May 2025 06:08:00 -0300</pubDate>
+        <link>http://localhost:4000/InvestSavy/not%C3%ADcias/pausa-guerra-tarifaria-eua-china/</link>
+        <guid isPermaLink="true">http://localhost:4000/InvestSavy/not%C3%ADcias/pausa-guerra-tarifaria-eua-china/</guid>
+        
+        <category>notícias</category>
+        
+      </item>
+    
+      <item>
+        <title>Quando e Como Declarar o IR? Guia Completo para Não Errar em 2025</title>
+        <description>Descubra quando e como declarar o Imposto de Renda, passo a passo, evitando erros e multas.</description>
+        <pubDate>Wed, 14 May 2025 05:30:00 -0300</pubDate>
+        <link>http://localhost:4000/InvestSavy/educacao/quando-como-declarar-ir/</link>
+        <guid isPermaLink="true">http://localhost:4000/InvestSavy/educacao/quando-como-declarar-ir/</guid>
+        
+        <category>educacao</category>
+        
+      </item>
+    
+      <item>
+        <title>Coalizão Apresenta Plano de Descarbonização para Transportes com Potencial de R$ 600 Bilhões em Investimentos</title>
+        <description>Iniciativa com mais de 50 entidades visa reduzir emissões de gases de efeito estufa no setor em até 70% até 2050, alinhando o Brasil às metas da COP30.</description>
+        <pubDate>Wed, 14 May 2025 04:08:00 -0300</pubDate>
+        <link>http://localhost:4000/InvestSavy/not%C3%ADcias/plano-descarbonizacao-transporte-600bi/</link>
+        <guid isPermaLink="true">http://localhost:4000/InvestSavy/not%C3%ADcias/plano-descarbonizacao-transporte-600bi/</guid>
+        
+        <category>notícias</category>
+        
+      </item>
+    
+      <item>
+        <title>O que é Inflação e Como Ela Impacta os Preços?</title>
+        <description>Entenda como a inflação afeta seu bolso e a economia</description>
+        <pubDate>Tue, 13 May 2025 17:02:00 -0300</pubDate>
+        <link>http://localhost:4000/InvestSavy/educacao/oque-%C3%A9-infla%C3%A7%C3%A3o/</link>
+        <guid isPermaLink="true">http://localhost:4000/InvestSavy/educacao/oque-%C3%A9-infla%C3%A7%C3%A3o/</guid>
+        
+        <category>educacao</category>
+        
+      </item>
+    
+      <item>
         <title>Começando a Investir: O Que Você Precisa Saber Antes de Aplicar Dinheiro</title>
         <description>Descubra tudo o que você precisa saber antes de dar os primeiros passos no mundo dos investimentos.</description>
-        <pubDate>Sun, 11 May 2025 12:20:00 -0300</pubDate>
+        <pubDate>Tue, 13 May 2025 12:20:00 -0300</pubDate>
         <link>http://localhost:4000/InvestSavy/educacao/comecando-investir-o-que-saber/</link>
         <guid isPermaLink="true">http://localhost:4000/InvestSavy/educacao/comecando-investir-o-que-saber/</guid>
         
@@ -100,7 +100,7 @@
       <item>
         <title>5 Passos Simples para Sair do Vermelho</title>
         <description>Descubra como sair das dívidas e recuperar o controle financeiro com um método prático e eficiente.</description>
-        <pubDate>Sun, 11 May 2025 10:10:00 -0300</pubDate>
+        <pubDate>Tue, 13 May 2025 10:10:00 -0300</pubDate>
         <link>http://localhost:4000/InvestSavy/educacao/5-passos-sair-vermelho/</link>
         <guid isPermaLink="true">http://localhost:4000/InvestSavy/educacao/5-passos-sair-vermelho/</guid>
         
