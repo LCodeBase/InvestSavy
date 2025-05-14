@@ -1,7 +1,7 @@
 ---
 layout: noticia
 title: 'Quando e Como Declarar o IR? Guia Completo para Não Errar em 2025'
-date: '2025-05-12T10:30:00-03:00'
+date: '2025-05-14T05:30:00-03:00'
 categories: [educacao]
 image: /images/edu03.png
 excerpt: 'Descubra quando e como declarar o Imposto de Renda, passo a passo, evitando erros e multas.'

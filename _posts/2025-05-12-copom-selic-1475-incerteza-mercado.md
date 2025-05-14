@@ -1,7 +1,7 @@
 ---
 layout: noticia
 title: "Copom Mantém Selic em 14,75%, mas Mercado Questiona se Ciclo de Alta Realmente Acabou"
-date: '2025-05-13T12:35:00-03:00'
+date: '2025-05-14T12:35:00-03:00'
 categories: [notícias]
 image: /images/blog004.png
 excerpt: 'Ata da última reunião do Copom mantém incertezas sobre o fim do ciclo de alta dos juros, com analistas divididos sobre possível elevação adicional em junho.'

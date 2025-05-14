@@ -1,7 +1,7 @@
 ---
 layout: noticia
 title: 'Começando a Investir: O Que Você Precisa Saber Antes de Aplicar Dinheiro'
-date: '2025-05-11T12:20:00-03:00'
+date: '2025-05-13T12:20:00-03:00'
 categories: [educacao]
 image: /images/edu05.png
 excerpt: 'Descubra tudo o que você precisa saber antes de dar os primeiros passos no mundo dos investimentos.'
