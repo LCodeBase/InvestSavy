@@ -5,9 +5,20 @@
     <description>Plataforma completa para gestão financeira pessoal que combina organização prática com insights inteligentes para otimizar suas finanças. Oferecemos ferramentas para gestão financeira, recomendações de investimentos e conteúdo educacional.</description>
     <link>http://localhost:4000/InvestSavy/</link>
     <atom:link href="http://localhost:4000/InvestSavy/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 14 May 2025 12:59:45 -0300</pubDate>
-    <lastBuildDate>Wed, 14 May 2025 12:59:45 -0300</lastBuildDate>
+    <pubDate>Wed, 14 May 2025 13:43:51 -0300</pubDate>
+    <lastBuildDate>Wed, 14 May 2025 13:43:51 -0300</lastBuildDate>
     <generator>Jekyll v4.4.1</generator>
+    
+      <item>
+        <title>O que são as Siglas do Mercado Financeiro: Guia Completo</title>
+        <description>Entenda o significado das principais siglas e termos técnicos utilizados no mercado financeiro brasileiro e internacional.</description>
+        <pubDate>Wed, 14 May 2025 13:00:00 -0300</pubDate>
+        <link>http://localhost:4000/InvestSavy/educacao/siglas-mercado-financeiro/</link>
+        <guid isPermaLink="true">http://localhost:4000/InvestSavy/educacao/siglas-mercado-financeiro/</guid>
+        
+        <category>educacao</category>
+        
+      </item>
     
       <item>
         <title>Copom Mantém Selic em 14,75%, mas Mercado Questiona se Ciclo de Alta Realmente Acabou</title>
