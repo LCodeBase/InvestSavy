@@ -5,9 +5,31 @@
     <description>Plataforma completa para gestão financeira pessoal que combina organização prática com insights inteligentes para otimizar suas finanças. Oferecemos ferramentas para gestão financeira, recomendações de investimentos e conteúdo educacional.</description>
     <link>http://localhost:4000/InvestSavy/</link>
     <atom:link href="http://localhost:4000/InvestSavy/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 14 May 2025 13:43:51 -0300</pubDate>
-    <lastBuildDate>Wed, 14 May 2025 13:43:51 -0300</lastBuildDate>
+    <pubDate>Thu, 15 May 2025 20:22:44 -0300</pubDate>
+    <lastBuildDate>Thu, 15 May 2025 20:22:44 -0300</lastBuildDate>
     <generator>Jekyll v4.4.1</generator>
+    
+      <item>
+        <title>Vendas do Varejo Registram Terceira Alta Consecutiva Impulsionadas por Emprego e Renda Recorde</title>
+        <description>Dados do IBGE mostram crescimento de 0,8% nas vendas do varejo em março, com destaque para produtos alimentícios, vestuário e farmácia, refletindo a resiliência do consumo das famílias.</description>
+        <pubDate>Thu, 15 May 2025 20:20:00 -0300</pubDate>
+        <link>http://localhost:4000/InvestSavy/not%C3%ADcias/vendas-varejo-alta-terceiro-mes/</link>
+        <guid isPermaLink="true">http://localhost:4000/InvestSavy/not%C3%ADcias/vendas-varejo-alta-terceiro-mes/</guid>
+        
+        <category>notícias</category>
+        
+      </item>
+    
+      <item>
+        <title>Governo Avalia Mudanças em Leis para Reduzir Fluxo de Precatórios</title>
+        <description>Ministério do Planejamento estuda alterações em legislações que geram alto volume de processos judiciais nas áreas de Previdência e folha de pagamento de servidores.</description>
+        <pubDate>Thu, 15 May 2025 20:10:00 -0300</pubDate>
+        <link>http://localhost:4000/InvestSavy/not%C3%ADcias/governo-avalia-mudar-leis-precatorios/</link>
+        <guid isPermaLink="true">http://localhost:4000/InvestSavy/not%C3%ADcias/governo-avalia-mudar-leis-precatorios/</guid>
+        
+        <category>notícias</category>
+        
+      </item>
     
       <item>
         <title>O que são as Siglas do Mercado Financeiro: Guia Completo</title>
@@ -92,28 +114,6 @@
         <pubDate>Tue, 13 May 2025 17:02:00 -0300</pubDate>
         <link>http://localhost:4000/InvestSavy/educacao/oque-%C3%A9-infla%C3%A7%C3%A3o/</link>
         <guid isPermaLink="true">http://localhost:4000/InvestSavy/educacao/oque-%C3%A9-infla%C3%A7%C3%A3o/</guid>
-        
-        <category>educacao</category>
-        
-      </item>
-    
-      <item>
-        <title>Começando a Investir: O Que Você Precisa Saber Antes de Aplicar Dinheiro</title>
-        <description>Descubra tudo o que você precisa saber antes de dar os primeiros passos no mundo dos investimentos.</description>
-        <pubDate>Tue, 13 May 2025 12:20:00 -0300</pubDate>
-        <link>http://localhost:4000/InvestSavy/educacao/comecando-investir-o-que-saber/</link>
-        <guid isPermaLink="true">http://localhost:4000/InvestSavy/educacao/comecando-investir-o-que-saber/</guid>
-        
-        <category>educacao</category>
-        
-      </item>
-    
-      <item>
-        <title>5 Passos Simples para Sair do Vermelho</title>
-        <description>Descubra como sair das dívidas e recuperar o controle financeiro com um método prático e eficiente.</description>
-        <pubDate>Tue, 13 May 2025 10:10:00 -0300</pubDate>
-        <link>http://localhost:4000/InvestSavy/educacao/5-passos-sair-vermelho/</link>
-        <guid isPermaLink="true">http://localhost:4000/InvestSavy/educacao/5-passos-sair-vermelho/</guid>
         
         <category>educacao</category>
         
