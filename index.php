@@ -46,7 +46,7 @@
         <?php
         require_once 'php/auth.php';
         if (!isLoggedIn()) {
-            header('Location: login.html');
+            header('Location: index.html');
             exit();
         }
         ?>
