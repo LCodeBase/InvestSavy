@@ -1,7 +1,7 @@
 ---
 layout: noticia
 title: 'Como Começar a Investir: Guia para Iniciantes'
-date: '2025-05-14T09:28:00-03:00'
+date: '2025-05-19T09:28:00-03:00'
 categories: [educacao]
 image: /images/edu01.png
 excerpt: 'Aprenda os primeiros passos para começar sua jornada de investimentos de forma segura e consciente.'

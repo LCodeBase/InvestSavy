@@ -1,7 +1,7 @@
 ---
 layout: noticia
 title: 'O que é Inflação e Como Ela Impacta os Preços?'
-date: '2025-05-13T17:02:00-03:00'
+date: '2025-05-19T12:02:00-03:00'
 categories: [educacao]
 image: /images/edu02.png
 excerpt: 'Entenda como a inflação afeta seu bolso e a economia'

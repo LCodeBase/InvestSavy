@@ -1,7 +1,7 @@
 ---
 layout: noticia
 title: 'O que são as Siglas do Mercado Financeiro: Guia Completo'
-date: '2025-05-14T13:00:00-03:00'
+date: '2025-05-20T13:00:00-03:00'
 categories: [educacao]
 image: /images/edu06.png
 excerpt: 'Entenda o significado das principais siglas e termos técnicos utilizados no mercado financeiro brasileiro e internacional.'

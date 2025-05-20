@@ -137,3 +137,4 @@ function sortNewsByDate() {
 
 // Call the function when the page loads
 document.addEventListener('DOMContentLoaded', sortNewsByDate)
+

@@ -1,7 +1,7 @@
 ---
 layout: noticia
 title: "Vendas do Varejo Registram Terceira Alta Consecutiva Impulsionadas por Emprego e Renda Recorde"
-date: '2025-05-15T20:20:00-03:00'
+date: '2025-05-20T08:20:00-03:00'
 categories: [notícias]
 image: /images/blog006.png
 excerpt: 'Dados do IBGE mostram crescimento de 0,8% nas vendas do varejo em março, com destaque para produtos alimentícios, vestuário e farmácia, refletindo a resiliência do consumo das famílias.'
