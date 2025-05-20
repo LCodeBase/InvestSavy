@@ -1,0 +1,21 @@
+{
+    "name": "InvestSavy",
+    "short_name": "InvestSavy",
+    "icons": [
+        {
+            "src": "/InvestSavy/images/logo-to-index.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "/InvestSavy/images/logo-to-index.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any"
+        }
+    ],
+    "theme_color": "#118a5f",
+    "background_color": "#ffffff",
+    "display": "standalone"
+}
