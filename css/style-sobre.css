@@ -1042,7 +1042,7 @@ footer {
   .founder-content {
     flex-direction: column;
     text-align: center;
-    padding: 40px;
+    padding: 30px;
     gap: 40px;
   }
 
@@ -1057,9 +1057,13 @@ footer {
   .founder-info {
     padding: 0;
   }
+
+  .founder-info h3 {
+    font-size: 2rem;
+  }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 576px) {
   .founder {
     padding: 60px 0;
   }
@@ -1069,7 +1073,7 @@ footer {
   }
 
   .founder-content {
-    padding: 30px;
+    padding: 20px;
   }
 
   .founder-image {
@@ -1090,20 +1094,6 @@ footer {
 
   .founder-description {
     font-size: 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .founder-content {
-    padding: 20px;
-  }
-
-  .founder-image {
-    flex: 0 0 200px;
-  }
-
-  .founder-image img {
-    height: 200px;
   }
 }
 
