@@ -127,106 +127,165 @@
   </head>
 
   <body>
-    <header class="main-header">
-      <div class="header-left">
-        <img src="images/Logo-InvestSavy.svg" alt="Logo InvestSavy" class="logo-svg" />
-        <span class="logo-text">InvestSavy</span>
+    <header>
+      <div class="container-LOGO">
+        <img src="images/00000000000001.svg" alt="Logo InvestSavy" style="width: 10%; margin: -19px 3px 0 0;" />
+        <div class="logo">InvestSavy</div>
       </div>
-      <nav class="header-right nav-menu">
+
+      <div class="menu-toggle" alt="Botão-Menu">
+        <i class="fas fa-bars"></i>
+      </div>
+
+      <nav class="nav-menu">
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="sobre.html">Sobre Nós</a></li>
-          <li><a href="blogs-main.html">Notícias</a></li>
-          <li><a href="servicos.html">Serviços</a></li>
+          <li id="comment-header"><a href="index.html">Home</a></li>
+          <li id="comment-header"><a href="sobre.html">Sobre Nós</a></li>
+          <li id="comment-header"><a href="blogs-main.html">Notícias</a></li>
+          <li>
+            <button class="button-header" onclick="window.location.href='servicos.html'">
+              Serviços
+              <i class="fa-solid fa-arrow-right" id="seta"></i>
+            </button>
+          </li>
         </ul>
       </nav>
     </header>
+
     <main>
-      <section class="hero-modern">
+      <!-- Hero Section -->
+      <section class="hero">
         <div class="hero-content">
           <h1>Transforme sua vida financeira com a InvestSavy</h1>
-          <p class="hero-subtitle">Acompanhe as notícias mais quentes do mercado, acesse ferramentas gratuitas e tome decisões inteligentes.</p>
-          <a href="servicos.html" class="cta-btn">Acessar Ferramentas Gratuitas</a>
+          <p class="hero-subtitle">
+            Aprenda a investir, gerencie suas finanças e alcance sua independência financeira com nossas ferramentas e conteúdos especializados.
+          </p>
+          <div class="hero-buttons">
+            <a href="servicos.html" class="button-primary">
+              Começar Agora
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+            <a href="sobre.html" class="button-secondary">
+              Conheça Nossa História
+            </a>
+          </div>
         </div>
-        <div class="hero-news-featured">
-          <!-- Aqui será exibida a notícia mais quente (Jekyll/Liquid) -->
-          {% assign hot_news = site.posts | sort: 'date' | last %}
-          {% if hot_news %}
-          <div class="news-featured-card">
-            <img src="{{ hot_news.image }}" alt="{{ hot_news.title }}" class="news-featured-img" />
-            <div class="news-featured-content">
-              <h2>{{ hot_news.title }}</h2>
-              <p>{{ hot_news.excerpt }}</p>
-              <a href="{{ hot_news.url }}" class="read-more">Ler notícia completa</a>
+        <div class="hero-image">
+          <img src="images/01.png" alt="Ilustração de finanças e investimentos" class="reduced-size" />
+        </div>
+      </section>
+
+      <!-- Features Section -->
+      <section class="features">
+        <div class="section-header">
+          <h2>Por que escolher a InvestSavy?</h2>
+          <p>Ferramentas e recursos para impulsionar sua jornada financeira</p>
+        </div>
+        <div class="features-grid">
+          <div class="feature-item">
+            <i class="fas fa-chart-line fa-3x"></i>
+            <h3>Análise de Investimentos</h3>
+            <p>
+              Acesse análises detalhadas e recomendações personalizadas para seus investimentos, baseadas em dados reais do mercado.
+            </p>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-calculator fa-3x"></i>
+            <h3>Planejamento Financeiro</h3>
+            <p>
+              Utilize nossas ferramentas avançadas para planejar suas finanças, estabelecer metas e acompanhar seu progresso.
+            </p>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-graduation-cap fa-3x"></i>
+            <h3>Educação Financeira</h3>
+            <p>
+              Aprenda com nossos especialistas através de conteúdos exclusivos e atualizados sobre o mercado financeiro.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Latest News Section -->
+      <section class="blog-container">
+        <div class="section-header">
+          <h2>Últimas Notícias do Mercado</h2>
+          <p>Mantenha-se informado com as análises mais relevantes do mercado financeiro</p>
+        </div>
+        <div class="blog-cards">
+          <article class="card">
+            <img src="images/blog004.png" alt="Banco Central do Brasil" />
+            <div class="card-content">
+              <a href="blogs-main.html" class="read-more">
+                <h3>Copom Mantém Selic em 14,75%, mas Mercado Questiona se Ciclo de Alta Realmente Acabou</h3>
+                <span class="read-more-text">Ler Sobre →</span>
+              </a>
             </div>
-          </div>
-          {% else %}
-          <div class="news-featured-card news-featured-fallback">
-            <p>Notícia em destaque indisponível no modo local. Acesse o site publicado para ver o conteúdo dinâmico.</p>
-          </div>
-          {% endif %}
-        </div>
-      </section>
-      <section class="noticias-inteligentes-section">
-        <h2>Notícias Inteligentes</h2>
-        <div class="news-cards-grid">
-          {% assign news_posts = site.posts | where: 'categories', 'notícias' | sort: 'date' | reverse | slice: 0, 4 %}
-          {% if news_posts.size > 0 %}
-          {% for post in news_posts %}
-          <div class="news-card">
-            <img src="{{ post.image }}" alt="{{ post.title }}" class="news-card-img" />
-            <div class="news-card-content">
-              <h3>{{ post.title }}</h3>
-              <p>{{ post.excerpt }}</p>
-              <div class="news-tags">
-                {% for tag in post.tags %}<span class="news-tag">{{ tag }}</span>{% endfor %}
-              </div>
-              <a href="{{ post.url }}" class="read-more">Ler mais</a>
+          </article>
+          <article class="card">
+            <img src="images/blog002.png" alt="Aeroporto de Pequim" />
+            <div class="card-content">
+              <a href="blogs-main.html" class="read-more">
+                <h3>EUA e China: Uma Pausa na Guerra Tarifária e o Impacto Global</h3>
+                <span class="read-more-text">Ler Sobre →</span>
+              </a>
             </div>
-          </div>
-          {% endfor %}
-          {% else %}
-          <div class="news-card news-card-fallback">
-            <p>Notícias indisponíveis no modo local. Veja as notícias no site publicado.</p>
-          </div>
-          {% endif %}
+          </article>
         </div>
       </section>
-      <section class="dados-financeiros-section">
-        <h2>Dados Financeiros em Tempo Real</h2>
-        <div class="finance-table-wrapper">
-          <table class="finance-table">
-            <thead>
-              <tr>
-                <th>Ticker</th>
-                <th>Preço Atual</th>
-                <th>Variação (%)</th>
-                <th>Tendência</th>
-              </tr>
-            </thead>
-            <tbody id="finance-data-body">
-              <!-- Dados dinâmicos via JS -->
-            </tbody>
-          </table>
-        </div>
-      </section>
-      <section class="ferramentas-section">
-        <h2>Ferramentas Gratuitas</h2>
-        <div class="tools-grid">
-          <a href="radar-mercado.html" class="tool-card">Radar de Mercado</a>
-          <a href="analise-fundamentalista.html" class="tool-card">Análise Fundamentalista</a>
-          <a href="simulador-investimentos.html" class="tool-card">Simulador de Investimentos</a>
-          <a href="painel.html" class="tool-card">Painel Personalizado</a>
+
+      <!-- CTA Section -->
+      <section class="cta-section">
+        <div class="cta-content">
+          <h2>Pronto para começar sua jornada financeira?</h2>
+          <p>Junte-se a milhares de investidores que já transformaram suas vidas com a InvestSavy</p>
+          <a href="servicos.html" class="button-primary">
+            Comece Agora
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
         </div>
       </section>
     </main>
-    <footer class="main-footer">
-      <div class="footer-links">
-        <a href="politica-privacidade.html">Termos</a>
-        <a href="contato.html">Contato</a>
-        <a href="#">Redes Sociais</a>
+
+    <footer>
+      <div class="container-footer">
+        <div class="row-footer">
+          <div class="footer-col">
+            <h4>Site</h4>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="blogs-main.html">Blogs</a></li>
+              <li><a href="sobre.html">Quem somos</a></li>
+              <li><a href="servicos.html">Serviços</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Redes Sociais</h4>
+            <ul>
+              <li><a href="#">Facebook</a></li>
+              <li><a href="#">Instagram</a></li>
+              <li><a href="#">TikTok</a></li>
+              <li><a href="#">YouTube</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Serviços</h4>
+            <ul>
+              <li><a href="calculo-despesas.html">Cálculo de Despesas</a></li>
+              <li><a href="recomendacaoinvestimento.html">Investimentos</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Newsletter</h4>
+            <div class="form-sub">
+              <form>
+                <input type="email" placeholder="Digite seu e-mail" required />
+                <button>Inscrever-se</button>
+              </form>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="footer-copy">© 2024 InvestSavy. Todos os direitos reservados.</div>
     </footer>
     <script src="script/newsletter.js"></script>
     <script src="script/js-universal.js"></script>
