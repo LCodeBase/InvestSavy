@@ -842,3 +842,234 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+
+/* Estilos Gerais */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Seção Missão */
+.mission-values {
+  padding: 80px 0;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.mission {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.mission h2 {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 30px;
+}
+
+.mission p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #495057;
+}
+
+/* Seção Valores */
+.valor {
+  padding: 80px 0;
+  background-color: #ffffff;
+}
+
+.values {
+  text-align: center;
+}
+
+.values h2 {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 50px;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.value-item {
+  padding: 30px;
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.value-item:hover {
+  transform: translateY(-10px);
+}
+
+.value-item i {
+  font-size: 2.5rem;
+  color: #3498db;
+  margin-bottom: 20px;
+}
+
+.value-item h3 {
+  font-size: 1.5rem;
+  color: #2c3e50;
+  margin-bottom: 15px;
+}
+
+.value-item p {
+  color: #6c757d;
+  line-height: 1.6;
+}
+
+/* Seção Fundador */
+.founder {
+  padding: 80px 0;
+  background: linear-gradient(135deg, #e9ecef 0%, #f8f9fa 100%);
+}
+
+.founder h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 50px;
+}
+
+.founder-content {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  max-width: 900px;
+  margin: 0 auto;
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.founder-image {
+  flex: 0 0 300px;
+}
+
+.founder-image img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.founder-info {
+  flex: 1;
+}
+
+.founder-info h3 {
+  font-size: 2rem;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.founder-role {
+  font-size: 1.2rem;
+  color: #3498db;
+  margin-bottom: 20px;
+}
+
+.founder-description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #495057;
+}
+
+/* Seção Por que nos escolher */
+.why-us {
+  padding: 80px 0;
+  background-color: #ffffff;
+}
+
+.why-us h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 50px;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.feature {
+  text-align: center;
+  padding: 40px;
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.feature:hover {
+  transform: translateY(-10px);
+}
+
+.feature i {
+  color: #3498db;
+  margin-bottom: 20px;
+}
+
+.feature h3 {
+  font-size: 1.5rem;
+  color: #2c3e50;
+  margin-bottom: 15px;
+}
+
+.feature p {
+  color: #6c757d;
+  line-height: 1.6;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .founder-content {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .founder-image {
+    flex: 0 0 250px;
+    margin-bottom: 30px;
+  }
+
+  .mission h2,
+  .values h2,
+  .founder h2,
+  .why-us h2 {
+    font-size: 2rem;
+  }
+
+  .values-grid,
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 15px;
+  }
+
+  .mission p,
+  .founder-description {
+    font-size: 1rem;
+  }
+
+  .value-item,
+  .feature {
+    padding: 20px;
+  }
+}
