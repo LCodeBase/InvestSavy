@@ -14,7 +14,8 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
+    padding: 8px 32px;
+    min-height: 56px;
     background-color: #fff;
     border-bottom: 1px solid #eaeaea;
 }
@@ -22,23 +23,28 @@ header {
 .container-LOGO {
     display: flex;
     align-items: center;
+    gap: 10px;
 }
 
 .container-LOGO img {
-    width: 7%;
-    margin: -15px 3px 0 0;
+    width: 38px;
+    height: 38px;
+    margin: 0 8px 0 0;
+    object-fit: contain;
 }
 
 .logo {
-    font-size: 24px;
+    font-size: 28px;
     font-weight: bold;
     color: #000;
+    margin-left: 2px;
 }
 
 nav ul {
     list-style: none;
     display: flex;
-    gap: 20px;
+    gap: 28px;
+    align-items: center;
 }
 
 nav li a::after {
@@ -69,15 +75,18 @@ nav li a:hover::after {
 }
 
 .button-header {
-    margin-top: 0px;
-    margin-left: -5px;
-    font-size: 15px;
-    padding: 10px;
+    margin-top: 0;
+    margin-left: 10px;
+    font-size: 16px;
+    padding: 8px 18px;
     color: white;
     background-color: #118a5f;
-    border: 0px;
+    border: 0;
     border-radius: 12px;
     cursor: pointer;
+    height: 38px;
+    display: flex;
+    align-items: center;
 }
 
 #seta {
@@ -864,36 +873,36 @@ blockquote {
         width: 100%;
     }
 
- /* Ajustes para as notícias em mobile */
- .news-item {
-     flex-direction: column;
- }
+    /* Ajustes para as notícias em mobile */
+    .news-item {
+        flex-direction: column;
+    }
 
- .news-link {
-     flex-direction: column;
-     width: 100%;
- }
+    .news-link {
+        flex-direction: column;
+        width: 100%;
+    }
 
- .news-image {
-     width: 100%;
-     height: 200px;
-     /* Altura fixa para manter proporção */
-     border-radius: 8px 8px 0 0;
-     /* Arredonda apenas cantos superiores */
- }
+    .news-image {
+        width: 100%;
+        height: 200px;
+        /* Altura fixa para manter proporção */
+        border-radius: 8px 8px 0 0;
+        /* Arredonda apenas cantos superiores */
+    }
 
- .news-content {
-     width: 100%;
-     padding: 15px;
- }
+    .news-content {
+        width: 100%;
+        padding: 15px;
+    }
 
- .news-title {
-     font-size: 1.4em;
- }
+    .news-title {
+        font-size: 1.4em;
+    }
 
- .news-description {
-     font-size: 0.95em;
- }
+    .news-description {
+        font-size: 0.95em;
+    }
 
 
     /* Hero Section */
@@ -968,4 +977,3 @@ blockquote {
         height: 50px;
     }
 }
-
