@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- SEO Meta Tags Dinâmicas -->
+    
+    <meta name="description" content="Guia completo sobre as principais siglas e termos técnicos do mercado financeiro. Entenda o significado de IBOV, CDI, SELIC, IPO, FII, ETF e muitos outros termos essenciais para investidores." />
+     
+    <meta name="keywords" content="siglas mercado financeiro, termos financeiros, IBOV, SELIC, CDI, IPO, FII, ETF, mercado de capitais, bolsa de valores" />
+    
+
+    <meta name="author" content="Leonardo F. Figueiredo" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article" />
+    <meta
+      property="og:url"
+      content="http://localhost:4000/InvestSavy/educacao/siglas-mercado-financeiro/"
+    />
+    <meta property="og:title" content="O que são as Siglas do Mercado Financeiro: Guia Completo | InvestSavy" />
+    <meta
+      property="og:description"
+      content="Entenda o significado das principais siglas e termos técnicos utilizados no mercado financeiro brasileiro e internacional."
+    />
+    <meta
+      property="og:image"
+      content="http://localhost:4000/InvestSavy/images/edu06.png"
+    />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta
+      property="twitter:url"
+      content="http://localhost:4000/InvestSavy/educacao/siglas-mercado-financeiro/"
+    />
+    <meta property="twitter:title" content="O que são as Siglas do Mercado Financeiro: Guia Completo | InvestSavy" />
+    <meta
+      property="twitter:description"
+      content="Entenda o significado das principais siglas e termos técnicos utilizados no mercado financeiro brasileiro e internacional."
+    />
+    <meta
+      property="twitter:image"
+      content="http://localhost:4000/InvestSavy/images/edu06.png"
+    />
+
+    <!-- Título da página específico para cada notícia -->
+    <title>O que são as Siglas do Mercado Financeiro: Guia Completo | InvestSavy</title>
+
+    <!-- Favicon para diferentes dispositivos e navegadores -->
+    <link
+      rel="shortcut icon"
+      href="/InvestSavy/images/logo-to-index.png"
+      type="image/x-icon"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/InvestSavy/images/logo-to-index.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/InvestSavy/images/logo-to-index.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/InvestSavy/images/logo-to-index.png"
+    />
+    <link rel="manifest" href="/InvestSavy/site.webmanifest" />
+    <meta name="msapplication-TileColor" content="#118a5f" />
+    <meta name="theme-color" content="#118a5f" />
+
+    <link rel="stylesheet" href="/InvestSavy/css/style-noticia01.css" />
+    <link rel="stylesheet" href="/InvestSavy/css/universal-css.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="container-LOGO">
+        <img
+          src="/InvestSavy/images/00000000000001.svg"
+          alt="Logo InvestSavy"
+        />
+        <div class="logo">InvestSavy</div>
+      </div>
+
+      <div class="menu-toggle" alt="Botão-Menu">
+        <i class="fas fa-bars"></i>
+      </div>
+
+      <nav class="nav-menu">
+        <ul>
+          <li id="comment-header">
+            <a href="/InvestSavy/index.html">Home</a>
+          </li>
+          <li id="comment-header">
+            <a href="/InvestSavy/sobre.html">Sobre Nós</a>
+          </li>
+          <li id="comment-header">
+            <a href="/InvestSavy/blogs-main.html">Notícias</a>
+          </li>
+          <li>
+            <button
+              class="button-header"
+              onclick="window.location.href='/InvestSavy/servicos.html'"
+            >
+              Serviços
+              <i class="fa-solid fa-arrow-right" id="seta"></i>
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <button id="toggleForm" class="floating-button">
+      <i class="fa-solid fa-envelope fa-2x"></i>
+    </button>
+    <div id="registerForm" class="form-container" style="display: none">
+      <form class="form">
+        <div class="header-container">
+          <p class="title">Entre em Contato</p>
+          <button id="close-btn">X</button>
+        </div>
+        <p class="message">
+          Ficou com alguma dúvida ou está enfrentando alguma dificuldade em um
+          de nossos serviços?
+        </p>
+        <div class="flex">
+          <label>
+            <input
+              required=""
+              placeholder=""
+              type="text"
+              class="input"
+              maxlength="10"
+            />
+            <span>Nome</span>
+          </label>
+          <label>
+            <input
+              required=""
+              placeholder=""
+              type="text"
+              class="input"
+              maxlength="30"
+            />
+            <span>Sobrenome</span>
+          </label>
+        </div>
+        <label>
+          <input required="" placeholder="" type="text" class="input" />
+          <span>Email</span>
+        </label>
+        <textarea
+          id="myTextarea"
+          maxlength="1000"
+          rows="5"
+          placeholder="Escreva sua mensagem aqui..."
+        ></textarea>
+        <div id="charCount" class="char-count">1000 caracteres restantes</div>
+        <button class="submit">Enviar</button>
+      </form>
+    </div>
+
+    <main class="main-news-container">
+      <div>
+        <div class="news-header">
+          <h1>O que são as Siglas do Mercado Financeiro: Guia Completo</h1>
+          <div class="meta">
+            Publicado em: 20-05-2025 | Autor:
+            <a href="https://www.linkedin.com/in/leonardo-f-figueiredo-4820a5230/">Leonardo F. Figueiredo</a>
+          </div>
+        </div>
+        <div class="news-content">
+          <img
+            src="/InvestSavy/images/edu06.png"
+            alt="pessoa analisando gráficos com siglas do mercado financeiro em uma tela de computador"
+            class="news-image"
+          />
+          <p>O mercado financeiro possui uma linguagem própria, repleta de siglas e termos técnicos que podem parecer um verdadeiro enigma para quem está começando. Entender esse vocabulário é essencial para navegar com segurança pelo mundo dos investimentos e tomar decisões mais conscientes. Neste guia completo, vamos decifrar as principais siglas utilizadas no mercado financeiro brasileiro e internacional.</p>
+
+<h2 id="por-que-é-importante-conhecer-as-siglas-do-mercado-financeiro">Por que é importante conhecer as siglas do mercado financeiro?</h2>
+
+<p>Conhecer as siglas e termos do mercado financeiro não é apenas uma questão de curiosidade, mas uma necessidade para qualquer investidor. Quando você entende essa linguagem, consegue:</p>
+
+<ul class="beneficios-lista">
+  <li>Interpretar notícias e relatórios financeiros com mais facilidade</li>
+  <li>Comunicar-se melhor com profissionais do mercado</li>
+  <li>Tomar decisões de investimento mais fundamentadas</li>
+  <li>Evitar armadilhas e golpes financeiros</li>
+  <li>Sentir-se mais confiante ao investir seu dinheiro</li>
+</ul>
+
+<p>Agora, vamos conhecer as principais siglas organizadas por categorias para facilitar seu entendimento.</p>
+
+<h2 id="índices-e-indicadores-econômicos">Índices e Indicadores Econômicos</h2>
+
+<div class="sigla-card">
+  <h3>IBOV (Ibovespa)</h3>
+
+  <p>O <span class="highlight">Ibovespa</span> é o principal índice da bolsa de valores brasileira (B3), composto pelas ações mais negociadas. Ele funciona como um termômetro do mercado acionário brasileiro, refletindo o desempenho médio das cotações dos ativos de maior negociabilidade e representatividade.</p>
+</div>
+
+<div class="exemplo-pratico">Quando você ouve no noticiário que "o Ibovespa subiu 2% hoje", significa que, em média, as principais ações negociadas na bolsa valorizaram 2% naquele dia.</div>
+
+<div class="sigla-card">
+  <h3>SELIC</h3>
+
+  <p>A <span class="highlight">SELIC</span> (Sistema Especial de Liquidação e Custódia) é a taxa básica de juros da economia brasileira, definida pelo Banco Central a cada 45 dias, nas reuniões do Copom (Comitê de Política Monetária). Ela influencia todas as demais taxas de juros do país e é um importante instrumento de política monetária.</p>
+</div>
+
+<div class="exemplo-pratico">Quando a Selic está em 10,75% ao ano, isso significa que o governo está pagando essa taxa para quem empresta dinheiro a ele através de títulos públicos. Essa taxa também serve de referência para os juros cobrados pelos bancos.</div>
+
+<div class="sigla-card">
+  <h3>CDI</h3>
+
+  <p>O <span class="highlight">CDI</span> (Certificado de Depósito Interbancário) representa a taxa média de juros das operações realizadas entre os bancos. Ela é muito próxima da taxa Selic e serve como referência para a rentabilidade de diversos investimentos de renda fixa.</p>
+</div>
+
+<div class="exemplo-pratico">Quando um CDB oferece "110% do CDI", significa que ele renderá 10% a mais que a taxa CDI vigente.</div>
+
+<div class="sigla-card">
+  <h3>IPCA</h3>
+
+  <p>O <span class="highlight">IPCA</span> (Índice Nacional de Preços ao Consumidor Amplo) é o índice oficial de inflação do Brasil, calculado mensalmente pelo IBGE. Ele mede a variação dos preços de produtos e serviços consumidos pelas famílias brasileiras com renda de 1 a 40 salários mínimos.</p>
+</div>
+
+<div class="exemplo-pratico">Se o IPCA acumulado em 12 meses está em 4,5%, significa que, em média, os preços subiram 4,5% nesse período.</div>
+
+<div class="sigla-card">
+  <h3>IGP-M</h3>
+
+  <p>O <span class="highlight">IGP-M</span> (Índice Geral de Preços do Mercado) é calculado pela Fundação Getúlio Vargas (FGV) e muito utilizado para reajustes contratuais, especialmente em aluguéis.</p>
+</div>
+
+<div class="exemplo-pratico">Um contrato de aluguel que prevê reajuste anual pelo IGP-M terá seu valor corrigido conforme a variação desse índice no período.</div>
+
+<h2>Siglas da Bolsa de Valores e Mercado de Capitais</h2>
+
+<div class="sigla-card">
+  <h3>B3</h3>
+
+  <p>A <span class="highlight">B3</span> (Brasil, Bolsa, Balcão) é a bolsa de valores oficial do Brasil, resultado da fusão entre a BM&amp;FBOVESPA e a CETIP. É onde são negociadas ações, derivativos, títulos de renda fixa, entre outros ativos.</p>
+</div>
+
+<div class="exemplo-pratico">Quando você compra ações de empresas brasileiras, essa negociação ocorre através da B3.</div>
+
+<div class="sigla-card">
+  <h3>IPO</h3>
+
+  <p><span class="highlight">IPO</span> (Initial Public Offering) ou Oferta Pública Inicial é quando uma empresa abre seu capital e passa a ter suas ações negociadas na bolsa de valores pela primeira vez.</p>
+</div>
+
+<div class="exemplo-pratico">Em 2021, a Nubank realizou seu IPO, permitindo que investidores comprassem ações da empresa.</div>
+
+<div class="sigla-card">
+  <h3>FII</h3>
+
+  <p><span class="highlight">FII</span> (Fundo de Investimento Imobiliário) é um tipo de fundo que investe em empreendimentos imobiliários como shoppings, galpões logísticos, edifícios comerciais, etc.</p>
+</div>
+
+<div class="exemplo-pratico">Ao investir em um FII de shopping centers, você se torna dono de uma fração desses empreendimentos e recebe parte dos aluguéis na forma de dividendos mensais.</div>
+
+<div class="sigla-card">
+  <h3>ETF</h3>
+
+  <p><span class="highlight">ETF</span> (Exchange Traded Fund) ou Fundo de Índice é um tipo de fundo negociado em bolsa que busca replicar a performance de um índice específico.</p>
+</div>
+
+<div class="exemplo-pratico">O BOVA11 é um ETF que replica o Ibovespa. Ao comprar uma cota do BOVA11, é como se você estivesse comprando todas as ações que compõem o Ibovespa, na mesma proporção.</div>
+
+<div class="sigla-card">
+  <h3>ON e PN</h3>
+
+  <p><span class="highlight">ON</span> (Ordinária Nominativa) e <span class="highlight">PN</span> (Preferencial Nominativa) são os dois principais tipos de ações no Brasil. As ações ON dão direito a voto nas assembleias da empresa, enquanto as PN geralmente oferecem preferência na distribuição de dividendos.</p>
+</div>
+
+<div class="exemplo-pratico">PETR3 são ações ordinárias da Petrobras (com direito a voto), enquanto PETR4 são ações preferenciais (com prioridade nos dividendos).</div>
+
+<div class="sigla-card">
+  <h3>ADR</h3>
+
+  <p><span class="highlight">ADR</span> (American Depositary Receipt) é um certificado emitido por um banco americano que representa ações de empresas estrangeiras negociadas nas bolsas dos EUA.</p>
+</div>
+
+<div class="exemplo-pratico">A Vale possui ADRs negociados na Bolsa de Nova York sob o código "VALE", permitindo que investidores americanos invistam na empresa sem precisar acessar a B3.</div>
+
+<h2>Siglas de Investimentos e Produtos Financeiros</h2>
+
+<div class="sigla-card">
+  <h3>CDB</h3>
+
+  <p><span class="highlight">CDB</span> (Certificado de Depósito Bancário) é um título de renda fixa emitido por bancos para captar recursos. O investidor empresta dinheiro ao banco e recebe juros por isso.</p>
+</div>
+
+<div class="exemplo-pratico">Ao investir R$ 10.000 em um CDB que paga 100% do CDI por um ano, com o CDI a 10%, você receberá aproximadamente R$ 11.000 ao final do período.</div>
+
+<div class="sigla-card">
+  <h3>LCI e LCA</h3>
+
+  <p><span class="highlight">LCI</span> (Letra de Crédito Imobiliário) e <span class="highlight">LCA</span> (Letra de Crédito do Agronegócio) são títulos de renda fixa isentos de Imposto de Renda para pessoas físicas. A LCI é emitida por instituições financeiras para financiar o setor imobiliário, enquanto a LCA financia o agronegócio.</p>
+</div>
+
+<div class="exemplo-pratico">Uma LCI com rentabilidade de 90% do CDI e prazo de 2 anos pode ser mais vantajosa que um CDB de 100% do CDI, devido à isenção de IR.</div>
+
+<div class="sigla-card">
+  <h3>LC</h3>
+
+  <p><span class="highlight">LC</span> (Letra de Câmbio) é um título de renda fixa emitido por financeiras para captar recursos.</p>
+</div>
+
+<div class="exemplo-pratico">Ao investir em uma LC, você está emprestando dinheiro para uma financeira, que utilizará esses recursos para conceder empréstimos a seus clientes.</div>
+
+<div class="sigla-card">
+  <h3>PGBL e VGBL</h3>
+
+  <p><span class="highlight">PGBL</span> (Plano Gerador de Benefício Livre) e <span class="highlight">VGBL</span> (Vida Gerador de Benefício Livre) são planos de previdência privada. A principal diferença está na tributação: o PGBL permite deduzir as contribuições do Imposto de Renda (até 12% da renda bruta anual), enquanto o VGBL não oferece essa dedução, mas tributa apenas os rendimentos no resgate.</p>
+</div>
+
+<div class="exemplo-pratico">Para quem faz declaração completa do IR, o PGBL pode ser mais vantajoso; já para quem faz declaração simplificada, o VGBL tende a ser mais interessante.</div>
+
+<div class="sigla-card">
+  <h3>COE</h3>
+
+  <p><span class="highlight">COE</span> (Certificado de Operações Estruturadas) é um investimento que combina elementos de renda fixa e variável, oferecendo diferentes possibilidades de retorno conforme o desempenho de um ativo de referência.</p>
+</div>
+
+<div class="exemplo-pratico">Um COE pode oferecer proteção do capital investido e, ao mesmo tempo, participação parcial na valorização de um índice como o S&amp;P 500.</div>
+
+<h2>Siglas de Análise de Investimentos</h2>
+
+<div class="sigla-card">
+  <h3>P/L</h3>
+
+  <p><span class="highlight">P/L</span> (Preço/Lucro) é um indicador que mostra a relação entre o preço da ação e o lucro por ação da empresa. Ele indica quantos anos seriam necessários para o investidor recuperar o valor investido, considerando o lucro atual da empresa.</p>
+</div>
+
+<div class="exemplo-pratico">Uma ação com P/L de 10 significa que, mantido o lucro atual, levaria 10 anos para recuperar o investimento.</div>
+
+<div class="sigla-card">
+  <h3>DY</h3>
+
+  <p><span class="highlight">DY</span> (Dividend Yield) ou Rendimento de Dividendos é a relação entre o dividendo pago por ação e o preço da ação, expressa em percentual.</p>
+</div>
+
+<div class="exemplo-pratico">Uma ação que custa R$ 100 e paga R$ 5 em dividendos por ano tem um DY de 5%.</div>
+
+<div class="sigla-card">
+  <h3>ROE</h3>
+
+  <p><span class="highlight">ROE</span> (Return on Equity) ou Retorno sobre o Patrimônio Líquido é um indicador que mostra a capacidade da empresa de gerar valor com seus próprios recursos.</p>
+</div>
+
+<div class="exemplo-pratico">Um ROE de 15% significa que a empresa gerou R$ 15 de lucro para cada R$ 100 de patrimônio líquido.</div>
+
+<div class="sigla-card">
+  <h3>EBITDA</h3>
+
+  <p><span class="highlight">EBITDA</span> (Earnings Before Interest, Taxes, Depreciation and Amortization) ou Lucro Antes de Juros, Impostos, Depreciação e Amortização é um indicador que mostra o potencial de geração de caixa operacional de uma empresa.</p>
+</div>
+
+<div class="exemplo-pratico">O EBITDA ajuda a comparar a eficiência operacional entre empresas, independentemente de sua estrutura de capital ou regime tributário.</div>
+
+<div class="siglas-importantes">
+    <h3>As 10 Siglas Mais Importantes para Iniciantes</h3>
+    <ol>
+        <li><strong>IBOV</strong> - Principal índice da bolsa brasileira</li>
+        <li><strong>SELIC</strong> - Taxa básica de juros da economia</li>
+        <li><strong>CDI</strong> - Referência para investimentos de renda fixa</li>
+        <li><strong>IPCA</strong> - Índice oficial de inflação</li>
+        <li><strong>FII</strong> - Fundo de Investimento Imobiliário</li>
+        <li><strong>ETF</strong> - Fundo que replica índices</li>
+        <li><strong>CDB</strong> - Título de renda fixa emitido por bancos</li>
+        <li><strong>LCI/LCA</strong> - Títulos isentos de IR</li>
+        <li><strong>P/L</strong> - Indicador para análise de ações</li>
+        <li><strong>DY</strong> - Rendimento de dividendos</li>
+    </ol>
+    <p style="font-size: 12px; color: #777; text-align: right; margin-top: 5px;">Fonte: Elaborado pelo autor com base em dados da B3 e CVM</p>
+</div>
+
+<h2>Siglas de Instituições e Reguladores</h2>
+
+<div class="sigla-card">
+  <h3>CVM</h3>
+
+  <p>A <span class="highlight">CVM</span> (Comissão de Valores Mobiliários) é a autarquia federal responsável por fiscalizar e regular o mercado de capitais brasileiro.</p>
+</div>
+
+<div class="exemplo-pratico">A CVM estabelece regras para a divulgação de informações por empresas de capital aberto e combate práticas irregulares no mercado.</div>
+
+<div class="sigla-card">
+  <h3>BACEN ou BCB</h3>
+
+  <p>O <span class="highlight">BACEN</span> ou <span class="highlight">BCB</span> (Banco Central do Brasil) é a instituição responsável por executar a política monetária, regular o sistema financeiro e garantir a estabilidade do poder de compra da moeda brasileira.</p>
+</div>
+
+<div class="exemplo-pratico">O Banco Central define a taxa Selic e supervisiona o funcionamento dos bancos no país.</div>
+
+<div class="sigla-card">
+  <h3>FGC</h3>
+
+  <p>O <span class="highlight">FGC</span> (Fundo Garantidor de Créditos) é uma entidade privada que protege depositantes e investidores no sistema financeiro brasileiro, garantindo valores até R$ 250 mil por CPF e por instituição financeira, em caso de intervenção, liquidação ou falência.</p>
+</div>
+
+<div class="exemplo-pratico">Se um banco quebrar, o FGC garante a devolução de até R$ 250 mil por pessoa em investimentos como CDBs, LCIs, LCAs, entre outros.</div>
+
+<div class="sigla-card">
+  <h3>SEC</h3>
+
+  <p>A <span class="highlight">SEC</span> (Securities and Exchange Commission) é o órgão regulador do mercado de capitais dos Estados Unidos, equivalente à CVM no Brasil.</p>
+</div>
+
+<div class="exemplo-pratico">Empresas brasileiras que possuem ADRs nos EUA precisam seguir as regras da SEC, além das regras da CVM.</div>
+
+<h2>Siglas de Operações e Estratégias</h2>
+
+<div class="sigla-card">
+  <h3>IPO</h3>
+
+  <p><span class="highlight">IPO</span> (Initial Public Offering) ou Oferta Pública Inicial é quando uma empresa abre seu capital e passa a ter suas ações negociadas na bolsa de valores pela primeira vez.</p>
+</div>
+
+<div class="exemplo-pratico">Em 2021, a Nubank realizou seu IPO, permitindo que investidores comprassem ações da empresa.</div>
+
+<div class="sigla-card">
+  <h3>M&amp;A</h3>
+
+  <p><span class="highlight">M&amp;A</span> (Mergers and Acquisitions) ou Fusões e Aquisições são operações em que empresas se unem (fusão) ou uma empresa compra outra (aquisição).</p>
+</div>
+
+<div class="exemplo-pratico">A fusão entre a Ambev e a Interbrew em 2004 criou a maior cervejaria do mundo na época.</div>
+
+<div class="sigla-card">
+  <h3>BDR</h3>
+
+  <p><span class="highlight">BDR</span> (Brazilian Depositary Receipt) é um certificado de depósito de valores mobiliários emitido no Brasil que representa ações de empresas estrangeiras.</p>
+</div>
+
+<div class="exemplo-pratico">Ao comprar um BDR da Apple (AAPL34), você está investindo indiretamente nas ações da empresa americana, mas negociando em reais na B3.</div>
+
+<div class="sigla-card">
+  <h3>FIFO e LIFO</h3>
+
+  <p><span class="highlight">FIFO</span> (First In, First Out) e <span class="highlight">LIFO</span> (Last In, First Out) são métodos de contabilização de estoques e investimentos. No FIFO, os primeiros ativos adquiridos são os primeiros a serem vendidos; no LIFO, os últimos adquiridos são os primeiros a serem vendidos.</p>
+</div>
+
+<div class="exemplo-pratico">Para fins de apuração de Imposto de Renda em ações, a Receita Federal adota o método FIFO.</div>
+
+<h2>Conclusão</h2>
+
+<div class="conclusao">
+  <p>Dominar as siglas e termos do mercado financeiro é um passo fundamental para qualquer investidor. Embora possa parecer um vocabulário complexo inicialmente, com o tempo e a prática, essas siglas se tornarão parte natural do seu dia a dia de investimentos.</p>
+
+  <p>Lembre-se de que o conhecimento é progressivo: comece pelas siglas mais básicas e, conforme avança em sua jornada como investidor, vá incorporando novos termos ao seu vocabulário. O importante é não se intimidar com essa linguagem técnica e buscar sempre aprender mais.</p>
+
+  <p>Com as informações deste guia, você já possui um excelente ponto de partida para compreender melhor as notícias financeiras, relatórios de investimentos e conversas com profissionais do mercado. Continue estudando e aprofundando seus conhecimentos para tomar decisões cada vez mais conscientes e acertadas em seus investimentos.</p>
+</div>
+
+<style>
+/* Estilos gerais */
+body {
+    font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Estilos para títulos */
+h1, h2, h3, h4 {
+    font-family: 'Montserrat', sans-serif;
+    color:#3498db;
+    margin-top: 1.5em;
+    margin-bottom: 0.8em;
+    font-weight: 600;
+}
+
+h2 {
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+    margin-top: 2em;
+}
+
+h3 {
+    color: #2874a6;
+    margin-top: 1.8em;
+    border-left: 4px solid #3498db;
+    padding-left: 10px;
+}
+
+/* Estilo para destaque de siglas */
+.highlight {
+    background-color: #e8f4fc;
+    color: #3498db;
+    padding: 3px 8px;
+    font-weight: bold;
+    border-radius: 4px;
+    border-bottom: 2px solid #3498db;
+    display: inline-block;
+    margin: 0 2px;
+}
+
+/* Estilo para exemplos práticos */
+.exemplo-pratico {
+    background-color: #f8f9fa;
+    border-left: 4px solid #27ae60;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 0 5px 5px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.exemplo-pratico::before {
+    content: "Exemplo prático: ";
+    font-weight: bold;
+    color: #3498db;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Estilo para cards de siglas */
+.sigla-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    padding: 20px;
+    margin: 20px 0;
+    border-top: 5px solid #3498db;
+    transition: transform 0.3s ease;
+}
+
+.sigla-card:hover {
+    transform: translateY(-5px);
+}
+
+.sigla-card h3 {
+    margin-top: 0;
+    color: #2874a6;
+    border-left: none;
+    padding-left: 0;
+}
+
+.sigla-card p {
+    margin-bottom: 0;
+}
+
+/* Estilo para a lista de benefícios */
+ul.beneficios-lista {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+ul.beneficios-lista li {
+    padding: 8px 0 8px 30px;
+    position: relative;
+    font-size: 18px;
+}
+
+ul.beneficios-lista li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #27ae60;
+    font-weight: bold;
+}
+
+/* Estilo para o box de siglas importantes */
+.siglas-importantes {
+    background: linear-gradient(135deg, #f5f7fa 0%, #e8f4fc 100%);
+    border-radius: 10px;
+    padding: 25px;
+    margin: 30px 0;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.siglas-importantes h3 {
+    text-align: center;
+    color: #1a5276;
+    margin-top: 0;
+    border-left: none;
+    padding-left: 0;
+}
+
+.siglas-importantes ol {
+    counter-reset: sigla-counter;
+    padding-left: 10px;
+}
+
+.siglas-importantes ol li {
+    position: relative;
+    padding: 8px 0 8px 35px;
+    counter-increment: sigla-counter;
+    margin-bottom: 5px;
+}
+
+.siglas-importantes ol li:before {
+    content: counter(sigla-counter);
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #3498db;
+    color: white;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 25px;
+    font-weight: bold;
+}
+
+/* Estilo para a conclusão */
+.conclusao {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 30px;
+    border-left: 5px solid rgb(23, 155, 41);
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .sigla-card {
+        padding: 15px;
+    }
+
+    ul.beneficios-lista li {
+        font-size: 16px;
+    }
+
+    .siglas-importantes {
+        padding: 20px;
+    }
+}
+
+img {
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+blockquote {
+    background-color: #f5f6fa;
+    border-left: 4px solid #3498db;
+    padding: 15px;
+    margin: 20px 0;
+    font-style: italic;
+    border-radius: 0 5px 5px 0;
+}
+</style>
+
+
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container-footer">
+        <div class="row-footer">
+          <div class="footer-col">
+            <h4>Site</h4>
+            <ul>
+              <li><a href="/InvestSavy/index.html">Home</a></li>
+              <li><a href="/InvestSavy/blogs-main.html">Blogs</a></li>
+              <li><a href="/InvestSavy/sobre.html">Quem somos</a></li>
+              <li><a href="/InvestSavy/servicos.html">Serviços</a></li>
+            </ul>
+          </div>
+          <!--end footer col-->
+          <!-- footer col-->
+          <div class="footer-col">
+            <h4>Redes Sociais</h4>
+            <ul>
+              <li><a href="#">Facebook</a></li>
+              <li><a href="#">Instragram</a></li>
+              <li><a href="#">Tiktok</a></li>
+              <li><a href="#">Youtube</a></li>
+            </ul>
+          </div>
+          <!--end footer col-->
+          <!-- footer col-->
+          <div class="footer-col">
+            <h4>Serviços</h4>
+            <ul>
+              <li><a href="#">Calculos de Despesas</a></li>
+              <li><a href="#">Investimentos</a></li>
+            </ul>
+          </div>
+          <!--end footer col-->
+          <!-- footer col-->
+          <div class="footer-col">
+            <h4>Inscreva-se na Newsletter</h4>
+            <div class="form-sub">
+              <form>
+                <input
+                  type="email"
+                  placeholder="Digite o seu e-mail"
+                  required
+                />
+                <button>Se inscrever</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+  <script src="/InvestSavy/script/js-universal.js"></script>
+  <script src="/InvestSavy/script/contact.js"></script>
+  <script src="/InvestSavy/script/script.js"></script>
+  <script src="/InvestSavy/script/image-optimizer.js" defer></script>
+  <script src="/InvestSavy/script/webp-converter.js" defer></script>
+  <script
+    src="https://kit.fontawesome.com/e1063b7707.js"
+    crossorigin="anonymous"
+    async
+  ></script>
+</html>
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "NewsArticle",
+    "headline": "O que são as Siglas do Mercado Financeiro: Guia Completo",
+    "image": ["http://localhost:4000/InvestSavy/images/edu06.png"],
+    "datePublished": "2025-05-20T13:00:00-03:00",
+    "dateModified": "2025-05-20T13:00:00-03:00",
+    "author": {
+      "@type": "Person",
+      "name": "Leonardo F. Figueiredo"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "InvestSavy",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "http://localhost:4000/InvestSavy/images/Camada 1.png"
+      }
+    },
+    "description": "Entenda o significado das principais siglas e termos técnicos utilizados no mercado financeiro brasileiro e internacional."
+  }
+</script>

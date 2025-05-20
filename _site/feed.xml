@@ -5,9 +5,20 @@
     <description>Plataforma completa para gestão financeira pessoal que combina organização prática com insights inteligentes para otimizar suas finanças. Oferecemos ferramentas para gestão financeira, recomendações de investimentos e conteúdo educacional.</description>
     <link>http://localhost:4000/InvestSavy/</link>
     <atom:link href="http://localhost:4000/InvestSavy/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 20 May 2025 12:13:40 -0300</pubDate>
-    <lastBuildDate>Tue, 20 May 2025 12:13:40 -0300</lastBuildDate>
+    <pubDate>Tue, 20 May 2025 17:13:57 -0300</pubDate>
+    <lastBuildDate>Tue, 20 May 2025 17:13:57 -0300</lastBuildDate>
     <generator>Jekyll v4.4.1</generator>
+    
+      <item>
+        <title>O que são as Siglas do Mercado Financeiro: Guia Completo</title>
+        <description>Entenda o significado das principais siglas e termos técnicos utilizados no mercado financeiro brasileiro e internacional.</description>
+        <pubDate>Tue, 20 May 2025 13:00:00 -0300</pubDate>
+        <link>http://localhost:4000/InvestSavy/educacao/siglas-mercado-financeiro/</link>
+        <guid isPermaLink="true">http://localhost:4000/InvestSavy/educacao/siglas-mercado-financeiro/</guid>
+        
+        <category>educacao</category>
+        
+      </item>
     
       <item>
         <title>Gripe Aviária: Ex-ministro destaca importância do controle estratégico para o Brasil</title>
@@ -105,17 +116,6 @@
         <guid isPermaLink="true">http://localhost:4000/InvestSavy/not%C3%ADcias/pausa-guerra-tarifaria-eua-china/</guid>
         
         <category>notícias</category>
-        
-      </item>
-    
-      <item>
-        <title>Quando e Como Declarar o IR? Guia Completo para Não Errar em 2025</title>
-        <description>Descubra quando e como declarar o Imposto de Renda, passo a passo, evitando erros e multas.</description>
-        <pubDate>Wed, 14 May 2025 05:30:00 -0300</pubDate>
-        <link>http://localhost:4000/InvestSavy/educacao/quando-como-declarar-ir/</link>
-        <guid isPermaLink="true">http://localhost:4000/InvestSavy/educacao/quando-como-declarar-ir/</guid>
-        
-        <category>educacao</category>
         
       </item>
     
