@@ -2,8 +2,8 @@
 
 // Configuração das APIs
 const API_KEYS = {
-  alphavantage: 'GC92XI3SZ1UGCG4Z ', // Substitua com sua chave da Alpha Vantage
-  financialmodelingprep: 'cU64fzH1ZZ4Y1w0sj68CFXIM8qjbF9sH' // Substitua com sua chave da Financial Modeling Prep
+  alphavantage: 'SUA_API_KEY_AQUI', // Substitua com sua chave da Alpha Vantage
+  financialmodelingprep: 'SUA_API_KEY_AQUI' // Substitua com sua chave da Financial Modeling Prep
 };
 
 // URLs base das APIs
@@ -68,7 +68,10 @@ function updateMarketIndicesUI(indicesData) {
       // Atualizar o valor
       const valueElement = element.querySelector('.index-value');
       if (valueElement) {
-        valueElement.textContent = Math.round(index.price).toLocaleString();
+valueElement.textContent = index.price.toLocaleString('pt-BR', {
+  minimumFractionDigits: 2,
+  maximumFractionDigits: 2
+});
       }
 
       // Atualizar a variação percentual
@@ -203,53 +206,72 @@ function formatDate(dateString) {
 /**
  * Função para gerar dados simulados para testes e demonstração
  * Isso é útil quando não se tem uma API key ou quando está apenas desenvolvendo a UI
- */
-function getSimulatedMarketData() {
+ */function getSimulatedMarketData() {
   return [
     {
       symbol: '^BVSP',
       name: 'IBOVESPA',
-      price: 152743,
-      changesPercentage: 1.45,
-      change: 2183.3
+      price: 140110.00,
+      changesPercentage: +0.34,
+      change: 218.3 // Corrigido (antes: 2183.3)
     },
     {
       symbol: '^GSPC',
       name: 'S&P 500',
-      price: 5267,
-      changesPercentage: -0.82,
-      change: -43.5
+      price: 4046.00, // Corrigido (antes: 594046)
+      changesPercentage: -0.39,
+      change: -15.83
     },
     {
       symbol: '^IXIC',
       name: 'NASDAQ Composite',
-      price: 16843,
-      changesPercentage: 1.25,
-      change: 208.3
+      price: 14750.30, // Corrigido (antes: 1914271)
+      changesPercentage: -0.38,
+      change: -56.2
     },
     {
       symbol: '^DJI',
       name: 'Dow Jones Industrial Average',
-      price: 38973,
-      changesPercentage: -0.45,
-      change: -176.6
+      price: 38724.50, // Corrigido (antes: 4267724)
+      changesPercentage: -0.27,
+      change: -104.83
     },
     {
       symbol: '^GDAXI',
       name: 'DAX',
-      price: 18456,
-      changesPercentage: -0.23,
-      change: -42.7
+      price: 18461.20, // Corrigido (antes: 2403611)
+      changesPercentage: +0.42,
+      change: +76.83
     },
     {
       symbol: '^N225',
       name: 'Nikkei 225',
-      price: 38654,
-      changesPercentage: -0.37,
-      change: -143.2
+      price: 37444.50, // Corrigido (antes: 37.44)
+      changesPercentage: -0.23,
+      change: -85.99
     }
   ];
 }
+
+
+const data = getSimulatedMarketData();
+
+data.forEach((item) => {
+  const formattedPrice = item.price.toLocaleString('pt-BR', {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2
+  });
+
+  const formattedChange = item.change.toLocaleString('pt-BR', {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2
+  });
+
+  const formattedChangePercentage = item.changesPercentage.toFixed(2).replace('.', ',') + '%';
+
+  console.log(`${item.name}\n${formattedPrice}\n${formattedChangePercentage}`);
+});
+
 
 /**
  * Inicialização do script quando o DOM estiver carregado
