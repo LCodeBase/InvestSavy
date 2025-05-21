@@ -2,8 +2,8 @@
 
 // Configuração das APIs
 const API_KEYS = {
-  alphavantage: 'SUA_API_KEY_AQUI', // Substitua com sua chave da Alpha Vantage
-  financialmodelingprep: 'SUA_API_KEY_AQUI' // Substitua com sua chave da Financial Modeling Prep
+  alphavantage: 'GC92XI3SZ1UGCG4Z ', // Substitua com sua chave da Alpha Vantage
+  financialmodelingprep: 'cU64fzH1ZZ4Y1w0sj68CFXIM8qjbF9sH' // Substitua com sua chave da Financial Modeling Prep
 };
 
 // URLs base das APIs

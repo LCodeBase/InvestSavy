@@ -232,33 +232,33 @@
             <ul class="indices-list">
               <li class="index-item up">
                 <span class="index-name">IBOVESPA</span>
-                <span class="index-value">152.743</span>
-                <span class="index-change">+1.45%</span>
+                <span class="index-value" id="ibov-value">152.743</span>
+                <span class="index-change" id="ibov-change">+1.45%</span>
               </li>
               <li class="index-item down">
                 <span class="index-name">S&P 500</span>
-                <span class="index-value">5.267</span>
-                <span class="index-change">-0.82%</span>
+                <span class="index-value" id="sp500-value">5.267</span>
+                <span class="index-change" id="sp500-change">-0.82%</span>
               </li>
               <li class="index-item up">
                 <span class="index-name">NASDAQ</span>
-                <span class="index-value">16.843</span>
-                <span class="index-change">+1.25%</span>
+                <span class="index-value" id="nasdaq-value">16.843</span>
+                <span class="index-change" id="nasdaq-change">+1.25%</span>
               </li>
               <li class="index-item down">
                 <span class="index-name">DOW JONES</span>
-                <span class="index-value">38.973</span>
-                <span class="index-change">-0.45%</span>
+                <span class="index-value" id="dow-value">38.973</span>
+                <span class="index-change" id="dow-change">-0.45%</span>
               </li>
               <li class="index-item down">
                 <span class="index-name">DAX</span>
-                <span class="index-value">18.456</span>
-                <span class="index-change">-0.23%</span>
+                <span class="index-value" id="dax-value">18.456</span>
+                <span class="index-change" id="dax-change">-0.23%</span>
               </li>
               <li class="index-item down">
                 <span class="index-name">NIKKEI</span>
-                <span class="index-value">38.654</span>
-                <span class="index-change">-0.37%</span>
+                <span class="index-value" id="nikkei-value">38.654</span>
+                <span class="index-change" id="nikkei-change">-0.37%</span>
               </li>
             </ul>
           </section>
@@ -357,6 +357,9 @@
   <script src="script/js-universal.js"></script>
   <script src="script/market-data.js"></script>
   <script src="https://kit.fontawesome.com/e1063b7707.js" crossorigin="anonymous" async></script>
+  <!-- Adicione antes do script atual -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 </body>
 
 </html>
