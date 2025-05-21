@@ -1,78 +1,116 @@
-# 💼 InvestSavy - Gestão Financeira Inteligente
+<h1 align="center"> <img src="https://github.com/LCodeBase/InvestSavy/images/camada 1.png" alt="InvestSavy Banner" width="3%" /> InvestSavy</h1>
 
-[![GitHub license](https://img.shields.io/github/license/LcodeBase/InvestSavy?color=blue)](LICENSE)
-[![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-yellow.svg)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-[![Node.js](https://img.shields.io/badge/Node.js-18.x-green.svg)](https://nodejs.org/)
+<p align="center">
+  <strong>Seu portal moderno de notícias e análises financeiras</strong><br>
+  Desenvolvido com <code>HTML</code>, <code>CSS</code> e <code>JavaScript</code> puro, utilizando <code>Jekyll</code> como gerador de site estático.
+</p>
 
-![Banner do Projeto](https://github.com/user-attachments/assets/c0afc3eb-e062-4b8e-b78c-38c92ccc6f20)
-Plataforma completa para gestão financeira pessoal que combina organização prática com insights inteligentes para otimizar suas finanças.
+<p align="center">
+  <img src="https://github.com/LCodeBase/InvestSavy/images/Logo.png" alt="InvestSavy Banner" width="50%" />
+</p>
 
-## ✨ Funcionalidades Principais
+---
 
-### 📊 Dashboard Financeiro
+## 🚀 Funcionalidades
 
-- Registro detalhado de receitas e despesas
-- Categorização automática de transações
-- Visualização interativa com gráficos (barras, pizza e linhas)
+<div align="center">
 
-### 🎯 Metas e Planejamento
+| Recurso | Descrição |
+|--------|-----------|
+| ✅ **Design Responsivo** | Compatível com todos os dispositivos |
+| 📊 **Cotações em Tempo Real** | Dados atualizados dos mercados |
+| 📰 **Publicação de Notícias** | Categorias como economia, política e mais |
+| 🔍 **Busca Integrada** | Encontre conteúdos com facilidade |
+| 📬 **Página de Assinatura** | Captura de e-mails para newsletters |
+| 📄 **Erro 404 Personalizado** | Experiência aprimorada para o usuário |
 
-- Sistema de orçamentos personalizáveis
-- Acompanhamento de metas financeiras em tempo real
-- Alertas de progresso e desvios orçamentários
+</div>
 
-### 🔔 Sistema de Notificações
 
-- Lembretes automáticos de vencimentos
-- Alertas de gastos incomuns
-- Notificações personalizadas de oportunidades de investimento
 
-### 💡 Inteligência Financeira
+---
 
-- Recomendações personalizadas baseadas no perfil do usuário
-- Blog integrado com atualizações do mercado financeiro
-- Calculadora inteligente de investimentos
+## 🧰 Tecnologias Utilizadas
 
-## 🚀 Como Executar
+<p align="center"> <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white" /> <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white" /> <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black" /> <img src="https://img.shields.io/badge/Jekyll-CC0000?style=flat-square&logo=jekyll&logoColor=white" /> <img src="https://img.shields.io/badge/GitHub%20Pages-222?style=flat-square&logo=github&logoColor=white" /> </p>
 
-1. Clone o repositório:
+--- 
 
-```bash
-git clone https://github.com/seu-usuario/InvestSavy.git 
-```
-
-2. Instale as dependências:
+## 🧱 Estrutura do Projeto
 
 ```bash
+InvestSavy/
+├── _layouts/           # Layouts base do Jekyll
+├── _posts/             # Publicações de notícias
+├── assets/             # Imagens, estilos e scripts
+├── economia/           # Categoria: Economia
+├── energia/            # Categoria: Energia
+├── mercados/           # Categoria: Mercados
+├── politica/           # Categoria: Política
+├── tecnologia/         # Categoria: Tecnologia
+├── destaques/          # Notícias em destaque
+├── assine.html         # Página de assinatura
+├── contato.html        # Página de contato
+├── noticia.html        # Template de notícia
+├── index.html          # Página inicial
+├── 404.html            # Página de erro personalizada
+├── _config.yml         # Configurações do Jekyll
+├── Gemfile             # Dependências do Ruby
+├── package.json        # Dependências do Node.js
+└── README.md           # Documentação do projeto
+
+
+📦 Como Executar Localmente
+bash
+Copiar
+Editar
+# Clone o repositório
+git clone https://github.com/LCodeBase/InvestSavy.git
 cd InvestSavy
-npm install
+
+# Instale dependências do Jekyll
+bundle install
+
+# Inicie o servidor local
+bundle exec jekyll serve
+
+# Acesse via navegador:
+http://localhost:4000
+
 ```
+🤝 Contribuições
+Contribuições são bem-vindas! Siga os passos abaixo:
 
-3. Configure as variáveis de ambiente:
+Faça um fork do projeto
 
-```bash
-cp .env.example .env
-```
+Crie uma branch (git checkout -b feature/nova-funcionalidade)
 
-4. Inicie o servidor:
+Commit suas mudanças (git commit -m 'feat: nova funcionalidade')
 
-```bash
-npm run dev
-```
-
-Acesse: http://localhost:3000
-
-📝 Contribuição
-Contribuições são bem-vindas! Siga estes passos:
-
-Faça um Fork do projeto
-
-Crie sua Branch (git checkout -b feature/nova-feature)
-
-Commit suas mudanças (git commit -m 'Adiciona nova feature')
-
-Push para a Branch (git push origin feature/nova-feature)
+Push para a branch (git push origin feature/nova-funcionalidade)
 
 Abra um Pull Request
 
-Desenvolvido por LCodeBase 😁
+📜 Licença
+Este projeto está sob a licença MIT. Veja o arquivo LICENSE para mais detalhes.
+
+---
+
+## 📫 Contato
+
+<p align="center">
+  <a href="mailto:leonardo.developer.figueiredo@gmail.com" target="_blank">
+     <img src="https://img.shields.io/badge/✉️%20Email-leonardo.developer.figueiredo@gmail.com-blue?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" />
+  </a>
+  
+</p>
+<br>
+<p align="center">
+ <a href="https://www.linkedin.com/in/leonardo-fe-figueiredo/" target="_blank">
+ <img src="https://img.shields.io/badge/💼%20LinkedIn-Acessar%20Perfil-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
+  </a>
+</p>
+  
+
+
+<p align="center"> Feito por <a href="https://github.com/LCodeBase">LCodeBase</a> </p>
