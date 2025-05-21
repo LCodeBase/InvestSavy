@@ -1,15 +1,138 @@
 
   
-   <!DOCTYPE html>
+
+<!DOCTYPE html>
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Conversor de Moedas | Invest Savy</title>
-      <link rel="stylesheet" href="css/style-conversor-moedas.css" />
+    <link rel="stylesheet" href="css/style-conversor-moedas.css" />
     <link rel="stylesheet" href="css/animations.css" />
-    <!-- Favicons para diferentes dispositivos e navegadores -->
-    <link rel="shortcut icon" href="images/Camada 1.png" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  </head>
+
+  <body>
+    <header>
+      <div class="logo-container">
+        <a href="index.html" class="logo">Invest Savy</a>
+      </div>
+      <nav>
+        <ul class="menu">
+          <li><a href="noticias.html">Notícias</a></li>
+          <li><a href="ferramentas.html">Ferramentas</a></li>
+          <li><a href="educacao.html">Educação Financeira</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+        </ul>
+      </nav>
+      <div class="search">
+        <a href="#"><i class="fas fa-search"></i></a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <h1>Conversor de Moedas</h1>
+        <p class="subtitle">
+          Ferramenta gratuita para conversão de moedas com taxas de câmbio atualizadas.<br>
+          Converta entre as principais moedas do mundo de forma rápida e fácil.
+        </p>
+      </section>
+
+      <section class="converter-container">
+        <div class="tabs">
+          <button class="tab-btn active" data-tab="conversor">Conversor</button>
+          <button class="tab-btn" data-tab="tabela">Tabela de Câmbio</button>
+        </div>
+
+        <!-- Tab: Conversor -->
+        <div class="tab-content active" id="conversor">
+          <div class="converter-box">
+            <h2><i class="fas fa-dollar-sign"></i> Conversor de Moedas</h2>
+            
+            <div class="form-group">
+              <label for="amount">Valor</label>
+              <input type="number" id="amount" placeholder="Digite o valor" min="0" step="0.01" value="1">
+            </div>
+
+            <div class="conversion-row">
+              <div class="form-group half">
+                <label for="from">De</label>
+                <div class="select-wrapper">
+                  <select id="from">
+                    <option value="US">Dólar Americano (USD)</option>
+                    <option value="BR" selected>Real Brasileiro (BRL)</option>
+                    <option value="EU">Euro (EUR)</option>
+                    <option value="GB">Libra Esterlina (GBP)</option>
+                    <option value="JP">Iene Japonês (JPY)</option>
+                    <option value="CA">Dólar Canadense (CAD)</option>
+                    <option value="AU">Dólar Australiano (AUD)</option>
+                    <option value="CH">Franco Suíço (CHF)</option>
+                  </select>
+                  <i class="fas fa-chevron-down"></i>
+                </div>
+              </div>
+              
+              <button id="swap-btn" aria-label="Trocar moedas">
+                <i class="fas fa-exchange-alt"></i>
+              </button>
+              
+              <div class="form-group half">
+                <label for="to">Para</label>
+                <div class="select-wrapper">
+                  <select id="to">
+                    <option value="US" selected>Dólar Americano (USD)</option>
+                    <option value="BR">Real Brasileiro (BRL)</option>
+                    <option value="EU">Euro (EUR)</option>
+                    <option value="GB">Libra Esterlina (GBP)</option>
+                    <option value="JP">Iene Japonês (JPY)</option>
+                    <option value="CA">Dólar Canadense (CAD)</option>
+                    <option value="AU">Dólar Australiano (AUD)</option>
+                    <option value="CH">Franco Suíço (CHF)</option>
+                  </select>
+                  <i class="fas fa-chevron-down"></i>
+                </div>
+              </div>
+            </div>
+
+            <button id="convert-btn" class="primary-button">Converter</button>
+
+            <div id="result-container" class="result-container">
+              <p class="conversion-rate">
+                <span id="exchange-rate">1 USD = 5.0500 BRL</span>
+                <i class="fas fa-arrow-down"></i>
+              </p>
+              <div class="result-box">
+                <div id="result">R$ 5.05</div>
+                <p id="conversion-details">1 USD = 5.0500 BRL</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab: Tabela de Câmbio -->
+        <div class="tab-content" id="tabela">
+          <div class="exchange-table">
+            <h2><i class="fas fa-table"></i> Tabela de Câmbio</h2>
+            
+            <div class="table-responsive">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Moeda</th>
+                    <th>USD</th>
+                    <th>EUR</th>
+                    <th>BRL</th>
+                    <th>GBP</th>
+                    <th>JPY</th>
+                    <th>CAD</th>
+                <!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Conversor de Moedas | Invest Savy</title>
+    <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   </head>
 
