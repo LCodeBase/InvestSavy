@@ -3,18 +3,18 @@
   <channel>
     <title>InvestSavy - Gestão Financeira Inteligente</title>
     <description>Plataforma completa para gestão financeira pessoal que combina organização prática com insights inteligentes para otimizar suas finanças. Oferecemos ferramentas para gestão financeira, recomendações de investimentos e conteúdo educacional.</description>
-    <link>http://localhost:4000/InvestSavy/</link>
-    <atom:link href="http://localhost:4000/InvestSavy/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 20 May 2025 22:55:42 -0300</pubDate>
-    <lastBuildDate>Tue, 20 May 2025 22:55:42 -0300</lastBuildDate>
+    <link>https://lcodebase.github.io/InvestSavy/</link>
+    <atom:link href="https://lcodebase.github.io/InvestSavy/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Tue, 20 May 2025 23:23:43 -0300</pubDate>
+    <lastBuildDate>Tue, 20 May 2025 23:23:43 -0300</lastBuildDate>
     <generator>Jekyll v4.4.1</generator>
     
       <item>
         <title>O que são as Siglas do Mercado Financeiro: Guia Completo</title>
         <description>Entenda o significado das principais siglas e termos técnicos utilizados no mercado financeiro brasileiro e internacional.</description>
         <pubDate>Tue, 20 May 2025 13:00:00 -0300</pubDate>
-        <link>http://localhost:4000/InvestSavy/educacao/siglas-mercado-financeiro/</link>
-        <guid isPermaLink="true">http://localhost:4000/InvestSavy/educacao/siglas-mercado-financeiro/</guid>
+        <link>https://lcodebase.github.io/InvestSavy/educacao/siglas-mercado-financeiro/</link>
+        <guid isPermaLink="true">https://lcodebase.github.io/InvestSavy/educacao/siglas-mercado-financeiro/</guid>
         
         <category>educacao</category>
         
@@ -24,8 +24,8 @@
         <title>Gripe Aviária: Ex-ministro destaca importância do controle estratégico para o Brasil</title>
         <description>Ex-ministro da Agricultura, Francisco Turra, alerta para a necessidade de ações rigorosas contra a gripe aviária, visando proteger o agronegócio brasileiro e garantir a segurança alimentar.</description>
         <pubDate>Tue, 20 May 2025 10:00:00 -0300</pubDate>
-        <link>http://localhost:4000/InvestSavy/not%C3%ADcias/gripe-aviaria-controle-estrategico-brasil/</link>
-        <guid isPermaLink="true">http://localhost:4000/InvestSavy/not%C3%ADcias/gripe-aviaria-controle-estrategico-brasil/</guid>
+        <link>https://lcodebase.github.io/InvestSavy/not%C3%ADcias/gripe-aviaria-controle-estrategico-brasil/</link>
+        <guid isPermaLink="true">https://lcodebase.github.io/InvestSavy/not%C3%ADcias/gripe-aviaria-controle-estrategico-brasil/</guid>
         
         <category>notícias</category>
         
@@ -35,8 +35,8 @@
         <title>Banco do Japão Enfrenta Divergências Internas Sobre Redução de Estímulos e Impacto Global</title>
         <description>Autoridades do Banco do Japão divergem sobre o ritmo e a estratégia para reduzir a compra de títulos, gerando incertezas nos mercados globais e afetando expectativas de investidores.</description>
         <pubDate>Tue, 20 May 2025 09:00:00 -0300</pubDate>
-        <link>http://localhost:4000/InvestSavy/not%C3%ADcias/banco-japao-debate-reducao-estimulos/</link>
-        <guid isPermaLink="true">http://localhost:4000/InvestSavy/not%C3%ADcias/banco-japao-debate-reducao-estimulos/</guid>
+        <link>https://lcodebase.github.io/InvestSavy/not%C3%ADcias/banco-japao-debate-reducao-estimulos/</link>
+        <guid isPermaLink="true">https://lcodebase.github.io/InvestSavy/not%C3%ADcias/banco-japao-debate-reducao-estimulos/</guid>
         
         <category>notícias</category>
         
@@ -46,8 +46,8 @@
         <title>Vendas do Varejo Registram Terceira Alta Consecutiva Impulsionadas por Emprego e Renda Recorde</title>
         <description>Dados do IBGE mostram crescimento de 0,8% nas vendas do varejo em março, com destaque para produtos alimentícios, vestuário e farmácia, refletindo a resiliência do consumo das famílias.</description>
         <pubDate>Tue, 20 May 2025 08:20:00 -0300</pubDate>
-        <link>http://localhost:4000/InvestSavy/not%C3%ADcias/vendas-varejo-alta-terceiro-mes/</link>
-        <guid isPermaLink="true">http://localhost:4000/InvestSavy/not%C3%ADcias/vendas-varejo-alta-terceiro-mes/</guid>
+        <link>https://lcodebase.github.io/InvestSavy/not%C3%ADcias/vendas-varejo-alta-terceiro-mes/</link>
+        <guid isPermaLink="true">https://lcodebase.github.io/InvestSavy/not%C3%ADcias/vendas-varejo-alta-terceiro-mes/</guid>
         
         <category>notícias</category>
         
@@ -57,8 +57,8 @@
         <title>O que é Inflação e Como Ela Impacta os Preços?</title>
         <description>Entenda como a inflação afeta seu bolso e a economia</description>
         <pubDate>Mon, 19 May 2025 12:02:00 -0300</pubDate>
-        <link>http://localhost:4000/InvestSavy/educacao/oque-%C3%A9-infla%C3%A7%C3%A3o/</link>
-        <guid isPermaLink="true">http://localhost:4000/InvestSavy/educacao/oque-%C3%A9-infla%C3%A7%C3%A3o/</guid>
+        <link>https://lcodebase.github.io/InvestSavy/educacao/oque-%C3%A9-infla%C3%A7%C3%A3o/</link>
+        <guid isPermaLink="true">https://lcodebase.github.io/InvestSavy/educacao/oque-%C3%A9-infla%C3%A7%C3%A3o/</guid>
         
         <category>educacao</category>
         
@@ -68,8 +68,8 @@
         <title>Como Começar a Investir: Guia para Iniciantes</title>
         <description>Aprenda os primeiros passos para começar sua jornada de investimentos de forma segura e consciente.</description>
         <pubDate>Mon, 19 May 2025 09:28:00 -0300</pubDate>
-        <link>http://localhost:4000/InvestSavy/educacao/como-investir-iniciantes/</link>
-        <guid isPermaLink="true">http://localhost:4000/InvestSavy/educacao/como-investir-iniciantes/</guid>
+        <link>https://lcodebase.github.io/InvestSavy/educacao/como-investir-iniciantes/</link>
+        <guid isPermaLink="true">https://lcodebase.github.io/InvestSavy/educacao/como-investir-iniciantes/</guid>
         
         <category>educacao</category>
         
@@ -79,8 +79,8 @@
         <title>Governo Avalia Mudanças em Leis para Reduzir Fluxo de Precatórios</title>
         <description>Ministério do Planejamento estuda alterações em legislações que geram alto volume de processos judiciais nas áreas de Previdência e folha de pagamento de servidores.</description>
         <pubDate>Thu, 15 May 2025 20:10:00 -0300</pubDate>
-        <link>http://localhost:4000/InvestSavy/not%C3%ADcias/governo-avalia-mudar-leis-precatorios/</link>
-        <guid isPermaLink="true">http://localhost:4000/InvestSavy/not%C3%ADcias/governo-avalia-mudar-leis-precatorios/</guid>
+        <link>https://lcodebase.github.io/InvestSavy/not%C3%ADcias/governo-avalia-mudar-leis-precatorios/</link>
+        <guid isPermaLink="true">https://lcodebase.github.io/InvestSavy/not%C3%ADcias/governo-avalia-mudar-leis-precatorios/</guid>
         
         <category>notícias</category>
         
@@ -90,8 +90,8 @@
         <title>Copom Mantém Selic em 14,75%, mas Mercado Questiona se Ciclo de Alta Realmente Acabou</title>
         <description>Ata da última reunião do Copom mantém incertezas sobre o fim do ciclo de alta dos juros, com analistas divididos sobre possível elevação adicional em junho.</description>
         <pubDate>Wed, 14 May 2025 12:35:00 -0300</pubDate>
-        <link>http://localhost:4000/InvestSavy/not%C3%ADcias/copom-selic-1475-incerteza-mercado/</link>
-        <guid isPermaLink="true">http://localhost:4000/InvestSavy/not%C3%ADcias/copom-selic-1475-incerteza-mercado/</guid>
+        <link>https://lcodebase.github.io/InvestSavy/not%C3%ADcias/copom-selic-1475-incerteza-mercado/</link>
+        <guid isPermaLink="true">https://lcodebase.github.io/InvestSavy/not%C3%ADcias/copom-selic-1475-incerteza-mercado/</guid>
         
         <category>notícias</category>
         
@@ -101,8 +101,8 @@
         <title>Brasil e China: Novos Acordos Comerciais em Meio à Guerra Tarifária Global</title>
         <description>Lula e Xi Jinping assinam novos acordos comerciais em Pequim, fortalecendo a parceria estratégica entre Brasil e China enquanto os EUA intensificam ameaças protecionistas.</description>
         <pubDate>Wed, 14 May 2025 10:20:00 -0300</pubDate>
-        <link>http://localhost:4000/InvestSavy/not%C3%ADcias/brasil-china-novos-acordos-comerciais/</link>
-        <guid isPermaLink="true">http://localhost:4000/InvestSavy/not%C3%ADcias/brasil-china-novos-acordos-comerciais/</guid>
+        <link>https://lcodebase.github.io/InvestSavy/not%C3%ADcias/brasil-china-novos-acordos-comerciais/</link>
+        <guid isPermaLink="true">https://lcodebase.github.io/InvestSavy/not%C3%ADcias/brasil-china-novos-acordos-comerciais/</guid>
         
         <category>notícias</category>
         
@@ -112,8 +112,8 @@
         <title>EUA e China: Uma Pausa na Guerra Tarifária e o Impacto Global</title>
         <description>Analistas discutem o significado da trégua de 90 dias nas tarifas e as perspectivas para um acordo definitivo entre as duas maiores economias do mundo.</description>
         <pubDate>Wed, 14 May 2025 06:08:00 -0300</pubDate>
-        <link>http://localhost:4000/InvestSavy/not%C3%ADcias/pausa-guerra-tarifaria-eua-china/</link>
-        <guid isPermaLink="true">http://localhost:4000/InvestSavy/not%C3%ADcias/pausa-guerra-tarifaria-eua-china/</guid>
+        <link>https://lcodebase.github.io/InvestSavy/not%C3%ADcias/pausa-guerra-tarifaria-eua-china/</link>
+        <guid isPermaLink="true">https://lcodebase.github.io/InvestSavy/not%C3%ADcias/pausa-guerra-tarifaria-eua-china/</guid>
         
         <category>notícias</category>
         
