@@ -1,0 +1,44 @@
+{{ define "main" }}
+<section class="posts-list">
+  <header class="section-header">
+    <h1 class="section-title">Notícias e Análises do Mercado</h1>
+    <div class="section-description">Acompanhe as últimas notícias e análises do mercado financeiro</div>
+  </header>
+
+  <div class="posts-container">
+    {{ $noticiaPosts := where .Site.RegularPages "Params.tags" "intersect" (slice "noticia") }}
+    {{ range $noticiaPosts }}
+    <article class="post-card">
+      <a href="{{ .Permalink }}" class="post-link">
+        {{ with .Params.imagem_destaque }}
+        <div class="post-image">
+          <img src="{{ . }}" alt="{{ $.Title }}" loading="lazy" />
+        </div>
+        {{ end }}
+        <div class="post-content">
+          <h2 class="post-title">{{ .Title }}</h2>
+          <div class="post-meta">
+            <span class="post-date">{{ .Date.Format "02/01/2006" }}</span>
+            {{ with .Params.author }}
+            <span class="post-author">por {{ . }}</span>
+            {{ end }}
+          </div>
+          {{ with .Params.summary }}
+          <div class="post-summary">{{ . }}</div>
+          {{ else }}
+          <div class="post-summary">{{ .Summary }}</div>
+          {{ end }}
+          <div class="post-categories">
+            {{ range .Params.categories }}
+            <span class="category">{{ . }}</span>
+            {{ end }}
+          </div>
+        </div>
+      </a>
+    </article>
+    {{ end }}
+  </div>
+
+  {{ template "_internal/pagination.html" . }}
+</section>
+{{ end }}
