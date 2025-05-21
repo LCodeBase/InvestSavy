@@ -1,8 +1,3 @@
----
-title: 'Noticias da economia no mundo - InvestSavy'
----
-
-<!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
@@ -15,9 +10,7 @@ title: 'Noticias da economia no mundo - InvestSavy'
   <title>Notícias e Análises do Mercado | InvestSavy</title>
   <link rel="stylesheet" href="css/style-blog-main.css" />
   <link rel="stylesheet" href="css/universal-css.css" />
-  <link rel="preload" href="{{ site.baseurl }}/images/Camada 1.png" as="image" />
-  <link rel="stylesheet" href="{{ site.baseurl }}/css/universal-css.css" />
-  <link rel="stylesheet" href="{{ site.baseurl }}/css/style-blog-main.css" />
+  <link rel="preload" href="images/Camada 1.png" as="image" />
   <link rel="shortcut icon" href="images/Camada 1.png" type="image/x-icon" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="css/animations.css" />
@@ -46,8 +39,6 @@ title: 'Noticias da economia no mundo - InvestSavy'
         <li><a href="sobre.html">Sobre</a></li>
       </ul>
     </nav>
-    </nav>
-
     <div class="search-icon">
       <i class="fas fa-search"></i>
     </div>
@@ -58,79 +49,27 @@ title: 'Noticias da economia no mundo - InvestSavy'
     <!-- News tab content -->
     <div class="news-container">
       <ul class="news-list" id="noticias-tab">
-        {% assign sorted_posts = site.posts | sort: 'date' | reverse %} {%
-        assign news_posts = sorted_posts | where: 'categories', 'notícias' %}
-        {% assign recent_posts = news_posts | slice: 0, 6 %} {% for post in
-        recent_posts %}
-        <li class="news-item">
-          <a href="{{ site.baseurl }}{{ post.url }}" class="news-link">
-            <img src="{{ site.baseurl }}{{ post.image }}" alt="{{ post.title }}" class="news-image" />
-            <div class="news-content">
-              <h3 class="news-title">{{ post.title }}</h3>
-              <p class="news-description">{{ post.excerpt }}</p>
-              <div class="news-time" data-post-time="{{ post.date | date: '%Y-%m-%dT%H:%M:%S%:z' }}">
-                Carregando...
-              </div>
-            </div>
-          </a>
-        </li>
-        {% endfor %}
+        <!-- As notícias serão carregadas dinamicamente via JavaScript -->
       </ul>
 
-      {% if news_posts.size > 6 %}
       <div class="news-archive">
         <button id="loadMoreNews" class="load-more-btn">
           Ver Notícias Anteriores <i class="fas fa-chevron-down"></i>
         </button>
       </div>
-      {% endif %}
 
       <!-- Education tab content -->
       <ul class="news-list" id="educacao-tab" style="display: none">
-        {% assign edu_posts = sorted_posts | where: 'categories', 'educacao'
-        %} {% assign recent_edu = edu_posts | slice: 0, 6 %} {% for post in
-        recent_edu %}
-        <li class="news-item">
-          <a href="{{ site.baseurl }}{{ post.url }}" class="news-link">
-            <img src="{{ site.baseurl }}{{ post.image }}" alt="{{ post.title }}" class="news-image" />
-            <div class="news-content">
-              <h3 class="news-title">{{ post.title }}</h3>
-              <p class="news-description">{{ post.excerpt }}</p>
-              <div class="news-time" data-post-time="{{ post.date | date: '%Y-%m-%dT%H:%M:%S%:z' }}">
-                Carregando...
-              </div>
-            </div>
-          </a>
-        </li>
-        {% endfor %}
+        <!-- O conteúdo educacional será carregado dinamicamente via JavaScript -->
       </ul>
 
-      {% if edu_posts.size > 6 %}
       <div class="news-archive">
         <button id="loadMoreEdu" class="load-more-btn">
           Ver Mais Conteúdo Educacional <i class="fas fa-chevron-down"></i>
         </button>
       </div>
-      {% endif %}
     </div>
-    <!-- Education tab content -->
-    <ul class="news-list" id="educacao-tab" style="display: none">
-      {% for post in site.posts %} {% if post.categories contains 'educacao'
-      %}
-      <li class="news-item">
-        <a href="{{ site.baseurl }}{{ post.url }}" class="news-link">
-          <img src="{{ site.baseurl }}{{ post.image }}" alt="{{ post.title }}" class="news-image" />
-          <div class="news-content">
-            <h3 class="news-title">{{ post.title }}</h3>
-            <p class="news-description">{{ post.excerpt }}</p>
-            <div class="news-time" data-post-time="{{ post.date | date: '%Y-%m-%dT%H:%M:%S%:z' }}">
-              Carregando...
-            </div>
-          </div>
-        </a>
-      </li>
-      {% endif %} {% endfor %}
-    </ul>
+
 
     <button id="toggleForm" class="floating-button">
       <i class="fa-solid fa-envelope fa-2x"></i>
@@ -216,11 +155,11 @@ title: 'Noticias da economia no mundo - InvestSavy'
   </footer>
 </body>
 
-<script src="{{ site.baseurl }}/script/notice-time.js"></script>
-<script src="{{ site.baseurl }}/script/js-universal.js"></script>
-<script src="{{ site.baseurl }}/script/contact.js"></script>
-<script src="{{ site.baseurl }}/script/script.js"></script>
-<script src="{{ site.baseurl }}/script/news-pagination.js"></script>
+<script src="script/notice-time.js"></script>
+<script src="script/js-universal.js"></script>
+<script src="script/contact.js"></script>
+<script src="script/script.js"></script>
+<script src="script/news-pagination.js"></script>
 <script src="https://kit.fontawesome.com/e1063b7707.js" crossorigin="anonymous" async></script>
 <script src="https://kit.fontawesome.com/e1063b7707.js" crossorigin="anonymous" async></script>
 

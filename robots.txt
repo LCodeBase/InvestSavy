@@ -22,9 +22,7 @@ Disallow: /*.php$
 Disallow: /.htaccess
 Disallow: /cache.htaccess
 Disallow: /*.json$
-Disallow: /_layouts/
-Disallow: /_includes/
-Disallow: /_site/
+# Diretórios removidos após migração para Hugo
 
 # Permitir acesso a arquivos importantes
 Allow: /sitemap.xml
