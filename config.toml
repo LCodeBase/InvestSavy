@@ -4,8 +4,7 @@ languageCode = "pt-br"
 title = "InvestSavy - Gestão Financeira Inteligente"
 
 # Configurações de tema
-# Descomente a linha abaixo após instalar um tema
-# theme = "ananke"
+theme = "ananke"
 
 # Configurações de taxonomia
 [taxonomies]
