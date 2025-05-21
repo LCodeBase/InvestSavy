@@ -52,59 +52,13 @@
         <!-- As notícias serão carregadas dinamicamente via JavaScript -->
       </ul>
 
-      <div class="news-archive">
-        <button id="loadMoreNews" class="load-more-btn">
-          Ver Notícias Anteriores <i class="fas fa-chevron-down"></i>
-        </button>
-      </div>
+
 
       <!-- Education tab content -->
       <ul class="news-list" id="educacao-tab" style="display: none">
         <!-- O conteúdo educacional será carregado dinamicamente via JavaScript -->
       </ul>
 
-      <div class="news-archive">
-        <button id="loadMoreEdu" class="load-more-btn">
-          Ver Mais Conteúdo Educacional <i class="fas fa-chevron-down"></i>
-        </button>
-      </div>
-    </div>
-
-
-    <button id="toggleForm" class="floating-button">
-      <i class="fa-solid fa-envelope fa-2x"></i>
-    </button>
-
-    <div id="registerForm" class="form-container" style="display: none">
-      <form class="form" id="contactForm" onsubmit="saveToFile(event)">
-        <div class="header-container">
-          <p class="title">Entre em Contato</p>
-          <button id="close-btn">X</button>
-        </div>
-        <p class="message">
-          Ficou com alguma dúvida ou está enfrentando alguma dificuldade em um
-          de nossos serviços?
-        </p>
-        <div class="flex">
-          <label>
-            <input required="" placeholder="" type="text" class="input" maxlength="10" name="nome" />
-            <span>Nome</span>
-          </label>
-          <label>
-            <input required="" placeholder="" type="text" class="input" maxlength="30" name="sobrenome" />
-            <span>Sobrenome</span>
-          </label>
-        </div>
-        <label>
-          <input required="" placeholder="" type="email" class="input" name="email" />
-          <span>Email</span>
-        </label>
-        <textarea id="myTextarea" maxlength="1000" rows="5" placeholder="Escreva sua mensagem aqui..."
-          name="mensagem"></textarea>
-        <div id="charCount" class="char-count">1000 caracteres restantes</div>
-        <button class="submit">Enviar</button>
-      </form>
-    </div>
   </main>
   <footer>
     <div class="container-footer-alt">
@@ -155,11 +109,8 @@
   </footer>
 </body>
 
-<script src="script/notice-time.js"></script>
 <script src="script/js-universal.js"></script>
-<script src="script/contact.js"></script>
 <script src="script/script.js"></script>
-<script src="script/news-pagination.js"></script>
 <script src="https://kit.fontawesome.com/e1063b7707.js" crossorigin="anonymous" async></script>
 <script src="https://kit.fontawesome.com/e1063b7707.js" crossorigin="anonymous" async></script>
 
