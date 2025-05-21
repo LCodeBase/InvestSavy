@@ -1,0 +1,63 @@
+# Configuração básica do Hugo para o site InvestSavy
+baseURL = "https://lcodebase.github.io/InvestSavy/"
+languageCode = "pt-br"
+title = "InvestSavy - Gestão Financeira Inteligente"
+
+# Configurações de tema
+# Descomente a linha abaixo após instalar um tema
+# theme = "ananke"
+
+# Configurações de taxonomia
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
+# Configurações de menu
+[menu]
+  [[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    name = "Notícias"
+    url = "/posts/"
+    weight = 2
+  [[menu.main]]
+    name = "Ferramentas"
+    url = "/servicos/"
+    weight = 3
+  [[menu.main]]
+    name = "Aprender"
+    url = "/educacao/"
+    weight = 4
+  [[menu.main]]
+    name = "Sobre"
+    url = "/sobre/"
+    weight = 5
+
+# Configurações de parâmetros do site
+[params]
+  description = "Plataforma de gestão financeira inteligente"
+  author = "LCodeBase"
+  favicon = "images/Camada 1.png"
+  logo = "images/Camada 1.png"
+  mainSections = ["posts"]
+
+# Configurações de build
+[build]
+  writeStats = true
+
+# Configurações de permalinks
+[permalinks]
+  posts = "/:year/:month/:slug/"
+
+# Configurações de markup
+[markup]
+  [markup.highlight]
+    codeFences = true
+    guessSyntax = false
+    lineNoStart = 1
+    lineNos = false
+    lineNumbersInTable = true
+    tabWidth = 4
+    style = "monokai"
