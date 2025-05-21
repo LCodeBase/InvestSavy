@@ -4,46 +4,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Conversor de Moedas com Cotações Atualizadas | InvestSavy</title>
+  <title>Conversor de Moedas | Invest Savy</title>
   <link rel="stylesheet" href="css/style-conversor-moedas.css" />
-  <link rel="stylesheet" href="css/animations.css" />
-  <!-- Favicons para diferentes dispositivos e navegadores -->
-  <link rel="shortcut icon" href="images/Camada 1.png" type="image/x-icon" />
-  <link rel="manifest" href="site.webmanifest" />
-  <!-- Preload de fontes e recursos críticos -->
-  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-solid-900.woff2"
-    as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-
-  <script>
-    // Initialize Firebase using a function that loads config from a separate file
-    // This adds a layer of obfuscation
-    ; (function () {
-      fetch('config/firebase-config.json')
-        .then((response) => response.json())
-        .then((firebaseConfig) => {
-          firebase.initializeApp(firebaseConfig)
-        })
-        .catch((error) => {
-          console.error('Error loading Firebase configuration:', error)
-        })
-    })()
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-  <script>
-      ; (function () {
-        // Load EmailJS config from separate file
-        fetch('config/emailjs-config.json')
-          .then((response) => response.json())
-          .then((config) => {
-            emailjs.init(config.publicKey)
-          })
-          .catch((error) => {
-            console.error('Error loading EmailJS configuration:', error)
-          })
-      })()
-  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -73,293 +37,147 @@
     </div>
   </header>
 
-  <main>
-    <section class="hero-section">
-      <h1>Conversor de Moedas</h1>
-      <p>Converta valores entre diferentes moedas em tempo real</p>
-      <div class="hero-description">
-        <p>
-          Utilize nossa ferramenta gratuita para converter entre mais de 100
-          moedas mundiais com taxas atualizadas. Ideal para planejamento de
-          viagens, negócios internacionais ou acompanhamento de investimentos
-          estrangeiros.
+  <main style="margin-top: 50px;">
+    <div class="container">
+      <div class="hero">
+        <h1>Conversor de Moedas</h1>
+        <p class="subtitle">
+          Ferramenta gratuita para conversão de moedas com taxas de câmbio atualizadas.
+          <br>Converta entre as principais moedas do mundo de forma rápida e fácil.
         </p>
       </div>
-    </section>
 
-    <div class="converter-container">
-      <div class="converter-box">
-        <div class="amount-container">
-          <label for="amount">Valor</label>
-          <input type="number" id="amount" placeholder="Digite o valor" min="0" step="0.01" />
-        </div>
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="conversor">Conversor</button>
+        <button class="tab-btn" data-tab="tabela">Tabela de Câmbio</button>
+      </div>
 
-        <div class="currency-selectors">
-          <div class="from-currency">
-            <label for="from">De</label>
-            <select id="from">
-              <option value="USD">Dólar Americano (USD)</option>
-              <option value="BRL">Real Brasileiro (BRL)</option>
-              <option value="EUR">Euro (EUR)</option>
-              <option value="GBP">Libra Esterlina (GBP)</option>
-              <option value="JPY">Iene Japonês (JPY)</option>
-              <option value="CNY">Yuan Chinês (CNY)</option>
-              <option value="AUD">Dólar Australiano (AUD)</option>
-              <option value="CAD">Dólar Canadense (CAD)</option>
-              <option value="CHF">Franco Suíço (CHF)</option>
-              <option value="NZD">Dólar Neozelandês (NZD)</option>
-              <option value="ZAR">Rand Sul-Africano (ZAR)</option>
-              <option value="INR">Rupia Indiana (INR)</option>
-              <option value="RUB">Rublo Russo (RUB)</option>
-              <option value="MXN">Peso Mexicano (MXN)</option>
-              <option value="SGD">Dólar de Singapura (SGD)</option>
-              <option value="HKD">Dólar de Hong Kong (HKD)</option>
-              <option value="KRW">Won Sul-Coreano (KRW)</option>
-              <option value="TRY">Lira Turca (TRY)</option>
-              <option value="SEK">Coroa Sueca (SEK)</option>
-              <option value="NOK">Coroa Norueguesa (NOK)</option>
-              <option value="DKK">Coroa Dinamarquesa (DKK)</option>
-              <option value="PLN">Zloty Polonês (PLN)</option>
-              <option value="THB">Baht Tailandês (THB)</option>
-              <option value="IDR">Rupia Indonésia (IDR)</option>
-              <option value="CZK">Coroa Checa (CZK)</option>
-              <option value="HUF">Forint Húngaro (HUF)</option>
-              <option value="ILS">Novo Shekel Israelense (ILS)</option>
-              <option value="MYR">Ringgit Malaio (MYR)</option>
-              <option value="PHP">Peso Filipino (PHP)</option>
-              <option value="CLP">Peso Chileno (CLP)</option>
-              <option value="PKR">Rupia Paquistanesa (PKR)</option>
-              <option value="EGP">Libra Egípcia (EGP)</option>
-              <option value="SAR">Rial Saudita (SAR)</option>
-              <option value="AED">
-                Dirham dos Emirados Árabes Unidos (AED)
-              </option>
-              <option value="COP">Peso Colombiano (COP)</option>
-              <option value="ARS">Peso Argentino (ARS)</option>
-              <option value="VND">Dong Vietnamita (VND)</option>
-              <option value="BDT">Taka de Bangladesh (BDT)</option>
-              <option value="NGN">Naira Nigeriana (NGN)</option>
-              <option value="KZT">Tenge Cazaque (KZT)</option>
-              <option value="QAR">Rial Catarense (QAR)</option>
-              <option value="PEN">Sol Peruano (PEN)</option>
-              <option value="MAD">Dirham Marroquino (MAD)</option>
-              <option value="UAH">Hryvnia Ucraniana (UAH)</option>
-              <option value="DZD">Dinar Argelino (DZD)</option>
-              <option value="KES">Xelim Queniano (KES)</option>
-              <option value="GHS">Cedi Ganês (GHS)</option>
-              <option value="TZS">Xelim Tanzaniano (TZS)</option>
-              <option value="UGX">Xelim Ugandês (UGX)</option>
-              <option value="BHD">Dinar do Bahrein (BHD)</option>
-              <option value="OMR">Rial Omanense (OMR)</option>
-              <option value="KWD">Dinar Kuwaitiano (KWD)</option>
-              <option value="BND">Dólar de Brunei (BND)</option>
-              <option value="LKR">Rupia do Sri Lanka (LKR)</option>
-              <option value="MMK">Kyat de Mianmar (MMK)</option>
-              <option value="NPR">Rupia Nepalesa (NPR)</option>
-              <option value="BWP">Pula de Botswana (BWP)</option>
-              <option value="MUR">Rupia Mauriciana (MUR)</option>
-              <option value="ETB">Birr Etíope (ETB)</option>
-              <option value="XOF">Franco CFA (XOF)</option>
-              <option value="XAF">Franco CFA BEAC (XAF)</option>
-              <option value="MGA">Ariary Malgaxe (MGA)</option>
-              <option value="SCR">Rupia de Seicheles (SCR)</option>
-              <option value="BBD">Dólar de Barbados (BBD)</option>
-              <option value="TTD">Dólar de Trinidad e Tobago (TTD)</option>
-              <option value="JMD">Dólar Jamaicano (JMD)</option>
-              <option value="BZD">Dólar de Belize (BZD)</option>
-              <option value="HTG">Gourde Haitiano (HTG)</option>
-              <option value="KYD">Dólar das Ilhas Cayman (KYD)</option>
-              <option value="AWG">Florim Arubano (AWG)</option>
-              <option value="ANG">
-                Florim das Antilhas Holandesas (ANG)
-              </option>
-              <option value="BSD">Dólar das Bahamas (BSD)</option>
-              <option value="BMD">Dólar das Bermudas (BMD)</option>
-              <option value="FJD">Dólar de Fiji (FJD)</option>
-              <option value="PGK">Kina Papua-Nova Guiné (PGK)</option>
-              <option value="SBD">Dólar das Ilhas Salomão (SBD)</option>
-              <option value="TOP">Pa'anga de Tonga (TOP)</option>
-              <option value="WST">Tala Samoano (WST)</option>
-              <option value="VUV">Vatu de Vanuatu (VUV)</option>
-              <option value="KMF">Franco Comorense (KMF)</option>
-              <option value="DJF">Franco Djiboutiano (DJF)</option>
-              <option value="GNF">Franco Guineense (GNF)</option>
-              <option value="CDF">Franco Congolês (CDF)</option>
-              <option value="RWF">Franco Ruandês (RWF)</option>
-              <option value="MWK">Kwacha Malauiano (MWK)</option>
-              <option value="ZMW">Kwacha Zambiano (ZMW)</option>
-              <option value="SZL">Lilangeni Suazi (SZL)</option>
-              <option value="LSL">Loti do Lesoto (LSL)</option>
-              <option value="MZN">Metical Moçambicano (MZN)</option>
-              <option value="NAD">Dólar Namibiano (NAD)</option>
-              <option value="SLL">Leone de Serra Leoa (SLL)</option>
-              <option value="GMD">Dalasi Gambiano (GMD)</option>
-              <option value="LRD">Dólar Liberiano (LRD)</option>
-              <option value="SHP">Libra de Santa Helena (SHP)</option>
-              <option value="FKP">Libra das Ilhas Falkland (FKP)</option>
-              <option value="GIP">Libra de Gibraltar (GIP)</option>
-              <option value="IMP">Libra da Ilha de Man (IMP)</option>
-              <option value="JEP">Libra de Jersey (JEP)</option>
-              <option value="TMT">Manat Turcomeno (TMT)</option>
-              <option value="UZS">Som Uzbeque (UZS)</option>
-              <option value="TJS">Somoni Tajique (TJS)</option>
-              <option value="KGS">Som Quirguiz (KGS)</option>
-              <option value="AFN">Afegane Afegão (AFN)</option>
-              <option value="MNT">Tugrik Mongol (MNT)</option>
-              <option value="LAK">Kip Laosiano (LAK)</option>
-              <option value="KHR">Riel Cambojano (KHR)</option>
-              <option value="BND">Dólar de Brunei (BND)</option>
-              <option value="BND">Dólar de Brunei (BND)</option>
-              <option value="BND">Dólar de Brunei (BND)</option>
-            </select>
+      <!-- Aba Conversor -->
+      <div class="tab-content active" id="conversor-tab">
+        <div class="converter-box">
+          <h2><i class="fas fa-dollar-sign"></i> Conversor de Moedas</h2>
+
+          <div class="form-group">
+            <label for="amount">Valor</label>
+            <input type="number" id="amount" min="0.01" step="0.01" placeholder="Digite o valor" value="1">
           </div>
 
-          <button id="swap-btn" aria-label="Inverter moedas">
-            <i class="fas fa-exchange-alt" aria-hidden="true"></i>
-          </button>
+          <div class="currency-container">
+            <div class="currency-box">
+              <label for="from">De</label>
+              <div class="select-wrapper">
+                <select id="from">
+                  <option value="USD">US Dólar Americano (USD)</option>
+                  <option value="EUR">Euro (EUR)</option>
+                  <option value="BRL" selected>BR Real Brasileiro (BRL)</option>
+                  <option value="GBP">GB Libra Esterlina (GBP)</option>
+                  <option value="JPY">JP Iene Japonês (JPY)</option>
+                  <option value="CAD">CA Dólar Canadense (CAD)</option>
+                  <option value="AUD">AU Dólar Australiano (AUD)</option>
+                  <option value="CHF">CH Franco Suíço (CHF)</option>
+                </select>
+                <span class="currency-flag"></span>
+              </div>
+            </div>
 
-          <div class="to-currency">
-            <label for="to">Para</label>
-            <select id="to">
-              <option value="USD">Dólar Americano (USD)</option>
-              <option value="BRL">Real Brasileiro (BRL)</option>
-              <option value="EUR">Euro (EUR)</option>
-              <option value="GBP">Libra Esterlina (GBP)</option>
-              <option value="JPY">Iene Japonês (JPY)</option>
-              <option value="CNY">Yuan Chinês (CNY)</option>
-              <option value="AUD">Dólar Australiano (AUD)</option>
-              <option value="CAD">Dólar Canadense (CAD)</option>
-              <option value="CHF">Franco Suíço (CHF)</option>
-              <option value="NZD">Dólar Neozelandês (NZD)</option>
-              <option value="ZAR">Rand Sul-Africano (ZAR)</option>
-              <option value="INR">Rupia Indiana (INR)</option>
-              <option value="RUB">Rublo Russo (RUB)</option>
-              <option value="MXN">Peso Mexicano (MXN)</option>
-              <option value="SGD">Dólar de Singapura (SGD)</option>
-              <option value="HKD">Dólar de Hong Kong (HKD)</option>
-              <option value="KRW">Won Sul-Coreano (KRW)</option>
-              <option value="TRY">Lira Turca (TRY)</option>
-              <option value="SEK">Coroa Sueca (SEK)</option>
-              <option value="NOK">Coroa Norueguesa (NOK)</option>
-              <option value="DKK">Coroa Dinamarquesa (DKK)</option>
-              <option value="PLN">Zloty Polonês (PLN)</option>
-              <option value="THB">Baht Tailandês (THB)</option>
-              <option value="IDR">Rupia Indonésia (IDR)</option>
-              <option value="CZK">Coroa Checa (CZK)</option>
-              <option value="HUF">Forint Húngaro (HUF)</option>
-              <option value="ILS">Novo Shekel Israelense (ILS)</option>
-              <option value="MYR">Ringgit Malaio (MYR)</option>
-              <option value="PHP">Peso Filipino (PHP)</option>
-              <option value="CLP">Peso Chileno (CLP)</option>
-              <option value="PKR">Rupia Paquistanesa (PKR)</option>
-              <option value="EGP">Libra Egípcia (EGP)</option>
-              <option value="SAR">Rial Saudita (SAR)</option>
-              <option value="AED">
-                Dirham dos Emirados Árabes Unidos (AED)
-              </option>
-              <option value="COP">Peso Colombiano (COP)</option>
-              <option value="ARS">Peso Argentino (ARS)</option>
-              <option value="VND">Dong Vietnamita (VND)</option>
-              <option value="BDT">Taka de Bangladesh (BDT)</option>
-              <option value="NGN">Naira Nigeriana (NGN)</option>
-              <option value="KZT">Tenge Cazaque (KZT)</option>
-              <option value="QAR">Rial Catarense (QAR)</option>
-              <option value="PEN">Sol Peruano (PEN)</option>
-              <option value="MAD">Dirham Marroquino (MAD)</option>
-              <option value="UAH">Hryvnia Ucraniana (UAH)</option>
-              <option value="DZD">Dinar Argelino (DZD)</option>
-              <option value="KES">Xelim Queniano (KES)</option>
-              <option value="GHS">Cedi Ganês (GHS)</option>
-              <option value="TZS">Xelim Tanzaniano (TZS)</option>
-              <option value="UGX">Xelim Ugandês (UGX)</option>
-              <option value="BHD">Dinar do Bahrein (BHD)</option>
-              <option value="OMR">Rial Omanense (OMR)</option>
-              <option value="KWD">Dinar Kuwaitiano (KWD)</option>
-              <option value="BND">Dólar de Brunei (BND)</option>
-              <option value="LKR">Rupia do Sri Lanka (LKR)</option>
-              <option value="MMK">Kyat de Mianmar (MMK)</option>
-              <option value="NPR">Rupia Nepalesa (NPR)</option>
-              <option value="BWP">Pula de Botswana (BWP)</option>
-              <option value="MUR">Rupia Mauriciana (MUR)</option>
-              <option value="ETB">Birr Etíope (ETB)</option>
-              <option value="XOF">Franco CFA (XOF)</option>
-              <option value="XAF">Franco CFA BEAC (XAF)</option>
-              <option value="MGA">Ariary Malgaxe (MGA)</option>
-              <option value="SCR">Rupia de Seicheles (SCR)</option>
-              <option value="BBD">Dólar de Barbados (BBD)</option>
-              <option value="TTD">Dólar de Trinidad e Tobago (TTD)</option>
-              <option value="JMD">Dólar Jamaicano (JMD)</option>
-              <option value="BZD">Dólar de Belize (BZD)</option>
-              <option value="HTG">Gourde Haitiano (HTG)</option>
-              <option value="KYD">Dólar das Ilhas Cayman (KYD)</option>
-              <option value="AWG">Florim Arubano (AWG)</option>
-              <option value="ANG">
-                Florim das Antilhas Holandesas (ANG)
-              </option>
-              <option value="BSD">Dólar das Bahamas (BSD)</option>
-              <option value="BMD">Dólar das Bermudas (BMD)</option>
-              <option value="FJD">Dólar de Fiji (FJD)</option>
-              <option value="PGK">Kina Papua-Nova Guiné (PGK)</option>
-              <option value="SBD">Dólar das Ilhas Salomão (SBD)</option>
-              <option value="TOP">Pa'anga de Tonga (TOP)</option>
-              <option value="WST">Tala Samoano (WST)</option>
-              <option value="VUV">Vatu de Vanuatu (VUV)</option>
-              <option value="KMF">Franco Comorense (KMF)</option>
-              <option value="DJF">Franco Djiboutiano (DJF)</option>
-              <option value="GNF">Franco Guineense (GNF)</option>
-              <option value="CDF">Franco Congolês (CDF)</option>
-              <option value="RWF">Franco Ruandês (RWF)</option>
-              <option value="MWK">Kwacha Malauiano (MWK)</option>
-              <option value="ZMW">Kwacha Zambiano (ZMW)</option>
-              <option value="SZL">Lilangeni Suazi (SZL)</option>
-              <option value="LSL">Loti do Lesoto (LSL)</option>
-              <option value="MZN">Metical Moçambicano (MZN)</option>
-              <option value="NAD">Dólar Namibiano (NAD)</option>
-              <option value="SLL">Leone de Serra Leoa (SLL)</option>
-              <option value="GMD">Dalasi Gambiano (GMD)</option>
-              <option value="LRD">Dólar Liberiano (LRD)</option>
-              <option value="SHP">Libra de Santa Helena (SHP)</option>
-              <option value="FKP">Libra das Ilhas Falkland (FKP)</option>
-              <option value="GIP">Libra de Gibraltar (GIP)</option>
-              <option value="IMP">Libra da Ilha de Man (IMP)</option>
-              <option value="JEP">Libra de Jersey (JEP)</option>
-              <option value="TMT">Manat Turcomeno (TMT)</option>
-              <option value="UZS">Som Uzbeque (UZS)</option>
-              <option value="TJS">Somoni Tajique (TJS)</option>
-              <option value="KGS">Som Quirguiz (KGS)</option>
-              <option value="AFN">Afegane Afegão (AFN)</option>
-              <option value="MNT">Tugrik Mongol (MNT)</option>
-              <option value="LAK">Kip Laosiano (LAK)</option>
-              <option value="KHR">Riel Cambojano (KHR)</option>
-              <option value="BND">Dólar de Brunei (BND)</option>
-              <option value="BND">Dólar de Brunei (BND)</option>
-              <option value="BND">Dólar de Brunei (BND)</option>
-            </select>
+            <div class="swap-btn-container">
+              <button id="swap-btn" title="Inverter moedas">
+                <i class="fas fa-exchange-alt"></i>
+              </button>
+            </div>
+
+            <div class="currency-box">
+              <label for="to">Para</label>
+              <div class="select-wrapper">
+                <select id="to">
+                  <option value="USD" selected>US Dólar Americano (USD)</option>
+                  <option value="EUR">Euro (EUR)</option>
+                  <option value="BRL">BR Real Brasileiro (BRL)</option>
+                  <option value="GBP">GB Libra Esterlina (GBP)</option>
+                  <option value="JPY">JP Iene Japonês (JPY)</option>
+                  <option value="CAD">CA Dólar Canadense (CAD)</option>
+                  <option value="AUD">AU Dólar Australiano (AUD)</option>
+                  <option value="CHF">CH Franco Suíço (CHF)</option>
+                </select>
+                <span class="currency-flag"></span>
+              </div>
+            </div>
+          </div>
+
+          <button id="convert-btn" class="convert-btn">Converter</button>
+
+          <div class="result-container">
+            <p>Resultado da conversão:</p>
+            <div class="exchange-info">
+              <span id="exchange-rate">$ 1.00 <i class="fas fa-long-arrow-alt-down"></i></span>
+            </div>
+            <div class="result">
+              <h3 id="result">R$ 5.05</h3>
+              <p id="rate-info">1 USD = 5.0500 BRL</p>
+            </div>
           </div>
         </div>
 
-        <div class="result-container">
-          <div id="exchange-rate">1 BRL = 0.2038 USD</div>
-          <div id="result">0.00</div>
+        <div class="info-panel">
+          <h3>Sobre as Taxas de Câmbio</h3>
+          <p>
+            As taxas de câmbio apresentadas são baseadas nas cotações do mercado
+            internacional e são atualizadas regularmente para fornecer os valores mais
+            precisos possíveis.
+          </p>
+          <p>
+            Note que as taxas de câmbio reais podem variar dependendo da instituição
+            financeira, e taxas adicionais podem ser aplicadas em transações reais.
+          </p>
+
+          <div class="tip-box">
+            <h4><i class="fas fa-lightbulb"></i> Dica Financeira</h4>
+            <p>
+              Ao viajar para o exterior, compare as taxas de câmbio em diferentes locais e
+              considere usar cartões de crédito ou débito sem taxas de conversão para obter as
+              melhores taxas.
+            </p>
+          </div>
         </div>
       </div>
 
-      <div class="rates-container">
-        <h2>Cotações das Principais Moedas</h2>
-        <p id="last-update-time" class="update-time">
-          Última atualização: --:--:--
-        </p>
-        <ul id="rates-list" class="rates-list">
-          <!-- Exchange rates will be inserted here -->
-        </ul>
-      </div>
+      <!-- Aba Tabela de Câmbio -->
+      <div class="tab-content" id="tabela-tab">
+        <div class="exchange-table-container">
+          <h2><i class="fas fa-table"></i> Tabela de Câmbio</h2>
 
-      <div class="crypto-container">
-        <h2>Principais Criptomoedas</h2>
-        <ul id="crypto-list" class="crypto-list">
-          <!-- Cryptocurrency rates will be inserted here -->
-        </ul>
+          <div class="currency-table-wrapper">
+            <table class="currency-table">
+              <thead>
+                <tr>
+                  <th>Moeda</th>
+                  <th>USD</th>
+                  <th>EUR</th>
+                  <th>BRL</th>
+                  <th>GBP</th>
+                  <th>JPY</th>
+                  <th>CAD</th>
+                  <th>AUD</th>
+                  <th>CHF</th>
+                </tr>
+              </thead>
+              <tbody id="exchange-table-body">
+                <!-- Linhas da tabela serão preenchidas pelo JavaScript -->
+              </tbody>
+            </table>
+          </div>
+
+          <p class="update-time" id="last-update-time">Última atualização: 21/05/2025, 17:48</p>
+        </div>
       </div>
+    </div>
+
+    <!-- Banner de outras ferramentas -->
+    <div class="tools-banner">
+      <h2>Precisa de outras ferramentas financeiras?</h2>
+      <p>Explore nossa coleção completa de ferramentas financeiras gratuitas para ajudar você em sua jornada de
+        investimentos.</p>
+      <a href="ferramentas.html" class="btn-primary">Ver Todas as Ferramentas</a>
     </div>
   </main>
 
@@ -415,10 +233,7 @@
       </div>
     </div>
   </footer>
-  <script src="script/js-universal.js"></script>
-  <script src="script/contact.js"></script>
-  <script src="script/script.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
   <script src="script/conversor-moedas.js"></script>
 </body>
 

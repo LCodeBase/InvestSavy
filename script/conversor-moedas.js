@@ -1,4 +1,13 @@
-// Elementos DOM
+/**
+ * Conversor de Moedas - Invest Savy
+ * Utiliza a API Exchange Rate para conversão de moedas em tempo real
+ */
+
+// Configurações da API
+const API_KEY = '07ca32210dd3ff348cb14e27';
+const API_URL = 'https://v6.exchangerate-api.com/v6/';
+
+// Elementos do DOM
 const amountInput = document.getElementById('amount');
 const fromCurrency = document.getElementById('from');
 const toCurrency = document.getElementById('to');
@@ -6,504 +15,325 @@ const convertBtn = document.getElementById('convert-btn');
 const swapBtn = document.getElementById('swap-btn');
 const resultElement = document.getElementById('result');
 const exchangeRateElement = document.getElementById('exchange-rate');
-const conversionDetailsElement = document.getElementById('conversion-details');
-const ratesTableBody = document.getElementById('rates-table-body');
+const rateInfoElement = document.getElementById('rate-info');
+const lastUpdateTimeElement = document.getElementById('last-update-time');
+const exchangeTableBody = document.getElementById('exchange-table-body');
+
+// Elementos das abas
 const tabButtons = document.querySelectorAll('.tab-btn');
 const tabContents = document.querySelectorAll('.tab-content');
 
-// Dados de configuração
-// Free API key da ExchangeRate-API (limite de 1500 requisições por mês)
-const API_KEY = '07ca32210dd3ff348cb14e27';
-const BASE_URL = 'https://v6.exchangerate-api.com/v6/' + API_KEY;
-const UPDATE_INTERVAL = 5 * 60 * 1000; // 5 minutos em milissegundos
-
-// Mapeamento de códigos de moeda para facilitar o uso
-const currencyMapping = {
-    'US': 'USD', // Dólar Americano
-    'BR': 'BRL', // Real Brasileiro
-    'EU': 'EUR', // Euro
-    'GB': 'GBP', // Libra Esterlina
-    'JP': 'JPY', // Iene Japonês
-    'CA': 'CAD', // Dólar Canadense
-    'AU': 'AUD', // Dólar Australiano
-    'CH': 'CHF'  // Franco Suíço
+// Moedas disponíveis para a tabela
+const currencies = ['USD', 'EUR', 'BRL', 'GBP', 'JPY', 'CAD', 'AUD', 'CHF'];
+const currencyNames = {
+  'USD': 'US Dólar Americano',
+  'EUR': 'Euro',
+  'BRL': 'BR Real Brasileiro',
+  'GBP': 'GB Libra Esterlina',
+  'JPY': 'JP Iene Japonês',
+  'CAD': 'CA Dólar Canadense',
+  'AUD': 'AU Dólar Australiano',
+  'CHF': 'CH Franco Suíço'
 };
 
-// Moedas principais a serem exibidas na tabela
-const mainCurrencies = ['USD', 'EUR', 'BRL', 'GBP', 'JPY', 'CAD', 'AUD', 'CHF'];
+// Armazenar as taxas para uso posterior
+let ratesCache = {};
+// Flag para controlar se a tabela já foi preenchida
+let tableInitialized = false;
 
-// Taxas de câmbio em cache
-let exchangeRates = {};
-let lastUpdated = null;
-
-// Inicializa as abas
-function initTabs() {
-  tabButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      // Remove a classe 'active' de todos os botões e conteúdos
-      tabButtons.forEach(btn => btn.classList.remove('active'));
-      tabContents.forEach(content => content.classList.remove('active'));
-
-      // Adiciona a classe 'active' ao botão clicado e ao conteúdo correspondente
-      button.classList.add('active');
-      const tabId = button.getAttribute('data-tab');
-      document.getElementById(tabId).classList.add('active');
-
-      // Se for a aba de tabela, atualiza os dados
-      if (tabId === 'tabela') {
-        updateExchangeTable();
-      }
-    });
-  });
-}
-
-// Função para converter moeda
-async function convertCurrency() {
-  try {
-    // Adiciona loader para indicar processamento
-    resultElement.innerHTML = '<div class="loader"></div>';
-
-    const amount = parseFloat(amountInput.value) || 1;
-
-    // Obtém o código real da moeda do mapeamento
-    const from = currencyMapping[fromCurrency.value];
-    const to = currencyMapping[toCurrency.value];
-
-    // Obtém a taxa de câmbio
-    const rate = await getExchangeRate(from, to);
-
-    // Calcula o valor convertido
-    const convertedAmount = amount * rate;
-
-    // Atualiza a exibição
-    updateResult(amount, from, to, rate, convertedAmount);
-  } catch (error) {
-    resultElement.textContent = 'Erro na conversão. Tente novamente.';
-    console.error('Erro ao converter:', error);
-  }
-}
-
-// Função para obter a taxa de câmbio usando a API V6 do ExchangeRate-API
-async function getExchangeRate(from, to) {
-  // Verifica se é a mesma moeda
-  if (from === to) return 1;
-
-  // Cria a chave de par de moedas
-  const pair = `${from}_${to}`;
-
-  // Verifica se a taxa está em cache e se ainda é válida (menos de 5 minutos)
-  const cacheIsValid = lastUpdated && (Date.now() - lastUpdated < UPDATE_INTERVAL);
-
-  if (exchangeRates[pair] && cacheIsValid) {
-    return exchangeRates[pair];
-  }
-
-  try {
-    // Faz a requisição para a API (nesta API, obtemos taxas para todas as moedas de uma vez)
-    const response = await fetch(`${BASE_URL}/latest/${from}`);
-    const data = await response.json();
-
-    if (data.result === "success") {
-      // Armazena todas as taxas em cache
-      for (const currency in data.conversion_rates) {
-        exchangeRates[`${from}_${currency}`] = data.conversion_rates[currency];
-      }
-
-      lastUpdated = Date.now();
-
-      // Atualiza o horário da última atualização
-      updateLastUpdateTime();
-
-      return data.conversion_rates[to];
-    } else {
-      throw new Error('Erro ao obter taxa de câmbio: ' + data.error);
-    }
-  } catch (error) {
-    console.error('Erro ao obter taxa de câmbio:', error);
-
-    // Fallback: se a API falhar, usa valores pré-definidos
-    const fallbackRates = {
-      'USD_BRL': 5.05,
-      'BRL_USD': 0.20,
-      'EUR_USD': 1.09,
-      'USD_EUR': 0.92,
-      'GBP_USD': 1.26,
-      'USD_GBP': 0.79,
-      'JPY_USD': 0.0067,
-      'USD_JPY': 149.8
-    };
-
-    return fallbackRates[pair] || 1;
-  }
-}
-
-// Função para atualizar o resultado na interface
-function updateResult(amount, from, to, rate, convertedAmount) {
-  // Formata os valores para exibição
-  const formattedRate = rate.toFixed(4);
-  const formattedAmount = formatCurrency(convertedAmount, to);
-
-  // Atualiza os elementos na interface
-  exchangeRateElement.textContent = `1 ${from} = ${formattedRate} ${to}`;
-  resultElement.textContent = formattedAmount;
-  conversionDetailsElement.textContent = `${amount} ${from} = ${formattedAmount}`;
-}
-
-// Função para inverter as moedas
-function swapCurrencies() {
-  const temp = fromCurrency.value;
-  fromCurrency.value = toCurrency.value;
-  toCurrency.value = temp;
-
-  // Converte automaticamente após a troca
-  convertCurrency();
-}
-
-// Função para atualizar a tabela de câmbio
-async function updateExchangeTable() {
-  try {
-    // Para cada moeda base
-    for (let i = 0; i < mainCurrencies.length; i++) {
-      const baseCurrency = mainCurrencies[i];
-      const row = ratesTableBody.rows[i];
-
-      // Para cada moeda alvo (começando do índice 1 para pular a célula do código da moeda)
-      for (let j = 1; j < row.cells.length; j++) {
-        const targetCurrency = mainCurrencies[j-1];
-        const cell = row.cells[j];
-
-        if (baseCurrency === targetCurrency) {
-          // Se for a mesma moeda, o valor é 1
-          cell.textContent = '1.0000';
-        } else {
-          // Adiciona um loader enquanto obtém a taxa
-          cell.innerHTML = '<div class="loader"></div>';
-
-          // Obtém e exibe a taxa
-          getExchangeRate(baseCurrency, targetCurrency)
-            .then(rate => {
-              cell.textContent = rate.toFixed(4);
-            })
-            .catch(() => {
-              cell.textContent = 'N/A';
-            });
-        }
-      }
-    }
-
-    // Atualiza o horário da última atualização
-    updateLastUpdateTime();
-  } catch (error) {
-    console.error('Erro ao atualizar tabela:', error);
-  }
-}
-
-// Função para atualizar o horário da última atualização
-function updateLastUpdateTime() {
-  const now = new Date();
-  const formattedDate = now.toLocaleDateString('pt-BR');
-  const formattedTime = now.toLocaleTimeString('pt-BR');
-
-  // Atualiza todos os elementos que mostram horário de atualização
-  document.querySelectorAll('.update-time').forEach(element => {
-    element.innerHTML = `<i class="fas fa-sync-alt"></i> Última atualização: ${formattedDate}, ${formattedTime}`;
-  });
-}
-
-// Função para formatar valores monetários
-function formatCurrency(value, currency) {
-  // Use Intl.NumberFormat para formatar o valor de acordo com a moeda
-  const formatter = new Intl.NumberFormat('pt-BR', {
-    style: 'currency',
-    currency: currency,
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2
-  });
-
-  return formatter.format(value);
-}
-
-// Event Listeners
+/**
+ * Inicializa o aplicativo quando o DOM estiver carregado
+ */
 document.addEventListener('DOMContentLoaded', () => {
-  // Inicializa as abas
-  initTabs();
+  // Inicializar com moedas populares
+  initializePopularCurrencies();
 
-  // Faz a conversão inicial
+  // Inicializar conversor com valores padrão
   convertCurrency();
 
-  // Adiciona os event listeners para os elementos interativos
+  // Adicionar event listeners
   convertBtn.addEventListener('click', convertCurrency);
   swapBtn.addEventListener('click', swapCurrencies);
-
-  // Também converte quando mudar as moedas ou o valor
   amountInput.addEventListener('input', convertCurrency);
   fromCurrency.addEventListener('change', convertCurrency);
   toCurrency.addEventListener('change', convertCurrency);
+
+  // Inicializar abas
+  initializeTabs();
+
+  // Agendar atualização periódica das taxas
+  scheduleRatesRefresh();
 });
 
-// Atualiza as taxas a cada 5 minutos
-setInterval(() => {
-  // Limpa o cache para forçar uma nova requisição
-  exchangeRates = {};
-  lastUpdated = null;
-
-  // Atualiza os dados
-  convertCurrency();
-
-  // Atualiza a tabela se estiver visível
-  if (document.getElementById('tabela').classList.contains('active')) {
-    updateExchangeTable();
-  }
-}, UPDATE_INTERVAL);
-
-// Inicializa as abas
-function initTabs() {
+/**
+ * Inicializa as abas do conversor
+ */
+function initializeTabs() {
   tabButtons.forEach(button => {
     button.addEventListener('click', () => {
-      // Remove a classe 'active' de todos os botões e conteúdos
+      // Remover classe ativa de todos os botões e conteúdos
       tabButtons.forEach(btn => btn.classList.remove('active'));
       tabContents.forEach(content => content.classList.remove('active'));
 
-      // Adiciona a classe 'active' ao botão clicado e ao conteúdo correspondente
+      // Adicionar classe ativa ao botão clicado
       button.classList.add('active');
-      const tabId = button.getAttribute('data-tab');
-      document.getElementById(tabId).classList.add('active');
 
-      // Se for a aba de tabela, atualiza os dados
-      if (tabId === 'tabela') {
-        updateExchangeTable();
+      // Mostrar o conteúdo correspondente
+      const tabId = button.getAttribute('data-tab');
+      document.getElementById(`${tabId}-tab`).classList.add('active');
+
+      // Se for a aba da tabela e ela ainda não foi inicializada, inicializar
+      if (tabId === 'tabela' && !tableInitialized) {
+        generateExchangeTable();
+        tableInitialized = true;
       }
     });
   });
 }
 
-// Função para converter moeda
+/**
+ * Inicializa os selects com moedas populares e configura as bandeiras
+ */
+function initializePopularCurrencies() {
+  // Definir valores default (BRL -> USD)
+  fromCurrency.value = 'BRL';
+  toCurrency.value = 'USD';
+
+  // Adicionar classes de bandeiras nos selects
+  updateCurrencyFlags();
+
+  // Adicionar event listeners para atualizar bandeiras
+  fromCurrency.addEventListener('change', updateCurrencyFlags);
+  toCurrency.addEventListener('change', updateCurrencyFlags);
+}
+
+/**
+ * Atualiza as classes de bandeiras nos selects
+ */
+function updateCurrencyFlags() {
+  const fromFlag = fromCurrency.parentElement.querySelector('.currency-flag');
+  const toFlag = toCurrency.parentElement.querySelector('.currency-flag');
+
+  if (fromFlag) {
+    fromFlag.className = 'currency-flag';
+    fromFlag.classList.add(`flag-${fromCurrency.value}`);
+  }
+
+  if (toFlag) {
+    toFlag.className = 'currency-flag';
+    toFlag.classList.add(`flag-${toCurrency.value}`);
+  }
+}
+
+/**
+ * Realiza a conversão de moeda usando a API
+ */
 async function convertCurrency() {
+  const amount = parseFloat(amountInput.value) || 1;
+  const from = fromCurrency.value;
+  const to = toCurrency.value;
+
   try {
-    // Adiciona loader para indicar processamento
-    resultElement.innerHTML = '<div class="loader"></div>';
+    // Exibir um estado de carregamento
+    resultElement.textContent = 'Calculando...';
 
-    const amount = parseFloat(amountInput.value) || 1;
-    const from = fromCurrency.value;
-    const to = toCurrency.value;
+    // Verificar se já temos as taxas em cache para a moeda de origem
+    if (!ratesCache[from] || isRateCacheExpired(from)) {
+      // Buscar taxas da API
+      const response = await fetch(`${API_URL}${API_KEY}/latest/${from}`);
+      const data = await response.json();
 
-    // Obtém a taxa de câmbio
-    const rate = await getExchangeRate(from, to);
+      if (data.result === 'success') {
+        // Armazenar as taxas em cache com timestamp
+        ratesCache[from] = {
+          rates: data.conversion_rates,
+          timestamp: new Date().getTime()
+        };
 
-    // Calcula o valor convertido
-    const convertedAmount = amount * rate;
+        // Atualizar o horário da última atualização
+        updateLastUpdateTime();
+      } else {
+        throw new Error('Erro ao obter taxas de conversão');
+      }
+    }
 
-    // Atualiza a exibição
-    updateResult(amount, from, to, rate, convertedAmount);
+    // Calcular a conversão usando o cache
+    const rate = ratesCache[from].rates[to];
+    const result = amount * rate;
+
+    // Atualizar a interface com o resultado
+    updateConversionResult(amount, from, to, rate, result);
   } catch (error) {
+    console.error('Erro na conversão:', error);
     resultElement.textContent = 'Erro na conversão. Tente novamente.';
-    console.error('Erro ao converter:', error);
   }
 }
 
-// Função para obter a taxa de câmbio
-async function getExchangeRate(from, to) {
-  // Verifica se é a mesma moeda
-  if (from === to) return 1;
+/**
+ * Verifica se o cache de taxas está expirado (5 minutos)
+ */
+function isRateCacheExpired(currency) {
+  if (!ratesCache[currency]) return true;
 
-  // Cria a chave de par de moedas
-  const pair = `${from}_${to}`;
+  const now = new Date().getTime();
+  const cacheTime = ratesCache[currency].timestamp;
+  const fiveMinutes = 5 * 60 * 1000;
 
-  // Verifica se a taxa está em cache e se ainda é válida (menos de 5 minutos)
-  const cacheIsValid = lastUpdated && (Date.now() - lastUpdated < UPDATE_INTERVAL);
-
-  if (exchangeRates[pair] && cacheIsValid) {
-    return exchangeRates[pair];
-  }
-
-  try {
-    // Faz a requisição para a API
-    const response = await fetch(`${BASE_URL}/convert?q=${pair}&compact=ultra&apiKey=${API_KEY}`);
-    const data = await response.json();
-
-    if (data[pair]) {
-      // Armazena a taxa em cache
-      exchangeRates[pair] = data[pair];
-      lastUpdated = Date.now();
-
-      // Atualiza o horário da última atualização
-      updateLastUpdateTime();
-
-      return data[pair];
-    } else {
-      throw new Error('Taxa de câmbio não encontrada');
-    }
-  } catch (error) {
-    console.error('Erro ao obter taxa de câmbio:', error);
-
-    // Fallback: se a API falhar, tenta obter a taxa de outra forma
-    // Para este exemplo, vamos usar a conversão via USD como intermediário
-    if (from !== 'USD' && to !== 'USD') {
-      const fromToUSD = await getExchangeRate(from, 'USD');
-      const USDToTo = await getExchangeRate('USD', to);
-      return fromToUSD * USDToTo;
-    }
-
-    // Se tudo falhar, lança o erro novamente
-    throw error;
-  }
+  return (now - cacheTime) > fiveMinutes;
 }
 
-// Função para atualizar o resultado na interface
-function updateResult(amount, from, to, rate, convertedAmount) {
-  // Formata os valores para exibição
-  const formattedRate = rate.toFixed(4);
-  const formattedAmount = formatCurrency(convertedAmount, to);
+/**
+ * Atualiza o resultado da conversão na interface
+ */
+function updateConversionResult(amount, from, to, rate, result) {
+  // Formatar o resultado usando a função de formatação de moeda
+  resultElement.textContent = formatCurrency(result, to);
 
-  // Atualiza os elementos na interface
-  exchangeRateElement.textContent = `1 ${from} = ${formattedRate} ${to}`;
-  resultElement.textContent = formattedAmount;
-  conversionDetailsElement.textContent = `${amount} ${from} = ${formattedAmount}`;
+  // Formatar o valor de origem
+  const formattedAmount = formatCurrency(amount, from);
+
+  // Atualizar a informação de taxa
+  exchangeRateElement.innerHTML = `${formattedAmount} <i class="fas fa-long-arrow-alt-down"></i>`;
+  rateInfoElement.textContent = `1 ${from} = ${rate.toFixed(4)} ${to}`;
 }
 
-// Função para inverter as moedas
+/**
+ * Troca as moedas de origem e destino
+ */
 function swapCurrencies() {
-  const temp = fromCurrency.value;
-  fromCurrency.value = toCurrency.value;
-  toCurrency.value = temp;
+  const fromValue = fromCurrency.value;
+  const toValue = toCurrency.value;
 
-  // Converte automaticamente após a troca
+  // Atualizar os selects
+  fromCurrency.value = toValue;
+  toCurrency.value = fromValue;
+
+  // Atualizar as bandeiras
+  updateCurrencyFlags();
+
+  // Realizar a conversão com os novos valores
   convertCurrency();
 }
 
-// Função para atualizar a tabela de câmbio
-async function updateExchangeTable() {
+/**
+ * Gera a tabela de câmbio entre todas as moedas
+ */
+async function generateExchangeTable() {
   try {
-    // Limpa a tabela
-    ratesTableBody.innerHTML = '';
+    // Limpar a tabela existente
+    exchangeTableBody.innerHTML = '<tr><td colspan="9">Carregando taxas de câmbio...</td></tr>';
 
-    // Para cada moeda base
-    for (const baseCurrency of mainCurrencies) {
+    // Array para armazenar as promessas de busca das taxas
+    const promises = [];
+
+    // Buscar taxas para cada moeda base
+    for (const baseCurrency of currencies) {
+      // Verificar se já temos as taxas em cache para a moeda base
+      if (!ratesCache[baseCurrency] || isRateCacheExpired(baseCurrency)) {
+        // Criar e armazenar a promessa
+        const promise = fetch(`${API_URL}${API_KEY}/latest/${baseCurrency}`)
+          .then(response => response.json())
+          .then(data => {
+            if (data.result === 'success') {
+              // Armazenar as taxas em cache com timestamp
+              ratesCache[baseCurrency] = {
+                rates: data.conversion_rates,
+                timestamp: new Date().getTime()
+              };
+            } else {
+              throw new Error(`Erro ao obter taxas para ${baseCurrency}`);
+            }
+          });
+
+        promises.push(promise);
+      }
+    }
+
+    // Aguardar todas as solicitações de API
+    await Promise.all(promises);
+
+    // Limpar a tabela após carregar os dados
+    exchangeTableBody.innerHTML = '';
+
+    // Criar as linhas da tabela
+    for (const baseCurrency of currencies) {
+      // Criar linha da tabela
       const row = document.createElement('tr');
 
-      // Adiciona a célula com o código da moeda
-      const codeCell = document.createElement('td');
-      codeCell.className = 'currency-code';
-      codeCell.innerHTML = `<span class="flag-icon ${baseCurrency.toLowerCase()}"></span> ${baseCurrency}`;
-      row.appendChild(codeCell);
+      // Adicionar célula de moeda base
+      const currencyCell = document.createElement('td');
+      currencyCell.innerHTML = `<span class="flag-icon flag-${baseCurrency.toLowerCase()}"></span> ${currencyNames[baseCurrency] || baseCurrency}`;
+      row.appendChild(currencyCell);
 
-      // Para cada moeda alvo
-      for (const targetCurrency of mainCurrencies) {
+      // Adicionar células para cada moeda de destino
+      for (const targetCurrency of currencies) {
         const cell = document.createElement('td');
-
         if (baseCurrency === targetCurrency) {
-          // Se for a mesma moeda, o valor é 1
           cell.textContent = '1.0000';
+          cell.classList.add('same-currency');
         } else {
-          // Adiciona um loader enquanto obtém a taxa
-          cell.innerHTML = '<div class="loader"></div>';
-
-          // Obtém e exibe a taxa
-          getExchangeRate(baseCurrency, targetCurrency)
-            .then(rate => {
-              cell.textContent = rate.toFixed(4);
-            })
-            .catch(() => {
-              cell.textContent = 'N/A';
-            });
+          const rate = ratesCache[baseCurrency].rates[targetCurrency];
+          cell.textContent = rate.toFixed(4);
         }
-
         row.appendChild(cell);
       }
 
-      ratesTableBody.appendChild(row);
+      // Adicionar a linha à tabela
+      exchangeTableBody.appendChild(row);
     }
 
-    // Atualiza o horário da última atualização
+    // Atualizar o horário da última atualização
     updateLastUpdateTime();
   } catch (error) {
-    console.error('Erro ao atualizar tabela:', error);
+    console.error('Erro ao gerar tabela de câmbio:', error);
+    exchangeTableBody.innerHTML = '<tr><td colspan="9">Erro ao carregar taxas de câmbio. Tente novamente mais tarde.</td></tr>';
   }
 }
 
-// Função para atualizar o horário da última atualização
+/**
+ * Atualiza o horário da última atualização
+ */
 function updateLastUpdateTime() {
   const now = new Date();
   const formattedDate = now.toLocaleDateString('pt-BR');
   const formattedTime = now.toLocaleTimeString('pt-BR');
-
-  // Atualiza todos os elementos que mostram horário de atualização
-  document.querySelectorAll('.update-time').forEach(element => {
-    element.innerHTML = `<i class="fas fa-sync-alt"></i> Última atualização: ${formattedDate}, ${formattedTime}`;
-  });
+  lastUpdateTimeElement.textContent = `Última atualização: ${formattedDate}, ${formattedTime}`;
 }
 
-// Função para formatar valores monetários
+/**
+ * Formata valores monetários
+ */
 function formatCurrency(value, currency) {
-  const formatter = new Intl.NumberFormat('pt-BR', {
+  const options = {
     style: 'currency',
     currency: currency,
     minimumFractionDigits: 2,
     maximumFractionDigits: 2
-  });
+  };
 
-  return formatter.format(value);
+  return new Intl.NumberFormat('pt-BR', options).format(value);
 }
 
-// Função para inicializar moedas de acordo com a geolocalização
-async function initCurrenciesByLocation() {
-  try {
-    // Tenta obter a localização do usuário via API de geolocalização
-    const response = await fetch('https://ipapi.co/json/');
-    const data = await response.json();
+/**
+ * Agenda atualização periódica das taxas
+ */
+function scheduleRatesRefresh() {
+  setInterval(() => {
+    // Limpar cache de taxas para forçar atualização
+    ratesCache = {};
 
-    // Define as moedas com base na localização
-    if (data && data.currency) {
-      // Se o usuário estiver no Brasil, configura BRL como moeda de origem
-      if (data.country_code === 'BR') {
-        fromCurrency.value = 'BRL';
-        toCurrency.value = 'USD';
-      } else {
-        // Senão, configura a moeda local como origem e USD como destino
-        fromCurrency.value = data.currency;
-        toCurrency.value = 'USD';
-      }
-    }
-  } catch (error) {
-    console.log('Não foi possível obter a localização. Usando valores padrão.');
-    // Fallback para valores padrão
-    fromCurrency.value = 'BRL';
-    toCurrency.value = 'USD';
-  }
-}
-
-// Event Listeners
-document.addEventListener('DOMContentLoaded', () => {
-  // Inicializa as abas
-  initTabs();
-
-  // Inicializa as moedas com base na localização
-  initCurrenciesByLocation().then(() => {
-    // Faz a conversão inicial
+    // Atualizar conversão atual
     convertCurrency();
-  });
 
-  // Adiciona os event listeners para os elementos interativos
-  convertBtn.addEventListener('click', convertCurrency);
-  swapBtn.addEventListener('click', swapCurrencies);
+    // Atualizar tabela se estiver visível
+    if (tableInitialized) {
+      generateExchangeTable();
+    }
 
-  // Também converte quando mudar as moedas ou o valor
-  amountInput.addEventListener('input', convertCurrency);
-  fromCurrency.addEventListener('change', convertCurrency);
-  toCurrency.addEventListener('change', convertCurrency);
-});
+    console.log('Taxas atualizadas: ' + new Date().toLocaleTimeString());
+  }, 5 * 60 * 1000); // 5 minutos
+}
 
-// Atualiza as taxas a cada 5 minutos
-setInterval(() => {
-  // Limpa o cache para forçar uma nova requisição
-  exchangeRates = {};
-  lastUpdated = null;
-
-  // Atualiza os dados
-  convertCurrency();
-
-  // Atualiza a tabela se estiver visível
-  if (document.getElementById('tabela').classList.contains('active')) {
-    updateExchangeTable();
-  }
-}, UPDATE_INTERVAL);
+// Exportar funções para uso global
+window.convertCurrency = convertCurrency;
+window.swapCurrencies = swapCurrencies;
