@@ -1,4 +1,4 @@
-/* Reset e estilos base */
+/* Reset básico */
 * {
     margin: 0;
     padding: 0;
@@ -533,7 +533,8 @@ main {
     }
 }
 
-/* Header and Footer Contet*/
+/*Header and Footer Content*/
+
 /* Header */
 header {
     background-color: #fff;
