@@ -1,7 +1,7 @@
 ---
 layout: base.njk
 title: Notícias
-permalink: /news/
+permalink: news/index.html
 ---
 
 <!-- Hero Section -->
@@ -39,31 +39,22 @@ permalink: /news/
       <a href="{{ featuredPost.url | url }}" class="featured-link">
         <div class="featured-image">
           {% if featuredPost.data.image %}
-          <img
-            src="{{ featuredPost.data.image }}"
-            alt="{{ featuredPost.data.title }}"
-          />
+          <img src="{{ featuredPost.data.image }}" alt="{{ featuredPost.data.title }}" />
           {% endif %}
           <span class="tag {{ featuredPost.data.category | lower }}">{{
             featuredPost.data.category
-          }}</span>
+            }}</span>
         </div>
         <div class="featured-content">
           <h2 class="featured-title">{{ featuredPost.data.title }}</h2>
           <p class="featured-excerpt">{{ featuredPost.data.description }}</p>
           <div class="article-meta">
-            <span
-              ><i class="far fa-calendar"></i>
-              {{ featuredPost.date | formatDate }}</span
-            >
-            <span
-              ><i class="far fa-clock"></i>
-              {{ featuredPost.data.readingTime }} min de leitura</span
-            >
-            <span
-              ><i class="far fa-eye"></i>
-              {{ featuredPost.data.views or '0' }}</span
-            >
+            <span><i class="far fa-calendar"></i>
+              {{ featuredPost.date | formatDate }}</span>
+            <span><i class="far fa-clock"></i>
+              {{ featuredPost.data.readingTime }} min de leitura</span>
+            <span><i class="far fa-eye"></i>
+              {{ featuredPost.data.views or '0' }}</span>
             <span>Por {{ featuredPost.data.author or 'InvestSavy' }}</span>
           </div>
         </div>
@@ -81,10 +72,7 @@ permalink: /news/
       </h2>
       <div class="news-grid">
         {% for post in validPosts %} {% if loop.index0 > 0 %}
-        <article
-          class="news-card"
-          data-category="{{ post.data.category | lower }}"
-        >
+        <article class="news-card" data-category="{{ post.data.category | lower }}">
           <a href="{{ post.url | url }}" class="news-card-link">
             <div class="news-card-image">
               {% if post.data.image %}
@@ -92,23 +80,17 @@ permalink: /news/
               {% endif %}
               <span class="tag {{ post.data.category | lower }}">{{
                 post.data.category
-              }}</span>
+                }}</span>
             </div>
             <div class="news-card-content">
               <h3 class="news-card-title">{{ post.data.title }}</h3>
               <p class="news-card-excerpt">{{ post.data.description }}</p>
               <div class="article-meta">
-                <span
-                  ><i class="far fa-calendar"></i>
-                  {{ post.date | formatDate }}</span
-                >
-                <span
-                  ><i class="far fa-clock"></i> {{ post.data.readingTime }} min
-                  de leitura</span
-                >
-                <span
-                  ><i class="far fa-eye"></i> {{ post.data.views or '0' }}</span
-                >
+                <span><i class="far fa-calendar"></i>
+                  {{ post.date | formatDate }}</span>
+                <span><i class="far fa-clock"></i> {{ post.data.readingTime }} min
+                  de leitura</span>
+                <span><i class="far fa-eye"></i> {{ post.data.views or '0' }}</span>
               </div>
             </div>
           </a>
@@ -127,16 +109,15 @@ permalink: /news/
         Últimas Atualizações
       </h3>
       <ul class="sidebar-list">
-        {% for post in validPosts %} {% if loop.index0 < 5 %}
-        <li>
+        {% for post in validPosts %} {% if loop.index0 < 5 %} <li>
           <a href="{{ post.url | url }}" class="sidebar-link">{{
             post.data.title
-          }}</a>
+            }}</a>
           <div class="sidebar-meta">
             {{ post.data.category }} • {{ post.date | formatDate }}
           </div>
-        </li>
-        {% endif %} {% endfor %}
+          </li>
+          {% endif %} {% endfor %}
       </ul>
     </div>
 
@@ -147,13 +128,12 @@ permalink: /news/
         Mais Lidas
       </h3>
       <ul class="sidebar-list">
-        {% for post in validPosts %} {% if loop.index0 < 5 %}
-        <li>
+        {% for post in validPosts %} {% if loop.index0 < 5 %} <li>
           <a href="{{ post.url | url }}" class="sidebar-link">{{
             post.data.title
-          }}</a>
-        </li>
-        {% endif %} {% endfor %}
+            }}</a>
+          </li>
+          {% endif %} {% endfor %}
       </ul>
     </div>
 
@@ -165,11 +145,8 @@ permalink: /news/
       </h3>
       <div class="topics-tags">
         {% for category in collections.categories %}
-        <a
-          href="/InvestSavy/news/?category={{ category | lower }}"
-          class="topic-tag"
-          data-category="{{ category | lower }}"
-        >
+        <a href="/InvestSavy/news/?category={{ category | lower }}" class="topic-tag"
+          data-category="{{ category | lower }}">
           {{ category }}
         </a>
         {% endfor %}
@@ -187,12 +164,7 @@ permalink: /news/
         financeiro.
       </p>
       <form class="newsletter-form">
-        <input
-          type="email"
-          class="newsletter-input"
-          placeholder="Seu e-mail"
-          required
-        />
+        <input type="email" class="newsletter-input" placeholder="Seu e-mail" required />
         <button type="submit" class="newsletter-btn">Inscrever-se</button>
       </form>
     </div>
