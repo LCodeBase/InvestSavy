@@ -43,6 +43,14 @@ module.exports = function (eleventyConfig) {
     return array.slice(0, limit)
   })
 
+  // IMPORTANTE: Adicionar suporte ao filtro url customizado se necessário
+  eleventyConfig.addFilter('url', function (url) {
+    const pathPrefix = this.ctx.pathPrefix || ''
+    if (!url) return url
+    if (url.startsWith('http')) return url
+    return pathPrefix + url
+  })
+
   // Configurações de entrada e saída
   return {
     dir: {
@@ -55,7 +63,7 @@ module.exports = function (eleventyConfig) {
     htmlTemplateEngine: 'njk',
     markdownTemplateEngine: 'njk',
     pathPrefix: '/InvestSavy/',
+    // Importante: verificar se está correto
     url: 'https://lcodebase.github.io',
-    permalink: '/{{ page.filePathStem }}/',
   }
 }
