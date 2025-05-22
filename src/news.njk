@@ -39,7 +39,7 @@ permalink: news/index.html
       <a href="{{ featuredPost.url | url }}" class="featured-link">
         <div class="featured-image">
           {% if featuredPost.data.image %}
-          <img src="{{featuredPost.data.image }}" alt="{{ featuredPost.data.title }}" />
+          <img src="{{ featuredPost.data.image | url }}" alt="{{ featuredPost.data.title }}" />
           {% endif %}
           <span class="tag {{ featuredPost.data.category | lower }}">{{
             featuredPost.data.category
@@ -76,7 +76,7 @@ permalink: news/index.html
           <a href="{{ post.url | url }}" class="news-card-link">
             <div class="news-card-image">
               {% if post.data.image %}
-              <img src="{{ post.data.image }}" alt="{{ post.data.title }}" />
+              <img src="{{ post.data.image | url }}" alt="{{ post.data.title }}" />
               {% endif %}
               <span class="tag {{ post.data.category | lower }}">{{
                 post.data.category
@@ -145,7 +145,7 @@ permalink: news/index.html
       </h3>
       <div class="topics-tags">
         {% for category in collections.categories %}
-        <a href="/InvestSavy/news/?category={{ category | lower }}" class="topic-tag"
+        <a href="{{ '/news/?category=' + category | lower | url }}" class="topic-tag"
           data-category="{{ category | lower }}">
           {{ category }}
         </a>
