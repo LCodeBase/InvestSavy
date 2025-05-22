@@ -57,6 +57,7 @@ module.exports = function (eleventyConfig) {
     templateFormats: ['html', 'md', 'njk'],
     htmlTemplateEngine: 'njk',
     markdownTemplateEngine: 'njk',
-    pathPrefix: '/InvestSavy/', // Adicionando o pathPrefix para o GitHub Pages
+    pathPrefix: '/InvestSavy/',
+    url: 'https://lcodebase.github.io',
   }
 }
