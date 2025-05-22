@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Serviços Financeiros Inteligentes | InvestSavy</title>
+  <link rel="stylesheet" href="css/style-servicos-page.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <!-- Favicons para diferentes dispositivos e navegadores -->
+  <link rel="shortcut icon" href="images/Camada 1.png" type="image/x-icon" />
+  <link rel="manifest" href="site.webmanifest" />
+  <!-- Preload de fontes e recursos críticos -->
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-solid-900.woff2"
+    as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <script>
+    // Initialize Firebase using a function that loads config from a separate file
+    // This adds a layer of obfuscation
+    ; (function () {
+      fetch('config/firebase-config.json')
+        .then((response) => response.json())
+        .then((firebaseConfig) => {
+          firebase.initializeApp(firebaseConfig)
+        })
+        .catch((error) => {
+          console.error('Error loading Firebase configuration:', error)
+        })
+    })()
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script>
+      ; (function () {
+        // Load EmailJS config from separate file
+        fetch('config/emailjs-config.json')
+          .then((response) => response.json())
+          .then((config) => {
+            emailjs.init(config.publicKey)
+          })
+          .catch((error) => {
+            console.error('Error loading EmailJS configuration:', error)
+          })
+      })()
+  </script>
+</head>
+
+<body>
+  <header>
+    <div class="container-LOGO">
+      <div class="logo">
+        <span style="color: #1e40af">Invest</span><span style="color: #10b981">Savy</span>
+      </div>
+    </div>
+
+    <div class="menu-toggle" alt="Botão-Menu">
+      <i class="fas fa-bars"></i>
+    </div>
+
+    <nav class="nav-menu">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="blogs-main.html">Notícias</a></li>
+        <li><a href="servicos.html">Ferramentas</a></li>
+        <li><a href="educacao.html">Aprender</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+      </ul>
+    </nav>
+    </nav>
+
+    <div class="search-icon">
+      <i class="fas fa-search"></i>
+    </div>
+  </header>
+
+
+  <main>
+    <section class="tools-hero-section">
+      <h1>Ferramentas</h1>
+      <p>
+        Nossa coleção de ferramentas gratuitas para ajudar você a tomar decisões financeiras
+        mais inteligentes e planejar seu futuro financeiro com confiança.
+      </p>
+    </section>
+
+    <section class="tools-section-content">
+      <div class="filters">
+        <button class="filter-btn active" data-category="all">Todas</button>
+        <button class="filter-btn" data-category="calculadoras">Calculadoras</button>
+        <button class="filter-btn" data-category="simuladores">Simuladores</button>
+        <button class="filter-btn" data-category="comparadores">Comparadores</button>
+        <button class="filter-btn" data-category="analises">Análises</button>
+      </div>
+
+      <div class="tools-grid">
+        <div class="tool-card" data-category="calculadoras" onclick="window.location.href='calculo-despesas.html'">
+          <div class="tool-icon">
+            <i class="fas fa-calculator"></i>
+          </div>
+          <h3>Cálculo de Despesas</h3>
+          <p class="tool-description">
+            Gerencie seus gastos mensais e descubra onde pode economizar.
+          </p>
+          <span class="category-label">Calculadoras</span>
+        </div>
+
+        <div class="tool-card" data-category="calculadoras"
+          onclick="window.location.href='calculadora-emprestimo.html'">
+          <div class="tool-icon">
+            <i class="fas fa-money-bill-wave"></i>
+          </div>
+          <h3>Calculadora de Empréstimos</h3>
+          <p class="tool-description">
+            Compare taxas de juros e calcule parcelas de empréstimos.
+          </p>
+          <span class="category-label">Calculadoras</span>
+        </div>
+
+        <div class="tool-card" data-category="comparadores" onclick="window.location.href='conversor-moedas.html'">
+          <div class="tool-icon">
+            <i class="fas fa-exchange-alt"></i>
+          </div>
+          <h3>Conversor de Moedas</h3>
+          <p class="tool-description">
+            Converta valores entre diferentes moedas em tempo real.
+          </p>
+          <span class="category-label">Comparadores</span>
+        </div>
+
+        <!-- Adicionar mais cards de ferramentas conforme necessário -->
+      </div>
+    </section>
+
+    <section class="cta-custom-section">
+      <div class="cta-content-custom">
+        <h2>Precisa de uma ferramenta personalizada?</h2>
+        <p>
+          Se você precisa de uma ferramenta financeira específica que não encontrou aqui, entre em contato
+          conosco. Estamos constantemente expandindo nossa coleção de ferramentas gratuitas.
+        </p>
+        <a href="#contato" class="button-solicitar">Solicitar Ferramenta</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container-footer-alt">
+      <div class="footer-brand">
+        <div class="logo-footer">
+          <span style="color: #1e40af">Invest</span><span style="color: #10b981">Savy</span>
+        </div>
+        <p>Democratizando o acesso à educação<br />financeira para todos.</p>
+        <p class="copyright">
+          &copy; 2025 InvestSavy. Todos os direitos<br />reservados.
+        </p>
+      </div>
+      <div class="footer-links">
+        <h4>NAVEGAÇÃO</h4>
+        <ul>
+          <li><a href="index.html">Página Inicial</a></li>
+          <li><a href="blogs-main.html">Notícias</a></li>
+          <li><a href="servicos.html">Ferramentas</a></li>
+          <li><a href="educacao.html">Educação Financeira</a></li>
+          <li><a href="sobre.html">Sobre Nós</a></li>
+        </ul>
+      </div>
+      <div class="footer-tools">
+        <h4>FERRAMENTAS</h4>
+        <ul>
+          <li>
+            <a href="#calculadora-juros">Calculadora de Juros Compostos</a>
+          </li>
+          <li>
+            <a href="#simulador-aposentadoria">Simulador de Aposentadoria</a>
+          </li>
+          <li>
+            <a href="#comparador-investimentos">Comparador de Investimentos</a>
+          </li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>CONTATO</h4>
+        <p>contato@investsavy.com.br</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+<script src="script/js-universal.js"></script>
+<script src="https://kit.fontawesome.com/65f22fe718.js" crossorigin="anonymous"></script>
+<script src="script/contact.js"></script>
+<script src="script/script.js"></script>
+<script src="https://kit.fontawesome.com/e1063b7707.js" crossorigin="anonymous"></script>
+
+</html>

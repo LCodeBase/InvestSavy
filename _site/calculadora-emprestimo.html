@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Invest Savy - Simulador de Empréstimos</title>
+  <link rel="stylesheet" href="css/style-calculadora-emprestimo.css" />
+  <link rel="stylesheet" href="css/style-emprestimos-results.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+  <header>
+    <div class="container-LOGO">
+      <div class="logo">
+        <span style="color: #1e40af">Invest</span><span style="color: #10b981">Savy</span>
+      </div>
+    </div>
+
+    <div class="menu-toggle" alt="Botão-Menu">
+      <i class="fas fa-bars"></i>
+    </div>
+
+    <nav class="nav-menu">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="blogs-main.html">Notícias</a></li>
+        <li><a href="servicos.html">Ferramentas</a></li>
+        <li><a href="educacao.html">Aprender</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+      </ul>
+    </nav>
+
+    <div class="search-icon">
+      <i class="fas fa-search"></i>
+    </div>
+  </header>
+
+
+  <main>
+    <section class="hero">
+      <h1>Simulador de Empréstimos</h1>
+      <p class="subtitle">
+        Compare opções, faça simulações e encontre o melhor empréstimo para suas necessidades financeiras
+      </p>
+    </section>
+
+    <section class="tabs-container">
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="calculadora">
+          <i class="fas fa-calculator"></i> Calculadora
+        </button>
+        <button class="tab-btn" data-tab="comparacao">
+          <i class="fas fa-exchange-alt"></i> Comparação
+        </button>
+        <button class="tab-btn" data-tab="dicas">
+          <i class="fas fa-lightbulb"></i> Dicas
+        </button>
+      </div>
+
+      <!-- Aba Calculadora -->
+      <div class="tab-content active" id="calculadora">
+        <div class="calculator-form">
+          <h2>Calcule seu Empréstimo</h2>
+
+          <div class="form-group">
+            <label for="loan-type">Tipo de Empréstimo</label>
+            <div class="select-wrapper">
+              <select id="loan-type">
+                <option value="personal">Empréstimo Pessoal</option>
+                <option value="consignado">Empréstimo Consignado</option>
+                <option value="auto">Financiamento de Veículo</option>
+                <option value="imovel">Financiamento Imobiliário</option>
+                <option value="estudantil">Financiamento Estudantil</option>
+              </select>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="loan-amount">Valor do Empréstimo (R$)</label>
+            <input type="number" id="loan-amount" min="1000" step="100" value="10000" />
+          </div>
+
+          <div class="form-row">
+            <div class="form-group half">
+              <label for="loan-term">Prazo (meses)</label>
+              <input type="number" id="loan-term" min="1" max="360" value="36" />
+            </div>
+            <div class="form-group half">
+              <label for="interest-rate">Taxa de Juros (% ao mês)</label>
+              <input type="number" id="interest-rate" min="0.1" step="0.1" value="1.5" />
+            </div>
+          </div>
+
+          <button id="calculate-btn" class="primary-button">Calcular Empréstimo</button>
+        </div>
+      </div>
+
+      <!-- Aba Comparação -->
+      <div class="tab-content" id="comparacao">
+        <h2>Compare as Taxas dos Principais Bancos</h2>
+        <p class="tab-subtitle">
+          Analise as taxas de juros mensais dos principais bancos para encontrar a melhor opção para seu empréstimo
+        </p>
+
+        <div class="comparison-table">
+          <table>
+            <thead>
+              <tr>
+                <th>Instituição</th>
+                <th>Pessoal (%)</th>
+                <th>Consignado (%)</th>
+                <th>Automóvel (%)</th>
+                <th>Imobiliário (%)</th>
+                <th>Estudantil (%)</th>
+                <th>Score Mínimo</th>
+                <th>Diferenciais</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Banco do Brasil</td>
+                <td>1.60</td>
+                <td>1.10</td>
+                <td>1.25</td>
+                <td>0.95</td>
+                <td>1.35</td>
+                <td>650</td>
+                <td>
+                  <div class="rating-bar medium"></div>
+                </td>
+              </tr>
+              <tr>
+                <td>Caixa Econômica</td>
+                <td>1.55</td>
+                <td>1.05</td>
+                <td>1.20</td>
+                <td>0.90</td>
+                <td>1.30</td>
+                <td>630</td>
+                <td>
+                  <div class="rating-bar medium"></div>
+                </td>
+              </tr>
+              <tr>
+                <td>Itaú</td>
+                <td>1.68</td>
+                <td>1.15</td>
+                <td>1.30</td>
+                <td>0.98</td>
+                <td>1.38</td>
+                <td>680</td>
+                <td>
+                  <div class="rating-bar medium"></div>
+                </td>
+              </tr>
+              <tr>
+                <td>Bradesco</td>
+                <td>1.65</td>
+                <td>1.12</td>
+                <td>1.28</td>
+                <td>0.95</td>
+                <td>1.40</td>
+                <td>670</td>
+                <td>
+                  <div class="rating-bar medium"></div>
+                </td>
+              </tr>
+              <tr>
+                <td>Santander</td>
+                <td>1.70</td>
+                <td>1.15</td>
+                <td>1.32</td>
+                <td>1.00</td>
+                <td>1.42</td>
+                <td>660</td>
+                <td>
+                  <div class="rating-bar low"></div>
+                </td>
+              </tr>
+              <tr>
+                <td>Nubank</td>
+                <td>1.62</td>
+                <td>1.20</td>
+                <td>1.35</td>
+                <td>1.05</td>
+                <td>1.30</td>
+                <td>690</td>
+                <td>
+                  <div class="rating-bar medium"></div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="considerations">
+          <h3><i class="fas fa-exclamation-circle"></i> Importante Considerar</h3>
+
+          <div class="considerations-grid">
+            <div class="consideration-item">
+              <h4>Taxa de Juros Nominal vs Efetiva</h4>
+              <p>A taxa efetiva considera todos os custos do empréstimo e é sempre maior que a nominal. Solicite o CET
+                (Custo Efetivo Total).</p>
+            </div>
+
+            <div class="consideration-item">
+              <h4>Taxas Administrativas</h4>
+              <p>Verifique as taxas extras como TAC (Taxa de Abertura de Crédito) e IOF que podem aumentar
+                significativamente o custo final.</p>
+            </div>
+
+            <div class="consideration-item">
+              <h4>Seguros Vinculados</h4>
+              <p>Algumas instituições podem incluir seguros no empréstimo que nem sempre são obrigatórios. Confirme o
+                que é opcional.</p>
+            </div>
+
+            <div class="consideration-item">
+              <h4>Prazo de Carência</h4>
+              <p>Verifique se existe período de carência antes do início do pagamento das parcelas e como os juros são
+                calculados nesse período.</p>
+            </div>
+
+            <div class="consideration-item">
+              <h4>Multa por Antecipação</h4>
+              <p>Confirme se há multas para quitação antecipada ou amortização parcial do empréstimo.</p>
+            </div>
+
+            <div class="consideration-item">
+              <h4>Portabilidade</h4>
+              <p>Após contratar um empréstimo, você pode transferi-lo para outra instituição com taxas menores
+                (portabilidade).</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Aba Dicas -->
+      <div class="tab-content" id="dicas">
+        <h2>Dicas para seu Empréstimo</h2>
+        <p class="tab-subtitle">
+          Saiba como escolher o melhor empréstimo e evitar armadilhas financeiras
+        </p>
+
+        <div class="tips-navigation">
+          <button class="tip-nav-btn active" data-tip="antes">Antes de Contratar</button>
+          <button class="tip-nav-btn" data-tip="durante">Durante o Contrato</button>
+          <button class="tip-nav-btn" data-tip="perguntas">Perguntas Frequentes</button>
+        </div>
+
+        <div class="tips-content active" id="antes">
+          <div class="tip-box">
+            <h3><i class="fas fa-check-circle"></i> O Que Fazer Antes de Solicitar um Empréstimo</h3>
+
+            <div class="tip-item">
+              <h4>1. Avalie a real necessidade</h4>
+              <p>Antes de solicitar um empréstimo, avalie se você realmente precisa dele. Considere alternativas como
+                economizar por alguns meses ou buscar fontes de renda extras.</p>
+            </div>
+
+            <div class="tip-item">
+              <h4>2. Conheça seu orçamento</h4>
+              <p>Entenda sua capacidade de pagamento. As parcelas do empréstimo não devem comprometer mais de 30% da sua
+                renda mensal.</p>
+            </div>
+
+            <div class="tip-item">
+              <h4>3. Compare todas as opções</h4>
+              <p>Não aceite a primeira oferta. Compare diferentes instituições, prazos e modalidades para encontrar a
+                melhor condição.</p>
+            </div>
+
+            <div class="tip-item">
+              <h4>4. Verifique sua pontuação de crédito</h4>
+              <p>Um bom score de crédito pode garantir taxas mais baixas. Consulte seu score gratuitamente e trabalhe
+                para melhorá-lo antes de solicitar o empréstimo.</p>
+            </div>
+
+            <div class="tip-item">
+              <h4>5. Leia todo o contrato</h4>
+              <p>Preste atenção a todos os detalhes do contrato, incluindo taxas adicionais, multas por atraso e
+                condições para quitação antecipada.</p>
+            </div>
+
+            <div class="tip-item">
+              <h4>6. Solicite o CET</h4>
+              <p>O Custo Efetivo Total (CET) mostra o custo real do empréstimo, incluindo juros, seguros e taxas. Por
+                lei, as instituições são obrigadas a informá-lo.</p>
+            </div>
+          </div>
+
+          <div class="warning-box">
+            <h4><i class="fas fa-exclamation-triangle"></i> Cuidados Importantes</h4>
+            <ul>
+              <li>Desconfie de ofertas com juros muito abaixo do mercado</li>
+              <li>Nunca pague antecipadamente por um empréstimo ainda não liberado</li>
+              <li>Verifique a reputação da instituição financeira</li>
+              <li>Não compartilhe dados sensíveis em sites suspeitos</li>
+              <li>Fuja de empréstimos que exigem pagamento antecipado de taxas</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tips-content" id="durante">
+          <!-- Conteúdo da aba "Durante o Contrato" -->
+          <div class="tip-box">
+            <h3><i class="fas fa-file-contract"></i> Como Gerenciar seu Empréstimo</h3>
+
+            <div class="tip-item">
+              <h4>1. Mantenha os pagamentos em dia</h4>
+              <p>Pague sempre as parcelas na data correta para evitar juros e multas por atraso, que podem ser
+                significativos.</p>
+            </div>
+
+            <div class="tip-item">
+              <h4>2. Configure alertas de pagamento</h4>
+              <p>Use o calendário ou aplicativos bancários para receber lembretes antes do vencimento de cada parcela.
+              </p>
+            </div>
+
+            <div class="tip-item">
+              <h4>3. Considere a amortização</h4>
+              <p>Se possível, faça pagamentos extras para reduzir o saldo devedor e diminuir os juros futuros.</p>
+            </div>
+
+            <div class="tip-item">
+              <h4>4. Fique atento à portabilidade</h4>
+              <p>Monitore o mercado regularmente para verificar se existem opções com taxas menores e considere a
+                portabilidade.</p>
+            </div>
+
+            <div class="tip-item">
+              <h4>5. Guarde comprovantes</h4>
+              <p>Mantenha todos os comprovantes de pagamento até o fim do contrato e a quitação total do empréstimo.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="tips-content" id="perguntas">
+          <!-- Conteúdo da aba "Perguntas Frequentes" -->
+          <div class="faq-container">
+            <div class="faq-item">
+              <div class="faq-question">
+                <h4>O que é o Sistema de Amortização Constante (SAC)?</h4>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="faq-answer">
+                <p>No SAC, as amortizações (pagamentos do valor principal) são constantes, enquanto os juros diminuem ao
+                  longo do tempo. As parcelas iniciais são maiores e vão diminuindo, resultando num custo total de juros
+                  menor comparado ao sistema Price.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <h4>Qual a diferença entre empréstimo pessoal e consignado?</h4>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="faq-answer">
+                <p>O empréstimo consignado tem as parcelas descontadas diretamente da folha de pagamento ou benefício, o
+                  que reduz o risco para o banco e, consequentemente, oferece taxas mais baixas. Já o empréstimo pessoal
+                  é mais flexível, mas com taxas geralmente mais altas.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <h4>Como funciona a portabilidade de empréstimos?</h4>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="faq-answer">
+                <p>A portabilidade permite transferir seu empréstimo para outra instituição com condições mais
+                  vantajosas. Solicite uma proposta ao novo banco, que entrará em contato com o banco atual. A operação
+                  é gratuita e o banco original não pode recusar a transferência.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <h4>É possível quitar um empréstimo antecipadamente?</h4>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="faq-answer">
+                <p>Sim, a lei permite a quitação antecipada com redução proporcional dos juros. Algumas instituições
+                  podem cobrar uma taxa de até 2% sobre o valor antecipado como compensação, mas muitas já não cobram
+                  essa multa.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <h4>O que fazer se não conseguir pagar as parcelas?</h4>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="faq-answer">
+                <p>Entre em contato com a instituição antes do vencimento para negociar. É possível solicitar a
+                  prorrogação do prazo, renegociação das condições ou até mesmo a portabilidade para uma instituição com
+                  melhores condições.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container-footer-alt">
+      <div class="footer-brand">
+        <div class="logo-footer">
+          <span style="color: #1e40af">Invest</span><span style="color: #10b981">Savy</span>
+        </div>
+        <p>Democratizando o acesso à educação<br />financeira para todos.</p>
+        <p class="copyright">
+          &copy; 2025 InvestSavy. Todos os direitos<br />reservados.
+        </p>
+      </div>
+      <div class="footer-links">
+        <h4>NAVEGAÇÃO</h4>
+        <ul>
+          <li><a href="index.html">Página Inicial</a></li>
+          <li><a href="blogs-main.html">Notícias</a></li>
+          <li><a href="#ferramentas">Ferramentas</a></li>
+          <!-- Link provisório -->
+          <li><a href="#educacao-financeira">Educação Financeira</a></li>
+          <!-- Link provisório -->
+          <li><a href="sobre.html">Sobre Nós</a></li>
+        </ul>
+      </div>
+      <div class="footer-tools">
+        <h4>FERRAMENTAS</h4>
+        <ul>
+          <li>
+            <a href="#calculadora-juros">Calculadora de Juros Compostos</a>
+          </li>
+          <!-- Link provisório -->
+          <li>
+            <a href="#simulador-aposentadoria">Simulador de Aposentadoria</a>
+          </li>
+          <!-- Link provisório -->
+          <li>
+            <a href="#comparador-investimentos">Comparador de Investimentos</a>
+          </li>
+          <!-- Link provisório -->
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>CONTATO</h4>
+        <p>contato@investsavy.com.br</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script/calculadora-emprestimo.js"></script>
+</body>
+
+</html>

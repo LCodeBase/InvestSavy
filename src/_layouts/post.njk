@@ -1,0 +1,45 @@
+---
+layout: base.njk
+---
+
+<section class="news-header">
+  <h1>{{ title }}</h1>
+  <div class="news-meta">
+    <span class="date"
+      ><i class="far fa-calendar"></i> {{ date | formatDate }}</span
+    >
+    <span class="category"><i class="fas fa-tag"></i> {{ category }}</span>
+  </div>
+</section>
+
+<article class="news-content">
+  {{ content | safe }}
+</article>
+
+<section class="related-news">
+  <h2>Notícias Relacionadas</h2>
+  <div class="news-grid">
+    {%- for post in collections.post | reverse | limit(3) -%} {%- if post.url !=
+    page.url -%}
+    <article class="news-card">
+      <div class="news-card-image">
+        <img src="{{ post.data.image }}" alt="{{ post.data.title }}" />
+        <span class="tag {{ post.data.category | lower }}">{{
+          post.data.category
+        }}</span>
+      </div>
+      <div class="news-card-content">
+        <h3>
+          <a href="{{ post.url }}">{{ post.data.title }}</a>
+        </h3>
+        <p>{{ post.data.description }}</p>
+        <div class="news-meta">
+          <span class="date"
+            ><i class="far fa-calendar"></i> {{ post.date | formatDate }}</span
+          >
+        </div>
+      </div>
+    </article>
+    {%- endif -%} {%- endfor -%}
+  </div>
+</section>
