@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "eleventy --serve",
-    "build": "eleventy"
+    "build": "eleventy",
+    "build-gh-pages": "eleventy --pathprefix=/InvestSavy/",
+    "debug": "eleventy --debug"
   },
   "repository": {
     "type": "git",
@@ -23,13 +25,5 @@
   "devDependencies": {
     "@11ty/eleventy": "^3.1.0",
     "luxon": "^3.6.1"
-  }}
-
-{
-  "scripts": {
-    "start": "eleventy --serve",
-    "build": "eleventy",
-    "build-gh-pages": "eleventy --pathprefix=/InvestSavy/",
-    "debug": "eleventy --debug"
   }
 }
