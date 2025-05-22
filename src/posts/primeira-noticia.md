@@ -1,7 +1,11 @@
 ---
-layout: base.njk
-title: Minha Primeira Notícia
-date: 2024-03-20
+layout: post.njk
+title: Título da Notícia
+date: 2024-03-21
+category: Economia
+readingTime: 5
+description: Descrição da notícia
+image: /images/caminho/para/imagem.jpg
 ---
 
 # Minha Primeira Notícia

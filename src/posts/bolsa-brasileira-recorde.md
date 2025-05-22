@@ -1,12 +1,11 @@
 ---
 layout: post.njk
-title: Bolsa brasileira supera 150 mil pontos e atinge novo recorde
-date: 2024-03-20
-category: Mercados
-description: Índice Ibovespa sobe 1,5%, impulsionado por commodities e bancos, alcançando patamar histórico.
-image: /images/grafico-mercado.jpg
-readingTime: 5 min
-views: 982
+title: Título da Notícia
+date: 2024-03-21
+category: Economia
+readingTime: 5
+description: Descrição da notícia
+image: /images/caminho/para/imagem.jpg
 ---
 
 # Bolsa brasileira supera 150 mil pontos e atinge novo recorde
