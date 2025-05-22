@@ -7,6 +7,9 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('script')
   eleventyConfig.addPassthroughCopy('*.html')
 
+  // Configuração para garantir que a pasta news seja gerada
+  eleventyConfig.addPassthroughCopy('src/news.njk')
+
   // Coleção de posts
   eleventyConfig.addCollection('post', function (collection) {
     return collection.getFilteredByGlob('src/posts/**/*.md')
@@ -54,5 +57,6 @@ module.exports = function (eleventyConfig) {
     templateFormats: ['html', 'md', 'njk'],
     htmlTemplateEngine: 'njk',
     markdownTemplateEngine: 'njk',
+    pathPrefix: '/InvestSavy/', // Adicionando o pathPrefix para o GitHub Pages
   }
 }
