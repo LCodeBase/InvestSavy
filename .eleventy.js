@@ -5,11 +5,22 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('css')
   eleventyConfig.addPassthroughCopy('images')
   eleventyConfig.addPassthroughCopy('script')
-  eleventyConfig.addPassthroughCopy('index.html')
-  eleventyConfig.addPassthroughCopy('**/*.html')
+  eleventyConfig.addPassthroughCopy('*.html')
+
+  // Coleção de posts
+  eleventyConfig.addCollection('posts', function (collectionApi) {
+    return collectionApi.getFilteredByGlob('src/posts/*.md')
+  })
 
   // Formatar datas
   eleventyConfig.addFilter('formatDate', function (date) {
+    return DateTime.fromJSDate(date)
+      .setLocale('pt-BR')
+      .toFormat("dd 'de' MMMM, yyyy")
+  })
+
+  // Filtro date para compatibilidade
+  eleventyConfig.addFilter('date', function (date) {
     return DateTime.fromJSDate(date)
       .setLocale('pt-BR')
       .toFormat("dd 'de' MMMM, yyyy")

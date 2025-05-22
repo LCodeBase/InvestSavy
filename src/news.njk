@@ -1,0 +1,80 @@
+---
+layout: base.njk
+title: Notícias
+---
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="InvestSavy - Notícias e análises do mercado financeiro"
+    />
+    <meta
+      name="keywords"
+      content="finanças, notícias financeiras, mercado financeiro, investimentos, economia, bolsa de valores"
+    />
+    <meta name="author" content="InvestSavy" />
+    <title>InvestSavy - Notícias e Análises do Mercado</title>
+    <link rel="stylesheet" href="css/animations.css" />
+    <link rel="shortcut icon" href="images/Camada 1.png" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <main style="margin-top: 100px">
+      <section class="news-grid">
+        {% for post in collections.posts | reverse %}
+        <article class="news-card">
+          <div class="news-card-image">
+            <img src="{{ post.data.image }}" alt="{{ post.data.alt }}" />
+            <span class="tag {{ post.data.category }}">{{
+              post.data.category
+            }}</span>
+          </div>
+          <div class="news-card-content">
+            <h3>
+              <a href="{{ post.url }}">{{ post.data.title }}</a>
+            </h3>
+            <p>{{ post.data.description }}</p>
+            <div class="news-meta">
+              <span class="date"
+                ><i class="far fa-calendar"></i>
+                {{ post.date | date("DD MMM YYYY") }}</span
+              >
+              <span class="time"
+                ><i class="far fa-clock"></i> {{ post.data.time }}</span
+              >
+              <span class="views"
+                ><i class="far fa-eye"></i> {{ post.data.views }}</span
+              >
+            </div>
+          </div>
+        </article>
+        {% endfor %}
+      </section>
+    </main>
+
+    <!-- Scripts -->
+    <script src="script/noticias.js"></script>
+    <script src="script/js-universal.js"></script>
+    <script src="script/market-data.js"></script>
+    <script
+      src="https://kit.fontawesome.com/e1063b7707.js"
+      crossorigin="anonymous"
+      async
+    ></script>
+    <!-- Adicione antes do script atual -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+  </body>
+</html>

@@ -1,193 +1,233 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora de Despesas | InvestSavy</title>
+    <link rel="stylesheet" href="css/style-calculo-despesas.css" />
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Calculadora de Despesas | InvestSavy</title>
-  <link rel="stylesheet" href="css/style-calculo-despesas.css" />
-  <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-</head>
-
-<body>
-  <header>
-    <div class="container-LOGO">
-      <div class="logo">
-        <span style="color: #1e40af">Invest</span><span style="color: #10b981">Savy</span>
+  <body>
+    <header>
+      <div class="container-LOGO">
+        <div class="logo">
+          <span style="color: #1e40af">Invest</span
+          ><span style="color: #10b981">Savy</span>
+        </div>
       </div>
-    </div>
 
-    <div class="menu-toggle">
-      <i class="fas fa-bars"></i>
-    </div>
+      <div class="menu-toggle">
+        <i class="fas fa-bars"></i>
+      </div>
 
-    <nav class="nav-menu">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="blogs-main.html">Notícias</a></li>
-        <li><a href="servicos.html">Ferramentas</a></li>
-        <li><a href="educacao.html">Aprender</a></li>
-        <li><a href="sobre.html">Sobre</a></li>
-      </ul>
-    </nav>
+      <nav class="nav-menu">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/news/">Notícias</a></li>
+          <li><a href="/servicos.html">Ferramentas</a></li>
+          <li><a href="/educacao.html">Aprender</a></li>
+          <li><a href="/sobre.html">Sobre</a></li>
+        </ul>
+      </nav>
 
-    <div class="search-icon">
-      <i class="fas fa-search"></i>
-    </div>
-  </header>
+      <div class="search-icon">
+        <i class="fas fa-search"></i>
+      </div>
+    </header>
 
-  <main>
-    <div class="main-container">
-      <h1>Calculadora de Despesas</h1>
-      <p class="subtitle">
-        Controle suas finanças pessoais calculando e visualizando suas despesas de forma
-        simples e eficiente.
-      </p>
+    <main>
+      <div class="main-container">
+        <h1>Calculadora de Despesas</h1>
+        <p class="subtitle">
+          Controle suas finanças pessoais calculando e visualizando suas
+          despesas de forma simples e eficiente.
+        </p>
 
-      <div class="calculator-container">
-        <!-- Formulário de adição de despesa -->
-        <div class="form-section">
-          <div class="section-title">
-            <i class="fas fa-plus-circle"></i> Adicionar Despesa
+        <div class="calculator-container">
+          <!-- Formulário de adição de despesa -->
+          <div class="form-section">
+            <div class="section-title">
+              <i class="fas fa-plus-circle"></i> Adicionar Despesa
+            </div>
+            <p class="section-description">
+              Preencha os campos abaixo para adicionar uma nova despesa.
+            </p>
+
+            <form id="expense-form">
+              <div class="form-group">
+                <label for="income">Renda Mensal (R$)</label>
+                <input
+                  type="number"
+                  id="income"
+                  placeholder="0.00"
+                  step="0.01"
+                  min="0"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="description">Descrição</label>
+                <input
+                  type="text"
+                  id="description"
+                  placeholder="Ex: Supermercado"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="amount">Valor (R$)</label>
+                <input
+                  type="number"
+                  id="amount"
+                  placeholder="0.00"
+                  step="0.01"
+                  min="0"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="category">Categoria</label>
+                <select id="category">
+                  <option value="Alimentação">Alimentação</option>
+                  <option value="Transporte">Transporte</option>
+                  <option value="Moradia">Moradia</option>
+                  <option value="Saúde">Saúde</option>
+                  <option value="Lazer">Lazer</option>
+                  <option value="Contas">Contas</option>
+                  <option value="Educação">Educação</option>
+                  <option value="Outros">Outros</option>
+                </select>
+              </div>
+
+              <button type="button" id="add-expense" class="btn primary-btn">
+                <i class="fas fa-plus"></i> Adicionar Despesa
+              </button>
+
+              <button type="button" id="save-data" class="btn secondary-btn">
+                <i class="fas fa-save"></i> Salvar Dados
+              </button>
+            </form>
           </div>
+
+          <!-- Resumo Financeiro -->
+          <div class="summary-section">
+            <div class="section-title">Resumo Financeiro</div>
+            <p class="section-description">Visão geral das suas despesas</p>
+
+            <div class="summary-cards">
+              <div class="summary-card income-card">
+                <div class="card-label">Renda</div>
+                <div class="card-value" id="income-value">R$ 0.00</div>
+              </div>
+
+              <div class="summary-card expense-card">
+                <div class="card-label">Despesas</div>
+                <div class="card-value" id="expenses-value">R$ 0.00</div>
+              </div>
+            </div>
+
+            <div class="balance-card">
+              <div class="card-label">Saldo Restante</div>
+              <div class="card-value" id="balance-value">R$ 0.00</div>
+              <p class="card-hint">
+                Adicione sua renda para ver a porcentagem disponível
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lista de Despesas -->
+        <div class="expenses-list-container">
+          <div class="section-title">Lista de Despesas</div>
           <p class="section-description">
-            Preencha os campos abaixo para adicionar uma nova despesa.
+            Visualize e gerencie todas as suas despesas
           </p>
 
-          <form id="expense-form">
-            <div class="form-group">
-              <label for="income">Renda Mensal (R$)</label>
-              <input type="number" id="income" placeholder="0.00" step="0.01" min="0" />
-            </div>
-
-            <div class="form-group">
-              <label for="description">Descrição</label>
-              <input type="text" id="description" placeholder="Ex: Supermercado" />
-            </div>
-
-            <div class="form-group">
-              <label for="amount">Valor (R$)</label>
-              <input type="number" id="amount" placeholder="0.00" step="0.01" min="0" />
-            </div>
-
-            <div class="form-group">
-              <label for="category">Categoria</label>
-              <select id="category">
-                <option value="Alimentação">Alimentação</option>
-                <option value="Transporte">Transporte</option>
-                <option value="Moradia">Moradia</option>
-                <option value="Saúde">Saúde</option>
-                <option value="Lazer">Lazer</option>
-                <option value="Contas">Contas</option>
-                <option value="Educação">Educação</option>
-                <option value="Outros">Outros</option>
-              </select>
-            </div>
-
-            <button type="button" id="add-expense" class="btn primary-btn">
-              <i class="fas fa-plus"></i> Adicionar Despesa
-            </button>
-
-            <button type="button" id="save-data" class="btn secondary-btn">
-              <i class="fas fa-save"></i> Salvar Dados
-            </button>
-          </form>
-        </div>
-
-        <!-- Resumo Financeiro -->
-        <div class="summary-section">
-          <div class="section-title">Resumo Financeiro</div>
-          <p class="section-description">Visão geral das suas despesas</p>
-
-          <div class="summary-cards">
-            <div class="summary-card income-card">
-              <div class="card-label">Renda</div>
-              <div class="card-value" id="income-value">R$ 0.00</div>
-            </div>
-
-            <div class="summary-card expense-card">
-              <div class="card-label">Despesas</div>
-              <div class="card-value" id="expenses-value">R$ 0.00</div>
-            </div>
+          <div id="expenses-list-empty" class="expenses-empty">
+            <p>Você ainda não adicionou nenhuma despesa</p>
+            <p>Use o formulário para adicionar suas despesas</p>
           </div>
 
-          <div class="balance-card">
-            <div class="card-label">Saldo Restante</div>
-            <div class="card-value" id="balance-value">R$ 0.00</div>
-            <p class="card-hint">Adicione sua renda para ver a porcentagem disponível</p>
+          <ul id="expenses-list" class="expenses-list"></ul>
+        </div>
+
+        <!-- Dicas para economizar -->
+        <div class="tips-container">
+          <div class="section-title center">Dicas para economizar</div>
+          <p class="tips-description">
+            Monitorar suas despesas é o primeiro passo para uma vida financeira
+            saudável. Use esta ferramenta regularmente para acompanhar seus
+            gastos e identificar oportunidades de economia.
+          </p>
+          <a href="educacao.html" style="text-decoration: none"
+            ><button class="btn primary-btn center-btn">
+              Ver Mais Dicas
+            </button></a
+          >
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container-footer-alt">
+        <div class="footer-brand">
+          <div class="logo-footer">
+            <span style="color: #1e40af">Invest</span
+            ><span style="color: #10b981">Savy</span>
+          </div>
+          <p>Democratizando o acesso à educação<br />financeira para todos.</p>
+          <p class="copyright">
+            &copy; 2025 InvestSavy. Todos os direitos reservados.
+          </p>
+        </div>
+        <div class="footer-links">
+          <h4>NAVEGAÇÃO</h4>
+          <ul>
+            <li><a href="index.html">Página Inicial</a></li>
+            <li><a href="blogs-main.html">Notícias</a></li>
+            <li><a href="#ferramentas">Ferramentas</a></li>
+            <li><a href="#educacao-financeira">Educação Financeira</a></li>
+            <li><a href="sobre.html">Sobre Nós</a></li>
+          </ul>
+        </div>
+        <div class="footer-tools">
+          <h4>FERRAMENTAS</h4>
+          <ul>
+            <li>
+              <a href="#calculadora-juros">Calculadora de Juros Compostos</a>
+            </li>
+            <li>
+              <a href="#simulador-aposentadoria">Simulador de Aposentadoria</a>
+            </li>
+            <li>
+              <a href="#comparador-investimentos"
+                >Comparador de Investimentos</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>CONTATO</h4>
+          <p>contato@investsavy.com.br</p>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
           </div>
         </div>
       </div>
+    </footer>
 
-      <!-- Lista de Despesas -->
-      <div class="expenses-list-container">
-        <div class="section-title">Lista de Despesas</div>
-        <p class="section-description">Visualize e gerencie todas as suas despesas</p>
-
-        <div id="expenses-list-empty" class="expenses-empty">
-          <p>Você ainda não adicionou nenhuma despesa</p>
-          <p>Use o formulário para adicionar suas despesas</p>
-        </div>
-
-        <ul id="expenses-list" class="expenses-list"></ul>
-      </div>
-
-      <!-- Dicas para economizar -->
-      <div class="tips-container">
-        <div class="section-title center">Dicas para economizar</div>
-        <p class="tips-description">
-          Monitorar suas despesas é o primeiro passo para uma vida financeira saudável. Use esta ferramenta
-          regularmente para acompanhar seus gastos e identificar oportunidades de economia.
-        </p>
-        <a href="educacao.html" style="text-decoration: none;"><button class="btn primary-btn center-btn">Ver Mais
-            Dicas</button></a>
-      </div>
-    </div>
-  </main>
-
-  <footer>
-    <div class="container-footer-alt">
-      <div class="footer-brand">
-        <div class="logo-footer">
-          <span style="color: #1e40af">Invest</span><span style="color: #10b981">Savy</span>
-        </div>
-        <p>Democratizando o acesso à educação<br />financeira para todos.</p>
-        <p class="copyright">&copy; 2025 InvestSavy. Todos os direitos reservados.</p>
-      </div>
-      <div class="footer-links">
-        <h4>NAVEGAÇÃO</h4>
-        <ul>
-          <li><a href="index.html">Página Inicial</a></li>
-          <li><a href="blogs-main.html">Notícias</a></li>
-          <li><a href="#ferramentas">Ferramentas</a></li>
-          <li><a href="#educacao-financeira">Educação Financeira</a></li>
-          <li><a href="sobre.html">Sobre Nós</a></li>
-        </ul>
-      </div>
-      <div class="footer-tools">
-        <h4>FERRAMENTAS</h4>
-        <ul>
-          <li><a href="#calculadora-juros">Calculadora de Juros Compostos</a></li>
-          <li><a href="#simulador-aposentadoria">Simulador de Aposentadoria</a></li>
-          <li><a href="#comparador-investimentos">Comparador de Investimentos</a></li>
-        </ul>
-      </div>
-      <div class="footer-contact">
-        <h4>CONTATO</h4>
-        <p>contato@investsavy.com.br</p>
-        <div class="social-icons">
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-twitter"></i></a>
-          <a href="#"><i class="fab fa-linkedin-in"></i></a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <script src="script/calculo-despesas.js"></script>
-</body>
-
+    <script src="script/calculo-despesas.js"></script>
+  </body>
 </html>
