@@ -39,7 +39,7 @@ permalink: news/index.html
       <a href="{{ featuredPost.url | url }}" class="featured-link">
         <div class="featured-image">
           {% if featuredPost.data.image %}
-          <img src="{{ featuredPost.data.image }}" alt="{{ featuredPost.data.title }}" />
+          <img src="{{featuredPost.data.image }}" alt="{{ featuredPost.data.title }}" />
           {% endif %}
           <span class="tag {{ featuredPost.data.category | lower }}">{{
             featuredPost.data.category
