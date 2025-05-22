@@ -1,11 +1,13 @@
 ---
 layout: post.njk
-title: Título da Notícia
-date: 2024-03-21
+title: Bolsa brasileira supera 150 mil pontos e atinge novo recorde
+date: 2025-05-21
 category: Economia
-readingTime: 5
+readingTime: 8
 description: Descrição da notícia
-image: /images/caminho/para/imagem.jpg
+image: /images/noticia03.webp
+author: Leonardo
+views: 1234
 ---
 
 # Minha Primeira Notícia

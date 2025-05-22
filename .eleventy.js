@@ -8,27 +8,34 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('*.html')
 
   // Coleção de posts
-  eleventyConfig.addCollection('posts', function (collectionApi) {
-    return collectionApi.getFilteredByGlob('src/posts/*.md')
+  eleventyConfig.addCollection('post', function (collection) {
+    return collection.getFilteredByGlob('src/posts/**/*.md')
+  })
+
+  // Coleção de categorias únicas
+  eleventyConfig.addCollection('categories', function (collection) {
+    const posts = collection.getFilteredByGlob('src/posts/**/*.md')
+    const categories = new Set()
+    posts.forEach((post) => {
+      if (post.data.category) {
+        categories.add(post.data.category)
+      }
+    })
+    return Array.from(categories)
   })
 
   // Formatar datas
   eleventyConfig.addFilter('formatDate', function (date) {
-    return DateTime.fromJSDate(date)
-      .setLocale('pt-BR')
-      .toFormat("dd 'de' MMMM, yyyy")
-  })
-
-  // Filtro date para compatibilidade
-  eleventyConfig.addFilter('date', function (date) {
-    return DateTime.fromJSDate(date)
-      .setLocale('pt-BR')
-      .toFormat("dd 'de' MMMM, yyyy")
+    return DateTime.fromJSDate(date).toFormat("dd 'de' MMMM 'de' yyyy")
   })
 
   // Ordenar por visualizações
   eleventyConfig.addFilter('sortByViews', function (posts) {
-    return posts.sort((a, b) => (b.data.views || 0) - (a.data.views || 0))
+    return posts.sort((a, b) => {
+      const viewsA = a.data.views || 0
+      const viewsB = b.data.views || 0
+      return viewsB - viewsA
+    })
   })
 
   // Limitar número de itens
@@ -36,28 +43,16 @@ module.exports = function (eleventyConfig) {
     return array.slice(0, limit)
   })
 
-  // Coletar categorias únicas
-  eleventyConfig.addCollection('categories', function (collection) {
-    const categories = new Set()
-    collection.getAll().forEach((item) => {
-      if (item.data.category) {
-        categories.add(item.data.category)
-      }
-    })
-    return Array.from(categories)
-  })
-
   // Configurações de entrada e saída
   return {
     dir: {
       input: 'src',
       output: '_site',
-      includes: '_includes',
-      layouts: '_layouts',
+      includes: '_layouts',
+      data: '_data',
     },
     templateFormats: ['html', 'md', 'njk'],
-    markdownTemplateEngine: 'njk',
     htmlTemplateEngine: 'njk',
-    dataTemplateEngine: 'njk',
+    markdownTemplateEngine: 'njk',
   }
 }

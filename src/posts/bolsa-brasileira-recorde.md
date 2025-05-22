@@ -1,14 +1,14 @@
 ---
 layout: post.njk
-title: Título da Notícia
-date: 2024-03-21
+title: Bolsa brasileira supera 150 mil pontos e atinge novo recorde
+date: 2025-05-21
 category: Economia
-readingTime: 5
+readingTime: 8
 description: Descrição da notícia
-image: /images/caminho/para/imagem.jpg
+image: /images/noticia01.webp
+author: Leonardo
+views: 1234
 ---
-
-# Bolsa brasileira supera 150 mil pontos e atinge novo recorde
 
 O principal índice da bolsa brasileira, o Ibovespa, atingiu um novo recorde histórico nesta quarta-feira, ultrapassando a marca de 150 mil pontos. O avanço de 1,5% foi impulsionado principalmente pelo bom desempenho das ações de commodities e do setor bancário.
 
