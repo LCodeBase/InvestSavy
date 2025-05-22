@@ -29,9 +29,9 @@ permalink: news/index.html
     </div>
 
     <!-- Notícias -->
-    {% set posts = collections.post %} {% set validPosts = [] %} {% for post in
-    posts %} {% if post.url and post.data.title and post.data.description %} {%
-    set validPosts = validPosts.concat([post]) %} {% endif %} {% endfor %}
+    {% set posts = collections.post %} {% set validPosts = [] %} {% for post in posts %} {% if post.url and
+    post.data.title and post.data.description %} {% set validPosts = validPosts.concat([post]) %} {% endif %} {% endfor
+    %}
 
     <!-- Featured Article -->
     {% if validPosts.length > 0 %} {% set featuredPost = validPosts[0] %}
@@ -41,20 +41,15 @@ permalink: news/index.html
           {% if featuredPost.data.image %}
           <img src="{{ featuredPost.data.image | url }}" alt="{{ featuredPost.data.title }}" />
           {% endif %}
-          <span class="tag {{ featuredPost.data.category | lower }}">{{
-            featuredPost.data.category
-            }}</span>
+          <span class="tag {{ featuredPost.data.category | lower }}">{{ featuredPost.data.category }}</span>
         </div>
         <div class="featured-content">
           <h2 class="featured-title">{{ featuredPost.data.title }}</h2>
           <p class="featured-excerpt">{{ featuredPost.data.description }}</p>
           <div class="article-meta">
-            <span><i class="far fa-calendar"></i>
-              {{ featuredPost.date | formatDate }}</span>
-            <span><i class="far fa-clock"></i>
-              {{ featuredPost.data.readingTime }} min de leitura</span>
-            <span><i class="far fa-eye"></i>
-              {{ featuredPost.data.views or '0' }}</span>
+            <span><i class="far fa-calendar"></i> {{ featuredPost.date | formatDate }}</span>
+            <span><i class="far fa-clock"></i> {{ featuredPost.data.readingTime }} min de leitura</span>
+            <span><i class="far fa-eye"></i> {{ featuredPost.data.views or '0' }}</span>
             <span>Por {{ featuredPost.data.author or 'InvestSavy' }}</span>
           </div>
         </div>
@@ -78,18 +73,14 @@ permalink: news/index.html
               {% if post.data.image %}
               <img src="{{ post.data.image | url }}" alt="{{ post.data.title }}" />
               {% endif %}
-              <span class="tag {{ post.data.category | lower }}">{{
-                post.data.category
-                }}</span>
+              <span class="tag {{ post.data.category | lower }}">{{ post.data.category }}</span>
             </div>
             <div class="news-card-content">
               <h3 class="news-card-title">{{ post.data.title }}</h3>
               <p class="news-card-excerpt">{{ post.data.description }}</p>
               <div class="article-meta">
-                <span><i class="far fa-calendar"></i>
-                  {{ post.date | formatDate }}</span>
-                <span><i class="far fa-clock"></i> {{ post.data.readingTime }} min
-                  de leitura</span>
+                <span><i class="far fa-calendar"></i> {{ post.date | formatDate }}</span>
+                <span><i class="far fa-clock"></i> {{ post.data.readingTime }} min de leitura</span>
                 <span><i class="far fa-eye"></i> {{ post.data.views or '0' }}</span>
               </div>
             </div>
@@ -110,9 +101,7 @@ permalink: news/index.html
       </h3>
       <ul class="sidebar-list">
         {% for post in validPosts %} {% if loop.index0 < 5 %} <li>
-          <a href="{{ post.url | url }}" class="sidebar-link">{{
-            post.data.title
-            }}</a>
+          <a href="{{ post.url | url }}" class="sidebar-link">{{ post.data.title }}</a>
           <div class="sidebar-meta">
             {{ post.data.category }} • {{ post.date | formatDate }}
           </div>
@@ -129,9 +118,7 @@ permalink: news/index.html
       </h3>
       <ul class="sidebar-list">
         {% for post in validPosts %} {% if loop.index0 < 5 %} <li>
-          <a href="{{ post.url | url }}" class="sidebar-link">{{
-            post.data.title
-            }}</a>
+          <a href="{{ post.url | url }}" class="sidebar-link">{{ post.data.title }}</a>
           </li>
           {% endif %} {% endfor %}
       </ul>
