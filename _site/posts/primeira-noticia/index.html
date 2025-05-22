@@ -19,44 +19,128 @@
   <body>
     <!-- Header específico para posts -->
     <header class="post-header">
-      <div class="container-LOGO">
+      <div class="container-header">
         <div class="logo">
           <a href="/"
             ><span style="color: #1e40af">Invest</span
             ><span style="color: #10b981">Savy</span></a
           >
         </div>
-      </div>
 
-      <nav class="nav-menu">
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/news/">Notícias</a></li>
-          <li><a href="/servicos.html">Ferramentas</a></li>
-          <li><a href="/educacao.html">Aprender</a></li>
-          <li><a href="/sobre.html">Sobre</a></li>
-        </ul>
-      </nav>
+        <nav class="nav-menu">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/news/">Notícias</a></li>
+            <li><a href="/servicos.html">Ferramentas</a></li>
+            <li><a href="/educacao.html">Educação Financeira</a></li>
+            <li><a href="/sobre.html">Sobre</a></li>
+          </ul>
+        </nav>
+
+        <div class="search-icon">
+          <i class="fas fa-search"></i>
+        </div>
+      </div>
     </header>
 
     <main>
-      <section class="news-header">
-        <h1>Título da Notícia</h1>
-        <div class="news-meta">
-          <span class="date"
-            ><i class="far fa-calendar"></i> 20 de março, 2024</span
-          >
-          <span class="category"
-            ><i class="fas fa-tag"></i> Economia</span
-          >
-          <span class="reading-time"
-            ><i class="far fa-clock"></i> 5 min de leitura</span
-          >
+      <!-- Breadcrumb Navigation -->
+      <nav class="breadcrumb">
+        <div class="container">
+          <span><a href="/">Home</a></span>
+          <span><i class="fas fa-chevron-right"></i></span>
+          <span><a href="/news/">Notícias</a></span>
+          <span><i class="fas fa-chevron-right"></i></span>
+          <span>Economia</span>
+          <span><i class="fas fa-chevron-right"></i></span>
+          <span class="current">Título da Notícia</span>
         </div>
-      </section>
+      </nav>
 
-      <article class="news-content">
-        <h1>Minha Primeira Notícia</h1>
+      <!-- Post Content Container -->
+      <div class="post-container">
+        <!-- Main Content Area -->
+        <div class="main-content">
+          <!-- Category Tag -->
+          <div class="category-tag">
+            <span class="tag-economia">Economia</span>
+          </div>
+
+          <!-- Post Header -->
+          <section class="post-header-content">
+            <h1>Título da Notícia</h1>
+            <p class="post-subtitle">Descrição da notícia</p>
+
+            <div class="post-meta">
+              <div class="author-info">
+                <img
+                  src="/images/author-avatar.jpg"
+                  alt=""
+                  class="author-avatar"
+                />
+                <div class="author-details">
+                  <span class="author-name"></span>
+                  <span class="author-role">Editora de Economia</span>
+                </div>
+              </div>
+              <div class="post-stats">
+                <span class="post-date">
+                  <i class="far fa-calendar"></i> 20 de março, 2024
+                </span>
+                <span class="reading-time">
+                  <i class="far fa-clock"></i> 5 min de leitura
+                </span>
+                <span class="views">
+                  <i class="far fa-eye"></i> 2.145
+                </span>
+              </div>
+            </div>
+          </section>
+
+          <!-- Social Share Icons -->
+          <div class="social-share">
+            <span class="share-text">Compartilhar:</span>
+            <div class="share-icons">
+              <a
+                href="#"
+                class="share-icon facebook"
+                title="Compartilhar no Facebook"
+              >
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a
+                href="#"
+                class="share-icon twitter"
+                title="Compartilhar no Twitter"
+              >
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a
+                href="#"
+                class="share-icon linkedin"
+                title="Compartilhar no LinkedIn"
+              >
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a
+                href="#"
+                class="share-icon whatsapp"
+                title="Compartilhar no WhatsApp"
+              >
+                <i class="fab fa-whatsapp"></i>
+              </a>
+              <a href="#" class="share-icon copy" title="Copiar link">
+                <i class="fas fa-link"></i>
+              </a>
+              <a href="#" class="share-icon bookmark" title="Salvar">
+                <i class="far fa-bookmark"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Post Article Content -->
+          <article class="post-article">
+            <h1>Minha Primeira Notícia</h1>
 <p>Este é um exemplo de como criar uma notícia usando o Eleventy. Você pode escrever seu conteúdo em Markdown, que será automaticamente convertido para HTML.</p>
 <h2>Subtítulo</h2>
 <p>Você pode usar todos os recursos do Markdown:</p>
@@ -71,67 +155,173 @@
 </code></pre>
 <p>E muito mais!</p>
 
-      </article>
+          </article>
 
-      <section class="related-news">
-        <h2>Notícias Relacionadas</h2>
-        <div class="news-grid"></div>
-      </section>
+          <!-- Post Tags -->
+          <div class="post-tags">
+            <span class="tags-label">Tags:</span>
+            <div class="tags-list">
+              <a href="#" class="tag-link">Banco Central</a>
+              <a href="#" class="tag-link">Taxa de Juros</a>
+              <a href="#" class="tag-link">Inflação</a>
+              <a href="#" class="tag-link">Copom</a>
+              <a href="#" class="tag-link">Economia Brasileira</a>
+            </div>
+          </div>
+
+          <!-- Comments Section -->
+          <section class="comments-section">
+            <h2>Comentários (37)</h2>
+
+            <!-- Comment Form -->
+            <div class="comment-form">
+              <div class="comment-form-header">
+                <p>
+                  Os comentários estão disponíveis apenas para usuários logados.
+                </p>
+              </div>
+              <form class="comment-form-container">
+                <div class="form-group">
+                  <label for="comment-name">Nome *</label>
+                  <input
+                    type="text"
+                    id="comment-name"
+                    name="name"
+                    required
+                    placeholder="Seu nome completo"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="comment-email">E-mail *</label>
+                  <input
+                    type="email"
+                    id="comment-email"
+                    name="email"
+                    required
+                    placeholder="seu@email.com"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="comment-text">Comentário *</label>
+                  <textarea
+                    id="comment-text"
+                    name="comment"
+                    required
+                    placeholder="Escreva seu comentário aqui..."
+                    rows="4"
+                  ></textarea>
+                </div>
+                <div class="form-actions">
+                  <div class="form-info">
+                    <small
+                      >* Campos obrigatórios. Seu e-mail não será
+                      publicado.</small
+                    >
+                  </div>
+                  <button type="submit" class="btn-comment">
+                    <i class="fas fa-paper-plane"></i>
+                    Publicar Comentário
+                  </button>
+                </div>
+              </form>
+            </div>
+
+            <!-- Comments List -->
+            <div class="comments-list">
+              <!-- Sample comments would be rendered here -->
+              <div class="comment-placeholder">
+                <p>Seja o primeiro a comentar este artigo!</p>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+          <div class="sidebar-widget">
+            <h3>Artigos Relacionados</h3>
+            <div class="related-articles">
+              
+            </div>
+            <a href="/news/" class="view-more-link">Ver mais notícias</a>
+          </div>
+
+          <!-- Newsletter Signup -->
+          <div class="sidebar-widget newsletter-widget">
+            <h3>Fique por dentro</h3>
+            <p>Receba as últimas notícias sobre investimentos.</p>
+            <form class="newsletter-form">
+              <input type="email" placeholder="Seu e-mail" required />
+              <button type="submit">
+                <i class="fas fa-arrow-right"></i>
+                Inscrever-se
+              </button>
+            </form>
+          </div>
+        </aside>
+      </div>
     </main>
 
     <!-- Footer específico para posts -->
     <footer class="post-footer">
-      <div class="container-footer-alt">
-        <div class="footer-brand">
-          <div class="logo-footer">
-            <span style="color: #1e40af">Invest</span
-            ><span style="color: #10b981">Savy</span>
+      <div class="container-footer">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <div class="logo-footer">
+              <span style="color: #1e40af">Invest</span
+              ><span style="color: #10b981">Savy</span>
+            </div>
+            <p>
+              Democratizando o acesso à educação<br />financeira para todos.
+            </p>
+            <p class="copyright">
+              &copy; 2025 InvestSavy. Todos os direitos reservados.
+            </p>
           </div>
-          <p>Democratizando o acesso à educação<br />financeira para todos.</p>
-          <p class="copyright">
-            &copy; 2025 InvestSavy. Todos os direitos reservados.
-          </p>
-        </div>
-        <div class="footer-links">
-          <h4>NAVEGAÇÃO</h4>
-          <ul>
-            <li><a href="/">Página Inicial</a></li>
-            <li><a href="/news/">Notícias</a></li>
-            <li><a href="/servicos.html">Ferramentas</a></li>
-            <li><a href="/educacao.html">Educação Financeira</a></li>
-            <li><a href="/sobre.html">Sobre Nós</a></li>
-          </ul>
-        </div>
-        <div class="footer-tools">
-          <h4>FERRAMENTAS</h4>
-          <ul>
-            <li>
-              <a href="/calculadora-juros">Calculadora de Juros Compostos</a>
-            </li>
-            <li>
-              <a href="/simulador-aposentadoria">Simulador de Aposentadoria</a>
-            </li>
-            <li>
-              <a href="/comparador-investimentos"
-                >Comparador de Investimentos</a
-              >
-            </li>
-          </ul>
-        </div>
-        <div class="footer-contact">
-          <h4>CONTATO</h4>
-          <p>contato@investsavy.com.br</p>
-          <div class="social-icons">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <div class="footer-links">
+            <h4>NAVEGAÇÃO</h4>
+            <ul>
+              <li><a href="/">Página Inicial</a></li>
+              <li><a href="/news/">Notícias</a></li>
+              <li><a href="/servicos.html">Ferramentas</a></li>
+              <li><a href="/educacao.html">Educação Financeira</a></li>
+              <li><a href="/sobre.html">Sobre Nós</a></li>
+            </ul>
+          </div>
+          <div class="footer-tools">
+            <h4>FERRAMENTAS</h4>
+            <ul>
+              <li>
+                <a href="/calculadora-juros">Calculadora de Juros Compostos</a>
+              </li>
+              <li>
+                <a href="/simulador-aposentadoria"
+                  >Simulador de Aposentadoria</a
+                >
+              </li>
+              <li>
+                <a href="/comparador-investimentos"
+                  >Comparador de Investimentos</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="footer-contact">
+            <h4>CONTATO</h4>
+            <p>contato@investsavy.com.br</p>
+            <div class="social-icons">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
           </div>
         </div>
       </div>
     </footer>
 
     <script src="/script/js-universal.js"></script>
+    <script src="/script/comments.js"></script>
     <script
       src="https://kit.fontawesome.com/e1063b7707.js"
       crossorigin="anonymous"
