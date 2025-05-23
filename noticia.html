@@ -3,31 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>InvestSavy - Transformando sua vida financeira</title>
+    <title>Notícias - InvestSavy</title>
     <link rel="stylesheet" href="css/style-noticia.css" />
-    <link rel="stylesheet" href="css/animations.css" />
-    <!-- Favicons para diferentes dispositivos e navegadores -->
-    <link rel="shortcut icon" href="images/Camada 1.png" type="image/x-icon" />
-    <link rel="manifest" href="site.webmanifest" />
-    <!-- Preload de fontes e recursos críticos -->
     <link
-      rel="preload"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-solid-900.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
     />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
   </head>
-
   <body>
+    <!-- Header -->
     <header>
       <div class="container-LOGO">
         <div class="logo">
@@ -43,11 +31,10 @@
       <nav class="nav-menu">
         <ul>
           <li><a href="index.html">Home</a></li>
-          <!-- Substitua todos os links de "Notícias" por: -->
-          <a href="/InvestSavy/news/">Notícias</a>
-          <li><a href="servicos.html">Ferramentas</a></li>
-          <li><a href="educacao.html">Aprender</a></li>
-          <li><a href="sobre.html">Sobre</a></li>
+          <a href="noticia">Notícias</a>
+          <li><a href="servicos">Ferramentas</a></li>
+          <li><a href="educacao">Aprender</a></li>
+          <li><a href="sobre">Sobre</a></li>
         </ul>
       </nav>
 
@@ -56,112 +43,306 @@
       </div>
     </header>
 
-    <main class="main-container-page">
-      <div class="tabs">
-        <button class="tab-btn active" data-tab="noticias">
-          Notícias do Mundo
-        </button>
-        <button class="tab-btn" data-tab="educacao">Educação Financeira</button>
+    <!-- Hero Section -->
+    <section class="hero-section" style="margin-top: 75px">
+      <div class="hero-container">
+        <h1 class="hero-title">Notícias</h1>
+        <p class="hero-subtitle">
+          As notícias mais importantes do mercado financeiro, economia e
+          negócios para você tomar as melhores decisões
+        </p>
       </div>
+    </section>
 
-      <!-- News tab content -->
-      <div class="news-container">
-        <ul class="news-list" id="noticias-tab">
-          {% assign sorted_posts = site.posts | sort: 'date' | reverse %} {%
-          assign news_posts = sorted_posts | where: 'categories', 'notícias' %}
-          {% assign recent_posts = news_posts | slice: 0, 6 %} {% for post in
-          recent_posts %}
-          <li class="news-item">
-            <a href="{{ site.baseurl }}{{ post.url }}" class="news-link">
-              <img
-                src="{{ site.baseurl }}{{ post.image }}"
-                alt="{{ post.title }}"
-                class="news-image"
-              />
-              <div class="news-content">
-                <h3 class="news-title">{{ post.title }}</h3>
-                <p class="news-description">{{ post.excerpt }}</p>
-                <div
-                  class="news-time"
-                  data-post-time="{{ post.date | date: '%Y-%m-%dT%H:%M:%S%:z' }}"
-                >
-                  Carregando...
-                </div>
-              </div>
-            </a>
-          </li>
-          {% endfor %}
-        </ul>
-
-        {% if news_posts.size > 6 %}
-        <div class="news-archive">
-          <button id="loadMoreNews" class="load-more-btn">
-            Ver Notícias Anteriores <i class="fas fa-chevron-down"></i>
-          </button>
+    <!-- Main Content -->
+    <div class="main-container">
+      <main class="main-content">
+        <!-- News Filter -->
+        <div class="news-filter">
+          <button class="filter-btn active">Todas</button>
+          <button class="filter-btn">Economia</button>
+          <button class="filter-btn">Mercados</button>
+          <button class="filter-btn">Empresas</button>
+          <button class="filter-btn">Tecnologia</button>
+          <button class="filter-btn">Finanças Pessoais</button>
+          <button class="filter-btn">Política</button>
+          <button class="filter-btn">Internacional</button>
         </div>
-        {% endif %}
 
-        <!-- Education tab content -->
-        <ul class="news-list" id="educacao-tab" style="display: none">
-          {% assign edu_posts = sorted_posts | where: 'categories', 'educacao'
-          %} {% assign recent_edu = edu_posts | slice: 0, 6 %} {% for post in
-          recent_edu %}
-          <li class="news-item">
-            <a href="{{ site.baseurl }}{{ post.url }}" class="news-link">
-              <img
-                src="{{ site.baseurl }}{{ post.image }}"
-                alt="{{ post.title }}"
-                class="news-image"
-              />
-              <div class="news-content">
-                <h3 class="news-title">{{ post.title }}</h3>
-                <p class="news-description">{{ post.excerpt }}</p>
-                <div
-                  class="news-time"
-                  data-post-time="{{ post.date | date: '%Y-%m-%dT%H:%M:%S%:z' }}"
-                >
-                  Carregando...
-                </div>
-              </div>
-            </a>
-          </li>
-          {% endfor %}
-        </ul>
-
-        {% if edu_posts.size > 6 %}
-        <div class="news-archive">
-          <button id="loadMoreEdu" class="load-more-btn">
-            Ver Mais Conteúdo Educacional <i class="fas fa-chevron-down"></i>
-          </button>
-        </div>
-        {% endif %}
-      </div>
-      <!-- Education tab content -->
-      <ul class="news-list" id="educacao-tab" style="display: none">
-        {% for post in site.posts %} {% if post.categories contains 'educacao'
-        %}
-        <li class="news-item">
-          <a href="{{ site.baseurl }}{{ post.url }}" class="news-link">
-            <img
-              src="{{ site.baseurl }}{{ post.image }}"
-              alt="{{ post.title }}"
-              class="news-image"
-            />
-            <div class="news-content">
-              <h3 class="news-title">{{ post.title }}</h3>
-              <p class="news-description">{{ post.excerpt }}</p>
-              <div
-                class="news-time"
-                data-post-time="{{ post.date | date: '%Y-%m-%dT%H:%M:%S%:z' }}"
-              >
-                Carregando...
-              </div>
+        <!-- Featured Article -->
+        <article class="featured-article">
+          <div class="featured-image"></div>
+          <div class="featured-content">
+            <h2 class="featured-title">
+              Banco Central sinaliza possível corte na taxa de juros em resposta
+              à desaceleração da inflação
+            </h2>
+            <p class="featured-excerpt">
+              Ata da última reunião indica que o Copom pode iniciar um ciclo de
+              quedas nas taxas se as projeções se confirmarem nos próximos
+              meses.
+            </p>
+            <div class="article-meta">
+              <span><i class="far fa-calendar"></i> 21 de maio, 2025</span>
+              <span><i class="far fa-clock"></i> 10:43</span>
+              <span><i class="far fa-eye"></i> 1.543</span>
+              <span>Por Ana Silva</span>
             </div>
-          </a>
-        </li>
-        {% endif %} {% endfor %}
-      </ul>
-    </main>
+          </div>
+        </article>
+
+        <!-- Recent News -->
+        <section class="recent-news">
+          <h2>
+            Notícias Recentes
+            <span style="color: #6b7280; font-size: 0.9rem; font-weight: 400"
+              >7 artigos encontrados</span
+            >
+          </h2>
+          <div class="news-grid">
+            <article class="news-card">
+              <div class="news-card-image">
+                <span class="news-category">Mercados</span>
+              </div>
+              <div class="news-card-content">
+                <h3 class="news-card-title">
+                  Bolsa brasileira supera 150 mil pontos e atinge novo recorde
+                </h3>
+                <p class="news-card-excerpt">
+                  Otimismo entre os investidores por perspectivas econômicas
+                  impulsiona o Ibovespa
+                </p>
+                <div class="article-meta">
+                  <span><i class="far fa-calendar"></i> 21 de maio, 2025</span>
+                  <span><i class="far fa-clock"></i> 09:28</span>
+                  <span><i class="far fa-eye"></i> 890</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="news-card">
+              <div class="news-card-image">
+                <span class="news-category">Negócios</span>
+              </div>
+              <div class="news-card-content">
+                <h3 class="news-card-title">
+                  Governo anuncia pacote de incentivos para startups de
+                  tecnologia
+                </h3>
+                <p class="news-card-excerpt">
+                  Medida visa estimular o ecossistema e a criação de empregos no
+                  setor
+                </p>
+                <div class="article-meta">
+                  <span><i class="far fa-calendar"></i> 21 de maio, 2025</span>
+                  <span><i class="far fa-clock"></i> 08:15</span>
+                  <span><i class="far fa-eye"></i> 756</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="news-card">
+              <div class="news-card-image">
+                <span class="news-category">Câmbio</span>
+              </div>
+              <div class="news-card-content">
+                <h3 class="news-card-title">
+                  Dólar cai abaixo de R$ 5,00 após dados positivos da economia
+                </h3>
+                <p class="news-card-excerpt">
+                  Moeda americana recua 1,1% com perspectivas de maior fluxo
+                  estrangeiro para o Brasil
+                </p>
+                <div class="article-meta">
+                  <span><i class="far fa-calendar"></i> 21 de maio, 2025</span>
+                  <span><i class="far fa-clock"></i> 07:30</span>
+                  <span><i class="far fa-eye"></i> 1.020</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="news-card">
+              <div class="news-card-image">
+                <span class="news-category">Economia</span>
+              </div>
+              <div class="news-card-content">
+                <h3 class="news-card-title">
+                  PIB do primeiro trimestre cresce acima das expectativas
+                </h3>
+                <p class="news-card-excerpt">
+                  Economia brasileira expande 0,8% no primeiro trimestre,
+                  superando projeções de analistas
+                </p>
+                <div class="article-meta">
+                  <span><i class="far fa-calendar"></i> 20 de maio, 2025</span>
+                  <span><i class="far fa-clock"></i> 14:45</span>
+                  <span><i class="far fa-eye"></i> 845</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="news-card">
+              <div class="news-card-image">
+                <span class="news-category">Inflação</span>
+              </div>
+              <div class="news-card-content">
+                <h3 class="news-card-title">
+                  Inflação de abril fica abaixo do centro da meta pela primeira
+                  vez em três anos
+                </h3>
+                <p class="news-card-excerpt">
+                  IPCA registra 0,38% em abril, dentro do intervalo estabelecido
+                  pelo Conselho Monetário Nacional
+                </p>
+                <div class="article-meta">
+                  <span><i class="far fa-calendar"></i> 20 de maio, 2025</span>
+                  <span><i class="far fa-clock"></i> 11:20</span>
+                  <span><i class="far fa-eye"></i> 657</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="news-card">
+              <div class="news-card-image">
+                <span class="news-category">Criptomoedas</span>
+              </div>
+              <div class="news-card-content">
+                <h3 class="news-card-title">
+                  CVM aprova novas regras para criptoativos no mercado
+                  brasileiro
+                </h3>
+                <p class="news-card-excerpt">
+                  Regulamentação visa trazer segurança jurídica para
+                  investidores e corretoras que operam criptomoedas
+                </p>
+                <div class="article-meta">
+                  <span><i class="far fa-calendar"></i> 19 de maio, 2025</span>
+                  <span><i class="far fa-clock"></i> 16:30</span>
+                  <span><i class="far fa-eye"></i> 892</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+      </main>
+
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <!-- Latest Updates -->
+        <div class="sidebar-section">
+          <h3 class="sidebar-title">
+            <i class="fas fa-clock"></i>
+            Últimas Atualizações
+          </h3>
+          <ul class="sidebar-list">
+            <li>
+              <a href="#"
+                >Conselho da Petrobras aprova nova política de dividendos</a
+              >
+              <div class="sidebar-meta">Empresas • 16:45</div>
+            </li>
+            <li>
+              <a href="#">Superávit comercial atinge US$ 8 bilhões em abril</a>
+              <div class="sidebar-meta">Economia • 15:30</div>
+            </li>
+            <li>
+              <a href="#"
+                >Setor de serviços cresce pelo terceiro mês consecutivo</a
+              >
+              <div class="sidebar-meta">Economia • 14:15</div>
+            </li>
+            <li>
+              <a href="#"
+                >Ministério da Fazenda revisa projeção de crescimento para
+                2025</a
+              >
+              <div class="sidebar-meta">Economia • 13:05</div>
+            </li>
+            <li>
+              <a href="#">Produção industrial avança 1,1% em março</a>
+              <div class="sidebar-meta">Indústria • 11:40</div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Most Read -->
+        <div class="sidebar-section">
+          <h3 class="sidebar-title">
+            <i class="fas fa-fire"></i>
+            Mais Lidas
+          </h3>
+          <ul class="sidebar-list">
+            <li>
+              <a href="#"
+                >Dólar cai abaixo de R$ 5,00 após dados positivos da economia</a
+              >
+            </li>
+            <li>
+              <a href="#"
+                >Bolsa brasileira supera 150 mil pontos e atinge novo recorde</a
+              >
+            </li>
+            <li>
+              <a href="#"
+                >PIB do primeiro trimestre cresce acima das expectativas</a
+              >
+            </li>
+            <li>
+              <a href="#"
+                >CVM aprova novas regras para criptoativos no mercado
+                brasileiro</a
+              >
+            </li>
+            <li>
+              <a href="#"
+                >Governo anuncia pacote de incentivos para startups de
+                tecnologia</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <!-- Topics -->
+        <div class="sidebar-section">
+          <h3 class="sidebar-title">
+            <i class="fas fa-tags"></i>
+            Tópicos
+          </h3>
+          <div class="topics-tags">
+            <a href="#" class="topic-tag">Mercado Financeiro</a>
+            <a href="#" class="topic-tag">Inflação</a>
+            <a href="#" class="topic-tag">Juros</a>
+            <a href="#" class="topic-tag">Dólar</a>
+            <a href="#" class="topic-tag">Bolsa</a>
+            <a href="#" class="topic-tag">PIB</a>
+            <a href="#" class="topic-tag">Criptomoedas</a>
+            <a href="#" class="topic-tag">Bolsa</a>
+            <a href="#" class="topic-tag">Investimentos</a>
+            <a href="#" class="topic-tag">Finanças Pessoais</a>
+          </div>
+        </div>
+
+        <!-- Newsletter -->
+        <div class="sidebar-section">
+          <h3 class="sidebar-title">
+            <i class="fas fa-envelope"></i>
+            Receba as notícias em seu email
+          </h3>
+          <p style="font-size: 0.9rem; color: #6b7280; margin-bottom: 1rem">
+            Inscreva-se para receber as últimas atualizações sobre o mercado
+            financeiro.
+          </p>
+          <form class="newsletter-form">
+            <input
+              type="email"
+              class="newsletter-input"
+              placeholder="Seu e-mail"
+            />
+            <button type="submit" class="newsletter-btn">Inscrever-se</button>
+          </form>
+        </div>
+      </aside>
+    </div>
 
     <footer>
       <div class="container-footer-alt">
@@ -216,7 +397,29 @@
         </div>
       </div>
     </footer>
-    <script src="script/js-universal.js"></script>
-    <script src="script/main.js"></script>
+
+    <script>
+      // Filter functionality
+      document.querySelectorAll('.filter-btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          document
+            .querySelectorAll('.filter-btn')
+            .forEach((b) => b.classList.remove('active'))
+          btn.classList.add('active')
+        })
+      })
+
+      // Newsletter form
+      document
+        .querySelector('.newsletter-form')
+        .addEventListener('submit', function (e) {
+          e.preventDefault()
+          const email = this.querySelector('.newsletter-input').value
+          if (email) {
+            alert('Inscrição realizada com sucesso!')
+            this.reset()
+          }
+        })
+    </script>
   </body>
 </html>
