@@ -1,118 +1,257 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{ page.title }} - InvestSavy</title>
-    <link rel="stylesheet" href="{{ site.baseurl }}/css/style-post.css" />
-    <link rel="stylesheet" href="{{ site.baseurl }}/css/animations.css" />
-    <link
-      rel="shortcut icon"
-      href="{{ site.baseurl }}/images/Camada 1.png"
-      type="image/x-icon"
-    />
-    <link rel="manifest" href="{{ site.baseurl }}/site.webmanifest" />
-    <link
-      rel="preload"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-solid-900.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <header>
-      <div class="container-LOGO">
-        <div class="logo">
-          <span style="color: #1e40af">Invest</span
-          ><span style="color: #10b981">Savy</span>
-        </div>
+---
+layout: default
+---
+
+<style>
+  body {
+    background-color: #f7f7f7;
+  }
+</style>
+
+<!-- Breadcrumb -->
+<div class="breadcrumb">
+  <div class="container">
+    <a href="{{ site.baseurl }}/">Home</a>
+    <i class="fas fa-chevron-right"></i>
+    <a href="{{ site.baseurl }}/noticia.html">Notícias</a>
+    <i class="fas fa-chevron-right"></i>
+    {% if page.categories %} {% for category in page.categories %} {{ category
+    }} {% endfor %} {% endif %}
+    <i class="fas fa-chevron-right"></i>
+    <span class="current">{{ page.title }}</span>
+  </div>
+</div>
+
+<!-- Main Container -->
+<div class="post-container">
+  <!-- Main Content -->
+  <main class="main-content">
+    <article class="post-content">
+      <!-- Category Tag -->
+      {% if page.categories %}
+      <div class="category-tag">
+        {% for category in page.categories %}
+        <span class="category-badge">{{ category | capitalize }}</span>
+        {% endfor %}
       </div>
+      {% endif %}
 
-      <div class="menu-toggle" alt="Botão-Menu">
-        <i class="fas fa-bars"></i>
-      </div>
+      <!-- Post Title -->
+      <h1 class="post-title">{{ page.title }}</h1>
 
-      <nav class="nav-menu">
-        <ul>
-          <li><a href="../index.html | {{ site.baseurl }}">Home</a></li>
-          <li><a href="">Notícias</a></li>
-          <li>
-            <a href="../servicos.html | {{ site.baseurl }}">Ferramentas</a>
-          </li>
-          <li><a href="../educacao.html | {{ site.baseurl }}">Aprender</a></li>
-          <li><a href="../sobre.html | {{ site.baseurl }}">Sobre</a></li>
-        </ul>
-      </nav>
+      <!-- Post Subtitle -->
+      <p class="post-subtitle">
+        {{ page.excerpt | default: page.content | strip_html | truncate: 200 }}
+      </p>
 
-      <div class="search-icon">
-        <i class="fas fa-search"></i>
-      </div>
-    </header>
-
-    <main class="post-container">
-      <article class="post-content">
-        <h1>{{ page.title }}</h1>
-        <div class="post-meta">
-          <span class="post-date">{{ page.date | date: "%d/%m/%Y" }}</span>
-          {% if page.categories %}
-          <span class="post-categories">
-            {% for category in page.categories %}
-            <span class="category-tag">{{ category }}</span>
-            {% endfor %}
-          </span>
-          {% endif %}
-        </div>
-
-        {% if page.image %}
-        <div class="post-image">
-          <img
-            src="{{ site.baseurl }}{{ page.image }}"
-            alt="{{ page.title }}"
-          />
-        </div>
-        {% endif %}
-
-        <div class="post-body">{{ content }}</div>
-      </article>
-    </main>
-
-    <footer>
-      <div class="container-footer-alt">
-        <div class="footer-brand">
-          <div class="logo-footer">
-            <span style="color: #1e40af">Invest</span
-            ><span style="color: #10b981">Savy</span>
+      <!-- Post Meta -->
+      <div class="post-meta">
+        <div class="author-info">
+          <img src="{{ site.baseurl }}/images/me.png" alt="{{ page.author | default: 'Ana Silva' }}"
+            class="author-avatar" />
+          <div class="author-details">
+            <span class="author-name">{{ page.author | default: "Leonardo Figueiredo" }}</span>
+            <span class="author-role">Estudante de Economia</span>
           </div>
-          <p>Democratizando o acesso à educação<br />financeira para todos.</p>
-          <p class="copyright">
-            &copy; 2025 InvestSavy. Todos os direitos<br />reservados.
-          </p>
         </div>
-        <div class="footer-links">
-          <h4>NAVEGAÇÃO</h4>
-          <ul>
-            <li><a href="{{ site.baseurl }}/">Página Inicial</a></li>
-            <li><a href="{{ site.baseurl }}/news/">Notícias</a></li>
-            <li><a href="{{ site.baseurl }}/servicos.html">Ferramentas</a></li>
-            <li>
-              <a href="{{ site.baseurl }}/educacao.html">Educação Financeira</a>
-            </li>
-            <li><a href="{{ site.baseurl }}/sobre.html">Sobre Nós</a></li>
-          </ul>
+        <div class="post-stats">
+          <span><i class="far fa-calendar"></i> {{ page.date | date: "%d de %B, %Y"
+            }}</span>
+          <span><i class="far fa-clock"></i> {{ page.reading_time | default: "6 min
+            de leitura" }}</span>
+          <span><i class="far fa-eye"></i> {{ page.views | default: "2.165"
+            }}</span>
         </div>
       </div>
-    </footer>
 
-    <script src="{{ site.baseurl }}/script/js-universal.js"></script>
-    <script src="{{ site.baseurl }}/script/main.js"></script>
-  </body>
-</html>
+      <!-- Social Share -->
+
+      <!-- Post Image -->
+      {% if page.image %}
+      <div class="post-image">
+        <img src="{{ site.baseurl }}{{ page.image }}" alt="{{ page.title }}" />
+      </div>
+      {% endif %}
+
+      <!-- Post Content -->
+      <div class="post-article">{{ content }}</div>
+
+      <!-- Post Tags -->
+      {% if page.tags %}
+      <div class="post-tags">
+        <span class="tags-label">Tags:</span>
+        <div class="tags-list">
+          {% for tag in page.tags %}
+          <a href="#" class="tag-link">{{ tag }}</a>
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+
+      <div class="social-share">
+        <span class="share-text">Compartilhar:</span>
+        <div class="share-icons">
+          <a href="#" class="share-icon facebook" title="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="#" class="share-icon twitter" title="Twitter">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="#" class="share-icon linkedin" title="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="#" class="share-icon whatsapp" title="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+          <a href="#" class="share-icon copy" title="Copiar Link">
+            <i class="fas fa-link"></i>
+          </a>
+          <a href="#" class="share-icon bookmark" title="Salvar">
+            <i class="fas fa-bookmark"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Comments Section -->
+      <div class="comments-section">
+        <h2>Descreva sua opinião</h2>
+
+        <!-- Comment Form -->
+        <div class="comment-form-container">
+          <form class="comment-form" id="commentForm">
+            <div class="form-group">
+              <label for="name">Nome *</label>
+              <input type="text" id="name" name="name" required />
+            </div>
+            <div class="form-group">
+              <label for="email">E-mail *</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+            <div class="form-group">
+              <label for="comment">Comentário *</label>
+              <textarea id="comment" name="comment" rows="4" required placeholder="Digite seu comentário..."></textarea>
+            </div>
+            <div class="form-actions">
+              <div class="form-info">
+                <small>Seu e-mail não será publicado.</small>
+              </div>
+              <button type="submit" class="btn-comment">
+                <i class="fas fa-paper-plane"></i>
+                Publicar comentário
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <!-- Related Articles -->
+    <div class="sidebar-widget">
+      <h3>Artigos Relacionados</h3>
+      <div class="related-articles">
+        {% assign related_posts = site.posts | where_exp: "post",
+        "post.categories contains page.categories.first" | limit: 3 %} {% if
+        related_posts.size == 0 %} {% assign related_posts = site.posts | limit:
+        3 %} {% endif %} {% for post in related_posts %} {% unless post.url ==
+        page.url %}
+        <article class="sidebar-article">
+          <div class="article-image">
+            <img src="{{ site.baseurl }}{{ post.image | default: '/images/default-news.jpg' }}"
+              alt="{{ post.title }}" />
+          </div>
+          <div class="article-content">
+            <h4>
+              <a href="{{ post.url }}">{{ post.title | truncate: 60 }}</a>
+            </h4>
+            <div class="article-date">
+              {{ post.date | date: "%d de %B, %Y" }}
+            </div>
+          </div>
+        </article>
+        {% endunless %} {% endfor %}
+      </div>
+      <a href="{{ site.baseurl }}/noticias" class="view-more-link">Ver mais notícias</a>
+    </div>
+
+    <!-- Newsletter -->
+    <div class="sidebar-widget newsletter-widget">
+      <h3>Fique por dentro</h3>
+      <p>
+        Receba as últimas notícias sobre o mercado financeiro direto no seu
+        e-mail.
+      </p>
+      <form class="newsletter-form" id="newsletterForm">
+        <input type="email" placeholder="Seu e-mail" required />
+        <button type="submit">
+          <i class="fas fa-arrow-right"></i>
+        </button>
+      </form>
+    </div>
+  </aside>
+</div>
+
+<script>
+  // Share functionality
+  document.querySelectorAll('.share-icon').forEach((icon) => {
+    icon.addEventListener('click', function (e) {
+      e.preventDefault()
+      const url = window.location.href
+      const title = document.title
+
+      if (this.classList.contains('facebook')) {
+        window.open(
+          `https://www.facebook.com/sharer/sharer.php?u=${url}`,
+          '_blank'
+        )
+      } else if (this.classList.contains('twitter')) {
+        window.open(
+          `https://twitter.com/intent/tweet?url=${url}&text=${title}`,
+          '_blank'
+        )
+      } else if (this.classList.contains('linkedin')) {
+        window.open(
+          `https://www.linkedin.com/sharing/share-offsite/?url=${url}`,
+          '_blank'
+        )
+      } else if (this.classList.contains('whatsapp')) {
+        window.open(`https://wa.me/?text=${title} ${url}`, '_blank')
+      } else if (this.classList.contains('copy')) {
+        navigator.clipboard.writeText(url).then(() => {
+          alert('Link copiado para a área de transferência!')
+        })
+      }
+    })
+  })
+
+  // Comment form
+  document
+    .getElementById('commentForm')
+    .addEventListener('submit', function (e) {
+      e.preventDefault()
+      const name = document.getElementById('name').value
+      const email = document.getElementById('email').value
+      const comment = document.getElementById('comment').value
+
+      if (name && email && comment) {
+        alert(
+          'Comentário enviado com sucesso! Obrigado por participar da discussão.'
+        )
+        this.reset()
+      }
+    })
+
+  // Newsletter form
+  document
+    .getElementById('newsletterForm')
+    .addEventListener('submit', function (e) {
+      e.preventDefault()
+      const email = this.querySelector('input[type="email"]').value
+      if (email) {
+        alert('Inscrição realizada com sucesso!')
+        this.reset()
+      }
+    })
+</script>

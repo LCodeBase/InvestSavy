@@ -1,425 +1,231 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Notícias - InvestSavy</title>
-    <link rel="stylesheet" href="css/style-noticia.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-  </head>
-  <body>
-    <!-- Header -->
-    <header>
-      <div class="container-LOGO">
-        <div class="logo">
-          <span style="color: #1e40af">Invest</span
-          ><span style="color: #10b981">Savy</span>
-        </div>
-      </div>
+---
+layout: default
+title: Notícias
+description: As notícias mais importantes do mercado financeiro, economia e negócios para você tomar as melhores decisões
+---
 
-      <div class="menu-toggle" alt="Botão-Menu">
-        <i class="fas fa-bars"></i>
-      </div>
+<style>
+body {
+  background-color: #fafafa;
+}
+</style>
 
-      <nav class="nav-menu">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <a href="noticia">Notícias</a>
-          <li><a href="servicos">Ferramentas</a></li>
-          <li><a href="educacao">Aprender</a></li>
-          <li><a href="sobre">Sobre</a></li>
-        </ul>
-      </nav>
+<div class="main-container">
+  <main class="main-content">
+    <!-- News Filter -->
+    <div class="news-filter">
+      <button class="filter-btn active" data-filter="all">Todas</button>
+      <button class="filter-btn" data-filter="economia">Economia</button>
+      <button class="filter-btn" data-filter="mercados">Mercados</button>
+      <button class="filter-btn" data-filter="empresas">Empresas</button>
+      <button class="filter-btn" data-filter="tecnologia">Tecnologia</button>
+      <button class="filter-btn" data-filter="finanças-pessoais">Finanças Pessoais</button>
+      <button class="filter-btn" data-filter="política">Política</button>
+      <button class="filter-btn" data-filter="internacional">Internacional</button>
+    </div>
 
-      <div class="search-icon">
-        <i class="fas fa-search"></i>
-      </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero-section" style="margin-top: 75px">
-      <div class="hero-container">
-        <h1 class="hero-title">Notícias</h1>
-        <p class="hero-subtitle">
-          As notícias mais importantes do mercado financeiro, economia e
-          negócios para você tomar as melhores decisões
+    <!-- Featured Article -->
+    {% assign featured_post = site.posts.first %}
+    {% if featured_post %}
+    <article class="featured-article">
+      <div class="featured-image" style="background-image: url('{{ site.baseurl }}{{ featured_post.image }}')"></div>
+      <div class="featured-content">
+        <h2 class="featured-title">
+          <a href="{{ featured_post.url }}">{{ featured_post.title }}</a>
+        </h2>
+        <p class="featured-excerpt">
+          {{ featured_post.excerpt | default: featured_post.content | strip_html | truncate: 200 }}
         </p>
-      </div>
-    </section>
-
-    <!-- Main Content -->
-    <div class="main-container">
-      <main class="main-content">
-        <!-- News Filter -->
-        <div class="news-filter">
-          <button class="filter-btn active">Todas</button>
-          <button class="filter-btn">Economia</button>
-          <button class="filter-btn">Mercados</button>
-          <button class="filter-btn">Empresas</button>
-          <button class="filter-btn">Tecnologia</button>
-          <button class="filter-btn">Finanças Pessoais</button>
-          <button class="filter-btn">Política</button>
-          <button class="filter-btn">Internacional</button>
+        <div class="article-meta">
+          <span><i class="far fa-calendar"></i> {{ featured_post.date | date: "%d de %B, %Y" }}</span>
+          <span><i class="far fa-clock"></i> {{ featured_post.reading_time | default: "5 min de leitura" }}</span>
+          <span><i class="far fa-eye"></i> {{ featured_post.views | default: "1.543" }}</span>
+          <span>Por {{ featured_post.author | default: "Ana Silva" }}</span>
         </div>
+      </div>
+    </article>
+    {% endif %}
 
-        <!-- Featured Article -->
-        <article class="featured-article">
-          <div class="featured-image"></div>
-          <div class="featured-content">
-            <h2 class="featured-title">
-              Banco Central sinaliza possível corte na taxa de juros em resposta
-              à desaceleração da inflação
-            </h2>
-            <p class="featured-excerpt">
-              Ata da última reunião indica que o Copom pode iniciar um ciclo de
-              quedas nas taxas se as projeções se confirmarem nos próximos
-              meses.
+    <!-- Recent News -->
+    <section class="recent-news">
+      <h2>
+        Notícias Recentes
+        <span style="color: #6b7280; font-size: 0.9rem; font-weight: 400">
+          {{ site.posts | size }} artigos encontrados
+        </span>
+      </h2>
+      <div class="news-grid">
+        {% for post in site.posts offset: 1 limit: 8 %}
+        <article class="news-card" data-category="{% for category in post.categories %}{{ category | slugify }} {% endfor %}">
+          <div class="news-card-image" style="background-image: url('{{ site.baseurl }}{{ post.image | default: "/images/default-news.jpg" }}')">
+            {% if post.categories %}
+            <span class="news-category">{{ post.categories.first | capitalize }}</span>
+            {% endif %}
+          </div>
+          <div class="news-card-content">
+            <h3 class="news-card-title">
+              <a href="{{ post.url }}">{{ post.title }}</a>
+            </h3>
+            <p class="news-card-excerpt">
+              {{ post.excerpt | default: post.content | strip_html | truncate: 120 }}
             </p>
             <div class="article-meta">
-              <span><i class="far fa-calendar"></i> 21 de maio, 2025</span>
-              <span><i class="far fa-clock"></i> 10:43</span>
-              <span><i class="far fa-eye"></i> 1.543</span>
-              <span>Por Ana Silva</span>
+              <span><i class="far fa-calendar"></i> {{ post.date | date: "%d de %B, %Y" }}</span>
+              <span><i class="far fa-clock"></i> {{ post.reading_time | default: "5 min" }}</span>
+              <span><i class="far fa-eye"></i> {{ post.views | default: "890" }}</span>
             </div>
           </div>
         </article>
+        {% endfor %}
+      </div>
 
-        <!-- Recent News -->
-        <section class="recent-news">
-          <h2>
-            Notícias Recentes
-            <span style="color: #6b7280; font-size: 0.9rem; font-weight: 400"
-              >7 artigos encontrados</span
-            >
-          </h2>
-          <div class="news-grid">
-            <article class="news-card">
-              <div class="news-card-image">
-                <span class="news-category">Mercados</span>
-              </div>
-              <div class="news-card-content">
-                <h3 class="news-card-title">
-                  Bolsa brasileira supera 150 mil pontos e atinge novo recorde
-                </h3>
-                <p class="news-card-excerpt">
-                  Otimismo entre os investidores por perspectivas econômicas
-                  impulsiona o Ibovespa
-                </p>
-                <div class="article-meta">
-                  <span><i class="far fa-calendar"></i> 21 de maio, 2025</span>
-                  <span><i class="far fa-clock"></i> 09:28</span>
-                  <span><i class="far fa-eye"></i> 890</span>
-                </div>
-              </div>
-            </article>
+      <!-- Load More Button -->
+      {% if site.posts.size > 9 %}
+      <div class="load-more-container">
+        <button class="load-more-btn" id="loadMoreBtn">
+          <i class="fas fa-plus"></i>
+          Carregar mais notícias
+        </button>
+      </div>
+      {% endif %}
+    </section>
+  </main>
 
-            <article class="news-card">
-              <div class="news-card-image">
-                <span class="news-category">Negócios</span>
-              </div>
-              <div class="news-card-content">
-                <h3 class="news-card-title">
-                  Governo anuncia pacote de incentivos para startups de
-                  tecnologia
-                </h3>
-                <p class="news-card-excerpt">
-                  Medida visa estimular o ecossistema e a criação de empregos no
-                  setor
-                </p>
-                <div class="article-meta">
-                  <span><i class="far fa-calendar"></i> 21 de maio, 2025</span>
-                  <span><i class="far fa-clock"></i> 08:15</span>
-                  <span><i class="far fa-eye"></i> 756</span>
-                </div>
-              </div>
-            </article>
-
-            <article class="news-card">
-              <div class="news-card-image">
-                <span class="news-category">Câmbio</span>
-              </div>
-              <div class="news-card-content">
-                <h3 class="news-card-title">
-                  Dólar cai abaixo de R$ 5,00 após dados positivos da economia
-                </h3>
-                <p class="news-card-excerpt">
-                  Moeda americana recua 1,1% com perspectivas de maior fluxo
-                  estrangeiro para o Brasil
-                </p>
-                <div class="article-meta">
-                  <span><i class="far fa-calendar"></i> 21 de maio, 2025</span>
-                  <span><i class="far fa-clock"></i> 07:30</span>
-                  <span><i class="far fa-eye"></i> 1.020</span>
-                </div>
-              </div>
-            </article>
-
-            <article class="news-card">
-              <div class="news-card-image">
-                <span class="news-category">Economia</span>
-              </div>
-              <div class="news-card-content">
-                <h3 class="news-card-title">
-                  PIB do primeiro trimestre cresce acima das expectativas
-                </h3>
-                <p class="news-card-excerpt">
-                  Economia brasileira expande 0,8% no primeiro trimestre,
-                  superando projeções de analistas
-                </p>
-                <div class="article-meta">
-                  <span><i class="far fa-calendar"></i> 20 de maio, 2025</span>
-                  <span><i class="far fa-clock"></i> 14:45</span>
-                  <span><i class="far fa-eye"></i> 845</span>
-                </div>
-              </div>
-            </article>
-
-            <article class="news-card">
-              <div class="news-card-image">
-                <span class="news-category">Inflação</span>
-              </div>
-              <div class="news-card-content">
-                <h3 class="news-card-title">
-                  Inflação de abril fica abaixo do centro da meta pela primeira
-                  vez em três anos
-                </h3>
-                <p class="news-card-excerpt">
-                  IPCA registra 0,38% em abril, dentro do intervalo estabelecido
-                  pelo Conselho Monetário Nacional
-                </p>
-                <div class="article-meta">
-                  <span><i class="far fa-calendar"></i> 20 de maio, 2025</span>
-                  <span><i class="far fa-clock"></i> 11:20</span>
-                  <span><i class="far fa-eye"></i> 657</span>
-                </div>
-              </div>
-            </article>
-
-            <article class="news-card">
-              <div class="news-card-image">
-                <span class="news-category">Criptomoedas</span>
-              </div>
-              <div class="news-card-content">
-                <h3 class="news-card-title">
-                  CVM aprova novas regras para criptoativos no mercado
-                  brasileiro
-                </h3>
-                <p class="news-card-excerpt">
-                  Regulamentação visa trazer segurança jurídica para
-                  investidores e corretoras que operam criptomoedas
-                </p>
-                <div class="article-meta">
-                  <span><i class="far fa-calendar"></i> 19 de maio, 2025</span>
-                  <span><i class="far fa-clock"></i> 16:30</span>
-                  <span><i class="far fa-eye"></i> 892</span>
-                </div>
-              </div>
-            </article>
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <!-- Latest Updates -->
+    <div class="sidebar-section">
+      <h3 class="sidebar-title">
+        <i class="fas fa-clock"></i>
+        Últimas Atualizações
+      </h3>
+      <ul class="sidebar-list">
+        {% for post in site.posts limit: 5 %}
+        <li>
+          <a href="{{ post.url }}">{{ post.title | truncate: 60 }}</a>
+          <div class="sidebar-meta">
+            {% if post.categories %}{{ post.categories.first | capitalize }} • {% endif %}
+            {{ post.date | date: "%H:%M" }}
           </div>
-        </section>
-      </main>
-
-      <!-- Sidebar -->
-      <aside class="sidebar">
-        <!-- Latest Updates -->
-        <div class="sidebar-section">
-          <h3 class="sidebar-title">
-            <i class="fas fa-clock"></i>
-            Últimas Atualizações
-          </h3>
-          <ul class="sidebar-list">
-            <li>
-              <a href="#"
-                >Conselho da Petrobras aprova nova política de dividendos</a
-              >
-              <div class="sidebar-meta">Empresas • 16:45</div>
-            </li>
-            <li>
-              <a href="#">Superávit comercial atinge US$ 8 bilhões em abril</a>
-              <div class="sidebar-meta">Economia • 15:30</div>
-            </li>
-            <li>
-              <a href="#"
-                >Setor de serviços cresce pelo terceiro mês consecutivo</a
-              >
-              <div class="sidebar-meta">Economia • 14:15</div>
-            </li>
-            <li>
-              <a href="#"
-                >Ministério da Fazenda revisa projeção de crescimento para
-                2025</a
-              >
-              <div class="sidebar-meta">Economia • 13:05</div>
-            </li>
-            <li>
-              <a href="#">Produção industrial avança 1,1% em março</a>
-              <div class="sidebar-meta">Indústria • 11:40</div>
-            </li>
-          </ul>
-        </div>
-
-        <!-- Most Read -->
-        <div class="sidebar-section">
-          <h3 class="sidebar-title">
-            <i class="fas fa-fire"></i>
-            Mais Lidas
-          </h3>
-          <ul class="sidebar-list">
-            <li>
-              <a href="#"
-                >Dólar cai abaixo de R$ 5,00 após dados positivos da economia</a
-              >
-            </li>
-            <li>
-              <a href="#"
-                >Bolsa brasileira supera 150 mil pontos e atinge novo recorde</a
-              >
-            </li>
-            <li>
-              <a href="#"
-                >PIB do primeiro trimestre cresce acima das expectativas</a
-              >
-            </li>
-            <li>
-              <a href="#"
-                >CVM aprova novas regras para criptoativos no mercado
-                brasileiro</a
-              >
-            </li>
-            <li>
-              <a href="#"
-                >Governo anuncia pacote de incentivos para startups de
-                tecnologia</a
-              >
-            </li>
-          </ul>
-        </div>
-
-        <!-- Topics -->
-        <div class="sidebar-section">
-          <h3 class="sidebar-title">
-            <i class="fas fa-tags"></i>
-            Tópicos
-          </h3>
-          <div class="topics-tags">
-            <a href="#" class="topic-tag">Mercado Financeiro</a>
-            <a href="#" class="topic-tag">Inflação</a>
-            <a href="#" class="topic-tag">Juros</a>
-            <a href="#" class="topic-tag">Dólar</a>
-            <a href="#" class="topic-tag">Bolsa</a>
-            <a href="#" class="topic-tag">PIB</a>
-            <a href="#" class="topic-tag">Criptomoedas</a>
-            <a href="#" class="topic-tag">Bolsa</a>
-            <a href="#" class="topic-tag">Investimentos</a>
-            <a href="#" class="topic-tag">Finanças Pessoais</a>
-          </div>
-        </div>
-
-        <!-- Newsletter -->
-        <div class="sidebar-section">
-          <h3 class="sidebar-title">
-            <i class="fas fa-envelope"></i>
-            Receba as notícias em seu email
-          </h3>
-          <p style="font-size: 0.9rem; color: #6b7280; margin-bottom: 1rem">
-            Inscreva-se para receber as últimas atualizações sobre o mercado
-            financeiro.
-          </p>
-          <form class="newsletter-form">
-            <input
-              type="email"
-              class="newsletter-input"
-              placeholder="Seu e-mail"
-            />
-            <button type="submit" class="newsletter-btn">Inscrever-se</button>
-          </form>
-        </div>
-      </aside>
+        </li>
+        {% endfor %}
+      </ul>
     </div>
 
-    <footer>
-      <div class="container-footer-alt">
-        <div class="footer-brand">
-          <div class="logo-footer">
-            <span style="color: #1e40af">Invest</span
-            ><span style="color: #10b981">Savy</span>
-          </div>
-          <p>Democratizando o acesso à educação<br />financeira para todos.</p>
-          <p class="copyright">
-            &copy; 2025 InvestSavy. Todos os direitos<br />reservados.
-          </p>
-        </div>
-        <div class="footer-links">
-          <h4>NAVEGAÇÃO</h4>
-          <ul>
-            <li><a href="/InvestSavy/">Página Inicial</a></li>
-            <li><a href="/InvestSavy/news/">Notícias</a></li>
-            <li><a href="/InvestSavy/servicos.html">Ferramentas</a></li>
-            <li><a href="/InvestSavy/educacao.html">Educação Financeira</a></li>
-            <li><a href="/InvestSavy/sobre.html">Sobre Nós</a></li>
-          </ul>
-        </div>
-        <div class="footer-tools">
-          <h4>FERRAMENTAS</h4>
-          <ul>
-            <li>
-              <a href="#calculadora-juros">Calculadora de Juros Compostos</a>
-            </li>
-            <!-- Link provisório -->
-            <li>
-              <a href="#simulador-aposentadoria">Simulador de Aposentadoria</a>
-            </li>
-            <!-- Link provisório -->
-            <li>
-              <a href="#comparador-investimentos"
-                >Comparador de Investimentos</a
-              >
-            </li>
-            <!-- Link provisório -->
-          </ul>
-        </div>
-        <div class="footer-contact">
-          <h4>CONTATO</h4>
-          <p>contato@investsavy.com.br</p>
-          <div class="social-icons">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-          </div>
-        </div>
+    <!-- Most Read -->
+    <div class="sidebar-section">
+      <h3 class="sidebar-title">
+        <i class="fas fa-fire"></i>
+        Mais Lidas
+      </h3>
+      <ul class="sidebar-list">
+        {% assign popular_posts = site.posts | sort: 'views' | reverse %}
+        {% for post in popular_posts limit: 5 %}
+        <li>
+          <a href="{{ post.url }}">{{ post.title | truncate: 60 }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <!-- Topics -->
+    <div class="sidebar-section">
+      <h3 class="sidebar-title">
+        <i class="fas fa-tags"></i>
+        Tópicos
+      </h3>
+      <div class="topics-tags">
+        {% assign all_categories = site.posts | map: 'categories' | uniq %}
+        {% for category_list in all_categories %}
+          {% for category in category_list %}
+            <a href="#" class="topic-tag" data-filter="{{ category | slugify }}">{{ category | capitalize }}</a>
+          {% endfor %}
+        {% endfor %}
       </div>
-    </footer>
+    </div>
 
-    <script>
-      // Filter functionality
-      document.querySelectorAll('.filter-btn').forEach((btn) => {
-        btn.addEventListener('click', () => {
-          document
-            .querySelectorAll('.filter-btn')
-            .forEach((b) => b.classList.remove('active'))
-          btn.classList.add('active')
-        })
-      })
+    <!-- Newsletter -->
+    <div class="sidebar-section">
+      <h3 class="sidebar-title">
+        <i class="fas fa-envelope"></i>
+        Receba as notícias em seu email
+      </h3>
+      <p class="newsletter-description">
+        Inscreva-se para receber as últimas atualizações sobre o mercado financeiro.
+      </p>
+      <form class="newsletter-form" id="newsletterForm">
+        <input
+          type="email"
+          class="newsletter-input"
+          placeholder="Seu e-mail"
+          required
+        />
+        <button type="submit" class="newsletter-btn">Inscrever-se</button>
+      </form>
+    </div>
+  </aside>
+</div>
 
-      // Newsletter form
-      document
-        .querySelector('.newsletter-form')
-        .addEventListener('submit', function (e) {
-          e.preventDefault()
-          const email = this.querySelector('.newsletter-input').value
-          if (email) {
-            alert('Inscrição realizada com sucesso!')
-            this.reset()
+<script>
+  // Filter functionality
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const newsCards = document.querySelectorAll('.news-card');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Remove active class from all buttons
+      filterBtns.forEach(b => b.classList.remove('active'));
+      // Add active class to clicked button
+      btn.classList.add('active');
+
+      const filterValue = btn.getAttribute('data-filter');
+
+      newsCards.forEach(card => {
+        if (filterValue === 'all') {
+          card.style.display = 'block';
+        } else {
+          const cardCategory = card.getAttribute('data-category');
+          if (cardCategory && cardCategory.includes(filterValue)) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
           }
-        })
-    </script>
-  </body>
-</html>
+        }
+      });
+    });
+  });
+
+  // Topic tag filter
+  document.querySelectorAll('.topic-tag').forEach(tag => {
+    tag.addEventListener('click', (e) => {
+      e.preventDefault();
+      const filterValue = tag.getAttribute('data-filter');
+
+      // Trigger the corresponding filter button
+      const matchingBtn = document.querySelector(`[data-filter="${filterValue}"]`);
+      if (matchingBtn) {
+        matchingBtn.click();
+      }
+    });
+  });
+
+  // Newsletter form
+  document.getElementById('newsletterForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const email = this.querySelector('.newsletter-input').value;
+    if (email) {
+      alert('Inscrição realizada com sucesso!');
+      this.reset();
+    }
+  });
+
+  // Load more functionality
+  const loadMoreBtn = document.getElementById('loadMoreBtn');
+  if (loadMoreBtn) {
+    loadMoreBtn.addEventListener('click', function() {
+      // This would typically load more posts via AJAX
+      // For now, we'll just show a message
+      alert('Carregando mais notícias...');
+    });
+  }
+</script>
