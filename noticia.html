@@ -1,13 +1,14 @@
 ---
 layout: default
 title: Notícias
-description: As notícias mais importantes do mercado financeiro, economia e negócios para você tomar as melhores decisões
+description: As notícias mais importantes do mercado financeiro, economia e negócios para você tomar as melhores
+decisões
 ---
 
 <style>
-body {
-  background-color: #fafafa;
-}
+  body {
+    background-color: #fafafa;
+  }
 </style>
 
 <div class="main-container">
@@ -56,15 +57,17 @@ body {
       </h2>
       <div class="news-grid">
         {% for post in site.posts offset: 1 limit: 8 %}
-        <article class="news-card" data-category="{% for category in post.categories %}{{ category | slugify }} {% endfor %}">
-          <div class="news-card-image" style="background-image: url('{{ site.baseurl }}{{ post.image | default: "/images/default-news.jpg" }}')">
+        <article class="news-card"
+          data-category="{% for category in post.categories %}{{ category | slugify }} {% endfor %}">
+          <div class="news-card-image" style="background-image: url('{{ site.baseurl }}{{ post.image | default: "
+            /images/default-news.jpg" }}')">
             {% if post.categories %}
             <span class="news-category">{{ post.categories.first | capitalize }}</span>
             {% endif %}
           </div>
           <div class="news-card-content">
             <h3 class="news-card-title">
-              <a href="{{ post.url }}">{{ post.title }}</a>
+              <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
             </h3>
             <p class="news-card-excerpt">
               {{ post.excerpt | default: post.content | strip_html | truncate: 120 }}
@@ -102,7 +105,7 @@ body {
       <ul class="sidebar-list">
         {% for post in site.posts limit: 5 %}
         <li>
-          <a href="{{ post.url }}">{{ post.title | truncate: 60 }}</a>
+          <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title | truncate: 60 }}</a>
           <div class="sidebar-meta">
             {% if post.categories %}{{ post.categories.first | capitalize }} • {% endif %}
             {{ post.date | date: "%H:%M" }}
@@ -122,7 +125,7 @@ body {
         {% assign popular_posts = site.posts | sort: 'views' | reverse %}
         {% for post in popular_posts limit: 5 %}
         <li>
-          <a href="{{ post.url }}">{{ post.title | truncate: 60 }}</a>
+          <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title | truncate: 60 }}</a>
         </li>
         {% endfor %}
       </ul>
@@ -137,9 +140,9 @@ body {
       <div class="topics-tags">
         {% assign all_categories = site.posts | map: 'categories' | uniq %}
         {% for category_list in all_categories %}
-          {% for category in category_list %}
-            <a href="#" class="topic-tag" data-filter="{{ category | slugify }}">{{ category | capitalize }}</a>
-          {% endfor %}
+        {% for category in category_list %}
+        <a href="#" class="topic-tag" data-filter="{{ category | slugify }}">{{ category | capitalize }}</a>
+        {% endfor %}
         {% endfor %}
       </div>
     </div>
@@ -154,12 +157,7 @@ body {
         Inscreva-se para receber as últimas atualizações sobre o mercado financeiro.
       </p>
       <form class="newsletter-form" id="newsletterForm">
-        <input
-          type="email"
-          class="newsletter-input"
-          placeholder="Seu e-mail"
-          required
-        />
+        <input type="email" class="newsletter-input" placeholder="Seu e-mail" required />
         <button type="submit" class="newsletter-btn">Inscrever-se</button>
       </form>
     </div>
@@ -210,7 +208,7 @@ body {
   });
 
   // Newsletter form
-  document.getElementById('newsletterForm').addEventListener('submit', function(e) {
+  document.getElementById('newsletterForm').addEventListener('submit', function (e) {
     e.preventDefault();
     const email = this.querySelector('.newsletter-input').value;
     if (email) {
@@ -222,7 +220,7 @@ body {
   // Load more functionality
   const loadMoreBtn = document.getElementById('loadMoreBtn');
   if (loadMoreBtn) {
-    loadMoreBtn.addEventListener('click', function() {
+    loadMoreBtn.addEventListener('click', function () {
       // This would typically load more posts via AJAX
       // For now, we'll just show a message
       alert('Carregando mais notícias...');
