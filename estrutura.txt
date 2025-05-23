@@ -4,26 +4,7 @@ Abaixo está a estrutura detalhada do projeto, incluindo as principais pastas e 
 
 ```
 InvestSavy/
-├── .eleventy.js                # Configuração do Eleventy (gerador estático)
-├── .github/
-│   └── workflows/
-│       └── deploy.yml          # Workflow de deploy automatizado no GitHub Actions
-├── .nojekyll                   # Arquivo para ignorar o Jekyll no GitHub Pages
 ├── README.md                   # Documentação principal do projeto
-├── _site/                      # Pasta gerada automaticamente pelo Eleventy (site final)
-│   ├── calculadora-emprestimo.html
-│   ├── calculo-despesas.html
-│   ├── conversor-moedas.html
-│   ├── css/                    # Arquivos CSS do site gerado
-│   ├── educacao.html
-│   ├── images/                 # Imagens otimizadas para o site gerado
-│   ├── index.html
-│   ├── news/                   # Notícias geradas
-│   ├── news.njk
-│   ├── posts/                  # Posts/notícias gerados
-│   ├── script/                 # Scripts JS do site gerado
-│   ├── servicos.html
-│   └── sobre.html
 ├── calculadora-emprestimo.html # Página da calculadora de empréstimo
 ├── calculo-despesas.html       # Página do cálculo de despesas
 ├── conversor-moedas.html       # Página do conversor de moedas
@@ -51,30 +32,15 @@ InvestSavy/
 │   ├── noticia02.webp
 │   └── noticia03.webp
 ├── index.html                  # Página inicial do site
-├── package-lock.json           # Lockfile do npm
-├── package.json                # Dependências e scripts do Node.js
 ├── script/                     # Scripts JavaScript fonte
 │   ├── calculadora-emprestimo.js
 │   ├── calculo-despesas.js
-│   ├── comments.js
 │   ├── conversor-moedas.js
 │   ├── js-universal.js
 │   ├── main.js
-│   ├── market-data.js
 │   └── script.js
 ├── servicos.html               # Página de ferramentas/serviços
 ├── sobre.html                  # Página sobre o projeto
-└── src/                        # Fonte do conteúdo para o Eleventy
-    ├── _data/                  # Dados globais do Eleventy
-    ├── _includes/              # Partials e includes do Eleventy
-    ├── _layouts/               # Layouts base (ex: base.njk, post.njk)
-    │   ├── base.njk
-    │   ├── post.njk
-    │   └── style-base-noticia.css
-    ├── news.njk                # Template de notícias
-    └── posts/                  # Posts em Markdown
-        ├── bolsa-brasileira-recorde.md
-        └── primeira-noticia.md
 ```
 
 **Observações:**

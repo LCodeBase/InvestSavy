@@ -1,368 +1,370 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>InvestSavy - Transformando sua vida financeira</title>
+    <link rel="stylesheet" href="css/style-main.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+    <!-- Favicons para diferentes dispositivos e navegadores -->
+    <link rel="shortcut icon" href="images/Camada 1.png" type="image/x-icon" />
+    <link rel="manifest" href="site.webmanifest" />
+    <!-- Preload de fontes e recursos críticos -->
+    <link
+      rel="preload"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-solid-900.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>InvestSavy - Transformando sua vida financeira</title>
-  <link rel="stylesheet" href="css/style-main.css" />
-  <link rel="stylesheet" href="css/animations.css" />
-  <!-- Favicons para diferentes dispositivos e navegadores -->
-  <link rel="shortcut icon" href="images/Camada 1.png" type="image/x-icon" />
-  <link rel="manifest" href="site.webmanifest" />
-  <!-- Preload de fontes e recursos críticos -->
-  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-solid-900.woff2"
-    as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-
-  <script>
-    // Initialize Firebase using a function that loads config from a separate file
-    // This adds a layer of obfuscation
-    ; (function () {
-      fetch('config/firebase-config.json')
-        .then((response) => response.json())
-        .then((firebaseConfig) => {
-          firebase.initializeApp(firebaseConfig)
-        })
-        .catch((error) => {
-          console.error('Error loading Firebase configuration:', error)
-        })
-    })()
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-  <script>
-      ; (function () {
-        // Load EmailJS config from separate file
-        fetch('config/emailjs-config.json')
-          .then((response) => response.json())
-          .then((config) => {
-            emailjs.init(config.publicKey)
-          })
-          .catch((error) => {
-            console.error('Error loading EmailJS configuration:', error)
-          })
-      })()
-  </script>
-</head>
-
-<body>
-  <header>
-    <div class="container-LOGO">
-      <div class="logo">
-        <span style="color: #1e40af">Invest</span><span style="color: #10b981">Savy</span>
-      </div>
-    </div>
-
-    <div class="menu-toggle" alt="Botão-Menu">
-      <i class="fas fa-bars"></i>
-    </div>
-
-    <nav class="nav-menu">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="/InvestSavy/news/">Notícias</a></li>
-        <li><a href="servicos.html">Ferramentas</a></li>
-        <li><a href="educacao.html">Aprender</a></li>
-        <li><a href="sobre.html">Sobre</a></li>
-      </ul>
-    </nav>
-
-    <div class="search-icon">
-      <i class="fas fa-search"></i>
-    </div>
-  </header>
-
-  <main>
-    <!-- Hero Section -->
-    <section class="hero">
-      <div class="hero-content">
-        <h1>
-          Democratizando o <br /><span class="highlight-2">conhecimento</span><br />
-          <span class="highlight">financeiro</span>
-        </h1>
-        <p class="hero-subtitle">
-          Acesse conteúdo de qualidade, ferramentas e notícias para tomar
-          melhores decisões financeiras.
-        </p>
-        <div class="hero-buttons">
-          <a href="educacao.html" class="button-primary">
-            Comece a Aprender
-            <i class="fa-solid fa-arrow-right"></i>
-          </a>
-          <a href="servicos.html" class="button-secondary-outline">
-            Explorar Ferramentas
-          </a>
+  <body>
+    <header>
+      <div class="container-LOGO">
+        <div class="logo">
+          <span style="color: #1e40af">Invest</span
+          ><span style="color: #10b981">Savy</span>
         </div>
       </div>
-      <div class="hero-image">
-        <img src="images/hero-photo.webp" alt="Ilustração de finanças e investimentos" />
-      </div>
-    </section>
 
-    <!-- Latest News Section -->
-    <section class="blog-container">
-      <div class="section-header">
-        <h2>Últimas Notícias</h2>
-        <p>
-          Fique atualizado com as informações mais recentes do mercado
-          financeiro
-        </p>
-      </div>
-      <div class="blog-cards">
-        <article class="card">
-          <img src="images/noticia01.webp" alt="Banco Central do Brasil" />
-          <div class="card-content">
-            <span class="category-label">Economia</span>
-            <h3>Banco Central eleva Selic para 14,75% ao ano</h3>
-            <p class="article-description">
-              Decisão visa conter a inflação persistente e manter a política
-              monetária restritiva.
-            </p>
-            <div class="article-meta">
-              <i class="fas fa-calendar-alt"></i>
-              <span>20 Maio, 2025</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="card">
-          <img src="images/noticia02.webp" alt="Bolsa brasileira" />
-          <div class="card-content">
-            <span class="category-label">Mercado</span>
-            <h3>Ibovespa ultrapassa os 140 mil pontos pela primeira vez</h3>
-            <p class="article-description">
-              Alta foi impulsionada por relatório positivo do Morgan Stanley e
-              fluxo estrangeiro.
-            </p>
-            <div class="article-meta">
-              <i class="fas fa-calendar-alt"></i>
-              <span>21 Maio, 2025</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="card">
-          <img src="images/noticia03.webp" alt="Inteligência Artificial" />
-          <div class="card-content">
-            <span class="category-label">Tecnologia</span>
-            <h3>
-              Nova geração de IA promete transformar mercado de trabalho
-            </h3>
-            <p class="article-description">
-              Especialistas apontam que IA generativa pode automatizar tarefas
-              e criar novas profissões.
-            </p>
-            <div class="article-meta">
-              <i class="fas fa-calendar-alt"></i>
-              <span>21 Maio, 2025</span>
-            </div>
-          </div>
-        </article>
+      <div class="menu-toggle" alt="Botão-Menu">
+        <i class="fas fa-bars"></i>
       </div>
 
-      <div class="button-container">
-        <a href="blogs-main.html" class="button-secondary-outline">
-          Ver Todas as Notícias <i class="fa-solid fa-arrow-right"></i>
-        </a>
-      </div>
-    </section>
-
-    <!-- Ferramentas Gratuitas Section -->
-    <section class="tools-section">
-      <div class="section-header">
-        <h2>Ferramentas <span class="highlight-green">Gratuitas</span></h2>
-        <p>Recursos práticos para ajudar na sua jornada de investimentos</p>
-      </div>
-      <div class="tools-grid">
-        <div class="tool-card">
-          <div class="tool-icon">
-            <i class="fas fa-calculator"></i>
-          </div>
-          <h3>Calculadora de Juros Compostos</h3>
-          <p>
-            Calcule o crescimento do seu investimento ao longo do tempo com
-            juros compostos
-          </p>
-          <a href="#calculadora-juros" class="button-tool">Acessar Ferramenta</a>
-          <!-- Link provisório -->
-        </div>
-        <div class="tool-card">
-          <div class="tool-icon">
-            <i class="fas fa-chart-bar"></i>
-          </div>
-          <h3>Simulador de Aposentadoria</h3>
-          <p>
-            Planeje sua aposentadoria com base nos seus investimentos e gastos
-            atuais
-          </p>
-          <a href="#simulador-aposentadoria" class="button-tool">Acessar Ferramenta</a>
-          <!-- Link provisório -->
-        </div>
-        <div class="tool-card">
-          <div class="tool-icon">
-            <i class="fas fa-balance-scale-left"></i>
-          </div>
-          <h3>Comparador de Investimentos</h3>
-          <p>Compare diferentes tipos de empréstimos e suas taxas</p>
-          <a href="calculadora-emprestimo.html" class="button-tool">Acessar Ferramenta</a>
-          <!-- Link provisório -->
-        </div>
-      </div>
-      <div class="button-container">
-        <a href="servicos.html" class="button-primary">Explorar Todas as Ferramentas
-          <i class="fa-solid fa-arrow-right"></i></a>
-        <!-- Link provisório -->
-      </div>
-    </section>
-
-    <!-- Educação Financeira Section -->
-    <section class="education-section">
-      <div class="section-header">
-        <h2>Educação <span class="highlight-orange">Financeira</span></h2>
-        <p>
-          Artigos e guias para expandir seu conhecimento sobre investimentos
-        </p>
-      </div>
-      <div class="articles-grid">
-        <article class="article-card">
-          <img src="images/educacao01.webp" alt="Pessoa lendo jornal de negócios" />
-          <!-- Substituir pela imagem correta -->
-          <div class="card-content">
-            <span class="category-label">Iniciantes</span>
-            <div class="reading-time">
-              <i class="far fa-clock"></i> 8 min de leitura
-            </div>
-            <h3>
-              Guia para iniciantes: Primeiros passos no mundo dos
-              investimentos
-            </h3>
-            <p class="article-description">
-              Aprenda os conceitos básicos para começar a investir com
-              segurança
-            </p>
-            <a href="#" class="read-article-link">Ler artigo completo</a>
-            <!-- Link provisório -->
-          </div>
-        </article>
-        <article class="article-card">
-          <img src="images/educacao02.webp" alt="Gráfico em tela de laptop" />
-          <!-- Substituir pela imagem correta -->
-          <div class="card-content">
-            <span class="category-label">Estratégia</span>
-            <div class="reading-time">
-              <i class="far fa-clock"></i> 10 min de leitura
-            </div>
-            <h3>5 Passos Simples para Sair do Vermelho</h3>
-            <p class="article-description">
-              Descubra como sair das dívidas e recuperar o controle financeiro
-              com um método prático e eficiente.
-            </p>
-            <a href="#" class="read-article-link">Ler artigo completo</a>
-            <!-- Link provisório -->
-          </div>
-        </article>
-        <article class="article-card">
-          <img src="images/educacao03.webp" alt="Carteira com cartões" />
-          <!-- Substituir pela imagem correta -->
-          <div class="card-content">
-            <span class="category-label">Iniciante</span>
-            <div class="reading-time">
-              <i class="far fa-clock"></i> 20 min de leitura
-            </div>
-            <h3>O que são as Siglas do Mercado Financeiro: Guia Completo</h3>
-            <p class="article-description">
-              Entenda o significado das principais siglas e termos técnicos
-              utilizados no mercado financeiro brasileiro e internacional.
-            </p>
-            <a href="#" class="read-article-link">Ler artigo completo</a>
-            <!-- Link provisório -->
-          </div>
-        </article>
-        <!-- Adicionar mais cards de artigos conforme necessário -->
-      </div>
-      <div class="button-container">
-        <a href="blogs-main.html" class="button-outline-gray">Ver Todos os Artigos <i
-            class="fa-solid fa-arrow-right"></i></a>
-      </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta-section-alt">
-      <div class="cta-container">
-        <h2 style="color: white">
-          Quem entende de dinheiro não se<br />vende por migalhas
-        </h2>
-        <p>
-          Junte-se a milhares de pessoas que estão transformando sua relação
-          com o dinheiro através do conhecimento. Comece sua jornada
-          financeira hoje mesmo.
-        </p>
-        <div class="cta-buttons">
-          <a href="sobre.html" class="button-white-outline">Conheça Nossa Missão</a>
-          <!-- Link provisório -->
-          <a href="educacao.html" class="button-blue">Explorar Conteúdo Educativo</a>
-          <!-- Link provisório -->
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container-footer-alt">
-      <div class="footer-brand">
-        <div class="logo-footer">
-          <span style="color: #1e40af">Invest</span><span style="color: #10b981">Savy</span>
-        </div>
-        <p>Democratizando o acesso à educação<br />financeira para todos.</p>
-        <p class="copyright">
-          &copy; 2025 InvestSavy. Todos os direitos<br />reservados.
-        </p>
-      </div>
-      <div class="footer-links">
-        <h4>NAVEGAÇÃO</h4>
+      <nav class="nav-menu">
         <ul>
-          <li><a href="/InvestSavy/">Página Inicial</a></li>
-          <li><a href="/InvestSavy/news/">Notícias</a></li>
-          <li><a href="/InvestSavy/servicos.html">Ferramentas</a></li>
-          <li><a href="/InvestSavy/educacao.html">Educação Financeira</a></li>
-          <li><a href="/InvestSavy/sobre.html">Sobre Nós</a></li>
+          <li><a href="index.html">Home</a></li>
+          <!-- Substitua todos os links de "Notícias" por: -->
+          <a href="noticia">Notícias</a>
+          <li><a href="servicos">Ferramentas</a></li>
+          <li><a href="educacao">Aprender</a></li>
+          <li><a href="sobre">Sobre</a></li>
         </ul>
+      </nav>
+
+      <div class="search-icon">
+        <i class="fas fa-search"></i>
       </div>
-      <div class="footer-tools">
-        <h4>FERRAMENTAS</h4>
-        <ul>
-          <li>
-            <a href="#calculadora-juros">Calculadora de Juros Compostos</a>
-          </li>
+    </header>
+
+    <main>
+      <!-- Hero Section -->
+      <section class="hero">
+        <div class="hero-content">
+          <h1>
+            Democratizando o <br /><span class="highlight-2">conhecimento</span
+            ><br />
+            <span class="highlight">financeiro</span>
+          </h1>
+          <p class="hero-subtitle">
+            Acesse conteúdo de qualidade, ferramentas e notícias para tomar
+            melhores decisões financeiras.
+          </p>
+          <div class="hero-buttons">
+            <a href="educacao.html" class="button-primary">
+              Comece a Aprender
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+            <a href="servicos.html" class="button-secondary-outline">
+              Explorar Ferramentas
+            </a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img
+            src="images/hero-photo.webp"
+            alt="Ilustração de finanças e investimentos"
+          />
+        </div>
+      </section>
+
+      <!-- Latest News Section -->
+      <section class="blog-container">
+        <div class="section-header">
+          <h2>Últimas Notícias</h2>
+          <p>
+            Fique atualizado com as informações mais recentes do mercado
+            financeiro
+          </p>
+        </div>
+        <div class="blog-cards">
+          <article class="card">
+            <img src="images/noticia01.webp" alt="Banco Central do Brasil" />
+            <div class="card-content">
+              <span class="category-label">Economia</span>
+              <h3>Banco Central eleva Selic para 14,75% ao ano</h3>
+              <p class="article-description">
+                Decisão visa conter a inflação persistente e manter a política
+                monetária restritiva.
+              </p>
+              <div class="article-meta">
+                <i class="fas fa-calendar-alt"></i>
+                <span>20 Maio, 2025</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <img src="images/noticia02.webp" alt="Bolsa brasileira" />
+            <div class="card-content">
+              <span class="category-label">Mercado</span>
+              <h3>Ibovespa ultrapassa os 140 mil pontos pela primeira vez</h3>
+              <p class="article-description">
+                Alta foi impulsionada por relatório positivo do Morgan Stanley e
+                fluxo estrangeiro.
+              </p>
+              <div class="article-meta">
+                <i class="fas fa-calendar-alt"></i>
+                <span>21 Maio, 2025</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <img src="images/noticia03.webp" alt="Inteligência Artificial" />
+            <div class="card-content">
+              <span class="category-label">Tecnologia</span>
+              <h3>
+                Nova geração de IA promete transformar mercado de trabalho
+              </h3>
+              <p class="article-description">
+                Especialistas apontam que IA generativa pode automatizar tarefas
+                e criar novas profissões.
+              </p>
+              <div class="article-meta">
+                <i class="fas fa-calendar-alt"></i>
+                <span>21 Maio, 2025</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="button-container">
+          <a href="blogs-main.html" class="button-secondary-outline">
+            Ver Todas as Notícias <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </section>
+
+      <!-- Ferramentas Gratuitas Section -->
+      <section class="tools-section">
+        <div class="section-header">
+          <h2>Ferramentas <span class="highlight-green">Gratuitas</span></h2>
+          <p>Recursos práticos para ajudar na sua jornada de investimentos</p>
+        </div>
+        <div class="tools-grid">
+          <div class="tool-card">
+            <div class="tool-icon">
+              <i class="fas fa-calculator"></i>
+            </div>
+            <h3>Calculadora de Juros Compostos</h3>
+            <p>
+              Calcule o crescimento do seu investimento ao longo do tempo com
+              juros compostos
+            </p>
+            <a href="#calculadora-juros" class="button-tool"
+              >Acessar Ferramenta</a
+            >
+            <!-- Link provisório -->
+          </div>
+          <div class="tool-card">
+            <div class="tool-icon">
+              <i class="fas fa-chart-bar"></i>
+            </div>
+            <h3>Simulador de Aposentadoria</h3>
+            <p>
+              Planeje sua aposentadoria com base nos seus investimentos e gastos
+              atuais
+            </p>
+            <a href="#simulador-aposentadoria" class="button-tool"
+              >Acessar Ferramenta</a
+            >
+            <!-- Link provisório -->
+          </div>
+          <div class="tool-card">
+            <div class="tool-icon">
+              <i class="fas fa-balance-scale-left"></i>
+            </div>
+            <h3>Comparador de Investimentos</h3>
+            <p>Compare diferentes tipos de empréstimos e suas taxas</p>
+            <a href="calculadora-emprestimo.html" class="button-tool"
+              >Acessar Ferramenta</a
+            >
+            <!-- Link provisório -->
+          </div>
+        </div>
+        <div class="button-container">
+          <a href="servicos.html" class="button-primary"
+            >Explorar Todas as Ferramentas
+            <i class="fa-solid fa-arrow-right"></i
+          ></a>
           <!-- Link provisório -->
-          <li>
-            <a href="#simulador-aposentadoria">Simulador de Aposentadoria</a>
-          </li>
-          <!-- Link provisório -->
-          <li>
-            <a href="#comparador-investimentos">Comparador de Investimentos</a>
-          </li>
-          <!-- Link provisório -->
-        </ul>
-      </div>
-      <div class="footer-contact">
-        <h4>CONTATO</h4>
-        <p>contato@investsavy.com.br</p>
-        <div class="social-icons">
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-twitter"></i></a>
-          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </section>
+
+      <!-- Educação Financeira Section -->
+      <section class="education-section">
+        <div class="section-header">
+          <h2>Educação <span class="highlight-orange">Financeira</span></h2>
+          <p>
+            Artigos e guias para expandir seu conhecimento sobre investimentos
+          </p>
+        </div>
+        <div class="articles-grid">
+          <article class="article-card">
+            <img
+              src="images/educacao01.webp"
+              alt="Pessoa lendo jornal de negócios"
+            />
+            <!-- Substituir pela imagem correta -->
+            <div class="card-content">
+              <span class="category-label">Iniciantes</span>
+              <div class="reading-time">
+                <i class="far fa-clock"></i> 8 min de leitura
+              </div>
+              <h3>
+                Guia para iniciantes: Primeiros passos no mundo dos
+                investimentos
+              </h3>
+              <p class="article-description">
+                Aprenda os conceitos básicos para começar a investir com
+                segurança
+              </p>
+              <a href="#" class="read-article-link">Ler artigo completo</a>
+              <!-- Link provisório -->
+            </div>
+          </article>
+          <article class="article-card">
+            <img src="images/educacao02.webp" alt="Gráfico em tela de laptop" />
+            <!-- Substituir pela imagem correta -->
+            <div class="card-content">
+              <span class="category-label">Estratégia</span>
+              <div class="reading-time">
+                <i class="far fa-clock"></i> 10 min de leitura
+              </div>
+              <h3>5 Passos Simples para Sair do Vermelho</h3>
+              <p class="article-description">
+                Descubra como sair das dívidas e recuperar o controle financeiro
+                com um método prático e eficiente.
+              </p>
+              <a href="#" class="read-article-link">Ler artigo completo</a>
+              <!-- Link provisório -->
+            </div>
+          </article>
+          <article class="article-card">
+            <img src="images/educacao03.webp" alt="Carteira com cartões" />
+            <!-- Substituir pela imagem correta -->
+            <div class="card-content">
+              <span class="category-label">Iniciante</span>
+              <div class="reading-time">
+                <i class="far fa-clock"></i> 20 min de leitura
+              </div>
+              <h3>O que são as Siglas do Mercado Financeiro: Guia Completo</h3>
+              <p class="article-description">
+                Entenda o significado das principais siglas e termos técnicos
+                utilizados no mercado financeiro brasileiro e internacional.
+              </p>
+              <a href="#" class="read-article-link">Ler artigo completo</a>
+              <!-- Link provisório -->
+            </div>
+          </article>
+          <!-- Adicionar mais cards de artigos conforme necessário -->
+        </div>
+        <div class="button-container">
+          <a href="blogs-main.html" class="button-outline-gray"
+            >Ver Todos os Artigos <i class="fa-solid fa-arrow-right"></i
+          ></a>
+        </div>
+      </section>
+
+      <!-- CTA Section -->
+      <section class="cta-section-alt">
+        <div class="cta-container">
+          <h2 style="color: white">
+            Quem entende de dinheiro não se<br />vende por migalhas
+          </h2>
+          <p>
+            Junte-se a milhares de pessoas que estão transformando sua relação
+            com o dinheiro através do conhecimento. Comece sua jornada
+            financeira hoje mesmo.
+          </p>
+          <div class="cta-buttons">
+            <a href="sobre.html" class="button-white-outline"
+              >Conheça Nossa Missão</a
+            >
+            <!-- Link provisório -->
+            <a href="educacao.html" class="button-blue"
+              >Explorar Conteúdo Educativo</a
+            >
+            <!-- Link provisório -->
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container-footer-alt">
+        <div class="footer-brand">
+          <div class="logo-footer">
+            <span style="color: #1e40af">Invest</span
+            ><span style="color: #10b981">Savy</span>
+          </div>
+          <p>Democratizando o acesso à educação<br />financeira para todos.</p>
+          <p class="copyright">
+            &copy; 2025 InvestSavy. Todos os direitos<br />reservados.
+          </p>
+        </div>
+        <div class="footer-links">
+          <h4>NAVEGAÇÃO</h4>
+          <ul>
+            <li><a href="/InvestSavy/">Página Inicial</a></li>
+            <li><a href="/InvestSavy/news/">Notícias</a></li>
+            <li><a href="/InvestSavy/servicos.html">Ferramentas</a></li>
+            <li><a href="/InvestSavy/educacao.html">Educação Financeira</a></li>
+            <li><a href="/InvestSavy/sobre.html">Sobre Nós</a></li>
+          </ul>
+        </div>
+        <div class="footer-tools">
+          <h4>FERRAMENTAS</h4>
+          <ul>
+            <li>
+              <a href="#calculadora-juros">Calculadora de Juros Compostos</a>
+            </li>
+            <!-- Link provisório -->
+            <li>
+              <a href="#simulador-aposentadoria">Simulador de Aposentadoria</a>
+            </li>
+            <!-- Link provisório -->
+            <li>
+              <a href="#comparador-investimentos"
+                >Comparador de Investimentos</a
+              >
+            </li>
+            <!-- Link provisório -->
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>CONTATO</h4>
+          <p>contato@investsavy.com.br</p>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          </div>
         </div>
       </div>
-    </div>
-  </footer>
-  <script src="script/newsletter.js"></script>
-  <script src="script/js-universal.js"></script>
-  <script src="script/contact.js"></script>
-  <script src="script/script.js"></script>
-  <script src="script/main.js"></script>
-</body>
-
+    </footer>
+    <script src="script/js-universal.js"></script>
+    <script src="script/main.js"></script>
+  </body>
 </html>

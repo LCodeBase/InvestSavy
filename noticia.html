@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>InvestSavy - Transformando sua vida financeira</title>
+    <link rel="stylesheet" href="css/style-noticia.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+    <!-- Favicons para diferentes dispositivos e navegadores -->
+    <link rel="shortcut icon" href="images/Camada 1.png" type="image/x-icon" />
+    <link rel="manifest" href="site.webmanifest" />
+    <!-- Preload de fontes e recursos críticos -->
+    <link
+      rel="preload"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-solid-900.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <header>
+      <div class="container-LOGO">
+        <div class="logo">
+          <span style="color: #1e40af">Invest</span
+          ><span style="color: #10b981">Savy</span>
+        </div>
+      </div>
+
+      <div class="menu-toggle" alt="Botão-Menu">
+        <i class="fas fa-bars"></i>
+      </div>
+
+      <nav class="nav-menu">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <!-- Substitua todos os links de "Notícias" por: -->
+          <a href="/InvestSavy/news/">Notícias</a>
+          <li><a href="servicos.html">Ferramentas</a></li>
+          <li><a href="educacao.html">Aprender</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+        </ul>
+      </nav>
+
+      <div class="search-icon">
+        <i class="fas fa-search"></i>
+      </div>
+    </header>
+
+    <main class="main-container-page">
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="noticias">
+          Notícias do Mundo
+        </button>
+        <button class="tab-btn" data-tab="educacao">Educação Financeira</button>
+      </div>
+
+      <!-- News tab content -->
+      <div class="news-container">
+        <ul class="news-list" id="noticias-tab">
+          {% assign sorted_posts = site.posts | sort: 'date' | reverse %} {%
+          assign news_posts = sorted_posts | where: 'categories', 'notícias' %}
+          {% assign recent_posts = news_posts | slice: 0, 6 %} {% for post in
+          recent_posts %}
+          <li class="news-item">
+            <a href="{{ site.baseurl }}{{ post.url }}" class="news-link">
+              <img
+                src="{{ site.baseurl }}{{ post.image }}"
+                alt="{{ post.title }}"
+                class="news-image"
+              />
+              <div class="news-content">
+                <h3 class="news-title">{{ post.title }}</h3>
+                <p class="news-description">{{ post.excerpt }}</p>
+                <div
+                  class="news-time"
+                  data-post-time="{{ post.date | date: '%Y-%m-%dT%H:%M:%S%:z' }}"
+                >
+                  Carregando...
+                </div>
+              </div>
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+
+        {% if news_posts.size > 6 %}
+        <div class="news-archive">
+          <button id="loadMoreNews" class="load-more-btn">
+            Ver Notícias Anteriores <i class="fas fa-chevron-down"></i>
+          </button>
+        </div>
+        {% endif %}
+
+        <!-- Education tab content -->
+        <ul class="news-list" id="educacao-tab" style="display: none">
+          {% assign edu_posts = sorted_posts | where: 'categories', 'educacao'
+          %} {% assign recent_edu = edu_posts | slice: 0, 6 %} {% for post in
+          recent_edu %}
+          <li class="news-item">
+            <a href="{{ site.baseurl }}{{ post.url }}" class="news-link">
+              <img
+                src="{{ site.baseurl }}{{ post.image }}"
+                alt="{{ post.title }}"
+                class="news-image"
+              />
+              <div class="news-content">
+                <h3 class="news-title">{{ post.title }}</h3>
+                <p class="news-description">{{ post.excerpt }}</p>
+                <div
+                  class="news-time"
+                  data-post-time="{{ post.date | date: '%Y-%m-%dT%H:%M:%S%:z' }}"
+                >
+                  Carregando...
+                </div>
+              </div>
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+
+        {% if edu_posts.size > 6 %}
+        <div class="news-archive">
+          <button id="loadMoreEdu" class="load-more-btn">
+            Ver Mais Conteúdo Educacional <i class="fas fa-chevron-down"></i>
+          </button>
+        </div>
+        {% endif %}
+      </div>
+      <!-- Education tab content -->
+      <ul class="news-list" id="educacao-tab" style="display: none">
+        {% for post in site.posts %} {% if post.categories contains 'educacao'
+        %}
+        <li class="news-item">
+          <a href="{{ site.baseurl }}{{ post.url }}" class="news-link">
+            <img
+              src="{{ site.baseurl }}{{ post.image }}"
+              alt="{{ post.title }}"
+              class="news-image"
+            />
+            <div class="news-content">
+              <h3 class="news-title">{{ post.title }}</h3>
+              <p class="news-description">{{ post.excerpt }}</p>
+              <div
+                class="news-time"
+                data-post-time="{{ post.date | date: '%Y-%m-%dT%H:%M:%S%:z' }}"
+              >
+                Carregando...
+              </div>
+            </div>
+          </a>
+        </li>
+        {% endif %} {% endfor %}
+      </ul>
+    </main>
+
+    <footer>
+      <div class="container-footer-alt">
+        <div class="footer-brand">
+          <div class="logo-footer">
+            <span style="color: #1e40af">Invest</span
+            ><span style="color: #10b981">Savy</span>
+          </div>
+          <p>Democratizando o acesso à educação<br />financeira para todos.</p>
+          <p class="copyright">
+            &copy; 2025 InvestSavy. Todos os direitos<br />reservados.
+          </p>
+        </div>
+        <div class="footer-links">
+          <h4>NAVEGAÇÃO</h4>
+          <ul>
+            <li><a href="/InvestSavy/">Página Inicial</a></li>
+            <li><a href="/InvestSavy/news/">Notícias</a></li>
+            <li><a href="/InvestSavy/servicos.html">Ferramentas</a></li>
+            <li><a href="/InvestSavy/educacao.html">Educação Financeira</a></li>
+            <li><a href="/InvestSavy/sobre.html">Sobre Nós</a></li>
+          </ul>
+        </div>
+        <div class="footer-tools">
+          <h4>FERRAMENTAS</h4>
+          <ul>
+            <li>
+              <a href="#calculadora-juros">Calculadora de Juros Compostos</a>
+            </li>
+            <!-- Link provisório -->
+            <li>
+              <a href="#simulador-aposentadoria">Simulador de Aposentadoria</a>
+            </li>
+            <!-- Link provisório -->
+            <li>
+              <a href="#comparador-investimentos"
+                >Comparador de Investimentos</a
+              >
+            </li>
+            <!-- Link provisório -->
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>CONTATO</h4>
+          <p>contato@investsavy.com.br</p>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="script/js-universal.js"></script>
+    <script src="script/main.js"></script>
+  </body>
+</html>

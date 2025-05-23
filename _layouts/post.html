@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ page.title }} - InvestSavy</title>
+    <link rel="stylesheet" href="{{ site.baseurl }}/css/style-noticia.css" />
+    <link rel="stylesheet" href="{{ site.baseurl }}/css/animations.css" />
+    <link
+      rel="shortcut icon"
+      href="{{ site.baseurl }}/images/Camada 1.png"
+      type="image/x-icon"
+    />
+    <link rel="manifest" href="{{ site.baseurl }}/site.webmanifest" />
+    <link
+      rel="preload"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-solid-900.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="container-LOGO">
+        <div class="logo">
+          <span style="color: #1e40af">Invest</span
+          ><span style="color: #10b981">Savy</span>
+        </div>
+      </div>
+
+      <div class="menu-toggle" alt="Botão-Menu">
+        <i class="fas fa-bars"></i>
+      </div>
+
+      <nav class="nav-menu">
+        <ul>
+          <li><a href="../index.html | {{ site.baseurl }}">Home</a></li>
+          <li><a href="">Notícias</a></li>
+          <li>
+            <a href="../servicos.html | {{ site.baseurl }}">Ferramentas</a>
+          </li>
+          <li><a href="../educacao.html | {{ site.baseurl }}">Aprender</a></li>
+          <li><a href="../sobre.html | {{ site.baseurl }}">Sobre</a></li>
+        </ul>
+      </nav>
+
+      <div class="search-icon">
+        <i class="fas fa-search"></i>
+      </div>
+    </header>
+
+    <main class="post-container">
+      <article class="post-content">
+        <h1>{{ page.title }}</h1>
+        <div class="post-meta">
+          <span class="post-date">{{ page.date | date: "%d/%m/%Y" }}</span>
+          {% if page.categories %}
+          <span class="post-categories">
+            {% for category in page.categories %}
+            <span class="category-tag">{{ category }}</span>
+            {% endfor %}
+          </span>
+          {% endif %}
+        </div>
+
+        {% if page.image %}
+        <div class="post-image">
+          <img
+            src="{{ site.baseurl }}{{ page.image }}"
+            alt="{{ page.title }}"
+          />
+        </div>
+        {% endif %}
+
+        <div class="post-body">{{ content }}</div>
+      </article>
+    </main>
+
+    <footer>
+      <div class="container-footer-alt">
+        <div class="footer-brand">
+          <div class="logo-footer">
+            <span style="color: #1e40af">Invest</span
+            ><span style="color: #10b981">Savy</span>
+          </div>
+          <p>Democratizando o acesso à educação<br />financeira para todos.</p>
+          <p class="copyright">
+            &copy; 2025 InvestSavy. Todos os direitos<br />reservados.
+          </p>
+        </div>
+        <div class="footer-links">
+          <h4>NAVEGAÇÃO</h4>
+          <ul>
+            <li><a href="{{ site.baseurl }}/">Página Inicial</a></li>
+            <li><a href="{{ site.baseurl }}/news/">Notícias</a></li>
+            <li><a href="{{ site.baseurl }}/servicos.html">Ferramentas</a></li>
+            <li>
+              <a href="{{ site.baseurl }}/educacao.html">Educação Financeira</a>
+            </li>
+            <li><a href="{{ site.baseurl }}/sobre.html">Sobre Nós</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <script src="{{ site.baseurl }}/script/js-universal.js"></script>
+    <script src="{{ site.baseurl }}/script/main.js"></script>
+  </body>
+</html>
