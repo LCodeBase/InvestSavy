@@ -34,51 +34,6 @@ const elements = {
   newsCount: document.querySelector('.news-count'),
 }
 
-// Dados mock para teste
-const MOCK_DATA = {
-  noticias: [
-    {
-      id: 1,
-      titulo: 'Mercado de ações tem alta expressiva após anúncio do BC',
-      resumo:
-        'O Ibovespa subiu mais de 2% após o Banco Central anunciar redução na taxa Selic',
-      imagem: 'https://picsum.photos/800/400',
-      categoria: 'Mercados',
-      data: new Date(),
-      visualizacoes: 1234,
-      autor: 'Equipe InvestSavy',
-      link: '#',
-      topicos: ['Mercado de Ações', 'Banco Central', 'Selic'],
-    },
-    {
-      id: 2,
-      titulo: 'Nova ferramenta de análise técnica disponível',
-      resumo:
-        'InvestSavy lança nova ferramenta gratuita para análise técnica de ações',
-      imagem: 'https://picsum.photos/800/401',
-      categoria: 'Tecnologia',
-      data: new Date(),
-      visualizacoes: 856,
-      autor: 'Equipe InvestSavy',
-      link: '#',
-      topicos: ['Análise Técnica', 'Ferramentas', 'Investimentos'],
-    },
-    {
-      id: 3,
-      titulo: 'Guia completo: Como começar a investir em 2024',
-      resumo:
-        'Aprenda os passos fundamentais para começar sua jornada de investimentos',
-      imagem: 'https://picsum.photos/800/402',
-      categoria: 'Finanças Pessoais',
-      data: new Date(),
-      visualizacoes: 2345,
-      autor: 'Equipe InvestSavy',
-      link: '#',
-      topicos: ['Educação Financeira', 'Investimentos', 'Iniciantes'],
-    },
-  ],
-}
-
 // Funções auxiliares
 const formatDate = (date) => {
   return new Date(date).toLocaleDateString('pt-BR', {
@@ -184,8 +139,20 @@ const loadNews = async () => {
     '<i class="fas fa-spinner fa-spin"></i> Carregando...'
 
   try {
-    // Usar dados mock temporariamente
-    const data = MOCK_DATA.noticias
+    const { data, error } = await supabase
+      .from('noticias')
+      .select('*')
+      .eq(
+        'categoria',
+        state.currentFilter === 'all' ? null : state.currentFilter
+      )
+      .order('data', { ascending: false })
+      .range(
+        (state.currentPage - 1) * CONFIG.itemsPerPage,
+        state.currentPage * CONFIG.itemsPerPage - 1
+      )
+
+    if (error) throw error
 
     if (data.length < CONFIG.itemsPerPage) {
       state.hasMore = false

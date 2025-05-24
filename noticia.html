@@ -110,33 +110,6 @@
         </article>
       </section>
 
-      <form id="login-form">
-        <input type="email" id="email" required />
-        <input type="password" id="password" required />
-        <button type="submit">Entrar</button>
-      </form>
-
-      <script>
-        document
-          .getElementById('login-form')
-          .addEventListener('submit', async (e) => {
-            e.preventDefault()
-            const email = document.getElementById('email').value
-            const password = document.getElementById('password').value
-
-            try {
-              const user = await window.supabaseClient.auth.signIn(
-                email,
-                password
-              )
-              console.log('Login com sucesso:', user)
-              // redirecionar, etc...
-            } catch (err) {
-              alert('Erro ao fazer login.')
-            }
-          })
-      </script>
-
       <section class="recent-news" aria-label="Notícias Recentes">
         <h2>
           Notícias Recentes
@@ -220,12 +193,7 @@
 
     <!-- Scripts -->
     <script src="/script/js-universal.js"></script>
-    <!-- Biblioteca oficial do Supabase (via CDN) -->
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-
-    <!-- Seu arquivo de cliente -->
-    <script src="script/supabase-client.js" defer></script>
-
+    <script src="/script/supabase-client.js"></script>
     <script src="/script/noticias-handler.js"></script>
     <script src="/script/image-accessibility.js"></script>
     <script src="/script/menu-responsivo.js"></script>

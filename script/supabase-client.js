@@ -5,9 +5,42 @@
 
 // Configurações do Supabase
 const SUPABASE_CONFIG = {
-  url: 'https://iwoiqjypwszshhkxtjkj.supabase.co',
-  anonKey:
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml3b2lxanlwd3N6c2hoa3h0amtqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDgxMjQ0NTUsImV4cCI6MjA2MzcwMDQ1NX0.R3yBEWGaqtLC8V7Jw7zABZ5Bs1I41mkBxX_RHwuFWew',
+  url: 'https://your-project.supabase.co',
+  anonKey: 'your-anon-key',
+}
+
+// Dados mock para teste
+const MOCK_DATA = {
+  noticias: [
+    {
+      id: 1,
+      titulo: 'Mercado de ações atinge nova máxima histórica',
+      resumo:
+        'O Ibovespa registrou alta expressiva impulsionado por resultados positivos das empresas.',
+      imagem:
+        'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
+      categoria: 'Mercados',
+      data: new Date().toISOString(),
+      visualizacoes: 1234,
+      autor: 'Equipe InvestSavy',
+      destaque: true,
+      link: '#',
+    },
+    {
+      id: 2,
+      titulo: 'Taxa Selic: BC mantém juros em 13,75%',
+      resumo:
+        'Comitê de Política Monetária mantém taxa básica de juros inalterada.',
+      imagem:
+        'https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
+      categoria: 'Economia',
+      data: new Date().toISOString(),
+      visualizacoes: 987,
+      autor: 'Equipe InvestSavy',
+      destaque: false,
+      link: '#',
+    },
+  ],
 }
 
 // Cliente Supabase
@@ -17,17 +50,9 @@ const supabase = {
 
   // Inicializar cliente
   init: () => {
-    if (typeof window.supabase === 'undefined') {
-      console.error(
-        'Supabase não está disponível. Verifique se o script foi carregado.'
-      )
-      return
-    }
-
-    supabase.client = window.supabase.createClient(
-      SUPABASE_CONFIG.url,
-      SUPABASE_CONFIG.anonKey
-    )
+    // Usar dados mock para desenvolvimento
+    console.log('Usando dados mock para desenvolvimento')
+    return true
   },
 
   // Funções de autenticação
@@ -109,27 +134,25 @@ const supabase = {
     // Buscar notícias
     getNews: async (params = {}) => {
       try {
-        let query = supabase.client.from('noticias').select('*')
+        // Simular delay de rede
+        await new Promise((resolve) => setTimeout(resolve, 500))
+
+        let noticias = [...MOCK_DATA.noticias]
 
         // Aplicar filtros
-        if (params.categoria) {
-          query = query.eq('categoria', params.categoria)
+        if (params.categoria && params.categoria !== 'all') {
+          noticias = noticias.filter((n) => n.categoria === params.categoria)
         }
 
         if (params.limit) {
-          query = query.limit(params.limit)
+          noticias = noticias.slice(0, params.limit)
         }
 
         if (params.offset) {
-          query = query.range(params.offset, params.offset + params.limit - 1)
+          noticias = noticias.slice(params.offset, params.offset + params.limit)
         }
 
-        // Ordenar por data
-        query = query.order('data', { ascending: false })
-
-        const { data, error } = await query
-        if (error) throw error
-        return data
+        return noticias
       } catch (error) {
         console.error('Erro ao buscar notícias:', error)
         throw error
@@ -156,15 +179,8 @@ const supabase = {
     // Buscar notícias em destaque
     getFeaturedNews: async (limit = 1) => {
       try {
-        const { data, error } = await supabase.client
-          .from('noticias')
-          .select('*')
-          .eq('destaque', true)
-          .order('data', { ascending: false })
-          .limit(limit)
-
-        if (error) throw error
-        return data
+        await new Promise((resolve) => setTimeout(resolve, 500))
+        return MOCK_DATA.noticias.filter((n) => n.destaque).slice(0, limit)
       } catch (error) {
         console.error('Erro ao buscar notícias em destaque:', error)
         throw error
@@ -174,14 +190,10 @@ const supabase = {
     // Buscar notícias mais lidas
     getMostReadNews: async (limit = 5) => {
       try {
-        const { data, error } = await supabase.client
-          .from('noticias')
-          .select('*')
-          .order('visualizacoes', { ascending: false })
-          .limit(limit)
-
-        if (error) throw error
-        return data
+        await new Promise((resolve) => setTimeout(resolve, 500))
+        return [...MOCK_DATA.noticias]
+          .sort((a, b) => b.visualizacoes - a.visualizacoes)
+          .slice(0, limit)
       } catch (error) {
         console.error('Erro ao buscar notícias mais lidas:', error)
         throw error
