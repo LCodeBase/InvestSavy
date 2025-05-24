@@ -5,24 +5,131 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   // Inicializar feedback visual para ferramentas
-  initFeedbackSystem();
-});
+  initFeedbackSystem()
+
+  // Configurações
+  const CONFIG = {
+    scrollThreshold: 300,
+    animationDuration: 300,
+    hoverDelay: 200,
+  }
+
+  // Elementos
+  const backToTopBtn = document.getElementById('backToTop')
+  const newsCards = document.querySelectorAll('.news-card')
+  const filterBtns = document.querySelectorAll('.filter-btn')
+  const loadMoreBtn = document.getElementById('loadMoreBtn')
+
+  // Função para mostrar/esconder o botão "Voltar ao topo"
+  const handleScroll = () => {
+    if (window.pageYOffset > CONFIG.scrollThreshold) {
+      backToTopBtn.classList.add('show')
+    } else {
+      backToTopBtn.classList.remove('show')
+    }
+  }
+
+  // Função para rolar suavemente ao topo
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    })
+  }
+
+  // Função para adicionar efeito de hover nos cards
+  const handleCardHover = (card) => {
+    let hoverTimeout
+
+    card.addEventListener('mouseenter', () => {
+      clearTimeout(hoverTimeout)
+      card.classList.add('hover')
+    })
+
+    card.addEventListener('mouseleave', () => {
+      hoverTimeout = setTimeout(() => {
+        card.classList.remove('hover')
+      }, CONFIG.hoverDelay)
+    })
+  }
+
+  // Função para adicionar efeito de clique nos botões de filtro
+  const handleFilterClick = (btn) => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach((b) => b.classList.remove('active'))
+      btn.classList.add('active')
+    })
+  }
+
+  // Função para adicionar efeito de loading no botão "Carregar mais"
+  const handleLoadMoreClick = () => {
+    loadMoreBtn.addEventListener('click', () => {
+      loadMoreBtn.classList.add('loading')
+      setTimeout(() => {
+        loadMoreBtn.classList.remove('loading')
+      }, CONFIG.animationDuration)
+    })
+  }
+
+  // Função para adicionar animação de fade-in nos elementos
+  const handleIntersection = (entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('fade-in')
+        observer.unobserve(entry.target)
+      }
+    })
+  }
+
+  // Inicialização
+  const init = () => {
+    // Configurar observador de interseção
+    const observer = new IntersectionObserver(handleIntersection, {
+      threshold: 0.1,
+      rootMargin: '50px',
+    })
+
+    // Observar cards de notícias
+    newsCards.forEach((card) => {
+      observer.observe(card)
+      handleCardHover(card)
+    })
+
+    // Configurar botões de filtro
+    filterBtns.forEach(handleFilterClick)
+
+    // Configurar botão "Carregar mais"
+    handleLoadMoreClick()
+
+    // Configurar botão "Voltar ao topo"
+    window.addEventListener('scroll', handleScroll)
+    backToTopBtn.addEventListener('click', scrollToTop)
+
+    // Adicionar classes iniciais
+    if (window.pageYOffset > CONFIG.scrollThreshold) {
+      backToTopBtn.classList.add('show')
+    }
+  }
+
+  // Iniciar
+  init()
+})
 
 /**
  * Inicializa o sistema de feedback visual para as ferramentas
  */
 function initFeedbackSystem() {
   // Criar o contêiner de notificações se não existir
-  createNotificationContainer();
+  createNotificationContainer()
 
   // Adicionar feedback visual aos formulários
-  addFormFeedback();
+  addFormFeedback()
 
   // Adicionar feedback visual às ferramentas
-  addToolsFeedback();
+  addToolsFeedback()
 
   // Adicionar feedback visual ao conversor de moedas
-  addCurrencyConverterFeedback();
+  addCurrencyConverterFeedback()
 }
 
 /**
@@ -30,16 +137,16 @@ function initFeedbackSystem() {
  */
 function createNotificationContainer() {
   // Verificar se o contêiner já existe
-  if (document.getElementById('notification-container')) return;
+  if (document.getElementById('notification-container')) return
 
   // Criar o contêiner de notificações
-  const container = document.createElement('div');
-  container.id = 'notification-container';
-  container.className = 'notification-container';
-  document.body.appendChild(container);
+  const container = document.createElement('div')
+  container.id = 'notification-container'
+  container.className = 'notification-container'
+  document.body.appendChild(container)
 
   // Adicionar estilos para o contêiner de notificações
-  const style = document.createElement('style');
+  const style = document.createElement('style')
   style.textContent = `
     .notification-container {
       position: fixed;
@@ -113,8 +220,8 @@ function createNotificationContainer() {
       from { opacity: 1; }
       to { opacity: 0; }
     }
-  `;
-  document.head.appendChild(style);
+  `
+  document.head.appendChild(style)
 }
 
 /**
@@ -124,29 +231,29 @@ function createNotificationContainer() {
  * @param {number} duration - Duração em milissegundos (padrão: 5000ms)
  */
 function showNotification(message, type = 'info', duration = 5000) {
-  const container = document.getElementById('notification-container');
-  if (!container) return;
+  const container = document.getElementById('notification-container')
+  if (!container) return
 
   // Criar a notificação
-  const notification = document.createElement('div');
-  notification.className = `notification notification-${type}`;
+  const notification = document.createElement('div')
+  notification.className = `notification notification-${type}`
 
   // Ícone baseado no tipo
-  let icon = '';
+  let icon = ''
   switch (type) {
     case 'success':
-      icon = '<i class="fas fa-check-circle notification-icon"></i>';
-      break;
+      icon = '<i class="fas fa-check-circle notification-icon"></i>'
+      break
     case 'error':
-      icon = '<i class="fas fa-exclamation-circle notification-icon"></i>';
-      break;
+      icon = '<i class="fas fa-exclamation-circle notification-icon"></i>'
+      break
     case 'warning':
-      icon = '<i class="fas fa-exclamation-triangle notification-icon"></i>';
-      break;
+      icon = '<i class="fas fa-exclamation-triangle notification-icon"></i>'
+      break
     case 'info':
     default:
-      icon = '<i class="fas fa-info-circle notification-icon"></i>';
-      break;
+      icon = '<i class="fas fa-info-circle notification-icon"></i>'
+      break
   }
 
   // Conteúdo da notificação
@@ -158,23 +265,23 @@ function showNotification(message, type = 'info', duration = 5000) {
     <button class="notification-close" aria-label="Fechar notificação">
       <i class="fas fa-times"></i>
     </button>
-  `;
+  `
 
   // Adicionar ao contêiner
-  container.appendChild(notification);
+  container.appendChild(notification)
 
   // Configurar botão de fechar
-  const closeButton = notification.querySelector('.notification-close');
+  const closeButton = notification.querySelector('.notification-close')
   closeButton.addEventListener('click', () => {
-    notification.remove();
-  });
+    notification.remove()
+  })
 
   // Remover após a duração especificada
   setTimeout(() => {
     if (notification.parentNode) {
-      notification.remove();
+      notification.remove()
     }
-  }, duration);
+  }, duration)
 }
 
 /**
@@ -182,27 +289,27 @@ function showNotification(message, type = 'info', duration = 5000) {
  */
 function addFormFeedback() {
   // Adicionar feedback ao formulário de newsletter
-  const newsletterForms = document.querySelectorAll('.newsletter-form');
-  newsletterForms.forEach(form => {
-    form.addEventListener('submit', function(e) {
+  const newsletterForms = document.querySelectorAll('.newsletter-form')
+  newsletterForms.forEach((form) => {
+    form.addEventListener('submit', function (e) {
       // O evento já é tratado no arquivo original, apenas adicionamos o feedback visual
-      const email = this.querySelector('.newsletter-input').value;
+      const email = this.querySelector('.newsletter-input').value
       if (email) {
-        showNotification('Processando sua inscrição...', 'info', 2000);
+        showNotification('Processando sua inscrição...', 'info', 2000)
       }
-    });
-  });
+    })
+  })
 
   // Adicionar feedback a outros formulários quando encontrados
-  const forms = document.querySelectorAll('form:not(.newsletter-form)');
-  forms.forEach(form => {
-    form.addEventListener('submit', function(e) {
+  const forms = document.querySelectorAll('form:not(.newsletter-form)')
+  forms.forEach((form) => {
+    form.addEventListener('submit', function (e) {
       // Verificar se o formulário tem validação HTML5
       if (form.checkValidity()) {
-        showNotification('Enviando dados...', 'info', 2000);
+        showNotification('Enviando dados...', 'info', 2000)
       }
-    });
-  });
+    })
+  })
 }
 
 /**
@@ -210,47 +317,58 @@ function addFormFeedback() {
  */
 function addToolsFeedback() {
   // Monitorar botões de cálculo e simulação
-  const actionButtons = document.querySelectorAll('button[type="submit"], .calculate-btn, .simulate-btn, .convert-btn, .compare-btn');
-  actionButtons.forEach(button => {
-    button.addEventListener('click', function(e) {
+  const actionButtons = document.querySelectorAll(
+    'button[type="submit"], .calculate-btn, .simulate-btn, .convert-btn, .compare-btn'
+  )
+  actionButtons.forEach((button) => {
+    button.addEventListener('click', function (e) {
       // Verificar se o botão está dentro de um formulário
-      const form = button.closest('form');
-      if (form && !form.checkValidity()) return;
+      const form = button.closest('form')
+      if (form && !form.checkValidity()) return
 
       // Obter o texto do botão para personalizar a mensagem
-      const buttonText = button.textContent.trim().toLowerCase();
-      let actionType = 'Processando';
+      const buttonText = button.textContent.trim().toLowerCase()
+      let actionType = 'Processando'
 
       if (buttonText.includes('calcul')) {
-        actionType = 'Calculando';
+        actionType = 'Calculando'
       } else if (buttonText.includes('simul')) {
-        actionType = 'Simulando';
+        actionType = 'Simulando'
       } else if (buttonText.includes('convert')) {
-        actionType = 'Convertendo';
+        actionType = 'Convertendo'
       } else if (buttonText.includes('compar')) {
-        actionType = 'Comparando';
+        actionType = 'Comparando'
       }
 
-      showNotification(`${actionType}...`, 'info', 1500);
-    });
-  });
+      showNotification(`${actionType}...`, 'info', 1500)
+    })
+  })
 
   // Monitorar resultados de cálculos
-  const resultContainers = document.querySelectorAll('.result-container, .results, .calculation-result');
+  const resultContainers = document.querySelectorAll(
+    '.result-container, .results, .calculation-result'
+  )
   const observer = new MutationObserver((mutations) => {
-    mutations.forEach(mutation => {
+    mutations.forEach((mutation) => {
       if (mutation.type === 'childList' || mutation.type === 'attributes') {
         // Verificar se o conteúdo foi alterado (resultado calculado)
-        if (mutation.target.offsetHeight > 0 && mutation.target.textContent.trim() !== '') {
-          showNotification('Cálculo realizado com sucesso!', 'success');
+        if (
+          mutation.target.offsetHeight > 0 &&
+          mutation.target.textContent.trim() !== ''
+        ) {
+          showNotification('Cálculo realizado com sucesso!', 'success')
         }
       }
-    });
-  });
+    })
+  })
 
-  resultContainers.forEach(container => {
-    observer.observe(container, { childList: true, attributes: true, subtree: true });
-  });
+  resultContainers.forEach((container) => {
+    observer.observe(container, {
+      childList: true,
+      attributes: true,
+      subtree: true,
+    })
+  })
 }
 
 /**
@@ -258,21 +376,23 @@ function addToolsFeedback() {
  */
 function addCurrencyConverterFeedback() {
   // Verificar se estamos na página do conversor de moedas
-  const conversorMoedas = document.querySelector('.currency-converter, #currencyConverter');
-  if (!conversorMoedas) return;
+  const conversorMoedas = document.querySelector(
+    '.currency-converter, #currencyConverter'
+  )
+  if (!conversorMoedas) return
 
   // Adicionar elemento para exibir a data e hora da última atualização
-  const lastUpdateContainer = document.createElement('div');
-  lastUpdateContainer.className = 'last-update-container';
+  const lastUpdateContainer = document.createElement('div')
+  lastUpdateContainer.className = 'last-update-container'
   lastUpdateContainer.innerHTML = `
     <div class="last-update">
       <i class="fas fa-sync-alt"></i>
       <span>Última atualização: <span id="lastUpdateTime">Carregando...</span></span>
     </div>
-  `;
+  `
 
   // Adicionar estilos para o contêiner de última atualização
-  const style = document.createElement('style');
+  const style = document.createElement('style')
   style.textContent = `
     .last-update-container {
       margin-top: 15px;
@@ -292,49 +412,55 @@ function addCurrencyConverterFeedback() {
     .last-update i {
       color: #3b82f6;
     }
-  `;
-  document.head.appendChild(style);
+  `
+  document.head.appendChild(style)
 
   // Inserir após o formulário de conversão
-  const converterForm = conversorMoedas.querySelector('form');
+  const converterForm = conversorMoedas.querySelector('form')
   if (converterForm) {
-    converterForm.parentNode.insertBefore(lastUpdateContainer, converterForm.nextSibling);
+    converterForm.parentNode.insertBefore(
+      lastUpdateContainer,
+      converterForm.nextSibling
+    )
   } else {
-    conversorMoedas.appendChild(lastUpdateContainer);
+    conversorMoedas.appendChild(lastUpdateContainer)
   }
 
   // Atualizar a data e hora da última atualização
-  updateLastUpdateTime();
+  updateLastUpdateTime()
 }
 
 /**
  * Atualiza a data e hora da última atualização das taxas de câmbio
  */
 function updateLastUpdateTime() {
-  const lastUpdateElement = document.getElementById('lastUpdateTime');
-  if (!lastUpdateElement) return;
+  const lastUpdateElement = document.getElementById('lastUpdateTime')
+  if (!lastUpdateElement) return
 
   // Obter a data e hora atual (simulando a última atualização)
-  const now = new Date();
+  const now = new Date()
   const formattedDate = now.toLocaleDateString('pt-BR', {
     day: '2-digit',
     month: '2-digit',
-    year: 'numeric'
-  });
+    year: 'numeric',
+  })
 
   const formattedTime = now.toLocaleTimeString('pt-BR', {
     hour: '2-digit',
-    minute: '2-digit'
-  });
+    minute: '2-digit',
+  })
 
-  lastUpdateElement.textContent = `${formattedDate} às ${formattedTime}`;
+  lastUpdateElement.textContent = `${formattedDate} às ${formattedTime}`
 
   // Adicionar tooltip com informações adicionais
-  lastUpdateElement.parentElement.setAttribute('title', `Taxas de câmbio atualizadas em ${formattedDate} às ${formattedTime}. As taxas são atualizadas a cada hora.`);
+  lastUpdateElement.parentElement.setAttribute(
+    'title',
+    `Taxas de câmbio atualizadas em ${formattedDate} às ${formattedTime}. As taxas são atualizadas a cada hora.`
+  )
 }
 
 // Exportar funções para uso em outros arquivos
 window.feedbackVisual = {
   showNotification,
-  updateLastUpdateTime
-};
+  updateLastUpdateTime,
+}

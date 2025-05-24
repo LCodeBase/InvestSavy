@@ -97,3 +97,859 @@
     /* Efeito de zoom mais sutil em dispositivos móveis */
   }
 }
+
+/* Efeitos de hover para imagens */
+.image-hover {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.image-hover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.image-hover:hover img {
+  transform: scale(1.1);
+}
+
+/* Efeito de zoom suave */
+.zoom-effect {
+  overflow: hidden;
+}
+
+.zoom-effect img {
+  transition: transform 0.5s ease;
+}
+
+.zoom-effect:hover img {
+  transform: scale(1.1);
+}
+
+/* Efeito de brilho */
+.glow-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.glow-effect::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.glow-effect:hover::before {
+  left: 100%;
+}
+
+/* Efeito de overlay */
+.overlay-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.overlay-effect::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.overlay-effect:hover::after {
+  opacity: 1;
+}
+
+/* Efeito de gradiente */
+.gradient-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.gradient-effect::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.gradient-effect:hover::after {
+  opacity: 1;
+}
+
+/* Efeito de rotação */
+.rotate-effect {
+  transition: transform 0.3s ease;
+}
+
+.rotate-effect:hover {
+  transform: rotate(5deg);
+}
+
+/* Efeito de sombra */
+.shadow-effect {
+  transition: box-shadow 0.3s ease;
+}
+
+.shadow-effect:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Efeito de blur */
+.blur-effect {
+  transition: filter 0.3s ease;
+}
+
+.blur-effect:hover {
+  filter: blur(2px);
+}
+
+/* Efeito de saturação */
+.saturate-effect {
+  transition: filter 0.3s ease;
+}
+
+.saturate-effect:hover {
+  filter: saturate(1.5);
+}
+
+/* Efeito de contraste */
+.contrast-effect {
+  transition: filter 0.3s ease;
+}
+
+.contrast-effect:hover {
+  filter: contrast(1.2);
+}
+
+/* Efeito de brilho */
+.brightness-effect {
+  transition: filter 0.3s ease;
+}
+
+.brightness-effect:hover {
+  filter: brightness(1.2);
+}
+
+/* Efeito de escala com sombra */
+.scale-shadow-effect {
+  transition: all 0.3s ease;
+}
+
+.scale-shadow-effect:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Efeito de borda */
+.border-effect {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.border-effect::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.border-effect:hover::before {
+  border-color: #fff;
+  transform: scale(0.95);
+}
+
+/* Efeito de texto flutuante */
+.float-text-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.float-text-effect .text {
+  position: absolute;
+  bottom: -50px;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  transition: bottom 0.3s ease;
+}
+
+.float-text-effect:hover .text {
+  bottom: 0;
+}
+
+/* Efeito de máscara */
+.mask-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.mask-effect::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  clip-path: circle(0% at 50% 50%);
+  transition: clip-path 0.5s ease;
+}
+
+.mask-effect:hover::after {
+  clip-path: circle(100% at 50% 50%);
+}
+
+/* Efeito de desfoque seletivo */
+.selective-blur-effect {
+  transition: filter 0.3s ease;
+}
+
+.selective-blur-effect:hover {
+  filter: blur(1px) brightness(0.8);
+}
+
+/* Efeito de gradiente animado */
+.animated-gradient-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.animated-gradient-effect::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  animation: gradient-shift 2s linear infinite;
+}
+
+@keyframes gradient-shift {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+/* Efeito de perspectiva */
+.perspective-effect {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.perspective-effect img {
+  transition: transform 0.5s ease;
+}
+
+.perspective-effect:hover img {
+  transform: rotateY(10deg);
+}
+
+/* Efeito de flip */
+.flip-effect {
+  perspective: 1000px;
+}
+
+.flip-effect .flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.flip-effect:hover .flip-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-effect .flip-front,
+.flip-effect .flip-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.flip-effect .flip-back {
+  transform: rotateY(180deg);
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* Efeito de cortina */
+.curtain-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.curtain-effect::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  transform: translateY(-100%);
+  transition: transform 0.5s ease;
+}
+
+.curtain-effect:hover::before {
+  transform: translateY(0);
+}
+
+/* Efeito de revelação */
+.reveal-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.reveal-effect::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+}
+
+.reveal-effect:hover::after {
+  transform: translateX(0);
+}
+
+/* Efeito de pulsação */
+.pulse-effect {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Efeito de brilho pulsante */
+.pulse-glow-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.pulse-glow-effect::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(0);
+  transition: transform 0.5s ease;
+}
+
+.pulse-glow-effect:hover::before {
+  transform: scale(2);
+  opacity: 0;
+}
+
+/* Efeito de rotação 3D */
+.rotate-3d-effect {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.rotate-3d-effect img {
+  transition: transform 0.5s ease;
+}
+
+.rotate-3d-effect:hover img {
+  transform: rotateX(10deg) rotateY(10deg);
+}
+
+/* Efeito de zoom com texto */
+.zoom-text-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.zoom-text-effect img {
+  transition: transform 0.5s ease;
+}
+
+.zoom-text-effect .text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  transform: translateY(100%);
+  transition: transform 0.5s ease;
+}
+
+.zoom-text-effect:hover img {
+  transform: scale(1.1);
+}
+
+.zoom-text-effect:hover .text {
+  transform: translateY(0);
+}
+
+/* Efeito de máscara de texto */
+.text-mask-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.text-mask-effect .text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  clip-path: circle(0% at 50% 50%);
+  transition: clip-path 0.5s ease;
+}
+
+.text-mask-effect:hover .text {
+  clip-path: circle(100% at 50% 50%);
+}
+
+/* Efeito de gradiente de cores */
+.color-gradient-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.color-gradient-effect::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    rgba(255, 0, 0, 0.3),
+    rgba(0, 255, 0, 0.3),
+    rgba(0, 0, 255, 0.3)
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.color-gradient-effect:hover::after {
+  opacity: 1;
+}
+
+/* Efeito de borda animada */
+.animated-border-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.animated-border-effect::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 2px solid transparent;
+  animation: border-animation 2s linear infinite;
+}
+
+@keyframes border-animation {
+  0% {
+    border-color: transparent;
+  }
+  25% {
+    border-color: #fff;
+  }
+  50% {
+    border-color: transparent;
+  }
+  75% {
+    border-color: #fff;
+  }
+  100% {
+    border-color: transparent;
+  }
+}
+
+/* Efeito de zoom com rotação */
+.zoom-rotate-effect {
+  transition: transform 0.5s ease;
+}
+
+.zoom-rotate-effect:hover {
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* Efeito de sombra dinâmica */
+.dynamic-shadow-effect {
+  transition: all 0.3s ease;
+}
+
+.dynamic-shadow-effect:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3),
+              0 6px 6px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
+}
+
+/* Efeito de brilho radial */
+.radial-glow-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.radial-glow-effect::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  transition: width 0.5s ease, height 0.5s ease;
+}
+
+.radial-glow-effect:hover::after {
+  width: 200%;
+  height: 200%;
+}
+
+/* Efeito de máscara de gradiente */
+.gradient-mask-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.gradient-mask-effect::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+}
+
+.gradient-mask-effect:hover::after {
+  transform: translateX(100%);
+}
+
+/* Efeito de zoom com brilho */
+.zoom-glow-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.zoom-glow-effect img {
+  transition: transform 0.5s ease;
+}
+
+.zoom-glow-effect::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.zoom-glow-effect:hover img {
+  transform: scale(1.1);
+}
+
+.zoom-glow-effect:hover::after {
+  opacity: 1;
+}
+
+/* Efeito de rotação com sombra */
+.rotate-shadow-effect {
+  transition: all 0.5s ease;
+}
+
+.rotate-shadow-effect:hover {
+  transform: rotate(5deg);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Efeito de zoom com texto flutuante */
+.zoom-float-text-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.zoom-float-text-effect img {
+  transition: transform 0.5s ease;
+}
+
+.zoom-float-text-effect .text {
+  position: absolute;
+  bottom: -50px;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  transition: bottom 0.5s ease;
+}
+
+.zoom-float-text-effect:hover img {
+  transform: scale(1.1);
+}
+
+.zoom-float-text-effect:hover .text {
+  bottom: 0;
+}
+
+/* Efeito de máscara de texto com zoom */
+.text-mask-zoom-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.text-mask-zoom-effect img {
+  transition: transform 0.5s ease;
+}
+
+.text-mask-zoom-effect .text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  clip-path: circle(0% at 50% 50%);
+  transition: clip-path 0.5s ease;
+}
+
+.text-mask-zoom-effect:hover img {
+  transform: scale(1.1);
+}
+
+.text-mask-zoom-effect:hover .text {
+  clip-path: circle(100% at 50% 50%);
+}
+
+/* Efeito de gradiente de cores com zoom */
+.color-gradient-zoom-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.color-gradient-zoom-effect img {
+  transition: transform 0.5s ease;
+}
+
+.color-gradient-zoom-effect::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    rgba(255, 0, 0, 0.3),
+    rgba(0, 255, 0, 0.3),
+    rgba(0, 0, 255, 0.3)
+  );
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.color-gradient-zoom-effect:hover img {
+  transform: scale(1.1);
+}
+
+.color-gradient-zoom-effect:hover::after {
+  opacity: 1;
+}
+
+/* Efeito de borda animada com zoom */
+.animated-border-zoom-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.animated-border-zoom-effect img {
+  transition: transform 0.5s ease;
+}
+
+.animated-border-zoom-effect::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 2px solid transparent;
+  animation: border-animation 2s linear infinite;
+}
+
+.animated-border-zoom-effect:hover img {
+  transform: scale(1.1);
+}
+
+/* Efeito de zoom com rotação e sombra */
+.zoom-rotate-shadow-effect {
+  transition: all 0.5s ease;
+}
+
+.zoom-rotate-shadow-effect:hover {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Efeito de sombra dinâmica com zoom */
+.dynamic-shadow-zoom-effect {
+  transition: all 0.5s ease;
+}
+
+.dynamic-shadow-zoom-effect:hover {
+  transform: scale(1.1) translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3),
+              0 6px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Efeito de brilho radial com zoom */
+.radial-glow-zoom-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.radial-glow-zoom-effect img {
+  transition: transform 0.5s ease;
+}
+
+.radial-glow-zoom-effect::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  transition: width 0.5s ease, height 0.5s ease;
+}
+
+.radial-glow-zoom-effect:hover img {
+  transform: scale(1.1);
+}
+
+.radial-glow-zoom-effect:hover::after {
+  width: 200%;
+  height: 200%;
+}
+
+/* Efeito de máscara de gradiente com zoom */
+.gradient-mask-zoom-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.gradient-mask-zoom-effect img {
+  transition: transform 0.5s ease;
+}
+
+.gradient-mask-zoom-effect::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+}
+
+.gradient-mask-zoom-effect:hover img {
+  transform: scale(1.1);
+}
+
+.gradient-mask-zoom-effect:hover::after {
+  transform: translateX(100%);
+}

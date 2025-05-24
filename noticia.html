@@ -13,36 +13,63 @@
       name="keywords"
       content="notícias, economia, mercados, empresas, tecnologia, finanças pessoais, política, internacional, investimentos, educação financeira"
     />
-    <link rel="stylesheet" href="/css/style-main.css" />
+
+    <!-- Preload de fontes e recursos críticos -->
+    <link
+      rel="preload"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-solid-900.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+
+    <!-- Fontes -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Estilos -->
     <link rel="stylesheet" href="/css/style-noticia.css" />
     <link rel="stylesheet" href="/css/image-hover-effects.css" />
     <link rel="stylesheet" href="/css/menu-responsivo.css" />
-    <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/images/Camada 1.png" type="image/x-icon" />
   </head>
 
   <body>
-    <header id="header" class="header-fixed">
-      <nav class="main-nav">
-        <a href="/" class="logo" aria-label="Página inicial InvestSavy"
-          >InvestSavy</a
-        >
-        <button
-          class="menu-toggle"
-          aria-label="Abrir menu"
-          aria-expanded="false"
-          aria-controls="main-menu"
-        >
-          <span class="hamburger"></span>
-        </button>
-        <ul id="main-menu" class="nav-list">
-          <li><a href="/" class="nav-link">Início</a></li>
-          <li><a href="noticia.html" class="nav-link active">Notícias</a></li>
-          <li><a href="educacao.html" class="nav-link">Educação</a></li>
-          <li><a href="servicos.html" class="nav-link">Ferramentas</a></li>
-          <li><a href="sobre.html" class="nav-link">Sobre</a></li>
+    <header>
+      <div class="container-LOGO">
+        <div class="logo">
+          <span style="color: #1e40af">Invest</span
+          ><span style="color: #10b981">Savy</span>
+        </div>
+      </div>
+
+      <div class="menu-toggle" alt="Botão-Menu">
+        <i class="fas fa-bars"></i>
+      </div>
+
+      <nav class="nav-menu">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="noticia.html">Notícias</a></li>
+          <li><a href="servicos.html">Ferramentas</a></li>
+          <li><a href="educacao.html">Aprender</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
         </ul>
       </nav>
+
+      <div class="search-icon">
+        <i class="fas fa-search"></i>
+      </div>
     </header>
+
     <main class="main-container">
       <section class="news-filter" aria-label="Filtrar notícias por categoria">
         <button class="filter-btn active" data-filter="all">Todas</button>
@@ -58,6 +85,7 @@
           Internacional
         </button>
       </section>
+
       <section class="featured-news" aria-label="Destaque">
         <article class="featured-article">
           <a href="#" class="featured-image-link">
@@ -81,6 +109,7 @@
           </div>
         </article>
       </section>
+
       <section class="recent-news" aria-label="Notícias Recentes">
         <h2>
           Notícias Recentes
@@ -99,24 +128,25 @@
           </button>
         </div>
       </section>
+
       <aside class="sidebar">
         <div class="sidebar-section">
           <h3 class="sidebar-title">
             <i class="fas fa-clock"></i> Últimas Atualizações
           </h3>
-          <ul class="sidebar-list">
+          <ul class="sidebar-list" id="ultimasAtualizacoes">
             <!-- Últimas atualizações serão carregadas via JavaScript -->
           </ul>
         </div>
         <div class="sidebar-section">
           <h3 class="sidebar-title"><i class="fas fa-fire"></i> Mais Lidas</h3>
-          <ul class="sidebar-list">
+          <ul class="sidebar-list" id="maisLidas">
             <!-- Mais lidas serão carregadas via JavaScript -->
           </ul>
         </div>
         <div class="sidebar-section">
           <h3 class="sidebar-title"><i class="fas fa-tags"></i> Tópicos</h3>
-          <div class="topics-tags">
+          <div class="topics-tags" id="topicos">
             <!-- Tópicos serão carregados via JavaScript -->
           </div>
         </div>
@@ -141,9 +171,11 @@
         </div>
       </aside>
     </main>
+
     <button id="backToTop" class="back-to-top" aria-label="Voltar ao topo">
-      &#8679;
+      <i class="fas fa-arrow-up"></i>
     </button>
+
     <footer class="footer">
       <div class="footer-content">
         <span
@@ -158,6 +190,8 @@
         </nav>
       </div>
     </footer>
+
+    <!-- Scripts -->
     <script src="/script/js-universal.js"></script>
     <script src="/script/supabase-client.js"></script>
     <script src="/script/noticias-handler.js"></script>
