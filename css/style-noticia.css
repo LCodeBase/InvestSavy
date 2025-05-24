@@ -1,115 +1,337 @@
-/* Reset e Variáveis */
+/* === style-noticia.css === */
+
+/* --- Variáveis Globais --- */
 :root {
   --primary-color: #1e40af;
+  /* Azul do logo */
   --secondary-color: #10b981;
-  --text-color: #1a202c;
-  --text-light: #4a5568;
-  --bg-color: #f8f9fa;
-  --white: #ffffff;
-  --border-color: #e2e8f0;
-  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --spacing-xs: 0.5rem;
-  --spacing-sm: 1rem;
-  --spacing-md: 1.5rem;
-  --spacing-lg: 2rem;
-  --spacing-xl: 3rem;
-  --transition: all 0.3s ease;
+  /* Verde do logo */
+  --accent-color: #f59e0b;
+  /* Um laranja/amarelo para destaque */
+
+  --text-color-dark: #1f2937;
+  /* Cinza escuro para texto principal */
+  --text-color-medium: #4b5563;
+  /* Cinza médio para texto secundário */
+  --text-color-light: #6b7280;
+  /* Cinza claro para metadados, etc. */
+  --text-color-inverted: #ffffff;
+
+  --bg-color-light: #f9fafb;
+  /* Fundo muito claro, quase branco */
+  --bg-color-white: #ffffff;
+  --border-color: #e5e7eb;
+  /* Cor de borda sutil */
+
+  --font-primary: "Inter", sans-serif;
+
+  --container-width: 1200px;
+  --header-height: 70px;
+
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+
+  --border-radius-sm: 0.25rem;
+  /* 4px */
+  --border-radius-md: 0.5rem;
+  /* 8px */
+  --border-radius-lg: 0.75rem;
+  /* 12px */
 }
 
-* {
+/* --- Reset Básico e Estilos Globais --- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  /* Base para REM */
+  scroll-behavior: smooth;
 }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-primary);
   line-height: 1.6;
-  color: var(--text-color);
-  background-color: var(--bg-color);
-  padding-top: 80px;
+  color: var(--text-color-dark);
+  background-color: var(--bg-color-light);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Layout Principal */
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--secondary-color);
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.3;
+  font-weight: 700;
+  color: var(--text-color-dark);
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+/* --- Utilitários --- */
+.container {
+  width: 100%;
+  max-width: var(--container-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* --- Cabeçalho --- */
+header {
+  background-color: var(--bg-color-white);
+  padding: 0 1rem;
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: var(--shadow-sm);
+}
+
+.container-LOGO {
+  /* Este container pode ser desnecessário, mas mantendo a estrutura */
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.75rem;
+  font-weight: 800;
+  user-select: none;
+}
+
+.logo span:first-child {
+  color: var(--primary-color);
+}
+
+.logo span:last-child {
+  color: var(--secondary-color);
+}
+
+.nav-menu ul {
+  display: flex;
+  gap: 1.5rem;
+  /* Espaçamento entre itens do menu */
+}
+
+.nav-menu ul li a {
+  font-weight: 500;
+  color: var(--text-color-medium);
+  padding: 0.5rem 0;
+  position: relative;
+}
+
+.nav-menu ul li a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--secondary-color);
+  transition: width 0.3s ease;
+}
+
+.nav-menu ul li a:hover::after,
+.nav-menu ul li a.active::after {
+  /* Supondo uma classe .active para a página atual */
+  width: 100%;
+}
+
+.nav-menu ul li a:hover,
+.nav-menu ul li a.active {
+  color: var(--text-color-dark);
+}
+
+
+.menu-toggle,
+.search-icon {
+  font-size: 1.5rem;
+  color: var(--text-color-medium);
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.menu-toggle {
+  display: none;
+  /* Escondido em telas maiores */
+}
+
+.search-icon:hover {
+  color: var(--primary-color);
+}
+
+
+/* --- Conteúdo Principal --- */
 .main-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: var(--spacing-lg);
   display: grid;
-  grid-template-columns: 1fr 350px;
-  gap: var(--spacing-xl);
+  grid-template-columns: 1fr;
+  /* Uma coluna por padrão */
+  gap: 2rem;
+  padding: 2rem 1rem;
+  max-width: var(--container-width);
+  margin: 0 auto;
 }
 
-/* Filtros de Notícias */
+@media (min-width: 992px) {
+
+  /* Desktop - 2 colunas (conteúdo + sidebar) */
+  .main-container {
+    grid-template-columns: 2.5fr 1fr;
+    /* Conteúdo principal maior que a sidebar */
+  }
+}
+
+/* --- Filtro de Notícias --- */
 .news-filter {
   display: flex;
-  gap: var(--spacing-sm);
-  margin-bottom: var(--spacing-lg);
   flex-wrap: wrap;
-  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .filter-btn {
-  padding: 0.75rem 1.5rem;
+  padding: 0.5rem 1rem;
   border: 1px solid var(--border-color);
-  background: var(--white);
-  color: var(--text-light);
-  border-radius: 25px;
-  cursor: pointer;
-  transition: var(--transition);
-  font-size: 0.9rem;
+  border-radius: var(--border-radius-md);
   font-weight: 500;
+  color: var(--text-color-medium);
+  background-color: var(--bg-color-white);
+  transition: all 0.3s ease;
 }
 
-.filter-btn.active,
 .filter-btn:hover {
-  background: var(--primary-color);
-  color: var(--white);
-  border-color: var(--primary-color);
-  transform: translateY(-2px);
+  border-color: var(--secondary-color);
+  color: var(--secondary-color);
 }
 
-/* Notícia em Destaque */
+.filter-btn.active {
+  background-color: var(--primary-color);
+  color: var(--text-color-inverted);
+  border-color: var(--primary-color);
+}
+
+/* --- Notícias em Destaque --- */
+.featured-news {
+  margin-bottom: 2rem;
+}
+
 .featured-article {
-  background: var(--white);
-  border-radius: var(--radius-md);
+  background-color: var(--bg-color-white);
+  border-radius: var(--border-radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow-md);
-  margin-bottom: var(--spacing-lg);
-  transition: var(--transition);
+  display: grid;
+  /* Para layout responsivo de imagem e conteúdo */
 }
 
-.featured-article:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+@media (min-width: 768px) {
+  .featured-article {
+    grid-template-columns: 1fr 1fr;
+    /* Imagem ao lado do texto */
+    /* ou grid-template-columns: 2fr 1fr; se quiser a imagem maior */
+  }
+}
+
+.featured-image-link {
+  display: block;
 }
 
 .featured-image {
   width: 100%;
-  height: 400px;
+  min-height: 250px;
+  /* Altura mínima para a imagem de destaque */
+  background-color: var(--border-color);
+  /* Placeholder color */
   background-size: cover;
   background-position: center;
-  position: relative;
+  /* Exemplo de imagem placeholder: */
+  /* background-image: url('https://via.placeholder.com/600x400/cccccc/969696?text=Destaque'); */
 }
 
 .featured-content {
-  padding: var(--spacing-lg);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .featured-title {
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: var(--spacing-sm);
-  line-height: 1.3;
+  font-size: 1.75rem;
+  margin-bottom: 0.75rem;
 }
 
 .featured-title a {
-  color: var(--text-color);
-  text-decoration: none;
-  transition: var(--transition);
+  color: var(--text-color-dark);
 }
 
 .featured-title a:hover {
@@ -117,239 +339,420 @@ body {
 }
 
 .featured-excerpt {
-  color: var(--text-light);
-  margin-bottom: var(--spacing-md);
-  font-size: 1.1rem;
-  line-height: 1.6;
+  color: var(--text-color-medium);
+  font-size: 1rem;
+  margin-bottom: 1rem;
 }
 
-/* Grid de Notícias */
+.article-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  /* Espaçamento vertical e horizontal */
+  font-size: 0.875rem;
+  color: var(--text-color-light);
+}
+
+.article-meta span {
+  display: flex;
+  align-items: center;
+}
+
+.article-meta i {
+  margin-right: 0.5rem;
+  color: var(--text-color-light);
+}
+
+/* --- Notícias Recentes --- */
+.recent-news h2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid var(--primary-color);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.news-count {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-color-medium);
+  background-color: var(--bg-color-light);
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--border-radius-sm);
+}
+
 .news-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: var(--spacing-md);
-  margin-bottom: var(--spacing-lg);
+  gap: 1.5rem;
+  grid-template-columns: 1fr;
+  /* Uma coluna por padrão */
 }
 
+/* Layout de cards para notícias recentes */
+@media (min-width: 576px) {
+
+  /* Telas pequenas para tablets */
+  .news-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 992px) {
+  /* Telas de desktop, se a sidebar estiver presente */
+  /* O grid já estará na primeira coluna do .main-container.
+      Se não houver sidebar, pode ir para 3 colunas aqui. */
+  /* Exemplo se .main-container não tivesse sidebar e fosse full-width:
+    .news-grid { grid-template-columns: repeat(3, 1fr); }
+   */
+}
+
+/* Estilo de um card de notícia individual (assumindo que o JS criará algo como <article class="news-card">) */
 .news-card {
-  background: var(--white);
-  border-radius: var(--radius-sm);
+  /* Exemplo, adapte à estrutura gerada pelo JS */
+  background-color: var(--bg-color-white);
+  border-radius: var(--border-radius-md);
   overflow: hidden;
   box-shadow: var(--shadow-sm);
-  transition: var(--transition);
+  transition: box-shadow 0.3s ease;
 }
 
 .news-card:hover {
-  transform: translateY(-5px);
   box-shadow: var(--shadow-md);
 }
 
-.news-card-image {
+.news-card img {
+  /* Se houver imagem no card */
   width: 100%;
-  height: 200px;
-  background-size: cover;
-  background-position: center;
-  position: relative;
-}
-
-.news-category {
-  position: absolute;
-  top: var(--spacing-sm);
-  left: var(--spacing-sm);
-  background: rgba(30, 64, 175, 0.9);
-  color: var(--white);
-  padding: 0.25rem 0.75rem;
-  border-radius: 12px;
-  font-size: 0.75rem;
-  font-weight: 500;
+  height: 180px;
+  object-fit: cover;
+  background-color: var(--border-color);
+  /* Placeholder */
 }
 
 .news-card-content {
-  padding: var(--spacing-md);
+  padding: 1rem;
 }
 
 .news-card-title {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 600;
-  margin-bottom: var(--spacing-xs);
-  line-height: 1.4;
+  margin-bottom: 0.5rem;
 }
 
 .news-card-title a {
-  color: var(--text-color);
-  text-decoration: none;
-  transition: var(--transition);
+  color: var(--text-color-dark);
 }
 
 .news-card-title a:hover {
   color: var(--primary-color);
 }
 
-.news-card-excerpt {
-  font-size: 0.9rem;
-  color: var(--text-light);
-  margin-bottom: var(--spacing-sm);
-  line-height: 1.5;
+.news-card .article-meta {
+  /* Reutilizando meta info */
+  font-size: 0.8rem;
+  margin-top: 0.75rem;
 }
 
-/* Sidebar */
+
+.load-more-container {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.load-more-btn {
+  background-color: var(--secondary-color);
+  color: var(--text-color-inverted);
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--border-radius-md);
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.load-more-btn i {
+  margin-right: 0.5rem;
+}
+
+.load-more-btn:hover {
+  background-color: #0f9970;
+  /* Um pouco mais escuro que secondary */
+}
+
+/* --- Sidebar --- */
 .sidebar {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-lg);
+  /* No layout grid, já está posicionado. Adicionar padding ou bg se necessário */
+  padding-top: 1rem;
+  /* Para alinhar com o título das notícias recentes se estiverem próximos */
 }
 
 .sidebar-section {
-  background: var(--white);
-  border-radius: var(--radius-md);
-  padding: var(--spacing-md);
+  background-color: var(--bg-color-white);
+  padding: 1.5rem;
+  border-radius: var(--border-radius-md);
+  margin-bottom: 1.5rem;
   box-shadow: var(--shadow-sm);
 }
 
 .sidebar-title {
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   font-weight: 600;
-  margin-bottom: var(--spacing-sm);
-  color: var(--text-color);
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.5rem;
   display: flex;
   align-items: center;
-  gap: var(--spacing-xs);
 }
 
 .sidebar-title i {
+  margin-right: 0.75rem;
   color: var(--primary-color);
-}
-
-.sidebar-list {
-  list-style: none;
 }
 
 .sidebar-list li {
-  padding: var(--spacing-sm) 0;
-  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 0.75rem;
 }
 
 .sidebar-list li:last-child {
-  border-bottom: none;
+  margin-bottom: 0;
 }
 
 .sidebar-list a {
-  text-decoration: none;
-  color: var(--text-light);
-  font-size: 0.9rem;
+  color: var(--text-color-medium);
+  font-weight: 500;
+  font-size: 0.95rem;
   display: block;
-  transition: var(--transition);
+  /* Para ocupar toda a largura e facilitar o clique */
 }
 
 .sidebar-list a:hover {
-  color: var(--primary-color);
-  transform: translateX(5px);
+  color: var(--secondary-color);
 }
 
-/* Newsletter */
+.topics-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.topics-tags a,
+/* Se os tópicos forem links */
+.topics-tags span {
+  /* Se forem apenas spans */
+  background-color: var(--bg-color-light);
+  color: var(--text-color-medium);
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--border-radius-sm);
+  font-size: 0.875rem;
+  border: 1px solid var(--border-color);
+  transition: all 0.2s ease;
+}
+
+.topics-tags a:hover,
+.topics-tags span:hover {
+  /* Se for interativo */
+  background-color: var(--secondary-color);
+  color: var(--text-color-inverted);
+  border-color: var(--secondary-color);
+}
+
+.newsletter-description {
+  font-size: 0.9rem;
+  color: var(--text-color-medium);
+  margin-bottom: 1rem;
+}
+
 .newsletter-form {
-  margin-top: var(--spacing-sm);
+  display: flex;
+  gap: 0.5rem;
 }
 
 .newsletter-input {
-  width: 100%;
+  flex-grow: 1;
   padding: 0.75rem;
   border: 1px solid var(--border-color);
-  border-radius: var(--radius-sm);
-  margin-bottom: var(--spacing-sm);
+  border-radius: var(--border-radius-sm);
   font-size: 0.9rem;
-  transition: var(--transition);
 }
 
 .newsletter-input:focus {
   outline: none;
   border-color: var(--primary-color);
-  box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1);
+  box-shadow: 0 0 0 2px rgba(30, 64, 175, 0.2);
 }
 
 .newsletter-btn {
-  width: 100%;
-  padding: 0.75rem;
-  background: var(--primary-color);
-  color: var(--white);
-  border: none;
-  border-radius: var(--radius-sm);
+  background-color: var(--primary-color);
+  color: var(--text-color-inverted);
+  padding: 0.75rem 1rem;
+  border-radius: var(--border-radius-sm);
   font-weight: 500;
-  cursor: pointer;
-  transition: var(--transition);
+  transition: background-color 0.3s ease;
 }
 
 .newsletter-btn:hover {
-  background: #1d4ed8;
-  transform: translateY(-2px);
+  background-color: #1a368c;
+  /* Um pouco mais escuro */
 }
 
-/* Botão Carregar Mais */
-.load-more-container {
-  text-align: center;
-  margin-top: var(--spacing-lg);
-}
-
-.load-more-btn {
-  padding: 0.75rem 1.5rem;
-  background: var(--white);
-  color: var(--primary-color);
-  border: 1px solid var(--primary-color);
-  border-radius: var(--radius-sm);
-  font-weight: 500;
-  cursor: pointer;
-  transition: var(--transition);
-  display: inline-flex;
+/* --- Botão Voltar ao Topo --- */
+.back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background-color: var(--primary-color);
+  color: var(--text-color-inverted);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  /* Para centralizar o ícone */
   align-items: center;
-  gap: var(--spacing-xs);
+  justify-content: center;
+  font-size: 1.5rem;
+  box-shadow: var(--shadow-lg);
+  z-index: 999;
+  opacity: 0;
+  /* Escondido por padrão, JS controla visibilidade */
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+  transform: translateY(20px);
 }
 
-.load-more-btn:hover {
-  background: var(--primary-color);
-  color: var(--white);
-  transform: translateY(-2px);
+.back-to-top.visible {
+  /* JS adicionará esta classe */
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 
-/* Responsividade */
-@media (max-width: 1024px) {
-  .main-container {
-    grid-template-columns: 1fr;
-    padding: var(--spacing-md);
+.back-to-top:hover {
+  background-color: var(--secondary-color);
+}
+
+/* --- Rodapé --- */
+.footer {
+  background-color: var(--text-color-dark);
+  color: #a0aec0;
+  /* Cinza claro para texto no rodapé escuro */
+  padding: 2rem 1rem;
+  margin-top: 3rem;
+  /* Espaço antes do rodapé */
+  text-align: center;
+}
+
+.footer-content {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem 1.5rem;
+}
+
+.footer-nav a {
+  color: #cbd5e0;
+  /* Um pouco mais claro que o texto normal do rodapé */
+  font-weight: 500;
+}
+
+.footer-nav a:hover {
+  color: var(--text-color-inverted);
+}
+
+@media (min-width: 768px) {
+  .footer-content {
+    flex-direction: row;
+    justify-content: space-between;
   }
 
-  .sidebar {
-    display: none;
+  .footer {
+    text-align: left;
   }
 }
 
-@media (max-width: 768px) {
-  .featured-image {
-    height: 300px;
+
+/* --- Menu Responsivo (Lógica básica, combine com menu-responsivo.js) --- */
+@media (max-width: 991.98px) {
+
+  /* Ponto de quebra para menu hambúrguer */
+  .menu-toggle {
+    display: block;
+    /* Mostra o botão hambúrguer */
+    z-index: 1001;
+    /* Para ficar acima do menu quando aberto */
   }
 
-  .featured-title {
-    font-size: 1.5rem;
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    /* Começa fora da tela */
+    width: 80%;
+    max-width: 300px;
+    /* Largura máxima do menu lateral */
+    height: 100vh;
+    background-color: var(--bg-color-white);
+    box-shadow: var(--shadow-lg);
+    padding-top: calc(var(--header-height) + 2rem);
+    /* Espaço para o header e um pouco mais */
+    padding-left: 2rem;
+    padding-right: 2rem;
+    transition: left 0.35s ease-in-out;
+    z-index: 999;
+    /* Abaixo do header, mas acima do conteúdo */
+    overflow-y: auto;
   }
 
-  .news-grid {
-    grid-template-columns: 1fr;
+  .nav-menu.active {
+    /* Classe adicionada via JS */
+    left: 0;
+  }
+
+  .nav-menu ul {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .nav-menu ul li a {
+    display: block;
+    /* Para ocupar toda a largura */
+    padding: 0.75rem 0;
+    font-size: 1.1rem;
+  }
+
+  .nav-menu ul li a::after {
+    /* Ajuste para sublinhado no menu mobile */
+    bottom: 0.5rem;
+  }
+
+  /* Opcional: Overlay para fechar o menu ao clicar fora */
+  body.menu-open::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+    /* Abaixo do menu, acima do conteúdo */
   }
 }
 
-@media (max-width: 480px) {
-  .main-container {
-    padding: var(--spacing-sm);
-  }
-
-  .featured-image {
-    height: 250px;
-  }
-
-  .featured-content {
-    padding: var(--spacing-md);
-  }
-
-  .featured-title {
-    font-size: 1.3rem;
-  }
+/* Placeholder para image-hover-effects.css */
+/* Você pode adicionar aqui os efeitos de hover para imagens se desejar */
+/* Exemplo:
+.featured-image:hover, .news-card img:hover {
+  transform: scale(1.05);
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
+.featured-image-link { overflow: hidden; }
+.news-card { overflow: hidden; }
+*/

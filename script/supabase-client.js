@@ -6,7 +6,8 @@
 // Configurações do Supabase
 const SUPABASE_CONFIG = {
   url: 'https://iwoiqjypwszshhkxtjkj.supabase.co',
-  anonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml3b2lxanlwd3N6c2hoa3h0amtqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDgxMjQ0NTUsImV4cCI6MjA2MzcwMDQ1NX0.R3yBEWGaqtLC8V7Jw7zABZ5Bs1I41mkBxX_RHwuFWew',
+  anonKey:
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml3b2lxanlwd3N6c2hoa3h0amtqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDgxMjQ0NTUsImV4cCI6MjA2MzcwMDQ1NX0.R3yBEWGaqtLC8V7Jw7zABZ5Bs1I41mkBxX_RHwuFWew',
 }
 
 // Dados mock para teste
@@ -36,6 +37,73 @@ const MOCK_DATA = {
       categoria: 'Economia',
       data: new Date().toISOString(),
       visualizacoes: 987,
+      autor: 'Equipe InvestSavy',
+      destaque: false,
+      link: '#',
+    },
+    {
+      id: 3,
+      titulo: 'Nova tecnologia revoluciona mercado financeiro',
+      resumo:
+        'Startup brasileira lança plataforma que promete transformar investimentos.',
+      imagem:
+        'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
+      categoria: 'Tecnologia',
+      data: new Date().toISOString(),
+      visualizacoes: 856,
+      autor: 'Equipe InvestSavy',
+      destaque: false,
+      link: '#',
+    },
+    {
+      id: 4,
+      titulo: 'Como economizar em tempos de crise',
+      resumo:
+        'Especialistas dão dicas valiosas para manter as finanças em dia.',
+      imagem:
+        'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
+      categoria: 'Finanças Pessoais',
+      data: new Date().toISOString(),
+      visualizacoes: 2345,
+      autor: 'Equipe InvestSavy',
+      destaque: false,
+      link: '#',
+    },
+    {
+      id: 5,
+      titulo: 'Mercado internacional em alta',
+      resumo: 'Principais índices globais registram ganhos expressivos.',
+      imagem:
+        'https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
+      categoria: 'Internacional',
+      data: new Date().toISOString(),
+      visualizacoes: 765,
+      autor: 'Equipe InvestSavy',
+      destaque: false,
+      link: '#',
+    },
+    {
+      id: 6,
+      titulo: 'Empresas brasileiras expandem operações',
+      resumo: 'Grandes corporações anunciam novos investimentos no país.',
+      imagem:
+        'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
+      categoria: 'Empresas',
+      data: new Date().toISOString(),
+      visualizacoes: 543,
+      autor: 'Equipe InvestSavy',
+      destaque: false,
+      link: '#',
+    },
+    {
+      id: 7,
+      titulo: 'Reforma tributária avança no Congresso',
+      resumo: 'Proposta de simplificação do sistema tributário ganha força.',
+      imagem:
+        'https://images.unsplash.com/photo-1575505586569-646b2ca898fc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
+      categoria: 'Política',
+      data: new Date().toISOString(),
+      visualizacoes: 678,
       autor: 'Equipe InvestSavy',
       destaque: false,
       link: '#',

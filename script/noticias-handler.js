@@ -1,16 +1,7 @@
 /**
  * Manipulador de Notícias - InvestSavy
- * Este arquivo contém as funções para carregar e exibir notícias do Supabase
+ * Este arquivo contém as funções para carregar e exibir notícias
  */
-
-// Configurações
-const CONFIG = {
-  itemsPerPage: 6,
-  maxFeaturedNews: 1,
-  maxLatestUpdates: 5,
-  maxMostRead: 5,
-  maxTopics: 10,
-}
 
 // Estado da aplicação
 let state = {
@@ -139,22 +130,14 @@ const loadNews = async () => {
     '<i class="fas fa-spinner fa-spin"></i> Carregando...'
 
   try {
-    const { data, error } = await supabase
-      .from('noticias')
-      .select('*')
-      .eq(
-        'categoria',
-        state.currentFilter === 'all' ? null : state.currentFilter
-      )
-      .order('data', { ascending: false })
-      .range(
-        (state.currentPage - 1) * CONFIG.itemsPerPage,
-        state.currentPage * CONFIG.itemsPerPage - 1
-      )
+    // Usar o cliente Supabase mock
+    const data = await supabaseClient.db.getNews({
+      categoria: state.currentFilter === 'all' ? null : state.currentFilter,
+      limit: 6,
+      offset: (state.currentPage - 1) * 6,
+    })
 
-    if (error) throw error
-
-    if (data.length < CONFIG.itemsPerPage) {
+    if (data.length < 6) {
       state.hasMore = false
       elements.loadMoreBtn.style.display = 'none'
     }
@@ -165,21 +148,21 @@ const loadNews = async () => {
 
     if (state.currentPage === 1) {
       // Carregar notícia em destaque
-      const featured = data[0]
-      if (featured) {
-        state.featuredNews = featured
-        elements.featuredNews.innerHTML = createFeaturedNews(featured)
+      const featured = await supabaseClient.db.getFeaturedNews(1)
+      if (featured && featured.length > 0) {
+        state.featuredNews = featured[0]
+        elements.featuredNews.innerHTML = createFeaturedNews(featured[0])
       }
 
-      // Carregar últimas atualizações
-      const latest = data.slice(0, CONFIG.maxLatestUpdates)
-      elements.latestUpdates.innerHTML = latest.map(createLatestUpdate).join('')
-
       // Carregar mais lidas
-      const mostRead = data
-        .sort((a, b) => b.visualizacoes - a.visualizacoes)
-        .slice(0, CONFIG.maxMostRead)
+      const mostRead = await supabaseClient.db.getMostReadNews(5)
       elements.mostRead.innerHTML = mostRead.map(createMostRead).join('')
+
+      // Carregar últimas atualizações (usando as mesmas notícias)
+      elements.latestUpdates.innerHTML = data
+        .slice(0, 5)
+        .map(createLatestUpdate)
+        .join('')
 
       // Carregar tópicos
       const topics = [...new Set(data.flatMap((n) => n.topicos || []))]
@@ -188,7 +171,7 @@ const loadNews = async () => {
           count: data.filter((n) => (n.topicos || []).includes(topic)).length,
         }))
         .sort((a, b) => b.count - a.count)
-        .slice(0, CONFIG.maxTopics)
+        .slice(0, 10)
       elements.topics.innerHTML = topics.map(createTopic).join('')
     }
 
