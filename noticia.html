@@ -59,97 +59,36 @@
         </button>
       </section>
       <section class="featured-news" aria-label="Destaque">
-        {% assign featured_post = site.posts.first %} {% if featured_post %}
         <article class="featured-article">
-          <a href="{{ featured_post.url }}" tabindex="0">
+          <a href="#" class="featured-image-link">
             <div
               class="featured-image"
-              style="background-image: url('{{ site.baseurl }}{{ featured_post.image }}');"
               role="img"
-              aria-label="Imagem de destaque: {{ featured_post.title }}"
+              aria-label="Imagem de destaque"
             ></div>
           </a>
           <div class="featured-content">
             <h2 class="featured-title">
-              <a href="{{ featured_post.url }}">{{ featured_post.title }}</a>
+              <a href="#">Carregando...</a>
             </h2>
-            <p class="featured-excerpt">
-              {{ featured_post.excerpt | default: featured_post.content |
-              strip_html | truncate: 200 }}
-            </p>
+            <p class="featured-excerpt">Carregando conteúdo em destaque...</p>
             <div class="article-meta">
-              <span
-                ><i class="far fa-calendar"></i> {{ featured_post.date | date:
-                "%d de %B, %Y" }}</span
-              >
-              <span
-                ><i class="far fa-clock"></i> {{ featured_post.reading_time |
-                default: "5 min de leitura" }}</span
-              >
-              <span
-                ><i class="far fa-eye"></i> {{ featured_post.views | default:
-                "1.543" }}</span
-              >
-              <span>Por {{ featured_post.author | default: "Ana Silva" }}</span>
+              <span><i class="far fa-calendar"></i> Carregando...</span>
+              <span><i class="far fa-clock"></i> Carregando...</span>
+              <span><i class="far fa-eye"></i> Carregando...</span>
+              <span>Carregando...</span>
             </div>
           </div>
         </article>
-        {% endif %}
       </section>
       <section class="recent-news" aria-label="Notícias Recentes">
         <h2>
           Notícias Recentes
-          <span class="news-count"
-            >{{ site.posts | size }} artigos encontrados</span
-          >
+          <span class="news-count">Carregando...</span>
         </h2>
         <div class="news-grid">
-          {% for post in site.posts offset: 1 limit: 8 %}
-          <article
-            class="news-card"
-            data-category="{% for category in post.categories %}{{ category | slugify }} {% endfor %}"
-          >
-            <a href="{{ site.baseurl }}{{ post.url }}" tabindex="0">
-              <div
-                class="news-card-image"
-                data-bg-image="{{ site.baseurl }}{{ post.image | default: '/images/default-news.jpg' }}"
-                role="img"
-                aria-label="Imagem da notícia: {{ post.title }}"
-              >
-                {% if post.categories %}
-                <span class="news-category"
-                  >{{ post.categories.first | capitalize }}</span
-                >
-                {% endif %}
-              </div>
-            </a>
-            <div class="news-card-content">
-              <h3 class="news-card-title">
-                <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
-              </h3>
-              <p class="news-card-excerpt">
-                {{ post.excerpt | default: post.content | strip_html | truncate:
-                120 }}
-              </p>
-              <div class="article-meta">
-                <span
-                  ><i class="far fa-calendar"></i> {{ post.date | date: "%d de
-                  %B, %Y" }}</span
-                >
-                <span
-                  ><i class="far fa-clock"></i> {{ post.reading_time | default:
-                  "5 min" }}</span
-                >
-                <span
-                  ><i class="far fa-eye"></i> {{ post.views | default: "890"
-                  }}</span
-                >
-              </div>
-            </div>
-          </article>
-          {% endfor %}
+          <!-- As notícias serão carregadas via JavaScript -->
         </div>
-        {% if site.posts.size > 9 %}
         <div class="load-more-container">
           <button
             class="load-more-btn"
@@ -159,7 +98,6 @@
             <i class="fas fa-plus"></i> Carregar mais notícias
           </button>
         </div>
-        {% endif %}
       </section>
       <aside class="sidebar">
         <div class="sidebar-section">
@@ -167,42 +105,19 @@
             <i class="fas fa-clock"></i> Últimas Atualizações
           </h3>
           <ul class="sidebar-list">
-            {% for post in site.posts limit: 5 %}
-            <li>
-              <a href="{{ site.baseurl }}{{ post.url }}"
-                >{{ post.title | truncate: 60 }}</a
-              >
-              <div class="sidebar-meta">
-                {% if post.categories %}{{ post.categories.first | capitalize }}
-                • {% endif %}{{ post.date | date: "%H:%M" }}
-              </div>
-            </li>
-            {% endfor %}
+            <!-- Últimas atualizações serão carregadas via JavaScript -->
           </ul>
         </div>
         <div class="sidebar-section">
           <h3 class="sidebar-title"><i class="fas fa-fire"></i> Mais Lidas</h3>
           <ul class="sidebar-list">
-            {% assign popular_posts = site.posts | sort: 'views' | reverse %} {%
-            for post in popular_posts limit: 5 %}
-            <li>
-              <a href="{{ site.baseurl }}{{ post.url }}"
-                >{{ post.title | truncate: 60 }}</a
-              >
-            </li>
-            {% endfor %}
+            <!-- Mais lidas serão carregadas via JavaScript -->
           </ul>
         </div>
         <div class="sidebar-section">
           <h3 class="sidebar-title"><i class="fas fa-tags"></i> Tópicos</h3>
           <div class="topics-tags">
-            {% assign all_categories = site.posts | map: 'categories' | uniq %}
-            {% for category_list in all_categories %} {% for category in
-            category_list %}
-            <a href="#" class="topic-tag" data-filter="{{ category | slugify }}"
-              >{{ category | capitalize }}</a
-            >
-            {% endfor %} {% endfor %}
+            <!-- Tópicos serão carregados via JavaScript -->
           </div>
         </div>
         <div class="sidebar-section">
@@ -232,7 +147,7 @@
     <footer class="footer">
       <div class="footer-content">
         <span
-          >&copy; {{ "now" | date: "%Y" }} InvestSavy. Todos os direitos
+          >&copy; <span id="currentYear"></span> InvestSavy. Todos os direitos
           reservados.</span
         >
         <nav class="footer-nav">
@@ -251,16 +166,9 @@
     <script src="/script/feedback-visual.js"></script>
     <script src="/script/seo-optimization.js"></script>
     <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        document
-          .querySelectorAll('.news-card-image')
-          .forEach(function (element) {
-            const bgImage = element.getAttribute('data-bg-image')
-            if (bgImage) {
-              element.style.backgroundImage = `url('${bgImage}')`
-            }
-          })
-      })
+      // Atualizar o ano atual no footer
+      document.getElementById('currentYear').textContent =
+        new Date().getFullYear()
     </script>
   </body>
 </html>
