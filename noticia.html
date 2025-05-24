@@ -1,229 +1,266 @@
----
-layout: default
-title: Notícias
-description: As notícias mais importantes do mercado financeiro, economia e negócios para você tomar as melhores
-decisões
----
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notícias | InvestSavy</title>
+    <meta
+      name="description"
+      content="As notícias mais importantes do mercado financeiro, economia e negócios para você tomar as melhores decisões."
+    />
+    <meta
+      name="keywords"
+      content="notícias, economia, mercados, empresas, tecnologia, finanças pessoais, política, internacional, investimentos, educação financeira"
+    />
+    <link rel="stylesheet" href="/css/style-main.css" />
+    <link rel="stylesheet" href="/css/style-noticia.css" />
+    <link rel="stylesheet" href="/css/image-hover-effects.css" />
+    <link rel="stylesheet" href="/css/menu-responsivo.css" />
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
+  </head>
 
-<style>
-  body {
-    background-color: #fafafa;
-  }
-</style>
-
-<div class="main-container">
-  <main class="main-content">
-    <!-- News Filter -->
-    <div class="news-filter">
-      <button class="filter-btn active" data-filter="all">Todas</button>
-      <button class="filter-btn" data-filter="economia">Economia</button>
-      <button class="filter-btn" data-filter="mercados">Mercados</button>
-      <button class="filter-btn" data-filter="empresas">Empresas</button>
-      <button class="filter-btn" data-filter="tecnologia">Tecnologia</button>
-      <button class="filter-btn" data-filter="finanças-pessoais">Finanças Pessoais</button>
-      <button class="filter-btn" data-filter="política">Política</button>
-      <button class="filter-btn" data-filter="internacional">Internacional</button>
-    </div>
-
-    <!-- Featured Article -->
-    {% assign featured_post = site.posts.first %}
-    {% if featured_post %}
-    <article class="featured-article">
-      <div class="featured-image" style="background-image: url('{{ site.baseurl }}{{ featured_post.image }}')"></div>
-      <div class="featured-content">
-        <h2 class="featured-title">
-          <a href="{{ featured_post.url }}">{{ featured_post.title }}</a>
-        </h2>
-        <p class="featured-excerpt">
-          {{ featured_post.excerpt | default: featured_post.content | strip_html | truncate: 200 }}
-        </p>
-        <div class="article-meta">
-          <span><i class="far fa-calendar"></i> {{ featured_post.date | date: "%d de %B, %Y" }}</span>
-          <span><i class="far fa-clock"></i> {{ featured_post.reading_time | default: "5 min de leitura" }}</span>
-          <span><i class="far fa-eye"></i> {{ featured_post.views | default: "1.543" }}</span>
-          <span>Por {{ featured_post.author | default: "Ana Silva" }}</span>
-        </div>
-      </div>
-    </article>
-    {% endif %}
-
-    <!-- Recent News -->
-    <section class="recent-news">
-      <h2>
-        Notícias Recentes
-        <span style="color: #6b7280; font-size: 0.9rem; font-weight: 400">
-          {{ site.posts | size }} artigos encontrados
-        </span>
-      </h2>
-      <div class="news-grid">
-        {% for post in site.posts offset: 1 limit: 8 %}
-        <article class="news-card"
-          data-category="{% for category in post.categories %}{{ category | slugify }} {% endfor %}">
-          <div class="news-card-image" style="background-image: url('{{ site.baseurl }}{{ post.image | default: "
-            /images/default-news.jpg" }}')">
-            {% if post.categories %}
-            <span class="news-category">{{ post.categories.first | capitalize }}</span>
-            {% endif %}
-          </div>
-          <div class="news-card-content">
-            <h3 class="news-card-title">
-              <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
-            </h3>
-            <p class="news-card-excerpt">
-              {{ post.excerpt | default: post.content | strip_html | truncate: 120 }}
+  <body>
+    <header id="header" class="header-fixed">
+      <nav class="main-nav">
+        <a href="/" class="logo" aria-label="Página inicial InvestSavy"
+          >InvestSavy</a
+        >
+        <button
+          class="menu-toggle"
+          aria-label="Abrir menu"
+          aria-expanded="false"
+          aria-controls="main-menu"
+        >
+          <span class="hamburger"></span>
+        </button>
+        <ul id="main-menu" class="nav-list">
+          <li><a href="/" class="nav-link">Início</a></li>
+          <li><a href="/noticia.html" class="nav-link active">Notícias</a></li>
+          <li><a href="/educacao.html" class="nav-link">Educação</a></li>
+          <li><a href="/servicos.html" class="nav-link">Ferramentas</a></li>
+          <li><a href="/sobre.html" class="nav-link">Sobre</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main-container">
+      <section class="news-filter" aria-label="Filtrar notícias por categoria">
+        <button class="filter-btn active" data-filter="all">Todas</button>
+        <button class="filter-btn" data-filter="economia">Economia</button>
+        <button class="filter-btn" data-filter="mercados">Mercados</button>
+        <button class="filter-btn" data-filter="empresas">Empresas</button>
+        <button class="filter-btn" data-filter="tecnologia">Tecnologia</button>
+        <button class="filter-btn" data-filter="finanças-pessoais">
+          Finanças Pessoais
+        </button>
+        <button class="filter-btn" data-filter="política">Política</button>
+        <button class="filter-btn" data-filter="internacional">
+          Internacional
+        </button>
+      </section>
+      <section class="featured-news" aria-label="Destaque">
+        {% assign featured_post = site.posts.first %} {% if featured_post %}
+        <article class="featured-article">
+          <a href="{{ featured_post.url }}" tabindex="0">
+            <div
+              class="featured-image"
+              style="background-image: url('{{ site.baseurl }}{{ featured_post.image }}');"
+              role="img"
+              aria-label="Imagem de destaque: {{ featured_post.title }}"
+            ></div>
+          </a>
+          <div class="featured-content">
+            <h2 class="featured-title">
+              <a href="{{ featured_post.url }}">{{ featured_post.title }}</a>
+            </h2>
+            <p class="featured-excerpt">
+              {{ featured_post.excerpt | default: featured_post.content |
+              strip_html | truncate: 200 }}
             </p>
             <div class="article-meta">
-              <span><i class="far fa-calendar"></i> {{ post.date | date: "%d de %B, %Y" }}</span>
-              <span><i class="far fa-clock"></i> {{ post.reading_time | default: "5 min" }}</span>
-              <span><i class="far fa-eye"></i> {{ post.views | default: "890" }}</span>
+              <span
+                ><i class="far fa-calendar"></i> {{ featured_post.date | date:
+                "%d de %B, %Y" }}</span
+              >
+              <span
+                ><i class="far fa-clock"></i> {{ featured_post.reading_time |
+                default: "5 min de leitura" }}</span
+              >
+              <span
+                ><i class="far fa-eye"></i> {{ featured_post.views | default:
+                "1.543" }}</span
+              >
+              <span>Por {{ featured_post.author | default: "Ana Silva" }}</span>
             </div>
           </div>
         </article>
-        {% endfor %}
-      </div>
-
-      <!-- Load More Button -->
-      {% if site.posts.size > 9 %}
-      <div class="load-more-container">
-        <button class="load-more-btn" id="loadMoreBtn">
-          <i class="fas fa-plus"></i>
-          Carregar mais notícias
-        </button>
-      </div>
-      {% endif %}
-    </section>
-  </main>
-
-  <!-- Sidebar -->
-  <aside class="sidebar">
-    <!-- Latest Updates -->
-    <div class="sidebar-section">
-      <h3 class="sidebar-title">
-        <i class="fas fa-clock"></i>
-        Últimas Atualizações
-      </h3>
-      <ul class="sidebar-list">
-        {% for post in site.posts limit: 5 %}
-        <li>
-          <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title | truncate: 60 }}</a>
-          <div class="sidebar-meta">
-            {% if post.categories %}{{ post.categories.first | capitalize }} • {% endif %}
-            {{ post.date | date: "%H:%M" }}
+        {% endif %}
+      </section>
+      <section class="recent-news" aria-label="Notícias Recentes">
+        <h2>
+          Notícias Recentes
+          <span class="news-count"
+            >{{ site.posts | size }} artigos encontrados</span
+          >
+        </h2>
+        <div class="news-grid">
+          {% for post in site.posts offset: 1 limit: 8 %}
+          <article
+            class="news-card"
+            data-category="{% for category in post.categories %}{{ category | slugify }} {% endfor %}"
+          >
+            <a href="{{ site.baseurl }}{{ post.url }}" tabindex="0">
+              <div
+                class="news-card-image"
+                data-bg-image="{{ site.baseurl }}{{ post.image | default: '/images/default-news.jpg' }}"
+                role="img"
+                aria-label="Imagem da notícia: {{ post.title }}"
+              >
+                {% if post.categories %}
+                <span class="news-category"
+                  >{{ post.categories.first | capitalize }}</span
+                >
+                {% endif %}
+              </div>
+            </a>
+            <div class="news-card-content">
+              <h3 class="news-card-title">
+                <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+              </h3>
+              <p class="news-card-excerpt">
+                {{ post.excerpt | default: post.content | strip_html | truncate:
+                120 }}
+              </p>
+              <div class="article-meta">
+                <span
+                  ><i class="far fa-calendar"></i> {{ post.date | date: "%d de
+                  %B, %Y" }}</span
+                >
+                <span
+                  ><i class="far fa-clock"></i> {{ post.reading_time | default:
+                  "5 min" }}</span
+                >
+                <span
+                  ><i class="far fa-eye"></i> {{ post.views | default: "890"
+                  }}</span
+                >
+              </div>
+            </div>
+          </article>
+          {% endfor %}
+        </div>
+        {% if site.posts.size > 9 %}
+        <div class="load-more-container">
+          <button
+            class="load-more-btn"
+            id="loadMoreBtn"
+            aria-label="Carregar mais notícias"
+          >
+            <i class="fas fa-plus"></i> Carregar mais notícias
+          </button>
+        </div>
+        {% endif %}
+      </section>
+      <aside class="sidebar">
+        <div class="sidebar-section">
+          <h3 class="sidebar-title">
+            <i class="fas fa-clock"></i> Últimas Atualizações
+          </h3>
+          <ul class="sidebar-list">
+            {% for post in site.posts limit: 5 %}
+            <li>
+              <a href="{{ site.baseurl }}{{ post.url }}"
+                >{{ post.title | truncate: 60 }}</a
+              >
+              <div class="sidebar-meta">
+                {% if post.categories %}{{ post.categories.first | capitalize }}
+                • {% endif %}{{ post.date | date: "%H:%M" }}
+              </div>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+        <div class="sidebar-section">
+          <h3 class="sidebar-title"><i class="fas fa-fire"></i> Mais Lidas</h3>
+          <ul class="sidebar-list">
+            {% assign popular_posts = site.posts | sort: 'views' | reverse %} {%
+            for post in popular_posts limit: 5 %}
+            <li>
+              <a href="{{ site.baseurl }}{{ post.url }}"
+                >{{ post.title | truncate: 60 }}</a
+              >
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+        <div class="sidebar-section">
+          <h3 class="sidebar-title"><i class="fas fa-tags"></i> Tópicos</h3>
+          <div class="topics-tags">
+            {% assign all_categories = site.posts | map: 'categories' | uniq %}
+            {% for category_list in all_categories %} {% for category in
+            category_list %}
+            <a href="#" class="topic-tag" data-filter="{{ category | slugify }}"
+              >{{ category | capitalize }}</a
+            >
+            {% endfor %} {% endfor %}
           </div>
-        </li>
-        {% endfor %}
-      </ul>
-    </div>
-
-    <!-- Most Read -->
-    <div class="sidebar-section">
-      <h3 class="sidebar-title">
-        <i class="fas fa-fire"></i>
-        Mais Lidas
-      </h3>
-      <ul class="sidebar-list">
-        {% assign popular_posts = site.posts | sort: 'views' | reverse %}
-        {% for post in popular_posts limit: 5 %}
-        <li>
-          <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title | truncate: 60 }}</a>
-        </li>
-        {% endfor %}
-      </ul>
-    </div>
-
-    <!-- Topics -->
-    <div class="sidebar-section">
-      <h3 class="sidebar-title">
-        <i class="fas fa-tags"></i>
-        Tópicos
-      </h3>
-      <div class="topics-tags">
-        {% assign all_categories = site.posts | map: 'categories' | uniq %}
-        {% for category_list in all_categories %}
-        {% for category in category_list %}
-        <a href="#" class="topic-tag" data-filter="{{ category | slugify }}">{{ category | capitalize }}</a>
-        {% endfor %}
-        {% endfor %}
+        </div>
+        <div class="sidebar-section">
+          <h3 class="sidebar-title">
+            <i class="fas fa-envelope"></i> Receba as notícias em seu email
+          </h3>
+          <p class="newsletter-description">
+            Inscreva-se para receber as últimas atualizações sobre o mercado
+            financeiro.
+          </p>
+          <form class="newsletter-form" id="newsletterForm">
+            <input
+              type="email"
+              class="newsletter-input"
+              placeholder="Seu e-mail"
+              required
+              aria-label="Seu e-mail"
+            />
+            <button type="submit" class="newsletter-btn">Inscrever-se</button>
+          </form>
+        </div>
+      </aside>
+    </main>
+    <button id="backToTop" class="back-to-top" aria-label="Voltar ao topo">
+      &#8679;
+    </button>
+    <footer class="footer">
+      <div class="footer-content">
+        <span
+          >&copy; {{ "now" | date: "%Y" }} InvestSavy. Todos os direitos
+          reservados.</span
+        >
+        <nav class="footer-nav">
+          <a href="/sobre.html">Sobre</a>
+          <a href="/servicos.html">Ferramentas</a>
+          <a href="/educacao.html">Educação</a>
+          <a href="/noticia.html">Notícias</a>
+        </nav>
       </div>
-    </div>
-
-    <!-- Newsletter -->
-    <div class="sidebar-section">
-      <h3 class="sidebar-title">
-        <i class="fas fa-envelope"></i>
-        Receba as notícias em seu email
-      </h3>
-      <p class="newsletter-description">
-        Inscreva-se para receber as últimas atualizações sobre o mercado financeiro.
-      </p>
-      <form class="newsletter-form" id="newsletterForm">
-        <input type="email" class="newsletter-input" placeholder="Seu e-mail" required />
-        <button type="submit" class="newsletter-btn">Inscrever-se</button>
-      </form>
-    </div>
-  </aside>
-</div>
-
-<script>
-  // Filter functionality
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const newsCards = document.querySelectorAll('.news-card');
-
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      // Remove active class from all buttons
-      filterBtns.forEach(b => b.classList.remove('active'));
-      // Add active class to clicked button
-      btn.classList.add('active');
-
-      const filterValue = btn.getAttribute('data-filter');
-
-      newsCards.forEach(card => {
-        if (filterValue === 'all') {
-          card.style.display = 'block';
-        } else {
-          const cardCategory = card.getAttribute('data-category');
-          if (cardCategory && cardCategory.includes(filterValue)) {
-            card.style.display = 'block';
-          } else {
-            card.style.display = 'none';
-          }
-        }
-      });
-    });
-  });
-
-  // Topic tag filter
-  document.querySelectorAll('.topic-tag').forEach(tag => {
-    tag.addEventListener('click', (e) => {
-      e.preventDefault();
-      const filterValue = tag.getAttribute('data-filter');
-
-      // Trigger the corresponding filter button
-      const matchingBtn = document.querySelector(`[data-filter="${filterValue}"]`);
-      if (matchingBtn) {
-        matchingBtn.click();
-      }
-    });
-  });
-
-  // Newsletter form
-  document.getElementById('newsletterForm').addEventListener('submit', function (e) {
-    e.preventDefault();
-    const email = this.querySelector('.newsletter-input').value;
-    if (email) {
-      alert('Inscrição realizada com sucesso!');
-      this.reset();
-    }
-  });
-
-  // Load more functionality
-  const loadMoreBtn = document.getElementById('loadMoreBtn');
-  if (loadMoreBtn) {
-    loadMoreBtn.addEventListener('click', function () {
-      // This would typically load more posts via AJAX
-      // For now, we'll just show a message
-      alert('Carregando mais notícias...');
-    });
-  }
-</script>
+    </footer>
+    <script src="/script/js-universal.js"></script>
+    <script src="/script/supabase-client.js"></script>
+    <script src="/script/noticias-handler.js"></script>
+    <script src="/script/image-accessibility.js"></script>
+    <script src="/script/menu-responsivo.js"></script>
+    <script src="/script/feedback-visual.js"></script>
+    <script src="/script/seo-optimization.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        document
+          .querySelectorAll('.news-card-image')
+          .forEach(function (element) {
+            const bgImage = element.getAttribute('data-bg-image')
+            if (bgImage) {
+              element.style.backgroundImage = `url('${bgImage}')`
+            }
+          })
+      })
+    </script>
+  </body>
+</html>

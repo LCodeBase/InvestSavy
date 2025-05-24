@@ -1,0 +1,99 @@
+/**
+ * Efeitos de hover para imagens - InvestSavy
+ * Este arquivo contém estilos para melhorar a experiência do usuário ao interagir com imagens clicáveis
+ */
+
+/* Efeito de hover para imagens de notícias */
+.featured-image,
+.news-card-image {
+  transition: transform 0.3s ease, filter 0.3s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+/* Overlay para indicar que a imagem é clicável */
+.featured-image::after,
+.news-card-image::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+/* Efeito de zoom suave ao passar o mouse */
+.featured-image:hover,
+.news-card-image:hover {
+  transform: scale(1.03);
+  filter: brightness(1.05);
+}
+
+/* Mostrar overlay ao passar o mouse */
+.featured-image:hover::after,
+.news-card-image:hover::after {
+  opacity: 1;
+}
+
+/* Ícone de lupa para indicar que a imagem é clicável */
+.featured-image::before,
+.news-card-image::before {
+  content: '\f002';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 1.5rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 2;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Mostrar ícone de lupa ao passar o mouse */
+.featured-image:hover::before,
+.news-card-image:hover::before {
+  opacity: 0.8;
+}
+
+/* Ajustes para a página de detalhes da notícia */
+.noticia-featured-image {
+  transition: filter 0.3s ease;
+}
+
+.noticia-featured-image:hover {
+  filter: brightness(1.05);
+}
+
+/* Efeito de hover para imagens dentro do conteúdo da notícia */
+.noticia-content img {
+  transition: transform 0.3s ease, filter 0.3s ease;
+  cursor: pointer;
+}
+
+.noticia-content img:hover {
+  transform: scale(1.02);
+  filter: brightness(1.05);
+}
+
+/* Efeitos para dispositivos móveis */
+@media (max-width: 768px) {
+
+  .featured-image::before,
+  .news-card-image::before {
+    font-size: 1.2rem;
+  }
+
+  .featured-image:hover,
+  .news-card-image:hover {
+    transform: scale(1.02);
+    /* Efeito de zoom mais sutil em dispositivos móveis */
+  }
+}

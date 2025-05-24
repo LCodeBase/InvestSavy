@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detalhes da Notícia - InvestSavy</title>
+  <meta name="description"
+    content="Detalhes completos da notícia selecionada no InvestSavy, seu portal de educação financeira.">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/style-noticia.css">
+  <link rel="stylesheet" href="/css/style-noticia-detalhe.css">
+  <link rel="stylesheet" href="/css/animations.css">
+  <link rel="stylesheet" href="/css/image-hover-effects.css">
+
+  <!-- Favicon -->
+  <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+
+  <!-- Fontes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container-LOGO">
+      <img src="/images/logo.svg" alt="InvestSavy Logo">
+      <div class="logo">InvestSavy</div>
+    </div>
+
+    <button class="menu-toggle" id="menuToggle">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <nav class="nav-menu" id="navMenu">
+      <ul>
+        <li><a href="/index.html">Início</a></li>
+        <li><a href="/noticia.html">Notícias</a></li>
+        <li><a href="/servicos.html">Ferramentas</a></li>
+        <li><a href="/educacao.html">Educação</a></li>
+        <li><a href="/sobre.html">Sobre</a></li>
+      </ul>
+    </nav>
+
+    <div class="search-icon">
+      <i class="fas fa-search"></i>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="main-container noticia-detalhe-container">
+    <main class="main-content noticia-detalhe-content">
+      <!-- Notícia Detalhada -->
+      <article class="noticia-detalhe" id="noticiaDetalhe">
+        <!-- Conteúdo será preenchido via JavaScript -->
+        <div class="noticia-loading">
+          <i class="fas fa-spinner fa-spin"></i>
+          <p>Carregando notícia...</p>
+        </div>
+      </article>
+
+      <!-- Notícias Relacionadas -->
+      <section class="noticias-relacionadas">
+        <h2>Notícias Relacionadas</h2>
+        <div class="news-grid" id="noticiasRelacionadas">
+          <!-- Conteúdo será preenchido via JavaScript -->
+        </div>
+      </section>
+    </main>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <!-- Últimas Atualizações -->
+      <div class="sidebar-section">
+        <h3 class="sidebar-title">
+          <i class="fas fa-clock"></i>
+          Últimas Atualizações
+        </h3>
+        <ul class="sidebar-list" id="ultimasAtualizacoes">
+          <!-- Conteúdo será preenchido via JavaScript -->
+        </ul>
+      </div>
+
+      <!-- Mais Lidas -->
+      <div class="sidebar-section">
+        <h3 class="sidebar-title">
+          <i class="fas fa-fire"></i>
+          Mais Lidas
+        </h3>
+        <ul class="sidebar-list" id="maisLidas">
+          <!-- Conteúdo será preenchido via JavaScript -->
+        </ul>
+      </div>
+
+      <!-- Tópicos -->
+      <div class="sidebar-section">
+        <h3 class="sidebar-title">
+          <i class="fas fa-tags"></i>
+          Tópicos
+        </h3>
+        <div class="topics-tags" id="topicos">
+          <!-- Conteúdo será preenchido via JavaScript -->
+        </div>
+      </div>
+
+      <!-- Newsletter -->
+      <div class="sidebar-section">
+        <h3 class="sidebar-title">
+          <i class="fas fa-envelope"></i>
+          Receba as notícias em seu email
+        </h3>
+        <p class="newsletter-description">
+          Inscreva-se para receber as últimas atualizações sobre o mercado financeiro.
+        </p>
+        <form class="newsletter-form" id="newsletterForm">
+          <input type="email" class="newsletter-input" placeholder="Seu e-mail" required />
+          <button type="submit" class="newsletter-btn">Inscrever-se</button>
+        </form>
+      </div>
+    </aside>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-branding">
+        <div class="footer-logo">
+          <img src="/images/logo.svg" alt="InvestSavy Logo">
+          <span>InvestSavy</span>
+        </div>
+        <p class="footer-tagline">Educação financeira para todos</p>
+        <div class="social-icons">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-links">
+        <h3>Links Rápidos</h3>
+        <ul>
+          <li><a href="/index.html">Início</a></li>
+          <li><a href="/noticia.html">Notícias</a></li>
+          <li><a href="/servicos.html">Ferramentas</a></li>
+          <li><a href="/educacao.html">Educação</a></li>
+          <li><a href="/sobre.html">Sobre</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-tools">
+        <h3>Ferramentas</h3>
+        <ul>
+          <li><a href="/calculadora-juros-compostos.html">Calculadora de Juros Compostos</a></li>
+          <li><a href="/simulador-aposentadoria.html">Simulador de Aposentadoria</a></li>
+          <li><a href="/comparador-investimentos.html">Comparador de Investimentos</a></li>
+          <li><a href="/conversor-moedas.html">Conversor de Moedas</a></li>
+          <li><a href="/calculadora-emprestimo.html">Calculadora de Empréstimo</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-contact">
+        <h3>Contato</h3>
+        <p><i class="fas fa-envelope"></i> contato@investsavy.online</p>
+        <p><i class="fas fa-phone"></i> (11) 9999-9999</p>
+        <p><i class="fas fa-map-marker-alt"></i> São Paulo, SP</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-bottom-strip"></div>
+      <div class="footer-bottom-content">
+        <p>&copy; 2023 InvestSavy. Todos os direitos reservados.</p>
+        <div class="footer-bottom-links">
+          <a href="/termos.html">Termos de Uso</a>
+          <a href="/privacidade.html">Política de Privacidade</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="/script/js-universal.js"></script>
+  <script src="/script/supabase-client.js"></script>
+  <script src="/script/noticia-detalhe.js"></script>
+  <script src="/script/image-accessibility.js"></script>
+</body>
+
+</html>

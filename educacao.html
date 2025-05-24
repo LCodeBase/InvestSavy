@@ -1,350 +1,339 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>InvestSavy - Educação Financeira</title>
-    <link rel="stylesheet" href="css/universal-css.css" />
-    <link rel="stylesheet" href="css/animations.css" />
-    <link rel="stylesheet" href="css/style-educacao-financeira.css" />
-    <link rel="manifest" href="site.webmanifest" />
-    <!-- Preload de fontes e recursos críticos -->
-    <link
-      rel="preload"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-solid-900.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-  </head>
 
-  <body>
-    <header>
-      <div class="container-LOGO">
-        <div class="logo">
-          <span style="color: #1e40af">Invest</span
-          ><span style="color: #10b981">Savy</span>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>InvestSavy - Educação Financeira</title>
+  <link rel="stylesheet" href="css/universal-css.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/style-educacao-financeira.css" />
+  <link rel="stylesheet" href="css/menu-responsivo.css" />
+  <link rel="stylesheet" href="css/image-hover-effects.css" />
+  <link rel="manifest" href="site.webmanifest" />
+  <!-- Preload de fontes e recursos críticos -->
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-solid-900.woff2"
+    as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+  <header>
+    <div class="container-LOGO">
+      <div class="logo">
+        <span style="color: #1e40af">Invest</span><span style="color: #10b981">Savy</span>
+      </div>
+    </div>
+
+    <div class="menu-toggle" alt="Botão-Menu">
+      <i class="fas fa-bars"></i>
+    </div>
+
+    <nav class="nav-menu">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="news/">Notícias</a></li>
+        <li><a href="servicos.html">Ferramentas</a></li>
+        <li><a href="educacao.html">Aprender</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+      </ul>
+    </nav>
+
+    <div class="search-icon">
+      <i class="fas fa-search"></i>
+    </div>
+  </header>
+
+  <main>
+    <!-- Cabeçalho da Educação Financeira (Imagem 1) -->
+    <div class="education-header" style="margin-top: 60px">
+      <h1>Educação <span class="highlight-orange">Financeira</span></h1>
+      <p>
+        Aprenda sobre economia, investimentos e finanças pessoais com nossos
+        artigos e guias especializados.
+      </p>
+
+      <div class="search-container">
+        <input type="text" placeholder="Buscar artigos..." />
+        <button class="search-button">Buscar</button>
+      </div>
+
+      <div class="category-filters">
+        <button class="filter-button active">
+          <i class="fas fa-th-large"></i> Todos
+        </button>
+        <button class="filter-button">
+          <i class="fas fa-chart-line"></i> Economia
+        </button>
+        <button class="filter-button">
+          <i class="fas fa-coins"></i> Investimentos
+        </button>
+        <button class="filter-button">
+          <i class="fas fa-wallet"></i> Finanças
+        </button>
+      </div>
+    </div>
+
+    <!-- Artigos em Destaque (Imagem 2) -->
+    <div class="featured-articles">
+      <h2>Artigos Em Destaque</h2>
+
+      <div class="featured-grid">
+        <div class="featured-card">
+          <div class="card-image">
+            <img src="images/edu01.png" alt="Jornal de negócios" />
+            <span class="tag investimentos">Investimentos</span>
+          </div>
+          <div class="card-content">
+            <div class="reading-time">
+              <i class="far fa-clock"></i> 8 min de leitura • 10 maio 2023
+            </div>
+            <h3>
+              Guia para iniciantes: Primeiros passos no mundo dos
+              investimentos
+            </h3>
+            <p>
+              Aprenda os conceitos básicos para começar a investir com
+              segurança e construir uma base sólida para seu futuro
+              financeiro. Este guia aborda os princípios fundamentais que todo
+              investidor iniciante deve conhecer.
+            </p>
+            <div class="card-footer">
+              <span class="author">Ana Silva</span>
+              <a href="#" class="read-button">Ler artigo completo</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="featured-card">
+          <div class="card-image">
+            <img src="images/edu04.png" alt="Gráfico de mercado" />
+            <span class="tag economia">Economia</span>
+          </div>
+          <div class="card-content">
+            <div class="reading-time">
+              <i class="far fa-clock"></i> 7 min de leitura • 8 junho 2023
+            </div>
+            <h3>Inflação e seu impacto nas finanças pessoais</h3>
+            <p>
+              Como a inflação afeta seu poder de compra e quais estratégias
+              adotar para proteger seu patrimônio em cenários inflacionários.
+            </p>
+            <div class="card-footer">
+              <span class="author">Carlos Oliveira</span>
+              <a href="#" class="read-button">Ler artigo completo</a>
+            </div>
+          </div>
         </div>
       </div>
+    </div>
 
-      <div class="menu-toggle" alt="Botão-Menu">
-        <i class="fas fa-bars"></i>
+    <!-- Todos os Artigos (Imagens 3 e 4) -->
+    <div class="all-articles">
+      <h2>Todos os Artigos</h2>
+
+      <div class="articles-grid">
+        <!-- Primeira linha de artigos (Imagem 3) -->
+        <div class="article-card">
+          <img src="images/edu01.png" alt="Jornal de negócios" />
+          <div class="card-content">
+            <div class="tag investimentos">Investimentos</div>
+            <div class="reading-time">
+              <i class="far fa-clock"></i> 8 min de leitura
+            </div>
+            <h3>
+              Guia para iniciantes: Primeiros passos no mundo dos
+              investimentos
+            </h3>
+            <p>
+              Aprenda os conceitos básicos para começar a investir com
+              segurança e construir uma base...
+            </p>
+            <div class="article-footer">
+              <span class="date">10 maio 2023 • Ana Silva</span>
+              <a href="#" class="read-link">Ler artigo</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="article-card">
+          <img src="images/edu05.png" alt="Gráfico de mercado" />
+          <div class="card-content">
+            <div class="tag investimentos">Investimentos</div>
+            <div class="reading-time">
+              <i class="far fa-clock"></i> 6 min de leitura
+            </div>
+            <h3>Entendendo a diversificação de carteira</h3>
+            <p>
+              Por que não colocar todos os ovos na mesma cesta é uma
+              estratégia inteligente para reduzir...
+            </p>
+            <div class="article-footer">
+              <span class="date">22 abril 2023 • Ricardo Santos</span>
+              <a href="#" class="read-link">Ler artigo</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="article-card">
+          <img src="images/edu06.png" alt="Carteira com cartões" />
+          <div class="card-content">
+            <div class="tag investimentos">Investimentos</div>
+            <div class="reading-time">
+              <i class="far fa-clock"></i> 10 min de leitura
+            </div>
+            <h3>Renda fixa vs. Renda variável: O que você precisa saber</h3>
+            <p>
+              Compreenda as diferenças e quando utilizar cada tipo de
+              investimento para atingir seus objetivos...
+            </p>
+            <div class="article-footer">
+              <span class="date">15 março 2023 • Luisa Mendes</span>
+              <a href="#" class="read-link">Ler artigo</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Segunda linha de artigos (Imagem 4) -->
+        <div class="article-card">
+          <img src="images/edu04.png" alt="Gráfico de mercado" />
+          <div class="card-content">
+            <div class="tag economia">Economia</div>
+            <div class="reading-time">
+              <i class="far fa-clock"></i> 7 min de leitura
+            </div>
+            <h3>Inflação e seu impacto nas finanças pessoais</h3>
+            <p>
+              Como a inflação afeta seu poder de compra e quais estratégias
+              adotar para proteger seu...
+            </p>
+            <div class="article-footer">
+              <span class="date">8 junho 2023 • Carlos Oliveira</span>
+              <a href="#" class="read-link">Ler artigo</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="article-card">
+          <img src="images/edu03.png" alt="Pessoa organizando finanças" />
+          <div class="card-content">
+            <div class="tag financas">Finanças</div>
+            <div class="reading-time">
+              <i class="far fa-clock"></i> 5 min de leitura
+            </div>
+            <h3>O método 50/30/20 para organizar seu orçamento</h3>
+            <p>
+              Aprenda uma técnica simples e eficaz para dividir sua renda
+              entre necessidades, desejos e objetivos...
+            </p>
+            <div class="article-footer">
+              <span class="date">3 maio 2023 • Beatriz Costa</span>
+              <a href="#" class="read-link">Ler artigo</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="article-card">
+          <img src="images/edu02.webp" alt="Notas de dólar" />
+          <div class="card-content">
+            <div class="tag economia">Economia</div>
+            <div class="reading-time">
+              <i class="far fa-clock"></i> 9 min de leitura
+            </div>
+            <h3>Taxa Selic: O que é e como afeta seus investimentos</h3>
+            <p>
+              Entenda o funcionamento da taxa básica de juros da economia
+              brasileira e sua influência nos...
+            </p>
+            <div class="article-footer">
+              <span class="date">17 abril 2023 • Fernando Almeida</span>
+              <a href="#" class="read-link">Ler artigo</a>
+            </div>
+          </div>
+        </div>
       </div>
+    </div>
 
-      <nav class="nav-menu">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="news/">Notícias</a></li>
-          <li><a href="servicos.html">Ferramentas</a></li>
-          <li><a href="educacao.html">Aprender</a></li>
-          <li><a href="sobre.html">Sobre</a></li>
-        </ul>
-      </nav>
-
-      <div class="search-icon">
-        <i class="fas fa-search"></i>
-      </div>
-    </header>
-
-    <main>
-      <!-- Cabeçalho da Educação Financeira (Imagem 1) -->
-      <div class="education-header" style="margin-top: 60px">
-        <h1>Educação <span class="highlight-orange">Financeira</span></h1>
+    <!-- Newsletter (Imagem 4 - parte inferior) -->
+    <section class="pre-newsletter">
+      <div class="newsletter-section">
+        <h2>Mantenha-se Atualizado</h2>
         <p>
-          Aprenda sobre economia, investimentos e finanças pessoais com nossos
-          artigos e guias especializados.
+          Receba nossos melhores artigos e dicas financeiras diretamente no
+          seu e-mail.
         </p>
 
-        <div class="search-container">
-          <input type="text" placeholder="Buscar artigos..." />
-          <button class="search-button">Buscar</button>
+        <div class="newsletter-form">
+          <input type="email" placeholder="Seu melhor e-mail" />
+          <button>Inscrever-se</button>
         </div>
 
-        <div class="category-filters">
-          <button class="filter-button active">
-            <i class="fas fa-th-large"></i> Todos
-          </button>
-          <button class="filter-button">
-            <i class="fas fa-chart-line"></i> Economia
-          </button>
-          <button class="filter-button">
-            <i class="fas fa-coins"></i> Investimentos
-          </button>
-          <button class="filter-button">
-            <i class="fas fa-wallet"></i> Finanças
-          </button>
+        <p class="privacy-note">
+          Ao se inscrever, você concorda em receber e-mails da InvestSavy.
+          Você pode cancelar sua inscrição a qualquer momento.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container-footer-alt">
+      <div class="footer-brand">
+        <div class="logo-footer">
+          <span style="color: #1e40af">Invest</span><span style="color: #10b981">Savy</span>
+        </div>
+        <p>Democratizando o acesso à educação<br />financeira para todos.</p>
+        <p class="copyright">
+          &copy; 2025 InvestSavy. Todos os direitos<br />reservados.
+        </p>
+      </div>
+      <div class="footer-links">
+        <h4>NAVEGAÇÃO</h4>
+        <ul>
+          <li><a href="index.html">Página Inicial</a></li>
+          <li><a href="news/">Notícias</a></li>
+          <li><a href="servicos.html">Ferramentas</a></li>
+          <li><a href="educacao.html">Educação Financeira</a></li>
+          <li><a href="sobre.html">Sobre Nós</a></li>
+        </ul>
+      </div>
+      <div class="footer-tools">
+        <h4>FERRAMENTAS</h4>
+        <ul>
+          <li>
+            <a href="#calculadora-juros">Calculadora de Juros Compostos</a>
+          </li>
+          <li>
+            <a href="#simulador-aposentadoria">Simulador de Aposentadoria</a>
+          </li>
+          <li>
+            <a href="#comparador-investimentos">Comparador de Investimentos</a>
+          </li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>CONTATO</h4>
+        <p>contato@investsavy.com.br</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
         </div>
       </div>
+    </div>
+  </footer>
+  <script src="script/newsletter.js"></script>
+  <script src="script/js-universal.js"></script>
+  <script src="script/menu-responsivo.js"></script>
+  <script src="script/feedback-visual.js"></script>
+  <script src="script/image-accessibility.js"></script>
+  <script src="script/seo-optimization.js"></script>
+  <script src="script/contact.js"></script>
+  <script src="script/script.js"></script>
+  <script src="script/main.js"></script>
+  <script src="https://kit.fontawesome.com/e1063b7707.js" crossorigin="anonymous" async></script>
+</body>
 
-      <!-- Artigos em Destaque (Imagem 2) -->
-      <div class="featured-articles">
-        <h2>Artigos Em Destaque</h2>
-
-        <div class="featured-grid">
-          <div class="featured-card">
-            <div class="card-image">
-              <img src="images/edu01.png" alt="Jornal de negócios" />
-              <span class="tag investimentos">Investimentos</span>
-            </div>
-            <div class="card-content">
-              <div class="reading-time">
-                <i class="far fa-clock"></i> 8 min de leitura • 10 maio 2023
-              </div>
-              <h3>
-                Guia para iniciantes: Primeiros passos no mundo dos
-                investimentos
-              </h3>
-              <p>
-                Aprenda os conceitos básicos para começar a investir com
-                segurança e construir uma base sólida para seu futuro
-                financeiro. Este guia aborda os princípios fundamentais que todo
-                investidor iniciante deve conhecer.
-              </p>
-              <div class="card-footer">
-                <span class="author">Ana Silva</span>
-                <a href="#" class="read-button">Ler artigo completo</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="featured-card">
-            <div class="card-image">
-              <img src="images/edu04.png" alt="Gráfico de mercado" />
-              <span class="tag economia">Economia</span>
-            </div>
-            <div class="card-content">
-              <div class="reading-time">
-                <i class="far fa-clock"></i> 7 min de leitura • 8 junho 2023
-              </div>
-              <h3>Inflação e seu impacto nas finanças pessoais</h3>
-              <p>
-                Como a inflação afeta seu poder de compra e quais estratégias
-                adotar para proteger seu patrimônio em cenários inflacionários.
-              </p>
-              <div class="card-footer">
-                <span class="author">Carlos Oliveira</span>
-                <a href="#" class="read-button">Ler artigo completo</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Todos os Artigos (Imagens 3 e 4) -->
-      <div class="all-articles">
-        <h2>Todos os Artigos</h2>
-
-        <div class="articles-grid">
-          <!-- Primeira linha de artigos (Imagem 3) -->
-          <div class="article-card">
-            <img src="images/edu01.png" alt="Jornal de negócios" />
-            <div class="card-content">
-              <div class="tag investimentos">Investimentos</div>
-              <div class="reading-time">
-                <i class="far fa-clock"></i> 8 min de leitura
-              </div>
-              <h3>
-                Guia para iniciantes: Primeiros passos no mundo dos
-                investimentos
-              </h3>
-              <p>
-                Aprenda os conceitos básicos para começar a investir com
-                segurança e construir uma base...
-              </p>
-              <div class="article-footer">
-                <span class="date">10 maio 2023 • Ana Silva</span>
-                <a href="#" class="read-link">Ler artigo</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="article-card">
-            <img src="images/edu05.png" alt="Gráfico de mercado" />
-            <div class="card-content">
-              <div class="tag investimentos">Investimentos</div>
-              <div class="reading-time">
-                <i class="far fa-clock"></i> 6 min de leitura
-              </div>
-              <h3>Entendendo a diversificação de carteira</h3>
-              <p>
-                Por que não colocar todos os ovos na mesma cesta é uma
-                estratégia inteligente para reduzir...
-              </p>
-              <div class="article-footer">
-                <span class="date">22 abril 2023 • Ricardo Santos</span>
-                <a href="#" class="read-link">Ler artigo</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="article-card">
-            <img src="images/edu06.png" alt="Carteira com cartões" />
-            <div class="card-content">
-              <div class="tag investimentos">Investimentos</div>
-              <div class="reading-time">
-                <i class="far fa-clock"></i> 10 min de leitura
-              </div>
-              <h3>Renda fixa vs. Renda variável: O que você precisa saber</h3>
-              <p>
-                Compreenda as diferenças e quando utilizar cada tipo de
-                investimento para atingir seus objetivos...
-              </p>
-              <div class="article-footer">
-                <span class="date">15 março 2023 • Luisa Mendes</span>
-                <a href="#" class="read-link">Ler artigo</a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Segunda linha de artigos (Imagem 4) -->
-          <div class="article-card">
-            <img src="images/edu04.png" alt="Gráfico de mercado" />
-            <div class="card-content">
-              <div class="tag economia">Economia</div>
-              <div class="reading-time">
-                <i class="far fa-clock"></i> 7 min de leitura
-              </div>
-              <h3>Inflação e seu impacto nas finanças pessoais</h3>
-              <p>
-                Como a inflação afeta seu poder de compra e quais estratégias
-                adotar para proteger seu...
-              </p>
-              <div class="article-footer">
-                <span class="date">8 junho 2023 • Carlos Oliveira</span>
-                <a href="#" class="read-link">Ler artigo</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="article-card">
-            <img src="images/edu03.png" alt="Pessoa organizando finanças" />
-            <div class="card-content">
-              <div class="tag financas">Finanças</div>
-              <div class="reading-time">
-                <i class="far fa-clock"></i> 5 min de leitura
-              </div>
-              <h3>O método 50/30/20 para organizar seu orçamento</h3>
-              <p>
-                Aprenda uma técnica simples e eficaz para dividir sua renda
-                entre necessidades, desejos e objetivos...
-              </p>
-              <div class="article-footer">
-                <span class="date">3 maio 2023 • Beatriz Costa</span>
-                <a href="#" class="read-link">Ler artigo</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="article-card">
-            <img src="images/edu02.webp" alt="Notas de dólar" />
-            <div class="card-content">
-              <div class="tag economia">Economia</div>
-              <div class="reading-time">
-                <i class="far fa-clock"></i> 9 min de leitura
-              </div>
-              <h3>Taxa Selic: O que é e como afeta seus investimentos</h3>
-              <p>
-                Entenda o funcionamento da taxa básica de juros da economia
-                brasileira e sua influência nos...
-              </p>
-              <div class="article-footer">
-                <span class="date">17 abril 2023 • Fernando Almeida</span>
-                <a href="#" class="read-link">Ler artigo</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Newsletter (Imagem 4 - parte inferior) -->
-      <section class="pre-newsletter">
-        <div class="newsletter-section">
-          <h2>Mantenha-se Atualizado</h2>
-          <p>
-            Receba nossos melhores artigos e dicas financeiras diretamente no
-            seu e-mail.
-          </p>
-
-          <div class="newsletter-form">
-            <input type="email" placeholder="Seu melhor e-mail" />
-            <button>Inscrever-se</button>
-          </div>
-
-          <p class="privacy-note">
-            Ao se inscrever, você concorda em receber e-mails da InvestSavy.
-            Você pode cancelar sua inscrição a qualquer momento.
-          </p>
-        </div>
-      </section>
-    </main>
-
-    <footer>
-      <div class="container-footer-alt">
-        <div class="footer-brand">
-          <div class="logo-footer">
-            <span style="color: #1e40af">Invest</span
-            ><span style="color: #10b981">Savy</span>
-          </div>
-          <p>Democratizando o acesso à educação<br />financeira para todos.</p>
-          <p class="copyright">
-            &copy; 2025 InvestSavy. Todos os direitos<br />reservados.
-          </p>
-        </div>
-        <div class="footer-links">
-          <h4>NAVEGAÇÃO</h4>
-          <ul>
-            <li><a href="index.html">Página Inicial</a></li>
-            <li><a href="news/">Notícias</a></li>
-            <li><a href="servicos.html">Ferramentas</a></li>
-            <li><a href="educacao.html">Educação Financeira</a></li>
-            <li><a href="sobre.html">Sobre Nós</a></li>
-          </ul>
-        </div>
-        <div class="footer-tools">
-          <h4>FERRAMENTAS</h4>
-          <ul>
-            <li>
-              <a href="#calculadora-juros">Calculadora de Juros Compostos</a>
-            </li>
-            <li>
-              <a href="#simulador-aposentadoria">Simulador de Aposentadoria</a>
-            </li>
-            <li>
-              <a href="#comparador-investimentos"
-                >Comparador de Investimentos</a
-              >
-            </li>
-          </ul>
-        </div>
-        <div class="footer-contact">
-          <h4>CONTATO</h4>
-          <p>contato@investsavy.com.br</p>
-          <div class="social-icons">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-          </div>
-        </div>
-      </div>
-    </footer>
-    <script src="script/newsletter.js"></script>
-    <script src="script/js-universal.js"></script>
-    <script src="script/contact.js"></script>
-    <script src="script/script.js"></script>
-    <script src="script/main.js"></script>
-    <script
-      src="https://kit.fontawesome.com/e1063b7707.js"
-      crossorigin="anonymous"
-      async
-    ></script>
-  </body>
 </html>
