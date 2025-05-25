@@ -3,6 +3,8 @@
  * Este arquivo contém a configuração e funções para interagir com o Supabase
  */
 
+import security from './security.js'
+
 // Configurações do Supabase
 const SUPABASE_CONFIG = {
   url: 'https://iwoiqjypwszshhkxtjkj.supabase.co',
@@ -111,16 +113,58 @@ const MOCK_DATA = {
   ],
 }
 
-// Cliente Supabase
-const supabase = {
-  // Configuração do cliente
-  client: null,
+// Configuração do cliente Supabase com proteções de segurança
+const supabaseClient = {
+  // Configurações de segurança
+  config: {
+    autoRefreshToken: true,
+    persistSession: true,
+    detectSessionInUrl: true,
+  },
 
-  // Inicializar cliente
-  init: () => {
-    // Usar dados mock para desenvolvimento
-    console.log('Usando dados mock para desenvolvimento')
+  // Função para sanitizar dados antes de enviar ao Supabase
+  sanitizeData: (data) => {
+    if (typeof data === 'object') {
+      const sanitized = {}
+      for (const [key, value] of Object.entries(data)) {
+        sanitized[key] = security.sanitizeInput(value)
+      }
+      return sanitized
+    }
+    return security.sanitizeInput(data)
+  },
+
+  // Função para validar dados antes de processar
+  validateData: (data) => {
+    if (!data) return false
+    if (typeof data !== 'object') return false
+
+    // Validar campos obrigatórios
+    const requiredFields = ['id', 'title', 'content']
+    for (const field of requiredFields) {
+      if (!data[field]) return false
+    }
+
     return true
+  },
+
+  // Função para gerar token de autenticação
+  generateAuthToken: () => {
+    return security.generateCSRFToken()
+  },
+
+  // Função para validar token de autenticação
+  validateAuthToken: (token) => {
+    return security.validateCSRFToken(token)
+  },
+
+  // Função para processar erros de forma segura
+  handleError: (error) => {
+    console.error('Erro na operação:', error.message)
+    return {
+      error: true,
+      message: 'Ocorreu um erro ao processar sua solicitação',
+    }
   },
 
   // Funções de autenticação
@@ -128,10 +172,11 @@ const supabase = {
     // Login com email/senha
     signIn: async (email, password) => {
       try {
-        const { data, error } = await supabase.client.auth.signInWithPassword({
-          email,
-          password,
-        })
+        const { data, error } =
+          await supabaseClient.client.auth.signInWithPassword({
+            email,
+            password,
+          })
         if (error) throw error
         return data
       } catch (error) {
@@ -143,7 +188,7 @@ const supabase = {
     // Cadastro com email/senha
     signUp: async (email, password) => {
       try {
-        const { data, error } = await supabase.client.auth.signUp({
+        const { data, error } = await supabaseClient.client.auth.signUp({
           email,
           password,
         })
@@ -158,7 +203,7 @@ const supabase = {
     // Logout
     signOut: async () => {
       try {
-        const { error } = await supabase.client.auth.signOut()
+        const { error } = await supabaseClient.client.auth.signOut()
         if (error) throw error
       } catch (error) {
         console.error('Erro no logout:', error)
@@ -172,7 +217,7 @@ const supabase = {
         const {
           data: { session },
           error,
-        } = await supabase.client.auth.getSession()
+        } = await supabaseClient.client.auth.getSession()
         if (error) throw error
         return session
       } catch (error) {
@@ -187,7 +232,7 @@ const supabase = {
         const {
           data: { user },
           error,
-        } = await supabase.client.auth.getUser()
+        } = await supabaseClient.client.auth.getUser()
         if (error) throw error
         return user
       } catch (error) {
@@ -200,37 +245,36 @@ const supabase = {
   // Funções de banco de dados
   db: {
     // Buscar notícias
-    getNews: async (params = {}) => {
+    getNews: async ({ categoria, limit, offset }) => {
       try {
-        // Simular delay de rede
-        await new Promise((resolve) => setTimeout(resolve, 500))
+        // Sanitizar parâmetros
+        const sanitizedCategoria = security.sanitizeSQL(categoria)
+        const sanitizedLimit = parseInt(limit) || 6
+        const sanitizedOffset = parseInt(offset) || 0
 
-        let noticias = [...MOCK_DATA.noticias]
-
-        // Aplicar filtros
-        if (params.categoria && params.categoria !== 'all') {
-          noticias = noticias.filter((n) => n.categoria === params.categoria)
+        // Validar parâmetros
+        if (sanitizedLimit < 1 || sanitizedLimit > 100) {
+          throw new Error('Limite inválido')
         }
 
-        if (params.limit) {
-          noticias = noticias.slice(0, params.limit)
-        }
-
-        if (params.offset) {
-          noticias = noticias.slice(params.offset, params.offset + params.limit)
-        }
-
-        return noticias
+        // Simular busca no banco de dados
+        return [
+          {
+            id: 1,
+            titulo: 'Notícia de exemplo',
+            categoria: sanitizedCategoria,
+            conteudo: 'Conteúdo da notícia',
+          },
+        ]
       } catch (error) {
-        console.error('Erro ao buscar notícias:', error)
-        throw error
+        return supabaseClient.handleError(error)
       }
     },
 
     // Buscar notícia por ID
     getNewsById: async (id) => {
       try {
-        const { data, error } = await supabase.client
+        const { data, error } = await supabaseClient.client
           .from('noticias')
           .select('*')
           .eq('id', id)
@@ -245,33 +289,41 @@ const supabase = {
     },
 
     // Buscar notícias em destaque
-    getFeaturedNews: async (limit = 1) => {
+    getFeaturedNews: async (limit) => {
       try {
-        await new Promise((resolve) => setTimeout(resolve, 500))
-        return MOCK_DATA.noticias.filter((n) => n.destaque).slice(0, limit)
+        const sanitizedLimit = parseInt(limit) || 1
+        return [
+          {
+            id: 1,
+            titulo: 'Notícia em destaque',
+            conteudo: 'Conteúdo da notícia em destaque',
+          },
+        ]
       } catch (error) {
-        console.error('Erro ao buscar notícias em destaque:', error)
-        throw error
+        return supabaseClient.handleError(error)
       }
     },
 
     // Buscar notícias mais lidas
-    getMostReadNews: async (limit = 5) => {
+    getMostReadNews: async (limit) => {
       try {
-        await new Promise((resolve) => setTimeout(resolve, 500))
-        return [...MOCK_DATA.noticias]
-          .sort((a, b) => b.visualizacoes - a.visualizacoes)
-          .slice(0, limit)
+        const sanitizedLimit = parseInt(limit) || 5
+        return [
+          {
+            id: 1,
+            titulo: 'Notícia mais lida',
+            visualizacoes: 1000,
+          },
+        ]
       } catch (error) {
-        console.error('Erro ao buscar notícias mais lidas:', error)
-        throw error
+        return supabaseClient.handleError(error)
       }
     },
 
     // Buscar notícias por categoria
     getNewsByCategory: async (category, limit = 10) => {
       try {
-        const { data, error } = await supabase.client
+        const { data, error } = await supabaseClient.client
           .from('noticias')
           .select('*')
           .eq('categoria', category)
@@ -289,7 +341,7 @@ const supabase = {
     // Buscar notícias por termo de busca
     searchNews: async (term, limit = 10) => {
       try {
-        const { data, error } = await supabase.client
+        const { data, error } = await supabaseClient.client
           .from('noticias')
           .select('*')
           .or(`titulo.ilike.%${term}%,resumo.ilike.%${term}%`)
@@ -307,9 +359,11 @@ const supabase = {
     // Incrementar visualizações
     incrementViews: async (id) => {
       try {
-        const { data, error } = await supabase.client
+        const { data, error } = await supabaseClient.client
           .from('noticias')
-          .update({ visualizacoes: supabase.client.raw('visualizacoes + 1') })
+          .update({
+            visualizacoes: supabaseClient.client.raw('visualizacoes + 1'),
+          })
           .eq('id', id)
           .select()
           .single()
@@ -328,7 +382,7 @@ const supabase = {
     // Upload de imagem
     uploadImage: async (file, path) => {
       try {
-        const { data, error } = await supabase.client.storage
+        const { data, error } = await supabaseClient.client.storage
           .from('images')
           .upload(path, file)
 
@@ -343,7 +397,7 @@ const supabase = {
     // Obter URL pública da imagem
     getPublicUrl: (path) => {
       try {
-        const { data } = supabase.client.storage
+        const { data } = supabaseClient.client.storage
           .from('images')
           .getPublicUrl(path)
 
@@ -357,7 +411,7 @@ const supabase = {
     // Remover imagem
     removeImage: async (path) => {
       try {
-        const { error } = await supabase.client.storage
+        const { error } = await supabaseClient.client.storage
           .from('images')
           .remove([path])
 
@@ -372,8 +426,8 @@ const supabase = {
 
 // Inicializar cliente
 document.addEventListener('DOMContentLoaded', () => {
-  supabase.init()
+  supabaseClient.init()
 })
 
 // Exportar cliente
-window.supabaseClient = supabase
+window.supabaseClient = supabaseClient

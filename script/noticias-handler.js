@@ -3,6 +3,10 @@
  * Este arquivo contém as funções para carregar e exibir notícias
  */
 
+import httpClient from './http-client.js'
+import xssProtection from './xss-protection.js'
+import security from './security.js'
+
 // Estado da aplicação
 let state = {
   currentPage: 1,
@@ -236,3 +240,130 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(card)
   })
 })
+
+const noticiasHandler = {
+  // Função para carregar notícias
+  async loadNoticias(params = {}) {
+    try {
+      // Sanitizar parâmetros
+      const sanitizedParams = xssProtection.sanitizeObject(params)
+
+      // Fazer requisição
+      const noticias = await httpClient.get('/noticias', {
+        params: sanitizedParams,
+      })
+
+      // Sanitizar resposta
+      return noticias.map((noticia) => ({
+        ...noticia,
+        titulo: xssProtection.sanitizeText(noticia.titulo),
+        conteudo: xssProtection.sanitizeHTML(noticia.conteudo),
+        imagem: xssProtection.sanitizeURL(noticia.imagem),
+      }))
+    } catch (error) {
+      console.error('Erro ao carregar notícias:', error)
+      throw error
+    }
+  },
+
+  // Função para carregar notícia por ID
+  async loadNoticiaById(id) {
+    try {
+      // Sanitizar ID
+      const sanitizedId = security.sanitizeInput(id)
+
+      // Fazer requisição
+      const noticia = await httpClient.get(`/noticias/${sanitizedId}`)
+
+      // Sanitizar resposta
+      return {
+        ...noticia,
+        titulo: xssProtection.sanitizeText(noticia.titulo),
+        conteudo: xssProtection.sanitizeHTML(noticia.conteudo),
+        imagem: xssProtection.sanitizeURL(noticia.imagem),
+      }
+    } catch (error) {
+      console.error('Erro ao carregar notícia:', error)
+      throw error
+    }
+  },
+
+  // Função para criar notícia
+  async createNoticia(noticia) {
+    try {
+      // Sanitizar dados
+      const sanitizedNoticia = {
+        ...noticia,
+        titulo: xssProtection.sanitizeText(noticia.titulo),
+        conteudo: xssProtection.sanitizeHTML(noticia.conteudo),
+        imagem: xssProtection.sanitizeURL(noticia.imagem),
+      }
+
+      // Validar dados
+      if (!sanitizedNoticia.titulo || !sanitizedNoticia.conteudo) {
+        throw new Error('Título e conteúdo são obrigatórios')
+      }
+
+      // Fazer requisição
+      return await httpClient.post('/noticias', sanitizedNoticia)
+    } catch (error) {
+      console.error('Erro ao criar notícia:', error)
+      throw error
+    }
+  },
+
+  // Função para atualizar notícia
+  async updateNoticia(id, noticia) {
+    try {
+      // Sanitizar ID e dados
+      const sanitizedId = security.sanitizeInput(id)
+      const sanitizedNoticia = {
+        ...noticia,
+        titulo: xssProtection.sanitizeText(noticia.titulo),
+        conteudo: xssProtection.sanitizeHTML(noticia.conteudo),
+        imagem: xssProtection.sanitizeURL(noticia.imagem),
+      }
+
+      // Validar dados
+      if (!sanitizedNoticia.titulo || !sanitizedNoticia.conteudo) {
+        throw new Error('Título e conteúdo são obrigatórios')
+      }
+
+      // Fazer requisição
+      return await httpClient.put(`/noticias/${sanitizedId}`, sanitizedNoticia)
+    } catch (error) {
+      console.error('Erro ao atualizar notícia:', error)
+      throw error
+    }
+  },
+
+  // Função para deletar notícia
+  async deleteNoticia(id) {
+    try {
+      // Sanitizar ID
+      const sanitizedId = security.sanitizeInput(id)
+
+      // Fazer requisição
+      return await httpClient.delete(`/noticias/${sanitizedId}`)
+    } catch (error) {
+      console.error('Erro ao deletar notícia:', error)
+      throw error
+    }
+  },
+
+  // Função para incrementar visualizações
+  async incrementViews(id) {
+    try {
+      // Sanitizar ID
+      const sanitizedId = security.sanitizeInput(id)
+
+      // Fazer requisição
+      return await httpClient.post(`/noticias/${sanitizedId}/views`)
+    } catch (error) {
+      console.error('Erro ao incrementar visualizações:', error)
+      throw error
+    }
+  },
+}
+
+export default noticiasHandler
