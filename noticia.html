@@ -1,209 +1,454 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Notícias | InvestSavy</title>
-    <meta
-      name="description"
-      content="As notícias mais importantes do mercado financeiro, economia e negócios para você tomar as melhores decisões."
-    />
-    <meta
-      name="keywords"
-      content="notícias, economia, mercados, empresas, tecnologia, finanças pessoais, política, internacional, investimentos, educação financeira"
-    />
 
-    <!-- Preload de fontes e recursos críticos -->
-    <link
-      rel="preload"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-solid-900.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin
-    />
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notícias | InvestSavy</title>
+  <meta name="description"
+    content="As notícias mais importantes do mercado financeiro, economia e negócios para você tomar as melhores decisões.">
+  <link rel="stylesheet" href="css/style-noticia.css">
+  <link rel="stylesheet" href="css/menu-responsivo.css">
+  <link rel="stylesheet" href="/css/image-hover-effects.css">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Fontes -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
+</head>
 
-    <!-- Estilos -->
-    <link rel="stylesheet" href="/css/style-noticia.css" />
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container-LOGO">
+      <div class="logo">
+        <span style="color: #1e40af">Invest</span><span style="color: #10b981">Savy</span>
+      </div>
+    </div>
 
-    <link rel="stylesheet" href="/css/image-hover-effects.css" />
-    <link rel="stylesheet" href="/css/menu-responsivo.css" />
+    <div class="menu-toggle">
+      <i class="fas fa-bars"></i>
+    </div>
 
-    <!-- Favicon -->
-    <link rel="icon" href="/images/Camada 1.png" type="image/x-icon" />
-  </head>
+    <nav class="nav-menu">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="noticia.html">Notícias</a></li>
+        <li><a href="servicos.html">Ferramentas</a></li>
+        <li><a href="educacao.html">Aprender</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+      </ul>
+    </nav>
 
-  <body>
-    <header>
-      <div class="container-LOGO">
-        <div class="logo">
-          <span style="color: #1e40af">Invest</span
-          ><span style="color: #10b981">Savy</span>
+    <div class="search-icon">
+      <i class="fas fa-search"></i>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section" style="margin-top: 30px;">
+    <div class="hero-content">
+      <h1>Notícias</h1>
+      <p>As notícias mais importantes do mercado financeiro, economia e negócios para você tomar as melhores decisões
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Container -->
+  <div class="main-container">
+    <!-- Content Area -->
+    <main class="content-area">
+      <!-- News Filter -->
+      <section class="news-filter">
+        <div class="filter-buttons">
+          <button class="filter-btn active" data-filter="all">Todas</button>
+          <button class="filter-btn" data-filter="economia">Economia</button>
+          <button class="filter-btn" data-filter="mercados">Mercados</button>
+          <button class="filter-btn" data-filter="empresas">Empresas</button>
+          <button class="filter-btn" data-filter="tecnologia">Tecnologia</button>
+          <button class="filter-btn" data-filter="financas-pessoais">Finanças Pessoais</button>
+          <button class="filter-btn" data-filter="politica">Política</button>
+          <button class="filter-btn" data-filter="internacional">Internacional</button>
         </div>
-      </div>
-
-      <div class="menu-toggle" alt="Botão-Menu">
-        <i class="fas fa-bars"></i>
-      </div>
-
-      <nav class="nav-menu">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="noticia.html">Notícias</a></li>
-          <li><a href="servicos.html">Ferramentas</a></li>
-          <li><a href="educacao.html">Aprender</a></li>
-          <li><a href="sobre.html">Sobre</a></li>
-        </ul>
-      </nav>
-
-      <div class="search-icon">
-        <i class="fas fa-search"></i>
-      </div>
-    </header>
-
-    <main class="main-container">
-      <section class="news-filter" aria-label="Filtrar notícias por categoria">
-        <button class="filter-btn active" data-filter="all">Todas</button>
-        <button class="filter-btn" data-filter="economia">Economia</button>
-        <button class="filter-btn" data-filter="mercados">Mercados</button>
-        <button class="filter-btn" data-filter="empresas">Empresas</button>
-        <button class="filter-btn" data-filter="tecnologia">Tecnologia</button>
-        <button class="filter-btn" data-filter="finanças-pessoais">
-          Finanças Pessoais
-        </button>
-        <button class="filter-btn" data-filter="política">Política</button>
-        <button class="filter-btn" data-filter="internacional">
-          Internacional
-        </button>
       </section>
 
-      <section class="featured-news" aria-label="Destaque">
+      <!-- Featured News -->
+      <section class="featured-news">
         <article class="featured-article">
-          <a href="#" class="featured-image-link">
-            <div
-              class="featured-image"
-              role="img"
-              aria-label="Imagem de destaque"
-            ></div>
-          </a>
+          <div class="featured-image"
+            style="background-image: url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+          </div>
           <div class="featured-content">
-            <h2 class="featured-title">
-              <a href="#">Carregando...</a>
-            </h2>
-            <p class="featured-excerpt">Carregando conteúdo em destaque...</p>
+            <h2><a href="#detalhes">Banco Central sinaliza possível corte na taxa de juros em resposta à desaceleração
+                da inflação</a></h2>
+            <p class="featured-excerpt">Ata da última reunião indica que o comitê pode reduzir a taxa Selic nos próximos
+              meses se a desaceleração da inflação se mantiver consistente nas próximas medições.</p>
             <div class="article-meta">
-              <span><i class="far fa-calendar"></i> Carregando...</span>
-              <span><i class="far fa-clock"></i> Carregando...</span>
-              <span><i class="far fa-eye"></i> Carregando...</span>
-              <span>Carregando...</span>
+              <span><i class="far fa-calendar"></i> 25 de maio, 2024</span>
+              <span><i class="far fa-clock"></i> 10:45</span>
+              <span><i class="far fa-eye"></i> 1.543</span>
+              <span>Por Ana Silva</span>
             </div>
           </div>
         </article>
       </section>
 
-      <section class="recent-news" aria-label="Notícias Recentes">
-        <h2>
-          Notícias Recentes
-          <span class="news-count">Carregando...</span>
-        </h2>
-        <div class="news-grid">
-          <!-- As notícias serão carregadas via JavaScript -->
+      <!-- Recent News -->
+      <section class="recent-news">
+        <h2>Notícias Recentes <span class="news-count">7 artigos encontrados</span></h2>
+        <div class="news-grid" id="newsGrid">
+          <!-- News cards will be populated by JavaScript -->
         </div>
         <div class="load-more-container">
-          <button
-            class="load-more-btn"
-            id="loadMoreBtn"
-            aria-label="Carregar mais notícias"
-          >
+          <button class="load-more-btn" id="loadMoreBtn">
             <i class="fas fa-plus"></i> Carregar mais notícias
           </button>
         </div>
       </section>
-
-      <aside class="sidebar">
-        <div class="sidebar-section">
-          <h3 class="sidebar-title">
-            <i class="fas fa-clock"></i> Últimas Atualizações
-          </h3>
-          <ul class="sidebar-list" id="ultimasAtualizacoes">
-            <!-- Últimas atualizações serão carregadas via JavaScript -->
-          </ul>
-        </div>
-        <div class="sidebar-section">
-          <h3 class="sidebar-title"><i class="fas fa-fire"></i> Mais Lidas</h3>
-          <ul class="sidebar-list" id="maisLidas">
-            <!-- Mais lidas serão carregadas via JavaScript -->
-          </ul>
-        </div>
-        <div class="sidebar-section">
-          <h3 class="sidebar-title"><i class="fas fa-tags"></i> Tópicos</h3>
-          <div class="topics-tags" id="topicos">
-            <!-- Tópicos serão carregados via JavaScript -->
-          </div>
-        </div>
-        <div class="sidebar-section">
-          <h3 class="sidebar-title">
-            <i class="fas fa-envelope"></i> Receba as notícias em seu email
-          </h3>
-          <p class="newsletter-description">
-            Inscreva-se para receber as últimas atualizações sobre o mercado
-            financeiro.
-          </p>
-          <form class="newsletter-form" id="newsletterForm">
-            <input
-              type="email"
-              class="newsletter-input"
-              placeholder="Seu e-mail"
-              required
-              aria-label="Seu e-mail"
-            />
-            <button type="submit" class="newsletter-btn">Inscrever-se</button>
-          </form>
-        </div>
-      </aside>
     </main>
 
-    <button id="backToTop" class="back-to-top" aria-label="Voltar ao topo">
-      <i class="fas fa-arrow-up"></i>
-    </button>
-
-    <footer class="footer">
-      <div class="footer-content">
-        <span
-          >&copy; <span id="currentYear"></span> InvestSavy. Todos os direitos
-          reservados.</span
-        >
-        <nav class="footer-nav">
-          <a href="/sobre.html">Sobre</a>
-          <a href="/servicos.html">Ferramentas</a>
-          <a href="/educacao.html">Educação</a>
-          <a href="/noticia.html">Notícias</a>
-        </nav>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <!-- Latest Updates -->
+      <div class="sidebar-section">
+        <h3 class="sidebar-title">
+          <i class="fas fa-clock"></i> Últimas Atualizações
+        </h3>
+        <ul class="sidebar-list" id="ultimasAtualizacoes">
+          <li>
+            <a href="#">Conselho da Petrobras aprova nova política de dividendos</a>
+            <div class="sidebar-meta">Empresas • 16:40</div>
+          </li>
+          <li>
+            <a href="#">Superávit comercial atinge US$ 8 bilhões em abril</a>
+            <div class="sidebar-meta">Economia • 16:20</div>
+          </li>
+          <li>
+            <a href="#">Setor de serviços cresce pelo terceiro mês consecutivo</a>
+            <div class="sidebar-meta">Economia • 14:50</div>
+          </li>
+          <li>
+            <a href="#">Ministério da Fazenda revisa projeção de crescimento para 2025</a>
+            <div class="sidebar-meta">Economia • 13:15</div>
+          </li>
+          <li>
+            <a href="#">Produção industrial avança 1,1% em março</a>
+            <div class="sidebar-meta">Indústria • 10:45</div>
+          </li>
+        </ul>
       </div>
-    </footer>
 
-    <!-- Scripts -->
-    <script src="/script/js-universal.js"></script>
-    <script src="/script/supabase-client.js"></script>
-    <script src="/script/noticias-handler.js"></script>
-    <script src="/script/image-accessibility.js"></script>
-    <script src="/script/menu-responsivo.js"></script>
-    <script src="/script/feedback-visual.js"></script>
-    <script src="/script/seo-optimization.js"></script>
-    <script>
-      // Atualizar o ano atual no footer
-      document.getElementById('currentYear').textContent =
-        new Date().getFullYear()
-    </script>
-  </body>
+      <!-- Most Read -->
+      <div class="sidebar-section">
+        <h3 class="sidebar-title">
+          <i class="fas fa-fire"></i> Mais Lidas
+        </h3>
+        <ul class="sidebar-list" id="maisLidas">
+          <li><a href="#">Dólar cai abaixo de R$ 5,00 após dados positivos da economia</a></li>
+          <li><a href="#">Bolsa brasileira supera 150 mil pontos e atinge novo recorde</a></li>
+          <li><a href="#">PIB do primeiro trimestre cresce acima das expectativas</a></li>
+          <li><a href="#">CVM aprova novas regras para criptoativos no mercado brasileiro</a></li>
+          <li><a href="#">Governo anuncia pacote de incentivos para startups de tecnologia</a></li>
+        </ul>
+      </div>
+
+      <!-- Topics -->
+      <div class="sidebar-section">
+        <h3 class="sidebar-title">
+          <i class="fas fa-tags"></i> Tópicos
+        </h3>
+        <div class="topics-tags" id="topicos">
+          <a href="#" class="topic-tag">Mercado Financeiro</a>
+          <a href="#" class="topic-tag">Inflação</a>
+          <a href="#" class="topic-tag">Juros</a>
+          <a href="#" class="topic-tag">Dólar</a>
+          <a href="#" class="topic-tag">Bovespa</a>
+          <a href="#" class="topic-tag">PIB</a>
+          <a href="#" class="topic-tag">Criptomoedas</a>
+          <a href="#" class="topic-tag">Bolsa</a>
+          <a href="#" class="topic-tag">Investimentos</a>
+          <a href="#" class="topic-tag">Finanças Pessoais</a>
+        </div>
+      </div>
+
+      <!-- Newsletter -->
+      <div class="sidebar-section">
+        <h3 class="sidebar-title">
+          <i class="fas fa-envelope"></i> Receba as notícias em seu email
+        </h3>
+        <p class="newsletter-description">
+          Inscreva-se para receber as últimas atualizações sobre o mercado financeiro.
+        </p>
+        <form class="newsletter-form" id="newsletterForm">
+          <input type="email" class="newsletter-input" placeholder="Seu e-mail" required>
+          <button type="submit" class="newsletter-btn">Inscrever-se</button>
+        </form>
+      </div>
+    </aside>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container-footer-alt">
+      <div class="footer-brand">
+        <div class="logo-footer">
+          <span style="color: #1e40af">Invest</span><span style="color: #10b981">Savy</span>
+        </div>
+        <p>Democratizando o acesso à educação<br />financeira para todos.</p>
+        <p class="copyright">
+          &copy; 2025 InvestSavy. Todos os direitos reservados.
+        </p>
+      </div>
+      <div class="footer-links">
+        <h4>NAVEGAÇÃO</h4>
+        <ul>
+          <li><a href="index.html">Página Inicial</a></li>
+          <li><a href="blogs-main.html">Notícias</a></li>
+          <li><a href="#ferramentas">Ferramentas</a></li>
+          <li><a href="#educacao-financeira">Educação Financeira</a></li>
+          <li><a href="sobre.html">Sobre Nós</a></li>
+        </ul>
+      </div>
+      <div class="footer-tools">
+        <h4>FERRAMENTAS</h4>
+        <ul>
+          <li>
+            <a href="#calculadora-juros">Calculadora de Juros Compostos</a>
+          </li>
+          <li>
+            <a href="#simulador-aposentadoria">Simulador de Aposentadoria</a>
+          </li>
+          <li>
+            <a href="#comparador-investimentos">Comparador de Investimentos</a>
+          </li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>CONTATO</h4>
+        <p>contato@investsavy.com.br</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mock data for news
+    const mockNews = [
+      {
+        id: 1,
+        title: "Bolsa brasileira supera 150 mil pontos e atinge novo recorde",
+        excerpt: "Índice Ibovespa registra alta de 2,5% impulsionado por commodities e bancos, superando as expectativas do mercado.",
+        category: "Mercados",
+        image: "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        date: "2024-05-25",
+        time: "15:30",
+        views: "901",
+        author: "Carlos Silva"
+      },
+      {
+        id: 2,
+        title: "Governo anuncia pacote de incentivos para startups de tecnologia",
+        excerpt: "Medida prevê redução de impostos e acesso facilitado a crédito para empresas de tecnologia e inovação.",
+        category: "Tecnologia",
+        image: "https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        date: "2024-05-25",
+        time: "12:20",
+        views: "756",
+        author: "Maria Santos"
+      },
+      {
+        id: 3,
+        title: "Dólar cai abaixo de R$ 5,00 após dados positivos da economia",
+        excerpt: "Moeda americana acumula queda de 3% na semana, beneficiando setores dependentes de importação.",
+        category: "Economia",
+        image: "https://images.unsplash.com/photo-1580519542036-c47de6196ba5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        date: "2024-05-25",
+        time: "09:15",
+        views: "1020",
+        author: "João Pereira"
+      },
+      {
+        id: 4,
+        title: "Inflação de abril fica abaixo do centro da meta pelo primeira vez em três anos",
+        excerpt: "IPCA registra alta de 0,25% no mês, dentro do esperado pelo Conselho Monetário Nacional.",
+        category: "Economia",
+        image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        date: "2024-05-24",
+        time: "16:45",
+        views: "843",
+        author: "Ana Costa"
+      },
+      {
+        id: 5,
+        title: "CVM aprova novas regras para criptoativos no mercado brasileiro",
+        excerpt: "Regulamentação busca maior segurança para investidores e transparência no setor de moedas digitais.",
+        category: "Tecnologia",
+        image: "https://images.unsplash.com/photo-1621761191319-c6fb62004040?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        date: "2024-05-24",
+        time: "14:30",
+        views: "645",
+        author: "Roberto Lima"
+      },
+      {
+        id: 6,
+        title: "Empresas brasileiras captam US$ 5 bilhões no exterior no primeiro quadrimestre",
+        excerpt: "Volume de emissões externas supera todo o ano de 2024, refletindo confiança do investidor estrangeiro.",
+        category: "Empresas",
+        image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        date: "2024-05-24",
+        time: "10:15",
+        views: "342",
+        author: "Patricia Souza"
+      }
+    ];
+
+    // DOM Elements
+    const newsGrid = document.getElementById('newsGrid');
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const loadMoreBtn = document.getElementById('loadMoreBtn');
+    const newsletterForm = document.getElementById('newsletterForm');
+
+    // State
+    let currentFilter = 'all';
+    let currentPage = 1;
+    const itemsPerPage = 6;
+
+    // Format date
+    function formatDate(dateString) {
+      const date = new Date(dateString);
+      return date.toLocaleDateString('pt-BR', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric'
+      });
+    }
+
+    // Create news card
+    function createNewsCard(news) {
+      return `
+                <article class="news-card" data-category="${news.category.toLowerCase()}">
+                    <div class="news-image" style="background-image: url('${news.image}')" role="img" aria-label="${news.title}">
+                        <span class="news-category">${news.category}</span>
+                    </div>
+                    <div class="news-content">
+                        <h3 class="news-title">
+                            <a href="#detalhes-${news.id}">${news.title}</a>
+                        </h3>
+                        <p class="news-excerpt">${news.excerpt}</p>
+                        <div class="article-meta">
+                            <span><i class="far fa-calendar"></i> ${formatDate(news.date)}</span>
+                            <span><i class="far fa-clock"></i> ${news.time}</span>
+                            <span><i class="far fa-eye"></i> ${news.views}</span>
+                            <span>${news.author}</span>
+                        </div>
+                    </div>
+                </article>
+            `;
+    }
+
+    // Load news
+    function loadNews(append = false) {
+      const filteredNews = currentFilter === 'all'
+        ? mockNews
+        : mockNews.filter(news => news.category.toLowerCase() === currentFilter);
+
+      const startIndex = (currentPage - 1) * itemsPerPage;
+      const endIndex = startIndex + itemsPerPage;
+      const newsToShow = filteredNews.slice(startIndex, endIndex);
+
+      if (!append) {
+        newsGrid.innerHTML = '';
+      }
+
+      newsToShow.forEach(news => {
+        newsGrid.innerHTML += createNewsCard(news);
+      });
+
+      // Hide load more button if no more news
+      if (endIndex >= filteredNews.length) {
+        loadMoreBtn.style.display = 'none';
+      } else {
+        loadMoreBtn.style.display = 'block';
+      }
+
+      // Update news count
+      document.querySelector('.news-count').textContent = `${filteredNews.length} artigos encontrados`;
+    }
+
+    // Filter news
+    function filterNews(filter) {
+      if (filter === currentFilter) return;
+
+      currentFilter = filter;
+      currentPage = 1;
+
+      // Update active button
+      filterBtns.forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.filter === filter);
+      });
+
+      loadNews();
+    }
+
+    // Event listeners
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => filterNews(btn.dataset.filter));
+    });
+
+    loadMoreBtn.addEventListener('click', () => {
+      currentPage++;
+      loadNews(true);
+    });
+
+    newsletterForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = e.target.querySelector('.newsletter-input').value;
+      alert(`Obrigado por se inscrever com o email: ${email}`);
+      e.target.reset();
+    });
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', () => {
+      loadNews();
+
+      // Add intersection observer for animations
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, { threshold: 0.1 });
+
+      // Apply animation to news cards as they're added
+      const observeNewCards = () => {
+        document.querySelectorAll('.news-card').forEach(card => {
+          if (!card.style.opacity) {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+          }
+        });
+      };
+
+      // Initial observation
+      setTimeout(observeNewCards, 100);
+
+      // Re-observe when new cards are added
+      const originalInnerHTML = newsGrid.innerHTML;
+      new MutationObserver(() => {
+        if (newsGrid.innerHTML !== originalInnerHTML) {
+          observeNewCards();
+        }
+      }).observe(newsGrid, { childList: true });
+    });
+  </script>
+</body>
+
 </html>
