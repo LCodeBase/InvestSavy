@@ -11,27 +11,27 @@ const HeroSection = () => {
           <div className="space-y-8 animate-fade-in">
             <div className="space-y-4">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                Transforme sua 
+                Transforme sua
                 <span className="text-gradient block">vida financeira</span>
                 com educação prática
               </h1>
               <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
-                Aprenda educação financeira de forma simples e prática. 
-                Trilhas interativas, ferramentas úteis e conteúdo voltado 
+                Aprenda educação financeira de forma simples e prática.
+                Trilhas interativas, ferramentas úteis e conteúdo voltado
                 para quem está começando do zero.
               </p>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button 
-                size="lg" 
+              <Button
+                size="lg"
                 className="bg-finance-green hover:bg-finance-green-dark text-white px-8 py-6 text-lg"
               >
                 Comece Agora Grátis
               </Button>
-              <Button 
-                variant="outline" 
-                size="lg" 
+              <Button
+                variant="outline"
+                size="lg"
                 className="border-finance-blue text-finance-blue hover:bg-finance-blue hover:text-white px-8 py-6 text-lg"
               >
                 Ver Trilhas
@@ -80,7 +80,7 @@ const HeroSection = () => {
                 <div className="text-xs text-gray-600">Progresso: 65% completo</div>
               </div>
             </div>
-            
+
             {/* Floating elements */}
             <div className="absolute -top-4 -right-4 bg-finance-green text-white px-3 py-1 rounded-full text-sm font-medium animate-pulse-gentle">
               Novo!
