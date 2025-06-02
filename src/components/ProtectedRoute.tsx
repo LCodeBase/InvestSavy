@@ -1,25 +1,32 @@
-import { Navigate } from "react-router-dom";
-import { useAuth } from "@/contexts/AuthContext";
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
+import { useAuth } from '../hooks/useAuth';
 
-type ProtectedRouteProps = {
+interface ProtectedRouteProps {
   children: React.ReactNode;
-};
+}
 
-const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
+export function ProtectedRoute({ children }: ProtectedRouteProps) {
   const { user, loading } = useAuth();
+  const router = useRouter();
 
-  // Mostrar um indicador de carregamento enquanto verifica a autenticação
+  useEffect(() => {
+    if (!loading && !user) {
+      // Redirecionar para a página de login se não estiver autenticado
+      router.push('/login');
+    }
+  }, [user, loading, router]);
+
+  // Mostrar loading enquanto verifica autenticação
   if (loading) {
-    return <div className="min-h-screen flex items-center justify-center">Carregando...</div>;
+    return <div>Carregando...</div>;
   }
 
-  // Redirecionar para a página de login se o usuário não estiver autenticado
+  // Se não estiver autenticado, não renderiza nada
   if (!user) {
-    return <Navigate to="/login" replace />;
+    return null;
   }
 
-  // Renderizar o conteúdo protegido se o usuário estiver autenticado
+  // Se estiver autenticado, renderiza o conteúdo protegido
   return <>{children}</>;
-};
-
-export default ProtectedRoute;
+}

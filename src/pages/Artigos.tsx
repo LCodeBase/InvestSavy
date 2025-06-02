@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from "@/components/ui/pagination";
 import { Book, Clock, Tag, User, Search } from "lucide-react";
+import { Link } from "react-router-dom"; // Importar o Link do react-router-dom
 
 const Artigos = () => {
   const categorias = [
@@ -17,6 +18,7 @@ const Artigos = () => {
 
   const artigos = [
     {
+      id: "0", // Adicionar ID para cada artigo
       title: "5 Erros Comuns de Quem Está Começando",
       description: "Evite os principais erros que iniciantes cometem ao organizar suas finanças pessoais.",
       image: "/placeholder.svg",
@@ -27,6 +29,7 @@ const Artigos = () => {
       featured: true
     },
     {
+      id: "1",
       title: "Guia Completo sobre Tesouro Direto",
       description: "Tudo o que você precisa saber para começar a investir no Tesouro Direto de forma segura.",
       image: "/placeholder.svg",
@@ -37,6 +40,7 @@ const Artigos = () => {
       featured: false
     },
     {
+      id: "2",
       title: "Como Montar uma Reserva de Emergência",
       description: "Passo a passo para criar sua reserva de emergência e garantir segurança financeira.",
       image: "/placeholder.svg",
@@ -47,6 +51,7 @@ const Artigos = () => {
       featured: false
     },
     {
+      id: "3",
       title: "Inflação: Como Proteger seu Dinheiro",
       description: "Estratégias para proteger seu patrimônio em tempos de alta inflação.",
       image: "/placeholder.svg",
@@ -57,6 +62,7 @@ const Artigos = () => {
       featured: false
     },
     {
+      id: "4",
       title: "Investimentos em Renda Fixa: Guia para Iniciantes",
       description: "Conheça as principais opções de renda fixa disponíveis no mercado brasileiro.",
       image: "/placeholder.svg",
@@ -67,6 +73,7 @@ const Artigos = () => {
       featured: false
     },
     {
+      id: "5",
       title: "Como Organizar as Finanças em Casal",
       description: "Dicas práticas para casais organizarem as finanças juntos e evitarem conflitos.",
       image: "/placeholder.svg",
@@ -77,6 +84,7 @@ const Artigos = () => {
       featured: false
     },
     {
+      id: "6",
       title: "Educação Financeira para Crianças",
       description: "Como ensinar conceitos financeiros para crianças de diferentes idades.",
       image: "/placeholder.svg",
@@ -87,6 +95,7 @@ const Artigos = () => {
       featured: false
     },
     {
+      id: "7",
       title: "Entendendo a Taxa Selic e seu Impacto nos Investimentos",
       description: "Como as mudanças na taxa básica de juros afetam seus investimentos.",
       image: "/placeholder.svg",
@@ -100,6 +109,7 @@ const Artigos = () => {
 
   // Definindo a interface para os artigos
   interface Artigo {
+    id: string; // Adicionar ID na interface
     title: string;
     description: string;
     image: string;
@@ -163,11 +173,14 @@ const Artigos = () => {
                 </div>
               </div>
 
-              <Button
-                className="w-full bg-finance-blue hover:bg-finance-blue-dark text-white"
-              >
-                Ler Artigo
-              </Button>
+              {/* Substituir o Button por um Link que redireciona para a página de visualização */}
+              <Link to={`/artigos/${artigo.id}`}>
+                <Button
+                  className="w-full bg-finance-blue hover:bg-finance-blue-dark text-white"
+                >
+                  Ler Artigo
+                </Button>
+              </Link>
             </CardContent>
           </Card>
         ))}
