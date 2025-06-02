@@ -286,7 +286,7 @@ const Contato = () => {
                   <div className="bg-white rounded-lg shadow-md p-6">
                     <h4 className="font-medium text-gray-900 mb-2">O conteúdo é realmente gratuito?</h4>
                     <p className="text-gray-600">
-                      Sim! Todo o conteúdo educacional básico é 100% gratuito. Temos algumas ferramentas avançadas que podem ser desbloqueadas com planos premium.
+                      Sim! Todo o conteúdo educacional é 100% gratuito. Em breve iremos adicionar ferramentas avançadas que vão ser desbloqueadas com planos premium.
                     </p>
                   </div>
                   <div className="bg-white rounded-lg shadow-md p-6">

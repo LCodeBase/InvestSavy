@@ -2,8 +2,11 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Book, Users, Calendar, Home } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const TrailsPreview = () => {
+  const navigate = useNavigate();
+
   const trails = [
     {
       title: "Comece do Zero",
@@ -20,7 +23,7 @@ const TrailsPreview = () => {
       title: "Primeiros Investimentos",
       description: "Entenda Tesouro Direto, CDBs e outros produtos para iniciantes",
       modules: 8,
-      duration: "3 semanas", 
+      duration: "3 semanas",
       level: "Básico",
       icon: <Calendar className="h-6 w-6" />,
       progress: 0,
@@ -75,8 +78,8 @@ const TrailsPreview = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8 mb-12">
           {trails.map((trail, index) => (
-            <Card 
-              key={index} 
+            <Card
+              key={index}
               className={`card-hover relative ${trail.popular ? 'ring-2 ring-finance-green' : ''}`}
             >
               {trail.popular && (
@@ -84,7 +87,7 @@ const TrailsPreview = () => {
                   Mais Popular
                 </div>
               )}
-              
+
               <CardHeader className="pb-4">
                 <div className="flex items-start justify-between">
                   <div className={`w-12 h-12 rounded-lg bg-${trail.color}/10 flex items-center justify-center`}>
@@ -96,7 +99,7 @@ const TrailsPreview = () => {
                     {trail.level}
                   </span>
                 </div>
-                
+
                 <div className="space-y-2 mt-4">
                   <CardTitle className="text-xl text-gray-900">
                     {trail.title}
@@ -106,24 +109,24 @@ const TrailsPreview = () => {
                   </CardDescription>
                 </div>
               </CardHeader>
-              
+
               <CardContent className="space-y-4">
                 <div className="flex justify-between text-sm text-gray-500">
                   <span>{trail.modules} módulos</span>
                   <span>{trail.duration}</span>
                 </div>
-                
+
                 <div className="w-full bg-gray-200 rounded-full h-2">
-                  <div 
+                  <div
                     className={`bg-${trail.color} h-2 rounded-full`}
                     style={{ width: `${trail.progress}%` }}
                   ></div>
                 </div>
-                
-                <Button 
+
+                <Button
                   className={`w-full ${
-                    trail.color === 'finance-green' 
-                      ? 'bg-finance-green hover:bg-finance-green-dark' 
+                    trail.color === 'finance-green'
+                      ? 'bg-finance-green hover:bg-finance-green-dark'
                       : 'bg-finance-blue hover:bg-finance-blue-dark'
                   } text-white`}
                 >
@@ -135,10 +138,11 @@ const TrailsPreview = () => {
         </div>
 
         <div className="text-center">
-          <Button 
-            variant="outline" 
+          <Button
+            variant="outline"
             size="lg"
             className="border-finance-blue text-finance-blue hover:bg-finance-blue hover:text-white"
+            onClick={() => navigate('/trilhas')}
           >
             Ver Todas as Trilhas
           </Button>

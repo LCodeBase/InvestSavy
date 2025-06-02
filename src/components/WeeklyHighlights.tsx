@@ -2,8 +2,11 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Calendar, Users, Book } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const WeeklyHighlights = () => {
+  const navigate = useNavigate();
+
   const highlights = [
     {
       type: "Trilha em Destaque",
@@ -12,6 +15,7 @@ const WeeklyHighlights = () => {
       description: "Aprenda a organizar suas finanças pessoais e sair das dívidas com este guia completo para iniciantes.",
       progress: "68% dos usuários completaram",
       action: "Começar Trilha",
+      path: "/trilhas", // Caminho para a página Trilhas.tsx
       color: "finance-blue",
       bgColor: "bg-finance-blue/10"
     },
@@ -22,6 +26,7 @@ const WeeklyHighlights = () => {
       description: "Descubra o poder dos juros compostos e veja como pequenos aportes podem gerar grandes resultados.",
       progress: "Mais de 2.5k simulações esta semana",
       action: "Usar Ferramenta",
+      path: "/ferramentas", // Caminho para a página Ferramentas.tsx
       color: "finance-green",
       bgColor: "bg-finance-green/10"
     },
@@ -32,6 +37,7 @@ const WeeklyHighlights = () => {
       description: "Evite os principais erros que iniciantes cometem ao organizar suas finanças pessoais.",
       progress: "Publicado há 2 dias",
       action: "Ler Artigo",
+      path: "/artigos", // Caminho para a página Artigos.tsx
       color: "finance-blue",
       bgColor: "bg-finance-blue/10"
     }
@@ -51,8 +57,8 @@ const WeeklyHighlights = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {highlights.map((highlight, index) => (
-            <Card 
-              key={index} 
+            <Card
+              key={index}
               className="card-hover border-0 shadow-md bg-white"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
@@ -71,23 +77,23 @@ const WeeklyHighlights = () => {
                   </CardTitle>
                 </div>
               </CardHeader>
-              
+
               <CardContent className="space-y-4">
                 <CardDescription className="text-gray-600 leading-relaxed">
                   {highlight.description}
                 </CardDescription>
-                
+
                 <div className="space-y-3">
                   <div className="text-sm text-gray-500">
                     {highlight.progress}
                   </div>
-                  
-                  <Button 
-                    className={`w-full ${
-                      highlight.color === 'finance-green' 
-                        ? 'bg-finance-green hover:bg-finance-green-dark' 
-                        : 'bg-finance-blue hover:bg-finance-blue-dark'
-                    } text-white`}
+
+                  <Button
+                    className={`w-full ${highlight.color === 'finance-green'
+                      ? 'bg-finance-green hover:bg-finance-green-dark'
+                      : 'bg-finance-blue hover:bg-finance-blue-dark'
+                      } text-white`}
+                    onClick={() => navigate(highlight.path)}
                   >
                     {highlight.action}
                   </Button>
