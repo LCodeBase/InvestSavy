@@ -33,18 +33,21 @@ const Header = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm">
-      <div className="container mx-auto px-4 py-4">
+      <div className="container mx-auto px-4 py-3 sm:py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 rounded-lg from-finance-blue to-finance-green flex items-center justify-center">
+            <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg to-finance-green flex items-center justify-center">
 
             </div>
-            <span className="text-xl font-bold text-finance-blue">InvestSavy</span>
+            <span className="text-xl sm:text-2xl font-bold" style={{ color: '#1e40af' }}>
+              Invest<span style={{ color: '#10b981' }}>Savy</span>
+            </span>
+
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center space-x-4 lg:space-x-8">
             {navItems.map((item) => (
               <Link
                 key={item.name}
@@ -57,13 +60,13 @@ const Header = () => {
           </nav>
 
           {/* Action Buttons */}
-          <div className="hidden md:flex items-center space-x-4">
+          <div className="hidden md:flex items-center space-x-2 lg:space-x-4">
             {user ? (
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" className="text-finance-blue hover:bg-finance-blue/10 flex items-center gap-2">
+                  <Button variant="ghost" className="text-finance-blue hover:bg-finance-blue/10 flex items-center gap-2 text-sm lg:text-base">
                     <User className="h-4 w-4" />
-                    <span>{user.email?.split('@')[0]}</span>
+                    <span className="max-w-[100px] truncate">{user.email?.split('@')[0]}</span>
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end">
@@ -86,13 +89,13 @@ const Header = () => {
               <>
                 <Button
                   variant="ghost"
-                  className="text-finance-blue hover:bg-finance-blue/10"
+                  className="text-finance-blue hover:bg-finance-blue/10 text-sm lg:text-base px-2 lg:px-4"
                   onClick={() => navigate("/login")}
                 >
                   Entrar
                 </Button>
                 <Button
-                  className="bg-finance-green hover:bg-finance-green-dark text-white"
+                  className="bg-finance-green hover:bg-finance-green-dark text-white text-sm lg:text-base px-2 lg:px-4"
                   onClick={() => navigate("/cadastro")}
                 >
                   Começar Agora
@@ -108,14 +111,14 @@ const Header = () => {
             className="md:hidden"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            <Menu className="h-6 w-6" />
+            <Menu className="h-5 w-5" />
           </Button>
         </div>
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden mt-4 pb-4 border-t border-gray-100 animate-fade-in">
-            <nav className="flex flex-col space-y-4 mt-4">
+          <div className="md:hidden mt-3 pb-3 border-t border-gray-100 animate-fade-in max-h-[80vh] overflow-y-auto">
+            <nav className="flex flex-col space-y-3 mt-3">
               {navItems.map((item) => (
                 <Link
                   key={item.name}
@@ -126,7 +129,7 @@ const Header = () => {
                   {item.name}
                 </Link>
               ))}
-              <div className="flex flex-col space-y-2 pt-4 border-t border-gray-100">
+              <div className="flex flex-col space-y-2 pt-3 border-t border-gray-100">
                 {user ? (
                   <>
                     <Link

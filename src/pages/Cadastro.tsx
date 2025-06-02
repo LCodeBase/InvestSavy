@@ -61,10 +61,14 @@ const Cadastro = () => {
         <CardHeader className="space-y-1">
           <div className="flex justify-center mb-4">
             <Link to="/" className="flex items-center space-x-2">
-              <div className="w-10 h-10 rounded-lg bg-gradient-to-r from-finance-blue to-finance-green flex items-center justify-center">
-                <span className="text-white font-bold text-sm">IS</span>
+              <div className="w-10 h-10 rounded-lg from-finance-blue to-finance-green flex items-center justify-center">
+
+                <span className="text-2xl font-bold" style={{ color: '#1e40af' }}>
+                  Invest<span style={{ color: '#10b981' }}>Savy</span>
+                </span>
+
+
               </div>
-              <span className="text-2xl font-bold text-finance-blue">InvestSavy</span>
             </Link>
           </div>
           <CardTitle className="text-2xl font-bold text-center">Criar uma conta</CardTitle>

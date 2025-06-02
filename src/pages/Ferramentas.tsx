@@ -4,6 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Calendar, Users, Book, Home, Calculator, PieChart, TrendingUp, DollarSign, Percent } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Ferramentas = () => {
   const categorias = [
@@ -20,7 +21,8 @@ const Ferramentas = () => {
       usage: "1.8k cálculos realizados",
       color: "finance-blue",
       features: ["Múltiplas dívidas", "Estratégias de pagamento", "Economia projetada"],
-      comingSoon: false
+      comingSoon: false,
+      path: "/calculadora-dividas"  // Adicionar caminho quando a página for criada
     },
     {
       title: "Calculadora de Aposentadoria",
@@ -29,7 +31,8 @@ const Ferramentas = () => {
       usage: "950 cálculos realizados",
       color: "finance-green",
       features: ["Projeção personalizada", "Ajuste para inflação", "Diferentes cenários"],
-      comingSoon: false
+      comingSoon: false,
+      path: "/calculadora-aposentadoria"
     },
     {
       title: "Calculadora de Imposto de Renda",
@@ -38,7 +41,8 @@ const Ferramentas = () => {
       usage: "Em desenvolvimento",
       color: "finance-blue",
       features: ["Diferentes tipos de rendimentos", "Deduções automáticas", "Relatório detalhado"],
-      comingSoon: true
+      comingSoon: true,
+      path: "/calculadora-imposto-renda"  // Adicionar caminho quando a página for criada
     }
   ];
 
@@ -102,6 +106,7 @@ const Ferramentas = () => {
     color: string;
     features: string[];
     comingSoon?: boolean;
+    path?: string;
   }
 
   const renderFerramentas = (ferramentas: Ferramenta[]) => {
@@ -152,17 +157,25 @@ const Ferramentas = () => {
                 </ul>
               </div>
 
-              <Button
-                className={`w-full ${tool.comingSoon
-                  ? 'bg-gray-400 cursor-not-allowed'
-                  : tool.color === 'finance-green'
-                    ? 'bg-finance-green hover:bg-finance-green-dark'
-                    : 'bg-finance-blue hover:bg-finance-blue-dark'
-                  } text-white`}
-                disabled={tool.comingSoon}
-              >
-                {tool.comingSoon ? 'Em Breve' : 'Usar Ferramenta'}
-              </Button>
+              {tool.comingSoon ? (
+                <Button
+                  className={`w-full bg-gray-400 cursor-not-allowed text-white`}
+                  disabled
+                >
+                  Em Breve
+                </Button>
+              ) : (
+                <Link to={tool.path || '#'}>
+                  <Button
+                    className={`w-full ${tool.color === 'finance-green'
+                      ? 'bg-finance-green hover:bg-finance-green-dark'
+                      : 'bg-finance-blue hover:bg-finance-blue-dark'
+                      } text-white`}
+                  >
+                    Usar Ferramenta
+                  </Button>
+                </Link>
+              )}
             </CardContent>
           </Card>
         ))}

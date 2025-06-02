@@ -6,6 +6,7 @@ import {
 } from "lucide-react";
 import emailjs from '@emailjs/browser';
 import { Alert, AlertDescription } from "@/components/ui/alert";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const [email, setEmail] = useState("");
@@ -96,10 +97,10 @@ const Footer = () => {
   };
 
   const quickLinks = [
-    { name: "Trilhas", href: "#trilhas" },
-    { name: "Ferramentas", href: "#ferramentas" },
-    { name: "Artigos", href: "#artigos" },
-    { name: "Sobre", href: "#sobre" }
+    { name: "Trilhas", href: "/trilhas" },
+    { name: "Ferramentas", href: "/ferramentas" },
+    { name: "Artigos", href: "/artigos" },
+    { name: "Sobre", href: "/" }
   ];
 
   const resources = [
@@ -116,26 +117,26 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-gray-900 text-white py-16">
+    <footer className="bg-gray-900 text-white py-8 sm:py-12 md:py-16">
       <div className="container mx-auto px-4">
-        <div className="grid lg:grid-cols-4 gap-8 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8 md:mb-12">
 
           {/* Quick Links */}
-          <div>
+          <div className="mb-6 sm:mb-0">
             <h3 className="text-lg font-semibold mb-4">Links Rápidos</h3>
             <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.name}>
-                  <a href={link.href} className="text-gray-300 hover:text-white transition-colors duration-200">
+                  <Link to={link.href} className="text-gray-300 hover:text-white transition-colors duration-200">
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
 
           {/* Social Links */}
-          <div>
+          <div className="mb-6 sm:mb-0">
             <h3 className="text-lg font-semibold mb-4">Redes Sociais</h3>
             <ul className="space-y-3">
               {socialLinks.map((link) => (
@@ -155,22 +156,22 @@ const Footer = () => {
           </div>
 
           {/* Resources */}
-          <div>
+          <div className="mb-6 sm:mb-0">
             <h3 className="text-lg font-semibold mb-4">Recursos</h3>
             <ul className="space-y-3">
               {resources.map((resource) => (
                 <li key={resource.name}>
-                  <a href={resource.href} className="text-gray-300 hover:text-white transition-colors duration-200">
+                  <Link to={resource.href} className="text-gray-300 hover:text-white transition-colors duration-200">
                     {resource.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
 
           {/* Newsletter */}
-          <div className="border-t border-gray-800 pt-8 mb-8">
-            <div className="max-w-md">
+          <div className="sm:col-span-2 lg:col-span-1 border-t border-gray-800 pt-6 sm:pt-0 sm:border-0">
+            <div className="max-w-full sm:max-w-md">
               <h3 className="text-lg font-semibold mb-2">Newsletter Semanal</h3>
               <p className="text-gray-300 mb-4">
                 Receba dicas de educação financeira direto no seu email
@@ -194,18 +195,18 @@ const Footer = () => {
                 </Alert>
               )}
 
-              <form ref={formRef} onSubmit={handleSubscribe} className="flex gap-2">
+              <form ref={formRef} onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-2">
                 <input
                   type="email"
                   name="user_email"
                   placeholder="Seu melhor email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="flex-1 px-4 py-2 rounded-lg bg-gray-800 border border-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-finance-blue"
+                  className="flex-1 px-4 py-2 rounded-lg bg-gray-800 border border-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-finance-blue w-full"
                 />
                 <Button
                   type="submit"
-                  className="bg-finance-blue hover:bg-finance-blue-dark text-white"
+                  className="bg-finance-blue hover:bg-finance-blue-dark text-white mt-2 sm:mt-0"
                   disabled={loading}
                 >
                   {loading ? (
@@ -220,11 +221,12 @@ const Footer = () => {
         </div>
 
         {/* Bottom */}
-        <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <div className="text-gray-400 text-sm">
+        <div className="border-t border-gray-800 pt-6 flex justify-center">
+          <div className="text-gray-400 text-sm text-center">
             © 2025 InvestSavy. Todos os direitos reservados.
           </div>
         </div>
+
       </div>
     </footer>
   );

@@ -13,6 +13,8 @@ import Ajuda from "@/pages/Ajuda";
 import Privacidade from "@/pages/Privacidade";
 import Termos from "@/pages/Termos";
 import Perfil from "@/pages/Perfil"; // Importar a nova página de Perfil
+import CalculadoraAposentadoria from "@/pages/CalculadoraAposentadoria"; // Importar a página da calculadora
+import CalculadoraDividas from "@/pages/CalculadoraDividas"; // Importar a calculadora de dívidas
 
 function App() {
   return (
@@ -32,6 +34,8 @@ function App() {
           <Route path="/termos" element={<Termos />} />
           <Route path="/perfil" element={<Perfil />} /> {/* Nova rota para a página de Perfil */}
           <Route path="/minhas-trilhas" element={<Trilhas />} /> {/* Rota para Minhas Trilhas que redireciona para Trilhas */}
+          <Route path="/calculadora-aposentadoria" element={<CalculadoraAposentadoria />} /> {/* Nova rota para a calculadora de aposentadoria */}
+          <Route path="/calculadora-dividas" element={<CalculadoraDividas />} /> {/* Nova rota para a calculadora de dívidas */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>

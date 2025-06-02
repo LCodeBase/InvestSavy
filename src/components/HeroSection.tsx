@@ -1,6 +1,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Users, Book, Calendar } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   return (
@@ -26,70 +27,74 @@ const HeroSection = () => {
               <Button
                 size="lg"
                 className="bg-finance-green hover:bg-finance-green-dark text-white px-8 py-6 text-lg"
+                asChild
               >
-                Comece Agora Grátis
+                <Link to="/cadastro">Comece Agora Grátis</Link>
               </Button>
               <Button
                 variant="outline"
                 size="lg"
                 className="border-finance-blue text-finance-blue hover:bg-finance-blue hover:text-white px-8 py-6 text-lg"
+                asChild
               >
-                Ver Trilhas
+                <Link to="/trilhas">Ver Trilhas</Link>
               </Button>
             </div>
 
             {/* Stats */}
             <div className="grid grid-cols-3 gap-8 pt-8 border-t border-gray-200">
-              <div className="text-center">
+              <Link to="/login" className="text-center hover:opacity-80 transition-opacity">
                 <div className="flex items-center justify-center w-12 h-12 mx-auto mb-2 rounded-lg bg-finance-blue/10">
                   <Users className="h-6 w-6 text-finance-blue" />
                 </div>
-                <div className="text-2xl font-bold text-finance-blue">10k+</div>
+                <div className="text-2xl font-bold text-finance-blue">500+</div>
                 <div className="text-sm text-gray-600">Usuários ativos</div>
-              </div>
-              <div className="text-center">
+              </Link>
+              <Link to="/trilhas" className="text-center hover:opacity-80 transition-opacity">
                 <div className="flex items-center justify-center w-12 h-12 mx-auto mb-2 rounded-lg bg-finance-green/10">
                   <Book className="h-6 w-6 text-finance-green" />
                 </div>
-                <div className="text-2xl font-bold text-finance-green">15+</div>
+                <div className="text-2xl font-bold text-finance-green">10+</div>
                 <div className="text-sm text-gray-600">Trilhas educativas</div>
-              </div>
-              <div className="text-center">
+              </Link>
+              <Link to="/cadastro" className="text-center hover:opacity-80 transition-opacity">
                 <div className="flex items-center justify-center w-12 h-12 mx-auto mb-2 rounded-lg bg-finance-blue/10">
                   <Calendar className="h-6 w-6 text-finance-blue" />
                 </div>
                 <div className="text-2xl font-bold text-finance-blue">100%</div>
                 <div className="text-sm text-gray-600">Gratuito</div>
-              </div>
+              </Link>
             </div>
           </div>
 
           {/* Visual */}
           <div className="relative animate-slide-in-right">
-            <div className="relative bg-white rounded-2xl shadow-2xl p-8 transform rotate-3 hover:rotate-0 transition-transform duration-300">
-              <div className="space-y-4">
-                <div className="flex items-center space-x-3">
-                  <div className="w-4 h-4 rounded-full bg-finance-green"></div>
-                  <div className="text-sm font-medium text-gray-800">Trilha: Comece do Zero</div>
+            <Link to="/trilhas" className="block">
+              <div className="relative bg-white rounded-2xl shadow-2xl p-8 transform rotate-3 hover:rotate-0 transition-transform duration-300">
+                <div className="space-y-4">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-4 h-4 rounded-full bg-finance-green"></div>
+                    <div className="text-sm font-medium text-gray-800">Trilha: Comece do Zero</div>
+                  </div>
+                  <div className="space-y-2">
+                    <div className="h-2 bg-finance-green rounded-full"></div>
+                    <div className="h-2 bg-finance-green/60 rounded-full w-4/5"></div>
+                    <div className="h-2 bg-gray-200 rounded-full w-3/5"></div>
+                  </div>
+                  <div className="text-xs text-gray-600">Progresso: 65% completo</div>
                 </div>
-                <div className="space-y-2">
-                  <div className="h-2 bg-finance-green rounded-full"></div>
-                  <div className="h-2 bg-finance-green/60 rounded-full w-4/5"></div>
-                  <div className="h-2 bg-gray-200 rounded-full w-3/5"></div>
-                </div>
-                <div className="text-xs text-gray-600">Progresso: 65% completo</div>
               </div>
-            </div>
+            </Link>
 
             {/* Floating elements */}
-            <div className="absolute -top-4 -right-4 bg-finance-green text-white px-3 py-1 rounded-full text-sm font-medium animate-pulse-gentle">
+            <Link to="/trilhas" className="absolute -top-4 -right-4 bg-finance-green text-white px-3 py-1 rounded-full text-sm font-medium animate-pulse-gentle">
               Novo!
-            </div>
-            <div className="absolute -bottom-4 -left-4 bg-white shadow-lg rounded-lg p-3">
+            </Link>
+            <Link to="/ferramentas" className="absolute -bottom-4 -left-4 bg-white shadow-lg rounded-lg p-3">
               <div className="text-xs text-gray-600">Meta do mês</div>
               <div className="text-lg font-bold text-finance-blue">R$ 500</div>
               <div className="text-xs text-finance-green">+12% este mês</div>
-            </div>
+            </Link>
           </div>
         </div>
       </div>
