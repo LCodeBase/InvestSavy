@@ -4,9 +4,13 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Calendar, Users, Book, Home, Calculator, PieChart, TrendingUp, DollarSign, Percent } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "@/contexts/AuthContext";
 
 const Ferramentas = () => {
+  const { user } = useAuth();
+  const navigate = useNavigate();
+
   const categorias = [
     { id: "calculadoras", nome: "Calculadoras" },
     { id: "simuladores", nome: "Simuladores" },
@@ -109,6 +113,17 @@ const Ferramentas = () => {
     path?: string;
   }
 
+  // Função para lidar com o clique nas ferramentas
+  const handleToolClick = (path: string) => {
+    if (user) {
+      // Se o usuário estiver logado, navega para a ferramenta
+      navigate(path);
+    } else {
+      // Se não estiver logado, redireciona para a página de login
+      navigate("/login");
+    }
+  };
+
   const renderFerramentas = (ferramentas: Ferramenta[]) => {
     return (
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
@@ -165,16 +180,15 @@ const Ferramentas = () => {
                   Em Breve
                 </Button>
               ) : (
-                <Link to={tool.path || '#'}>
-                  <Button
-                    className={`w-full ${tool.color === 'finance-green'
-                      ? 'bg-finance-green hover:bg-finance-green-dark'
-                      : 'bg-finance-blue hover:bg-finance-blue-dark'
-                      } text-white`}
-                  >
-                    Usar Ferramenta
-                  </Button>
-                </Link>
+                <Button
+                  className={`w-full ${tool.color === 'finance-green'
+                    ? 'bg-finance-green hover:bg-finance-green-dark'
+                    : 'bg-finance-blue hover:bg-finance-blue-dark'
+                    } text-white`}
+                  onClick={() => tool.path && handleToolClick(tool.path)}
+                >
+                  Usar Ferramenta
+                </Button>
               )}
             </CardContent>
           </Card>
