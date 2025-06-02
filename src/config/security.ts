@@ -3,18 +3,10 @@ import { AuthFlowType } from '@supabase/supabase-js'
 
 // Configurações de segurança
 export const securityConfig = {
-  // Configurações do Supabase
-  supabase: {
-    url: process.env.NEXT_PUBLIC_SUPABASE_URL,
-    anonKey: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
-    options: {
-      auth: {
-        autoRefreshToken: true,
-        persistSession: true,
-        detectSessionInUrl: true,
-        flowType: 'pkce' as AuthFlowType, // Corrigindo o tipo do flowType
-      },
-    },
+  // Configurações de rate limiting
+  rateLimit: {
+    windowMs: 15 * 60 * 1000, // 15 minutos
+    max: 100, // limite de 100 requisições por janela
   },
 
   // Configurações de senha
@@ -28,7 +20,7 @@ export const securityConfig = {
 
   // Configurações de sessão
   session: {
-    maxAge: 24 * 60 * 60, // 24 horas em segundos
+    maxAge: 24 * 60 * 60, // 24 horas
     secure: true,
     httpOnly: true,
     sameSite: 'strict',
@@ -37,14 +29,34 @@ export const securityConfig = {
   // Configurações de CORS
   cors: {
     origin: process.env.NEXT_PUBLIC_APP_URL,
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true,
   },
 
-  // Configurações de rate limiting
-  rateLimit: {
-    windowMs: 15 * 60 * 1000, // 15 minutos
-    max: 100, // limite de 100 requisições por janela
+  // Configurações de CSP
+  csp: {
+    defaultSrc: ["'self'"],
+    scriptSrc: ["'self'", "'unsafe-inline'"],
+    styleSrc: ["'self'", "'unsafe-inline'"],
+    imgSrc: ["'self'", 'data:', 'https:'],
+    connectSrc: ["'self'"],
+    fontSrc: ["'self'"],
+    objectSrc: ["'none'"],
+    mediaSrc: ["'none'"],
+    frameSrc: ["'none'"],
+  },
+
+  // Configurações de headers de segurança
+  headers: {
+    'X-DNS-Prefetch-Control': 'on',
+    'Strict-Transport-Security': 'max-age=31536000; includeSubDomains; preload',
+    'X-Frame-Options': 'DENY',
+    'X-Content-Type-Options': 'nosniff',
+    'Referrer-Policy': 'strict-origin-when-cross-origin',
+    'Permissions-Policy':
+      'camera=(), microphone=(), geolocation=(), interest-cohort=()',
+    'X-XSS-Protection': '1; mode=block',
   },
 }
 

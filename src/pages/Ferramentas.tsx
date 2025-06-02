@@ -58,7 +58,8 @@ const Ferramentas = () => {
       usage: "2.5k simulações esta semana",
       color: "finance-green",
       features: ["Cálculo em tempo real", "Gráfico interativo", "Múltiplos cenários"],
-      comingSoon: false
+      comingSoon: false,
+      path: "/simulador-juros-compostos"  // Adicionando o path para o simulador
     },
     {
       title: "Simulador de Financiamento Imobiliário",
@@ -67,7 +68,8 @@ const Ferramentas = () => {
       usage: "1.2k simulações realizadas",
       color: "finance-blue",
       features: ["Diferentes sistemas de amortização", "Comparação visual", "Economia total"],
-      comingSoon: false
+      comingSoon: false,
+      path: "/simulador-financiamento-imobiliario"  // Adicionando o path para o simulador
     },
     {
       title: "Simulador de Carteira de Investimentos",

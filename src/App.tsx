@@ -12,9 +12,11 @@ import NotFound from "@/pages/NotFound";
 import Ajuda from "@/pages/Ajuda";
 import Privacidade from "@/pages/Privacidade";
 import Termos from "@/pages/Termos";
-import Perfil from "@/pages/Perfil"; // Importar a nova página de Perfil
-import CalculadoraAposentadoria from "@/pages/CalculadoraAposentadoria"; // Importar a página da calculadora
-import CalculadoraDividas from "@/pages/CalculadoraDividas"; // Importar a calculadora de dívidas
+import Perfil from "@/pages/Perfil";
+import CalculadoraAposentadoria from "@/pages/CalculadoraAposentadoria";
+import CalculadoraDividas from "@/pages/CalculadoraDividas";
+import SimuladorJurosCompostos from "@/pages/SimuladorJurosCompostos";
+import SimuladorFinanciamentoImobiliario from "@/pages/SimuladorFinanciamentoImobiliario"; // Importando o novo simulador
 
 function App() {
   return (
@@ -32,10 +34,12 @@ function App() {
           <Route path="/ajuda" element={<Ajuda />} />
           <Route path="/privacidade" element={<Privacidade />} />
           <Route path="/termos" element={<Termos />} />
-          <Route path="/perfil" element={<Perfil />} /> {/* Nova rota para a página de Perfil */}
-          <Route path="/minhas-trilhas" element={<Trilhas />} /> {/* Rota para Minhas Trilhas que redireciona para Trilhas */}
-          <Route path="/calculadora-aposentadoria" element={<CalculadoraAposentadoria />} /> {/* Nova rota para a calculadora de aposentadoria */}
-          <Route path="/calculadora-dividas" element={<CalculadoraDividas />} /> {/* Nova rota para a calculadora de dívidas */}
+          <Route path="/perfil" element={<Perfil />} />
+          <Route path="/minhas-trilhas" element={<Trilhas />} />
+          <Route path="/calculadora-aposentadoria" element={<CalculadoraAposentadoria />} />
+          <Route path="/calculadora-dividas" element={<CalculadoraDividas />} />
+          <Route path="/simulador-juros-compostos" element={<SimuladorJurosCompostos />} />
+          <Route path="/simulador-financiamento-imobiliario" element={<SimuladorFinanciamentoImobiliario />} /> {/* Nova rota para o simulador */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>
