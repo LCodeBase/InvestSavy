@@ -2,8 +2,11 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Calendar, Users, Book, Home } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const ToolsPreview = () => {
+  const navigate = useNavigate();
+
   const tools = [
     {
       title: "Simulador de Juros Compostos",
@@ -55,8 +58,8 @@ const ToolsPreview = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8 mb-12">
           {tools.map((tool, index) => (
-            <Card 
-              key={index} 
+            <Card
+              key={index}
               className={`card-hover relative ${tool.comingSoon ? 'opacity-75' : ''}`}
             >
               {tool.comingSoon && (
@@ -64,14 +67,14 @@ const ToolsPreview = () => {
                   Em Breve
                 </div>
               )}
-              
+
               <CardHeader className="pb-4">
                 <div className={`w-12 h-12 rounded-lg bg-${tool.color}/10 flex items-center justify-center mb-3`}>
                   <div className={`text-${tool.color}`}>
                     {tool.icon}
                   </div>
                 </div>
-                
+
                 <div className="space-y-2">
                   <CardTitle className="text-xl text-gray-900">
                     {tool.title}
@@ -81,12 +84,12 @@ const ToolsPreview = () => {
                   </CardDescription>
                 </div>
               </CardHeader>
-              
+
               <CardContent className="space-y-4">
                 <div className="text-sm text-gray-500">
                   {tool.usage}
                 </div>
-                
+
                 <div className="space-y-2">
                   <div className="text-sm font-medium text-gray-700">Recursos:</div>
                   <ul className="space-y-1">
@@ -98,16 +101,16 @@ const ToolsPreview = () => {
                     ))}
                   </ul>
                 </div>
-                
-                <Button 
-                  className={`w-full ${
-                    tool.comingSoon 
-                      ? 'bg-gray-400 cursor-not-allowed'
-                      : tool.color === 'finance-green' 
-                        ? 'bg-finance-green hover:bg-finance-green-dark' 
-                        : 'bg-finance-blue hover:bg-finance-blue-dark'
-                  } text-white`}
+
+                <Button
+                  className={`w-full ${tool.comingSoon
+                    ? 'bg-gray-400 cursor-not-allowed'
+                    : tool.color === 'finance-green'
+                      ? 'bg-finance-green hover:bg-finance-green-dark'
+                      : 'bg-finance-blue hover:bg-finance-blue-dark'
+                    } text-white`}
                   disabled={tool.comingSoon}
+                  onClick={() => !tool.comingSoon && navigate('/ferramentas')}
                 >
                   {tool.comingSoon ? 'Em Breve' : 'Usar Ferramenta'}
                 </Button>
@@ -117,10 +120,11 @@ const ToolsPreview = () => {
         </div>
 
         <div className="text-center">
-          <Button 
-            variant="outline" 
+          <Button
+            variant="outline"
             size="lg"
             className="border-finance-blue text-finance-blue hover:bg-finance-blue hover:text-white"
+            onClick={() => navigate('/ferramentas')}
           >
             Ver Todas as Ferramentas
           </Button>

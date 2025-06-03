@@ -128,6 +128,7 @@ const TrailsPreview = () => {
                     ? 'bg-finance-green hover:bg-finance-green-dark'
                     : 'bg-finance-blue hover:bg-finance-blue-dark'
                     } text-white`}
+                  onClick={() => navigate('/trilhas')}
                 >
                   {trail.progress > 0 ? 'Continuar' : 'Começar Trilha'}
                 </Button>
