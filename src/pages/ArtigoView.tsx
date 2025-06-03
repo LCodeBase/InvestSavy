@@ -29,136 +29,372 @@ const ArtigoView = () => {
     const artigos = [
       {
         id: "0",
-        title: "5 Erros Comuns de Quem Está Começando",
-        description: "Evite os principais erros que iniciantes cometem ao organizar suas finanças pessoais.",
-        image: "/placeholder.svg",
-        category: "iniciantes",
-        author: "Ana Silva",
-        date: "15 de Maio, 2023",
-        readTime: "6 min de leitura",
+        title: "O Roubo que Ninguém Liga: O Escândalo Bilionário do INSS",
+        description: "Neste artigo, você entende como esse golpe foi possível, quem são os envolvidos, quais os impactos para o país e por que a sociedade precisa acordar agora.",
+        image: "https://www.jornalopcao.com.br/assets/2024/07/PREVIDENCIA_INSS-1536x768-1.jpg",
+        category: "economia",
+        author: "Leonardo Figueiredo",
+        date: "02 de Junho, 2025",
+        readTime: "10 min de leitura",
         featured: true,
         content: `
-          <h2>Introdução</h2>
-          <p>Organizar as finanças pessoais pode parecer uma tarefa assustadora para quem está começando. Muitas pessoas cometem erros que podem comprometer sua saúde financeira a longo prazo.</p>
+          <div class="article-content">
+            <p class="text-lg mb-4">
+              Nos últimos meses, o Brasil se deparou com mais um escândalo de corrupção — desta vez, dentro de um dos órgãos mais importantes da estrutura social brasileira: o <strong>INSS</strong> (Instituto Nacional do Seguro Social). Investigações apontam que <strong>mais de R$ 1 bilhão</strong> foram desviados por meio de <em>benefícios irregulares</em>, <em>fraudes sistemáticas</em> e <em>envolvimento de servidores públicos e quadrilhas especializadas</em>.
+            </p>
 
-          <h2>1. Não ter um orçamento</h2>
-          <p>Um dos erros mais comuns é não ter um orçamento claro. Sem saber exatamente quanto você ganha e gasta, é impossível planejar adequadamente suas finanças.</p>
-          <p>A solução é simples: crie uma planilha ou use um aplicativo para registrar todas as suas receitas e despesas. Categorize seus gastos e revise mensalmente.</p>
+            <p class="text-lg mb-6">
+              O mais preocupante? A maioria da população <strong>não está prestando atenção</strong>. Em meio ao barulho político e polêmicas do dia a dia, o rombo bilionário na Previdência — que afeta diretamente trabalhadores, aposentados e pensionistas — passa quase despercebido.
+            </p>
 
-          <h2>2. Não ter uma reserva de emergência</h2>
-          <p>Muitas pessoas ignoram a importância de ter uma reserva para emergências. Isso pode levar a endividamento quando surgem gastos inesperados.</p>
-          <p>O ideal é ter pelo menos 6 meses de despesas guardados em investimentos de alta liquidez, como um CDB de liquidez diária ou um fundo DI.</p>
+            <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">1. O que é o INSS e sua importância</h2>
+            <p class="mb-4">O INSS é responsável por pagar aposentadorias, pensões, auxílios-doença e outros benefícios. Movimenta centenas de bilhões de reais ao ano e sustenta a base previdenciária do país. Com déficits constantes, cada desvio representa menos recursos para quem mais precisa.</p>
 
-          <h2>3. Usar o cartão de crédito sem controle</h2>
-          <p>O cartão de crédito pode ser uma ferramenta útil, mas também pode se tornar uma armadilha. Muitos iniciantes acabam gastando mais do que podem pagar.</p>
-          <p>Use o cartão de crédito apenas para compras planejadas e nunca gaste mais do que você teria disponível em sua conta corrente.</p>
+            <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">2. O escândalo: como começou e o que foi descoberto</h2>
+            <p class="mb-2">A Polícia Federal descobriu fraudes envolvendo:</p>
+            <ul class="list-disc pl-8 mb-6">
+              <li class="mb-1">Documentos falsos para liberar benefícios</li>
+              <li class="mb-1">Pagamentos a pessoas falecidas</li>
+              <li class="mb-1">Corrupção interna de servidores</li>
+              <li class="mb-1">Advogados especializados em burlar o sistema</li>
+            </ul>
 
-          <h2>4. Não investir por medo ou falta de conhecimento</h2>
-          <p>Deixar o dinheiro parado na conta corrente é um erro comum. Com o tempo, a inflação corrói o poder de compra do seu dinheiro.</p>
-          <p>Comece com investimentos simples e de baixo risco, como Tesouro Direto ou CDBs. À medida que seu conhecimento aumenta, você pode diversificar.</p>
+            <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">3. Os números do escândalo</h2>
+            <ul class="list-disc pl-8 mb-6">
+              <li class="mb-1"><strong>R$ 1,1 bilhão</strong> desviados identificados</li>
+              <li class="mb-1"><strong>95 mil</strong> benefícios fraudulentos</li>
+              <li class="mb-1"><strong>700</strong> servidores envolvidos</li>
+              <li class="mb-1"><strong>Centenas</strong> de prisões e investigações em andamento</li>
+            </ul>
 
-          <h2>5. Não estabelecer metas financeiras</h2>
-          <p>Sem metas claras, é difícil manter a motivação para economizar e investir. Muitos iniciantes acabam gastando todo o dinheiro que sobra no fim do mês.</p>
-          <p>Defina metas de curto, médio e longo prazo. Isso dará propósito ao seu planejamento financeiro e ajudará a manter o foco.</p>
+            <div class="my-8 text-center">
+              <img src="https://thenews.waffle.com.br/_next/image?url=https%3A%2F%2Fwaffle-prod.s3.amazonaws.com%2Fapp%2Fuploads%2F2025%2F04%2F25111702%2Fimage-338.png&w=3840&q=75" alt="Gráfico de Fraudes INSS" class="max-w-full mx-auto rounded" style="max-width: 500px;">
+              <p class="text-sm text-gray-500 mt-2">Gráfico ilustrativo: escândalo envolve fraudes bilionárias.</p>
+            </div>
 
-          <h2>Conclusão</h2>
-          <p>Evitar esses erros comuns pode fazer uma grande diferença na sua jornada financeira. Lembre-se que educação financeira é um processo contínuo, e pequenas mudanças de hábito podem trazer grandes resultados ao longo do tempo.</p>
+            <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">4. Impactos diretos e indiretos</h2>
+            <ul class="list-disc pl-8 mb-6">
+              <li class="mb-1">Prejuízo direto à Previdência Social</li>
+              <li class="mb-1">Filas de espera para quem precisa de verdade</li>
+              <li class="mb-1">Desconfiança da população com o sistema público</li>
+              <li class="mb-1">Perda de credibilidade institucional</li>
+            </ul>
+
+            <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">5. Por que a população não está reagindo?</h2>
+            <p class="mb-2">O silêncio social pode ser explicado por:</p>
+            <ul class="list-disc pl-8 mb-6">
+              <li class="mb-1">Fadiga de escândalos</li>
+              <li class="mb-1">Mídia focada em temas mais "palatáveis"</li>
+              <li class="mb-1">Complexidade do tema da Previdência</li>
+              <li class="mb-1">Ideia de que "isso não me afeta"</li>
+            </ul>
+
+            <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">6. O que precisa mudar</h2>
+            <ul class="list-disc pl-8 mb-6">
+              <li class="mb-1">Auditorias permanentes e públicas</li>
+              <li class="mb-1">Sistemas modernos com validação digital</li>
+              <li class="mb-1">Punições severas e transparentes</li>
+              <li class="mb-1">Educação da população sobre seus direitos</li>
+            </ul>
+
+            <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">7. Conclusão</h2>
+            <blockquote class="italic border-l-4 border-gray-300 pl-4 py-2 my-6 text-gray-600">
+              O escândalo do INSS é um roubo bilionário institucionalizado. Ignorá-lo é permitir que a Previdência continue sendo saqueada. Se esse tipo de crime não nos choca mais, o que ainda seria capaz de parar o Brasil?
+            </blockquote>
+
+            <hr class="my-10 border-t border-gray-200">
+          </div>
         `
       },
+      // ... existing code ...
       {
         id: "1",
-        title: "Guia Completo sobre Tesouro Direto",
-        description: "Tudo o que você precisa saber para começar a investir no Tesouro Direto de forma segura.",
-        image: "/placeholder.svg",
+        title: "Investimentos em Renda Fixa: Guia para Iniciantes",
+        description: "Descubra como começar a investir em renda fixa, entenda os diferentes tipos de investimentos disponíveis e aprenda estratégias para maximizar seus rendimentos com segurança.",
+        image: "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80",
         category: "investimentos",
-        author: "Carlos Mendes",
-        date: "28 de Abril, 2023",
+        author: "Leonardo Figueiredo",
+        date: "15 de Junho, 2025",
         readTime: "8 min de leitura",
-        featured: false,
+        featured: true,
         content: `
-          <h2>O que é o Tesouro Direto?</h2>
-          <p>O Tesouro Direto é um programa do Governo Federal que permite a pessoas físicas comprarem títulos públicos diretamente, sem intermediários. É uma forma segura e acessível de investir, com valores iniciais a partir de R$ 30.</p>
+    <div class="article-content">
+      <p class="text-lg mb-4">
+        Em um cenário econômico de juros elevados, com a taxa Selic em <strong>12,00% ao ano</strong> (projeção para 2025), os investimentos em renda fixa voltaram a ganhar destaque no mercado financeiro brasileiro. Para quem está começando a jornada de investimentos, a renda fixa oferece uma combinação atraente de <em>segurança</em>, <em>previsibilidade</em> e <em>rentabilidade</em> que pode ser o ponto de partida ideal para construir um patrimônio sólido.
+      </p>
 
-          <h2>Tipos de Títulos</h2>
-          <p>Existem três categorias principais de títulos no Tesouro Direto:</p>
+      <p class="text-lg mb-6">
+        Neste guia completo, vamos desmistificar o universo da renda fixa e mostrar como você pode começar a investir mesmo com pouco dinheiro, entendendo os diferentes tipos de investimentos disponíveis e as estratégias para maximizar seus rendimentos.
+      </p>
 
-          <h3>Tesouro Prefixado</h3>
-          <p>Neste tipo de título, você sabe exatamente quanto vai receber no vencimento. A rentabilidade é definida no momento da compra.</p>
+      <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">1. O que é Renda Fixa?</h2>
+      <p class="mb-4">A renda fixa é uma classe de investimentos na qual as regras de remuneração são especificadas previamente. Isso significa que, ao investir, você já sabe antecipadamente quais serão os lucros a receber no futuro, ou ao menos qual indicador financeiro será utilizado para definir a rentabilidade.</p>
+      <p class="mb-4">Quando você investe em renda fixa, está essencialmente emprestando seu dinheiro para o emissor do título (governo, banco ou empresa), que se compromete a devolver o valor aplicado acrescido de juros após um período determinado.</p>
 
-          <h3>Tesouro IPCA+</h3>
-          <p>Oferece proteção contra a inflação, pois sua rentabilidade é composta por uma taxa fixa mais a variação do IPCA (Índice Nacional de Preços ao Consumidor Amplo).</p>
+      <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">2. Principais Tipos de Investimentos em Renda Fixa</h2>
+      <ul class="list-disc pl-8 mb-6">
+        <li class="mb-3"><strong>Tesouro Direto:</strong> Títulos emitidos pelo governo federal, considerados os mais seguros do mercado. Incluem o Tesouro Selic (ideal para reserva de emergência), Tesouro IPCA+ (proteção contra inflação) e Tesouro Prefixado.</li>
+        <li class="mb-3"><strong>CDBs (Certificados de Depósito Bancário):</strong> Emitidos por bancos, funcionam como empréstimos que você faz à instituição financeira. Contam com a proteção do FGC (Fundo Garantidor de Créditos) até R$ 250 mil por CPF e instituição.</li>
+        <li class="mb-3"><strong>LCI e LCA (Letras de Crédito Imobiliário e do Agronegócio):</strong> Títulos emitidos por bancos para financiar os setores imobiliário e agrícola, respectivamente. São isentos de Imposto de Renda para pessoas físicas e também contam com a proteção do FGC.</li>
+        <li class="mb-3"><strong>Debêntures:</strong> Títulos de dívida emitidos por empresas para captar recursos. Oferecem rentabilidade maior, mas também maior risco.</li>
+        <li class="mb-3"><strong>CRIs e CRAs (Certificados de Recebíveis Imobiliários e do Agronegócio):</strong> Títulos lastreados em recebíveis dos setores imobiliário e agrícola. Também são isentos de IR para pessoas físicas.</li>
+      </ul>
 
-          <h3>Tesouro Selic</h3>
-          <p>Acompanha a variação da taxa Selic, a taxa básica de juros da economia. É considerado o mais conservador dos títulos.</p>
+      <div class="my-8 text-center">
+        <img src="https://images.unsplash.com/photo-1565514158740-064f34bd6cfd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Gráfico de Investimentos" class="max-w-full mx-auto rounded" style="max-width: 500px;">
+        <p class="text-sm text-gray-500 mt-2">Diversificação é essencial para uma carteira de investimentos equilibrada.</p>
+      </div>
 
-          <h2>Como Investir</h2>
-          <p>Para investir no Tesouro Direto, você precisa:</p>
-          <ol>
-            <li>Ter CPF e ser maior de 18 anos (ou menor, desde que representado por responsável legal)</li>
-            <li>Abrir uma conta em uma corretora ou banco que ofereça acesso ao programa</li>
-            <li>Fazer um cadastro no site do Tesouro Direto</li>
-            <li>Escolher os títulos e valores que deseja investir</li>
-          </ol>
+      <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">3. Entendendo os Tipos de Rentabilidade</h2>
+      <ul class="list-disc pl-8 mb-6">
+        <li class="mb-3"><strong>Prefixada:</strong> A taxa de juros é definida no momento da aplicação. Você sabe exatamente quanto vai receber no vencimento.</li>
+        <li class="mb-3"><strong>Pós-fixada:</strong> A rentabilidade está atrelada a um indexador, como a Selic (CDI) ou a inflação (IPCA). O rendimento final dependerá da variação desse indexador durante o período do investimento.</li>
+        <li class="mb-3"><strong>Híbrida:</strong> Combina características dos dois tipos anteriores, como IPCA + taxa prefixada.</li>
+      </ul>
 
-          <h2>Tributação</h2>
-          <p>Os rendimentos do Tesouro Direto estão sujeitos ao Imposto de Renda, com alíquotas regressivas conforme o tempo de aplicação:</p>
-          <ul>
-            <li>Até 180 dias: 22,5%</li>
-            <li>De 181 a 360 dias: 20%</li>
-            <li>De 361 a 720 dias: 17,5%</li>
-            <li>Acima de 720 dias: 15%</li>
-          </ul>
+      <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">4. Por Onde Começar?</h2>
+      <p class="mb-4">Para quem está iniciando no mundo dos investimentos em renda fixa, uma estratégia recomendada é:</p>
+      <ol class="list-decimal pl-8 mb-6">
+        <li class="mb-2"><strong>Monte sua reserva de emergência:</strong> Comece investindo em títulos de alta liquidez e baixo risco, como o Tesouro Selic. O ideal é acumular entre 3 a 6 meses de suas despesas mensais.</li>
+        <li class="mb-2"><strong>Diversifique gradualmente:</strong> Após constituir sua reserva, comece a diversificar com CDBs, LCIs e LCAs para aumentar a rentabilidade.</li>
+        <li class="mb-2"><strong>Proteja-se da inflação:</strong> Inclua títulos indexados à inflação, como o Tesouro IPCA+, para preservar o poder de compra do seu dinheiro no longo prazo.</li>
+        <li class="mb-2"><strong>Avance para títulos corporativos:</strong> Com mais experiência, considere debêntures, CRIs e CRAs para melhorar o rendimento da sua carteira.</li>
+      </ol>
 
-          <h2>Taxas</h2>
-          <p>Existem duas taxas principais no Tesouro Direto:</p>
-          <ul>
-            <li>Taxa de custódia da B3: 0,25% ao ano sobre o valor dos títulos</li>
-            <li>Taxa da instituição financeira: varia conforme a corretora ou banco escolhido</li>
-          </ul>
+      <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">5. Dicas Importantes para Investidores Iniciantes</h2>
+      <ul class="list-disc pl-8 mb-6">
+        <li class="mb-2"><strong>Compare as taxas:</strong> Verifique a rentabilidade líquida (descontando impostos e taxas) antes de investir.</li>
+        <li class="mb-2"><strong>Atenção ao prazo:</strong> Investimentos com prazos mais longos geralmente oferecem rentabilidades maiores, mas exigem que você fique mais tempo sem acesso ao dinheiro.</li>
+        <li class="mb-2"><strong>Liquidez x Rentabilidade:</strong> Investimentos mais líquidos (que permitem resgate a qualquer momento) costumam render menos que os de prazo fixo.</li>
+        <li class="mb-2"><strong>Diversifique emissores:</strong> Não concentre todos os seus investimentos em um único banco ou empresa.</li>
+        <li class="mb-2"><strong>Fique atento à tributação:</strong> O Imposto de Renda sobre investimentos em renda fixa varia de 22,5% a 15%, dependendo do prazo (quanto maior o prazo, menor a alíquota).</li>
+      </ul>
 
-          <h2>Conclusão</h2>
-          <p>O Tesouro Direto é uma excelente porta de entrada para o mundo dos investimentos. Oferece segurança, liquidez e rentabilidade superior à da poupança, sendo ideal para diversos objetivos financeiros, desde a reserva de emergência até a aposentadoria.</p>
-        `
+      <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">6. Erros Comuns a Evitar</h2>
+      <ul class="list-disc pl-8 mb-6">
+        <li class="mb-2">Deixar dinheiro parado na poupança quando existem alternativas mais rentáveis e igualmente seguras.</li>
+        <li class="mb-2">Resgatar investimentos antes do prazo ideal, perdendo rentabilidade.</li>
+        <li class="mb-2">Não considerar a inflação ao avaliar a rentabilidade real dos investimentos.</li>
+        <li class="mb-2">Concentrar todos os recursos em um único tipo de investimento.</li>
+      </ul>
+
+      <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">7. Conclusão</h2>
+      <blockquote class="italic border-l-4 border-gray-300 pl-4 py-2 my-6 text-gray-600">
+        Investir em renda fixa é um excelente ponto de partida para quem deseja começar a construir um patrimônio com segurança. Em 2025, com a taxa Selic projetada em 12,00% ao ano e a inflação em 4,10%, os investimentos em renda fixa oferecem oportunidades interessantes de rentabilidade real positiva. O segredo está em começar com pequenos valores, diversificar gradualmente e manter a disciplina ao longo do tempo.
+      </blockquote>
+
+      <hr class="my-10 border-t border-gray-200">
+    </div>
+  `
       },
-      // Adicione o conteúdo para os demais artigos seguindo o mesmo padrão
       {
         id: "2",
-        title: "Como Montar uma Reserva de Emergência",
-        description: "Passo a passo para criar sua reserva de emergência e garantir segurança financeira.",
-        image: "/placeholder.svg",
-        category: "planejamento",
-        author: "Mariana Costa",
-        date: "10 de Abril, 2023",
-        readTime: "5 min de leitura",
-        featured: false,
-        content: `<p>Conteúdo completo do artigo sobre reserva de emergência...</p>`
+        title: "Entendendo a Taxa Selic e seu Impacto nos Investimentos",
+        description: "Descubra o que é a taxa Selic, como ela é definida, por que é considerada a taxa básica de juros da economia brasileira e como suas variações afetam seus investimentos e decisões financeiras.",
+        image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+        category: "economia",
+        author: "Leonardo Figueiredo",
+        date: "18 de Junho, 2025",
+        readTime: "9 min de leitura",
+        featured: true,
+        content: `
+          <div class="article-content">
+            <p class="text-lg mb-4">
+              A taxa Selic é provavelmente o termo econômico mais mencionado quando se fala sobre investimentos no Brasil. Atualmente em <strong>11,25% ao ano</strong> (junho de 2025), ela influencia desde o rendimento da sua aplicação financeira até o valor das parcelas do seu financiamento imobiliário. Mas afinal, o que é exatamente a taxa Selic e por que ela é tão importante para suas decisões financeiras?
+            </p>
+
+            <p class="text-lg mb-6">
+              Neste artigo, vamos desvendar os mistérios da taxa básica de juros brasileira, explicando como ela funciona, como é definida e, principalmente, qual o seu impacto direto nos seus investimentos e no seu bolso.
+            </p>
+
+            <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">1. O que é a Taxa Selic?</h2>
+            <p class="mb-4">A Selic (Sistema Especial de Liquidação e Custódia) é a taxa básica de juros da economia brasileira. O nome vem do sistema eletrônico que registra todas as operações com títulos públicos federais no Brasil.</p>
+            <p class="mb-4">Existem dois conceitos importantes:</p>
+            <ul class="list-disc pl-8 mb-6">
+              <li class="mb-2"><strong>Selic Meta:</strong> É a taxa de juros estabelecida pelo Copom (Comitê de Política Monetária) a cada 45 dias. Esta é a taxa que geralmente aparece nos noticiários.</li>
+              <li class="mb-2"><strong>Selic Efetiva (ou Over):</strong> É a taxa média das operações diárias com títulos públicos no mercado interbancário, que tende a se aproximar da meta estabelecida.</li>
+            </ul>
+
+            <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">2. Como a Taxa Selic é Definida?</h2>
+            <p class="mb-4">A definição da taxa Selic é responsabilidade do Copom, que se reúne a cada 45 dias para avaliar a conjuntura econômica e decidir se mantém, aumenta ou reduz a taxa. Esta decisão leva em consideração diversos fatores:</p>
+            <ul class="list-disc pl-8 mb-6">
+              <li class="mb-2"><strong>Inflação atual e projetada:</strong> O principal objetivo é manter a inflação dentro da meta estabelecida pelo Conselho Monetário Nacional.</li>
+              <li class="mb-2"><strong>Atividade econômica:</strong> Crescimento do PIB, taxa de desemprego e nível de utilização da capacidade produtiva.</li>
+              <li class="mb-2"><strong>Cenário internacional:</strong> Taxas de juros em outros países, fluxo de capitais e preços de commodities.</li>
+              <li class="mb-2"><strong>Situação fiscal do país:</strong> Nível de endividamento público e equilíbrio das contas governamentais.</li>
+            </ul>
+
+            <div class="my-8 text-center">
+              <img src="https://images.unsplash.com/photo-1543286386-713bdd548da4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Banco Central do Brasil" class="max-w-full mx-auto rounded" style="max-width: 500px;">
+              <p class="text-sm text-gray-500 mt-2">O Banco Central utiliza a taxa Selic como principal instrumento de política monetária.</p>
+            </div>
+
+            <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">3. A Relação entre Selic e Inflação</h2>
+            <p class="mb-4">A taxa Selic é o principal instrumento de controle da inflação no Brasil. O mecanismo funciona assim:</p>
+            <ul class="list-disc pl-8 mb-6">
+              <li class="mb-2"><strong>Selic alta:</strong> Encarece o crédito, desestimula o consumo e os investimentos produtivos, reduzindo a pressão sobre os preços.</li>
+              <li class="mb-2"><strong>Selic baixa:</strong> Barateia o crédito, estimula o consumo e os investimentos, podendo aumentar a pressão inflacionária se a economia já estiver aquecida.</li>
+            </ul>
+            <p class="mb-4">Em 2025, com a inflação projetada em 4,10% e a Selic em 11,25%, temos um juro real (descontada a inflação) de aproximadamente 7,15%, um dos mais altos do mundo.</p>
+
+            <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">4. Como a Selic Afeta seus Investimentos</h2>
+            <p class="mb-4">A taxa Selic influencia praticamente todos os investimentos disponíveis no mercado:</p>
+            <ul class="list-disc pl-8 mb-6">
+              <li class="mb-3"><strong>Renda Fixa:</strong>
+                <ul class="list-circle pl-6 mt-1">
+                  <li><strong>Tesouro Selic:</strong> Acompanha diretamente a taxa Selic, sendo um dos investimentos mais seguros em períodos de alta de juros.</li>
+                  <li><strong>CDBs, LCIs e LCAs:</strong> Geralmente oferecem um percentual do CDI, que por sua vez segue de perto a Selic.</li>
+                  <li><strong>Tesouro Prefixado:</strong> Quando a Selic sobe, o preço desses títulos cai no mercado secundário, e vice-versa.</li>
+                  <li><strong>Tesouro IPCA+:</strong> Sofre influência tanto da Selic quanto das expectativas de inflação.</li>
+                </ul>
+              </li>
+              <li class="mb-3"><strong>Renda Variável:</strong>
+                <ul class="list-circle pl-6 mt-1">
+                  <li><strong>Ações:</strong> Tendem a se desvalorizar em períodos de alta da Selic, pois os investimentos em renda fixa se tornam mais atrativos e o custo de capital das empresas aumenta.</li>
+                  <li><strong>Fundos Imobiliários:</strong> Também costumam se desvalorizar quando a Selic sobe, pois são comparados com a rentabilidade da renda fixa.</li>
+                </ul>
+              </li>
+            </ul>
+
+            <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">5. Impacto da Selic na Economia Real</h2>
+            <p class="mb-4">A taxa Selic não afeta apenas os investimentos, mas também diversos aspectos da economia real:</p>
+            <ul class="list-disc pl-8 mb-6">
+              <li class="mb-2"><strong>Crédito:</strong> Juros de empréstimos, financiamentos e cartões de crédito tendem a subir quando a Selic aumenta.</li>
+              <li class="mb-2"><strong>Consumo:</strong> Com crédito mais caro, o consumo tende a diminuir, especialmente de bens duráveis.</li>
+              <li class="mb-2"><strong>Emprego:</strong> A redução do consumo e dos investimentos pode levar a um aumento do desemprego.</li>
+              <li class="mb-2"><strong>Câmbio:</strong> Juros mais altos tendem a atrair capital estrangeiro, fortalecendo o real frente a outras moedas.</li>
+              <li class="mb-2"><strong>Dívida pública:</strong> O governo paga mais para se financiar quando a Selic está alta, aumentando o custo da dívida pública.</li>
+            </ul>
+
+            <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">6. Estratégias de Investimento para Diferentes Cenários da Selic</h2>
+            <p class="mb-4">Dependendo do movimento da taxa Selic, diferentes estratégias de investimento podem ser mais adequadas:</p>
+            <ul class="list-disc pl-8 mb-6">
+              <li class="mb-3"><strong>Selic em alta ou estável em patamar alto (cenário atual):</strong>
+                <ul class="list-circle pl-6 mt-1">
+                  <li>Priorize investimentos pós-fixados (Tesouro Selic, CDBs atrelados ao CDI)</li>
+                  <li>Considere títulos prefixados apenas para prazos mais longos</li>
+                  <li>Seja seletivo com investimentos em renda variável</li>
+                </ul>
+              </li>
+              <li class="mb-3"><strong>Selic em queda:</strong>
+                <ul class="list-circle pl-6 mt-1">
+                  <li>Aproveite para adquirir títulos prefixados, que tendem a se valorizar</li>
+                  <li>Aumente gradualmente a exposição à renda variável</li>
+                  <li>Considere alongar o prazo dos investimentos para garantir taxas mais atrativas</li>
+                </ul>
+              </li>
+            </ul>
+
+            <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">7. Conclusão</h2>
+            <blockquote class="italic border-l-4 border-gray-300 pl-4 py-2 my-6 text-gray-600">
+              A taxa Selic é muito mais que um simples número divulgado periodicamente pelo Banco Central. Ela é o termômetro da economia brasileira e um fator determinante para suas decisões financeiras. Em 2025, com a Selic em 11,25% e projeções de manutenção em patamares elevados, entender como ela funciona e seus impactos torna-se ainda mais importante para proteger seu patrimônio e aproveitar as oportunidades que diferentes cenários econômicos oferecem.
+            </blockquote>
+
+            <hr class="my-10 border-t border-gray-200">
+          </div>
+        `
       },
       {
         id: "3",
-        title: "Inflação: Como Proteger seu Dinheiro",
-        description: "Estratégias para proteger seu patrimônio em tempos de alta inflação.",
-        image: "/placeholder.svg",
+        title: "Porque o Brasil não prospera?",
+        description: "Uma análise profunda sobre os fatores estruturais que impedem o desenvolvimento econômico e social do Brasil, desde a desigualdade histórica até os problemas institucionais que travam nosso potencial.",
+        image: "https://images.unsplash.com/photo-1483729558449-99ef09a8c325?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
         category: "economia",
-        author: "Pedro Alves",
-        date: "2 de Abril, 2023",
-        readTime: "7 min de leitura",
-        featured: false,
-        content: `<p>Conteúdo completo do artigo sobre inflação...</p>`
+        author: "Leonardo Figueiredo",
+        date: "20 de Junho, 2025",
+        readTime: "12 min de leitura",
+        featured: true,
+        content: `
+          <div class="article-content">
+            <p class="text-lg mb-4">
+              O Brasil é frequentemente descrito como o "país do futuro" — um futuro que, paradoxalmente, nunca parece chegar. Apesar de possuir uma das maiores economias do mundo, abundância de recursos naturais, uma população jovem e diversificada, e não enfrentar conflitos armados ou desastres naturais devastadores, o país continua preso em um ciclo de <strong>desenvolvimento interrompido</strong>, <strong>desigualdade persistente</strong> e <strong>instabilidade econômica</strong>.
+            </p>
+
+            <p class="text-lg mb-6">
+              Por que, afinal, o Brasil não consegue transformar seu imenso potencial em prosperidade real e sustentável para sua população? Neste artigo, analisamos os fatores estruturais que impedem o país de avançar e as possíveis soluções para esse impasse histórico.
+            </p>
+
+            <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">1. A Desigualdade como Barreira Fundamental</h2>
+            <p class="mb-4">A desigualdade no Brasil não é apenas um problema social, mas um obstáculo econômico de primeira ordem. Com um dos maiores índices de Gini do mundo (0,543 segundo dados recentes do IBGE), o país mantém uma estrutura social profundamente desequilibrada:</p>
+            <ul class="list-disc pl-8 mb-6">
+              <li class="mb-2">Os 10% mais ricos concentram cerca de 43% da renda nacional</li>
+              <li class="mb-2">A desigualdade racial persiste, com a população negra tendo renda pelo menos 15% menor que a população branca desde a década de 1980</li>
+              <li class="mb-2">A mobilidade social é extremamente limitada, com as circunstâncias de nascimento determinando em grande parte as oportunidades futuras</li>
+            </ul>
+            <p class="mb-4">Esta desigualdade extrema não é apenas moralmente problemática, mas economicamente ineficiente. Ela reduz o mercado consumidor interno, desperdiça talentos potenciais e cria instabilidade social que afasta investimentos de longo prazo.</p>
+
+            <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">2. O Legado Histórico e suas Consequências</h2>
+            <p class="mb-4">As raízes da desigualdade brasileira remontam ao período colonial, com três fatores principais:</p>
+            <ul class="list-disc pl-8 mb-6">
+              <li class="mb-2"><strong>Colonização exploratória:</strong> Diferente de países como EUA e Canadá, o Brasil foi colonizado primariamente para extração de recursos, não para construção de uma nova sociedade.</li>
+              <li class="mb-2"><strong>Escravidão prolongada:</strong> O Brasil foi o último país ocidental a abolir a escravidão (1888), sem qualquer política de reparação ou integração para os ex-escravizados.</li>
+              <li class="mb-2"><strong>Concentração fundiária:</strong> O modelo de latifúndios estabelecido desde as capitanias hereditárias permanece praticamente inalterado, com 1% dos proprietários rurais controlando 45% das terras agricultáveis.</li>
+            </ul>
+
+            <div class="my-8 text-center">
+              <img src="https://images.unsplash.com/photo-1518985360832-49b6aef0b954?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Contraste social no Brasil" class="max-w-full mx-auto rounded" style="max-width: 500px;">
+              <p class="text-sm text-gray-500 mt-2">O contraste entre riqueza e pobreza é uma constante na paisagem urbana brasileira.</p>
+            </div>
+
+            <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">3. Educação: O Gargalo do Desenvolvimento</h2>
+            <p class="mb-4">Apesar dos avanços na universalização do acesso à educação básica, o Brasil ainda enfrenta sérios problemas qualitativos:</p>
+            <ul class="list-disc pl-8 mb-6">
+              <li class="mb-2">Nas avaliações do PISA (Programa Internacional de Avaliação de Estudantes), o Brasil consistentemente figura entre os piores colocados</li>
+              <li class="mb-2">Apenas 50% dos jovens concluem o ensino médio na idade adequada</li>
+              <li class="mb-2">A educação pública, que atende a maioria da população, recebe investimentos insuficientes e mal geridos</li>
+              <li class="mb-2">A desigualdade educacional reproduz e amplifica as desigualdades sociais existentes</li>
+            </ul>
+            <p class="mb-4">Em uma economia global cada vez mais baseada no conhecimento, a deficiência educacional brasileira representa um obstáculo crítico para o desenvolvimento de setores de alta tecnologia e valor agregado.</p>
+
+            <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">4. O Ambiente Institucional e seus Problemas</h2>
+            <p class="mb-4">O Brasil sofre com um ambiente institucional que desestimula a produtividade e a inovação:</p>
+            <ul class="list-disc pl-8 mb-6">
+              <li class="mb-2"><strong>Burocracia excessiva:</strong> Abrir uma empresa no Brasil leva em média 80 dias, contra 1,5 dia na Nova Zelândia</li>
+              <li class="mb-2"><strong>Sistema tributário complexo e regressivo:</strong> Empresas brasileiras gastam cerca de 1.500 horas por ano apenas para cumprir obrigações tributárias</li>
+              <li class="mb-2"><strong>Insegurança jurídica:</strong> Mudanças frequentes nas regras e interpretações legais dificultam o planejamento de longo prazo</li>
+              <li class="mb-2"><strong>Corrupção sistêmica:</strong> Além do custo direto, a corrupção distorce incentivos econômicos e mina a confiança nas instituições</li>
+            </ul>
+
+            <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">5. A Armadilha da Baixa Produtividade</h2>
+            <p class="mb-4">A produtividade do trabalhador brasileiro estagnou nas últimas décadas, enquanto países como China e Coreia do Sul avançaram rapidamente. Isso se deve a múltiplos fatores:</p>
+            <ul class="list-disc pl-8 mb-6">
+              <li class="mb-2"><strong>Infraestrutura deficiente:</strong> Estradas precárias, portos congestionados e energia cara aumentam o "Custo Brasil"</li>
+              <li class="mb-2"><strong>Baixo investimento em P&D:</strong> O Brasil investe apenas 1,2% do PIB em pesquisa e desenvolvimento, contra 2,8% nos EUA e 4,8% na Coreia do Sul</li>
+              <li class="mb-2"><strong>Protecionismo excessivo:</strong> A economia fechada reduz a competição e a necessidade de inovação</li>
+              <li class="mb-2"><strong>Informalidade:</strong> Cerca de 40% da força de trabalho está na informalidade, com acesso limitado a crédito, tecnologia e capacitação</li>
+            </ul>
+
+            <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">6. A Instabilidade Macroeconômica Crônica</h2>
+            <p class="mb-4">O Brasil tem dificuldade em manter estabilidade macroeconômica por períodos prolongados:</p>
+            <ul class="list-disc pl-8 mb-6">
+              <li class="mb-2"><strong>Ciclos de boom and bust:</strong> Períodos de crescimento acelerado seguidos por crises profundas</li>
+              <li class="mb-2"><strong>Vulnerabilidade externa:</strong> Dependência excessiva de commodities e capital estrangeiro</li>
+              <li class="mb-2"><strong>Desequilíbrio fiscal crônico:</strong> Gastos públicos crescentes sem contrapartida em produtividade</li>
+              <li class="mb-2"><strong>Juros estruturalmente altos:</strong> A taxa Selic historicamente elevada encarece o investimento produtivo</li>
+            </ul>
+
+            <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">7. Caminhos para a Prosperidade: O que Precisa Mudar?</h2>
+            <p class="mb-4">Para superar esses obstáculos históricos e estruturais, o Brasil precisaria de um conjunto coordenado de reformas e políticas:</p>
+            <ul class="list-disc pl-8 mb-6">
+              <li class="mb-2"><strong>Reforma educacional profunda:</strong> Foco na qualidade, valorização dos professores e modernização curricular</li>
+              <li class="mb-2"><strong>Simplificação tributária:</strong> Um sistema mais simples, transparente e progressivo</li>
+              <li class="mb-2"><strong>Investimento em infraestrutura:</strong> Redução do Custo Brasil e aumento da competitividade</li>
+              <li class="mb-2"><strong>Políticas de redução da desigualdade:</strong> Combinando transferência de renda com expansão de oportunidades</li>
+              <li class="mb-2"><strong>Abertura econômica gradual:</strong> Exposição à competição internacional com políticas de adaptação</li>
+              <li class="mb-2"><strong>Fortalecimento institucional:</strong> Combate à corrupção e aumento da segurança jurídica</li>
+            </ul>
+
+            <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">8. Conclusão</h2>
+            <blockquote class="italic border-l-4 border-gray-300 pl-4 py-2 my-6 text-gray-600">
+              O Brasil não prospera não por falta de recursos naturais, talentos individuais ou oportunidades de mercado, mas por falhas estruturais que impedem a transformação desse potencial em desenvolvimento real. A boa notícia é que esses obstáculos, embora profundamente enraizados, não são imutáveis. Com reformas consistentes, visão de longo prazo e um compromisso genuíno com a redução das desigualdades, o país do futuro pode finalmente se tornar o país do presente.
+            </blockquote>
+
+            <hr class="my-10 border-t border-gray-200">
+          </div>
+        `
       },
       {
         id: "4",
-        title: "Investimentos em Renda Fixa: Guia para Iniciantes",
-        description: "Conheça as principais opções de renda fixa disponíveis no mercado brasileiro.",
-        image: "/placeholder.svg",
-        category: "investimentos",
-        author: "Juliana Martins",
-        date: "25 de Março, 2023",
-        readTime: "9 min de leitura",
-        featured: false,
-        content: `<p>Conteúdo completo do artigo sobre renda fixa...</p>`
-      },
-      {
-        id: "5",
         title: "Como Organizar as Finanças em Casal",
         description: "Dicas práticas para casais organizarem as finanças juntos e evitarem conflitos.",
         image: "/placeholder.svg",
@@ -170,7 +406,7 @@ const ArtigoView = () => {
         content: `<p>Conteúdo completo do artigo sobre finanças em casal...</p>`
       },
       {
-        id: "6",
+        id: "5",
         title: "Educação Financeira para Crianças",
         description: "Como ensinar conceitos financeiros para crianças de diferentes idades.",
         image: "/placeholder.svg",
@@ -182,7 +418,44 @@ const ArtigoView = () => {
         content: `<p>Conteúdo completo do artigo sobre educação financeira para crianças...</p>`
       },
       {
+        id: "6",
+        title: "Entendendo a Taxa Selic e seu Impacto nos Investimentos",
+        description: "Como as mudanças na taxa básica de juros afetam seus investimentos.",
+        image: "/placeholder.svg",
+        category: "economia",
+        author: "Ricardo Souza",
+        date: "1 de Março, 2023",
+        readTime: "7 min de leitura",
+        featured: false,
+        content: `<p>Conteúdo completo do artigo sobre taxa Selic...</p>`
+      },
+
+      {
         id: "7",
+        title: "Como Organizar as Finanças em Casal",
+        description: "Dicas práticas para casais organizarem as finanças juntos e evitarem conflitos.",
+        image: "/placeholder.svg",
+        category: "planejamento",
+        author: "Roberto e Camila",
+        date: "18 de Março, 2023",
+        readTime: "6 min de leitura",
+        featured: false,
+        content: `<p>Conteúdo completo do artigo sobre finanças em casal...</p>`
+      },
+      {
+        id: "8",
+        title: "Educação Financeira para Crianças",
+        description: "Como ensinar conceitos financeiros para crianças de diferentes idades.",
+        image: "/placeholder.svg",
+        category: "iniciantes",
+        author: "Fernanda Lima",
+        date: "10 de Março, 2023",
+        readTime: "5 min de leitura",
+        featured: false,
+        content: `<p>Conteúdo completo do artigo sobre educação financeira para crianças...</p>`
+      },
+      {
+        id: "9",
         title: "Entendendo a Taxa Selic e seu Impacto nos Investimentos",
         description: "Como as mudanças na taxa básica de juros afetam seus investimentos.",
         image: "/placeholder.svg",
