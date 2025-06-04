@@ -297,10 +297,10 @@ const ArtigoView = () => {
         id: "3",
         title: "Por que o Brasil não prospera? O país do futuro que está preso no passado.",
         description: "Uma análise direta e sem ideologias sobre os entraves históricos, institucionais e culturais que limitam o desenvolvimento sustentável do Brasil.",
-        image: "https://images.unsplash.com/photo-1483729558449-99ef09a8c325?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+        image: "https://i.pinimg.com/736x/1c/67/ba/1c67ba2ebe1eaeb185b3f11a8fccbd5a.jpg",
         category: "economia",
         author: "Leonardo Figueiredo",
-        date: "3 de Junho, 2025",
+        date: "4 de Junho, 2025",
         readTime: "12 min de leitura",
         featured: true,
         content: `
@@ -1231,27 +1231,165 @@ const ArtigoView = () => {
       },
       {
         id: "8",
-        title: "Educação Financeira para Crianças",
-        description: "Como ensinar conceitos financeiros para crianças de diferentes idades.",
-        image: "/placeholder.svg",
-        category: "iniciantes",
-        author: "Fernanda Lima",
-        date: "10 de Março, 2023",
-        readTime: "5 min de leitura",
-        featured: false,
-        content: `<p>Conteúdo completo do artigo sobre educação financeira para crianças...</p>`
+        title: "Startups do Vale do Silício Intensificam a Cultura do Esforço Extremo",
+        description: "Empresas emergentes de tecnologia estão adotando jornadas de trabalho extenuantes, desafiando os limites do equilíbrio entre vida profissional e pessoal.",
+        image: "https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80",
+        category: "startups",
+        author: "Leonardo Figueiredo",
+        date: "4 de Junho, 2025",
+        publishedAt: new Date("2025-06-04").getTime(),
+        readTime: "15 min de leitura",
+        featured: true,
+        content: `<div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.8; color: #333; max-width: 800px; margin: 0 auto; padding: 20px;">
+  <p style="margin-bottom: 20px; text-align: justify; font-size: 16px;">
+    No competitivo cenário do <strong style="color: #2563eb; background: #f1f5f9; padding: 2px 6px; border-radius: 4px;">Vale do Silício</strong>, startups estão elevando a cultura do <em style="font-weight: 600;">"esforço extremo"</em> a patamares inéditos. Empresas como a <strong style="color: #2563eb;">Arrowster</strong>, especializada em <span style="background: #f1f5f9; padding: 2px 6px; border-radius: 4px; font-weight: 500;">inteligência artificial</span> para auxiliar estudantes em programas de intercâmbio, estão buscando profissionais dispostos a trabalhar <strong style="color: #2563eb; text-decoration: underline;">sete dias por semana</strong>. O CEO <strong>Kenneth Chong</strong> compara a dedicação exigida à de <em style="font-weight: 600;">atletas de alto rendimento</em>, enfatizando que essa rotina intensa não é para todos.
+  </p>
+
+  <p style="margin-bottom: 20px; text-align: justify; font-size: 16px;">
+    A <strong style="color: #2563eb;">Arrowster</strong> não está sozinha nessa abordagem. A <strong style="color: #2563eb;">Corgi</strong>, apoiada pela <span style="background: #f1f5f9; padding: 2px 6px; border-radius: 4px; font-weight: 600;">Y Combinator</span>, também adota uma <em style="font-weight: 600;">semana de trabalho sem folgas</em>, destacando em suas vagas a necessidade de ultrapassar limites para alcançar resultados. Outras startups, como a <strong style="color: #2563eb;">Latchbio</strong> e a <strong style="color: #2563eb;">Autotab</strong>, optam por jornadas de <strong>seis dias</strong>, oferecendo incentivos como <span style="background: #f1f5f9; padding: 2px 6px; border-radius: 4px; font-weight: 500;">bônus de moradia</span> para atrair talentos comprometidos.
+  </p>
+
+  <p style="margin-bottom: 20px; text-align: justify; font-size: 16px;">
+    A <strong style="color: #2563eb;">Decagon</strong>, desenvolvedora de <span style="background: #f1f5f9; padding: 2px 6px; border-radius: 4px; font-weight: 500;">agentes de IA</span> para atendimento ao cliente, implementou uma cultura onde até <strong style="color: #2563eb;">um terço dos funcionários trabalha aos domingos</strong>, buscando <em style="font-weight: 600;">colaboração presencial</em> sem as distrações típicas dos dias úteis. Essa prática surgiu de forma orgânica, com os fundadores frequentando o escritório aos domingos e sendo seguidos por outros membros da equipe.
+  </p>
+
+  <p style="margin-bottom: 20px; text-align: justify; font-size: 16px;">
+    A pressão para <em style="font-weight: 600;">inovar rapidamente</em> em um mercado dominado por gigantes como <strong style="color: #2563eb; background: #f1f5f9; padding: 2px 6px; border-radius: 4px;">OpenAI</strong> e <strong style="color: #2563eb; background: #f1f5f9; padding: 2px 6px; border-radius: 4px;">Anthropic</strong> leva essas startups a adotarem <em style="font-weight: 600;">jornadas extenuantes</em> como diferencial competitivo. <strong>Daksh Gupta</strong>, cofundador da <strong style="color: #2563eb;">Greptile</strong>, viralizou ao afirmar que sua empresa exige pelo menos <strong style="color: #2563eb;">seis dias de trabalho por semana</strong>, sem oferecer <span style="background: #f1f5f9; padding: 2px 6px; border-radius: 4px; font-weight: 500;">equilíbrio entre vida pessoal e profissional</span>. Apesar das críticas, a abordagem atraiu tanto ameaças quanto currículos interessados.
+  </p>
+
+  <p style="margin-bottom: 20px; text-align: justify; font-size: 16px;">
+    Internacionalmente, <em style="font-weight: 600;">culturas de trabalho intensas</em> não são novidade. Na <strong>China</strong>, o modelo <strong style="color: #2563eb; background: #f1f5f9; padding: 2px 6px; border-radius: 4px;">"996"</strong> (trabalhar das 9h às 21h, seis dias por semana) é comum em empresas como <strong style="color: #2563eb;">Alibaba</strong> e <strong style="color: #2563eb;">ByteDance</strong>. Na <strong>Coreia do Sul</strong>, empresas como a <strong style="color: #2563eb;">Samsung</strong> exigem que gerentes trabalhem <strong style="color: #2563eb;">seis dias por semana</strong>. Na <strong>Grécia</strong>, uma lei recente instituiu a <em style="font-weight: 600;">semana de seis dias</em> para certos setores, com acréscimo de <strong>40% para horas extras</strong>.
+  </p>
+
+  <p style="margin-bottom: 20px; text-align: justify; font-size: 16px;">
+    No <strong>Brasil</strong>, embora a tendência predominante seja a busca por <em style="font-weight: 600;">jornadas reduzidas</em>, como a <span style="background: #f1f5f9; padding: 2px 6px; border-radius: 4px; font-weight: 500;">semana de quatro dias</span> adotada por algumas startups, há exceções. A <strong style="color: #2563eb;">Onfly</strong>, startup de <span style="background: #f1f5f9; padding: 2px 6px; border-radius: 4px; font-weight: 500;">viagens corporativas</span> com sede em <strong>Belo Horizonte</strong>, enfrentou desafios durante a <em style="font-weight: 600;">pandemia</em>, mas manteve operações graças à <em style="font-weight: 600;">dedicação intensa</em> de sua equipe. A empresa expandiu suas operações e foi reconhecida como uma das <strong>melhores para se trabalhar no Brasil</strong>.
+  </p>
+
+  <p style="margin-bottom: 20px; text-align: justify; font-size: 16px;">
+    Especialistas alertam para os <strong>riscos associados a jornadas excessivas</strong>, incluindo <em style="font-weight: 600;">burnout</em> e <span style="background: #f1f5f9; padding: 2px 6px; border-radius: 4px; font-weight: 500;">problemas legais</span> relacionados à legislação trabalhista. <strong>Catherine Fisk</strong>, professora de direito da <strong style="color: #2563eb; background: #f1f5f9; padding: 2px 6px; border-radius: 4px;">Universidade da Califórnia em Berkeley</strong>, destaca que, nos <strong>EUA</strong>, não há limite federal para dias ou horas trabalhadas, mas os estados possuem <span style="background: #f1f5f9; padding: 2px 6px; border-radius: 4px; font-weight: 500;">regulamentações específicas</span>. No entanto, a <em style="font-weight: 600;">qualidade do trabalho</em> pode ser comprometida quando a quantidade de horas supera a <strong>capacidade humana de desempenho sustentável</strong>.
+  </p>
+
+  <div style="background: #f8fafc; border: 1px solid #2563eb; border-radius: 8px; padding: 20px; margin: 25px 0;">
+    <p style="margin: 0; text-align: justify; font-size: 16px; font-weight: 500; color: #475569;">
+      A <strong>ironia</strong> reside no fato de que muitas dessas startups estão desenvolvendo <span style="background: #f1f5f9; padding: 2px 6px; border-radius: 4px; font-weight: 600;">tecnologias de IA</span> com o objetivo de <em style="font-weight: 600;">aumentar a produtividade</em> e <em style="font-weight: 600;">reduzir a carga de trabalho humana</em>. <strong>Jamie Dimon</strong>, CEO do <strong style="color: #2563eb;">JPMorgan</strong>, previu que, graças à tecnologia, as futuras gerações trabalharão apenas <strong style="color: #2563eb;">três dias e meio por semana</strong>. No entanto, para alcançar esse futuro, as startups de hoje estão exigindo <strong>mais de seus colaboradores do que nunca</strong>.
+    </p>
+  </div>
+</div>`
       },
       {
         id: "9",
-        title: "Entendendo a Taxa Selic e seu Impacto nos Investimentos",
-        description: "Como as mudanças na taxa básica de juros afetam seus investimentos.",
-        image: "/placeholder.svg",
-        category: "economia",
-        author: "Ricardo Souza",
-        date: "1 de Março, 2023",
-        readTime: "7 min de leitura",
+        title: "Bitcoin para Iniciantes: Um Guia Completo da Primeira Criptomoeda do Mundo",
+        description: "O Bitcoin é uma moeda digital descentralizada que permite transações diretas entre pessoas, sem a necessidade de intermediários como bancos ou governos. Criado em 2008 por uma entidade sob o pseudônimo de Satoshi Nakamoto, o Bitcoin surgiu como uma alternativa ao sistema financeiro tradicional, especialmente após a crise econômica global daquele ano.",
+        image: "https://images.unsplash.com/photo-1623227413711-25ee4388dae3?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        category: "criptomoedas",
+        author: "Leonardo Figueiredo",
+        date: "4 de Junho, 2025",
+        publishedAt: new Date("2025-06-04").getTime(),
+        readTime: "10 min de leitura",
+        featured: true,
+        content: `<div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.7; color: #333; max-width: 800px; margin: 0 auto; padding: 30px; background: #fff;">
+
+  <h1 style="color: #2563eb; font-size: 28px; font-weight: 700; margin-bottom: 30px; text-align: left; border-bottom: 3px solid #2563eb; padding-bottom: 15px;">O que é o Bitcoin?</h1>
+
+  <p style="margin-bottom: 25px; text-align: justify; font-size: 16px; line-height: 1.8;">
+    O <strong style="color: #2563eb;">Bitcoin (BTC)</strong> é a primeira criptomoeda amplamente adotada no mundo. Ele possibilita transações ponto a ponto seguras e ininterruptas na internet. Ao contrário de serviços como Venmo e PayPal, que dependem do sistema financeiro tradicional, o Bitcoin é <strong style="color: #2563eb;">descentralizado</strong>: duas pessoas, em qualquer lugar do mundo, podem negociar Bitcoin entre si, sem o envolvimento de bancos, governos ou qualquer outra instituição.
+  </p>
+
+  <hr style="border: none; height: 1px; background: #e5e7eb; margin: 35px 0;">
+
+  <h2 style="color: #2563eb; font-size: 22px; font-weight: 600; margin: 30px 0 20px 0;">Como Funciona o Bitcoin?</h2>
+
+  <p style="margin-bottom: 25px; text-align: justify; font-size: 16px; line-height: 1.8;">
+    O funcionamento do Bitcoin baseia-se em uma tecnologia chamada <strong style="color: #2563eb;">blockchain</strong>, que é um livro-razão digital público e descentralizado. Cada transação é registrada em blocos de dados, que são adicionados em sequência, formando uma cadeia (daí o nome "blockchain"). Essa estrutura garante a <strong style="color: #2563eb;">transparência e a segurança</strong> das transações, pois cada bloco é criptografado e ligado ao anterior, tornando praticamente impossível a alteração de informações passadas.
+  </p>
+
+  <hr style="border: none; height: 1px; background: #e5e7eb; margin: 35px 0;">
+
+  <h2 style="color: #2563eb; font-size: 22px; font-weight: 600; margin: 30px 0 20px 0;">Como Obter e Armazenar Bitcoins?</h2>
+
+  <p style="margin-bottom: 20px; text-align: justify; font-size: 16px; line-height: 1.8;">
+    Para adquirir Bitcoins, é necessário utilizar uma <strong style="color: #2563eb;">exchange (corretora de criptomoedas)</strong> confiável, como Coinbase, Binance ou Mercado Bitcoin. Após a compra, os Bitcoins podem ser armazenados em carteiras digitais, que podem ser:
+  </p>
+
+  <div style="margin: 25px 0; padding: 20px; background: #f8fafc; border-radius: 8px; border-left: 4px solid #2563eb;">
+    <h3 style="color: #2563eb; font-size: 18px; font-weight: 600; margin: 0 0 15px 0;">Tipos de Carteiras:</h3>
+
+    <div style="margin-bottom: 15px;">
+      <h4 style="color: #2563eb; font-size: 16px; font-weight: 600; margin: 0 0 8px 0;">Hot Wallets (Carteiras Quentes)</h4>
+      <p style="margin: 0; font-size: 15px; line-height: 1.6;">Conectadas à internet, são práticas para transações diárias, mas mais vulneráveis a ataques cibernéticos.</p>
+    </div>
+
+    <div>
+      <h4 style="color: #2563eb; font-size: 16px; font-weight: 600; margin: 0 0 8px 0;">Cold Wallets (Carteiras Frias)</h4>
+      <p style="margin: 0; font-size: 15px; line-height: 1.6;">Desconectadas da internet, como carteiras de hardware ou papel, oferecem maior segurança para armazenar grandes quantias por longos períodos.</p>
+    </div>
+  </div>
+
+  <hr style="border: none; height: 1px; background: #e5e7eb; margin: 35px 0;">
+
+  <h2 style="color: #2563eb; font-size: 22px; font-weight: 600; margin: 30px 0 20px 0;">Por que o Bitcoin é Importante?</h2>
+
+  <p style="margin-bottom: 20px; text-align: justify; font-size: 16px; line-height: 1.8;">
+    O Bitcoin representa uma inovação no sistema financeiro por permitir:
+  </p>
+
+  <div style="margin: 25px 0;">
+    <div style="display: flex; align-items: flex-start; margin-bottom: 15px;">
+      <div style="width: 8px; height: 8px; background: #2563eb; border-radius: 50%; margin: 8px 15px 0 0; flex-shrink: 0;"></div>
+      <div>
+        <strong style="color: #2563eb; font-size: 16px;">Descentralização:</strong>
+        <span style="font-size: 16px; margin-left: 8px;">Elimina a necessidade de intermediários, dando mais autonomia aos usuários.</span>
+      </div>
+    </div>
+
+    <div style="display: flex; align-items: flex-start; margin-bottom: 15px;">
+      <div style="width: 8px; height: 8px; background: #2563eb; border-radius: 50%; margin: 8px 15px 0 0; flex-shrink: 0;"></div>
+      <div>
+        <strong style="color: #2563eb; font-size: 16px;">Transparência:</strong>
+        <span style="font-size: 16px; margin-left: 8px;">Todas as transações são públicas e registradas na blockchain.</span>
+      </div>
+    </div>
+
+    <div style="display: flex; align-items: flex-start; margin-bottom: 15px;">
+      <div style="width: 8px; height: 8px; background: #2563eb; border-radius: 50%; margin: 8px 15px 0 0; flex-shrink: 0;"></div>
+      <div>
+        <strong style="color: #2563eb; font-size: 16px;">Segurança:</strong>
+        <span style="font-size: 16px; margin-left: 8px;">A criptografia avançada protege contra fraudes e ataques.</span>
+      </div>
+    </div>
+
+    <div style="display: flex; align-items: flex-start;">
+      <div style="width: 8px; height: 8px; background: #2563eb; border-radius: 50%; margin: 8px 15px 0 0; flex-shrink: 0;"></div>
+      <div>
+        <strong style="color: #2563eb; font-size: 16px;">Acessibilidade:</strong>
+        <span style="font-size: 16px; margin-left: 8px;">Qualquer pessoa com acesso à internet pode participar da rede Bitcoin.</span>
+      </div>
+    </div>
+  </div>
+
+  <hr style="border: none; height: 1px; background: #e5e7eb; margin: 35px 0;">
+
+  <h2 style="color: #2563eb; font-size: 22px; font-weight: 600; margin: 30px 0 20px 0;">Considerações Finais</h2>
+
+  <div style="background: #f8fafc; border: 1px solid #e5e7eb; border-radius: 8px; padding: 25px; margin: 25px 0;">
+    <p style="margin: 0; text-align: justify; font-size: 16px; line-height: 1.8; color: #374151;">
+      O <strong style="color: #2563eb;">Bitcoin</strong> é uma tecnologia revolucionária que desafia os modelos financeiros tradicionais. Para iniciantes, é essencial estudar e compreender seus fundamentos antes de investir. Comece com <strong style="color: #2563eb;">pequenas quantias</strong>, utilize plataformas confiáveis e mantenha-se informado sobre as <strong style="color: #2563eb;">tendências do mercado</strong>.
+    </p>
+  </div>
+
+</div>`
+      },
+      {
+        id: "10",
+        title: "Validação de Ideias de Negócio: Como Testar Antes de Investir",
+        description: "Aprenda técnicas práticas para validar sua ideia de negócio antes de investir tempo e dinheiro, evitando erros comuns de empreendedores iniciantes.",
+        image: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80",
+        category: "empreendedorismo",
+        author: "Leonardo Figueiredo",
+        date: "2 de Junho, 2025",
+        publishedAt: new Date("2025-06-02").getTime(),
+        readTime: "11 min de leitura",
         featured: false,
-        content: `<p>Conteúdo completo do artigo sobre taxa Selic...</p>`
       }
     ];
 
