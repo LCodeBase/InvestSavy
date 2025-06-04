@@ -56,26 +56,7 @@ const Trilhas = () => {
           url: "https://educacao-executiva.fgv.br/cursos/gratuitos/educacao-financeira",
           highlights: ["Universidade renomada", "Metodologia acadêmica", "Casos práticos"]
         },
-        {
-          title: "Canal Economista Sincero – Série Educação Financeira",
-          description: "Vídeos didáticos e descontraídos sobre conceitos básicos de finanças pessoais e investimentos.",
-          type: "video",
-          provider: "YouTube - Economista Sincero",
-          duration: "50+ vídeos",
-          rating: 4.6,
-          url: "https://www.youtube.com/@EconomistaSincero",
-          highlights: ["Linguagem simples", "Exemplos práticos", "Conteúdo atualizado"]
-        },
-        {
-          title: "Canal Investidor Sardinha – Iniciantes",
-          description: "Conteúdo introdutório sobre bolsa de valores, investimentos e educação financeira de forma descomplicada.",
-          type: "video",
-          provider: "YouTube - Investidor Sardinha",
-          duration: "100+ vídeos",
-          rating: 4.5,
-          url: "https://www.youtube.com/@InvestidorSardinhaOficial",
-          highlights: ["Didático", "Para iniciantes", "Casos reais"]
-        }
+
       ]
     },
     economia: {
@@ -141,20 +122,20 @@ const Trilhas = () => {
           description: "Aprenda a investir em títulos públicos, simulações e estratégias para diferentes perfis.",
           type: "video",
           provider: "YouTube - Clube do Valor",
-          duration: "20+ vídeos",
-          rating: 4.8,
-          url: "https://www.youtube.com/@ClubedoValor",
+          duration: "2200+ vídeos",
+          rating: 4.9,
+          url: "https://www.youtube.com/watch?v=x1btXV3OnwE",
           highlights: ["Foco em renda fixa", "Simulações práticas", "Estratégias conservadoras"]
         },
         {
-          title: "Curso de Investimentos – XP Educação",
-          description: "Playlist completa sobre diferentes tipos de investimentos e análise de mercado.",
-          type: "video",
-          provider: "XP Investimentos",
-          duration: "15+ vídeos",
-          rating: 4.7,
-          url: "https://www.youtube.com/playlist?list=PLDE7B4AC7F050FAB6",
-          highlights: ["Corretora líder", "Análises profissionais", "Mercado atual"]
+          title: "Livro de introdução à Economia – PNAP",
+          description: "Aborda os principais conceitos da economia, desde o básico ao avançado.",
+          type: "ebook",
+          provider: "PNAP",
+          duration: "180+ páginas",
+          rating: 4.3,
+          url: "https://educapes.capes.gov.br/bitstream/capes/145347/1/PNAP%20-%20Bacharelado%20-%20Introducao%20a%20Economia.pdf",
+          highlights: ["Básico", "Análises profissionais", "Mercado atual"]
         },
         {
           title: "Guia do Investidor Iniciante – Economista Sincero",
@@ -175,6 +156,27 @@ const Trilhas = () => {
           rating: 4.8,
           url: "https://mooc.ifsp.edu.br/course/view.php?id=67",
           highlights: ["Ensino técnico", "Certificado oficial", "Conteúdo aprofundado"]
+        },
+
+        {
+          title: "Canal Investidor Sardinha - Bolsa de valores e investimentos.",
+          description: "Os vídeos explicam de forma direta e bem-humorada os principais conceitos da bolsa de valores, tipos de ativos, e estratégias simples para investir com segurança. O canal também traz análises de casos reais e situações do cotidiano financeiro.",
+          type: "video",
+          provider: "YouTube - Investidor Sardinha",
+          duration: "2500+ vídeos",
+          rating: 5.0,
+          url: "https://www.youtube.com/@investidorsardinha/videos",
+          highlights: ["Didático", "Exemplos práticos", "linguagem acessível", "Conteúdo atualizado"]
+        },
+        {
+          title: "Canal Economista Sincero – Série Educação Financeira",
+          description: "Com uma abordagem clara e objetiva, o canal cobre temas essenciais como orçamento pessoal, investimentos, dívidas e politica, sempre com uma pitada de humor e crítica construtiva.",
+          type: "video",
+          provider: "YouTube - Economista Sincero",
+          duration: "3200+ vídeos",
+          rating: 5.0,
+          url: "https://www.youtube.com/@EconomistaSincero",
+          highlights: ["Didático", "Exemplos práticos", "linguagem acessível", "Conteúdo atualizado"]
         }
       ]
     },
@@ -306,26 +308,33 @@ const Trilhas = () => {
   const TrailHeader = ({ trail }: { trail: Trail }) => {
     const Icon = trail.icon;
     return (
-      <div className={`p-6 rounded-lg ${trail.color} mb-6`}>
-        <div className="flex items-start gap-4">
-          <div className="p-3 bg-white rounded-lg shadow-sm">
-            <Icon className="w-8 h-8 text-gray-700" />
+      <div className={`p-4 sm:p-6 rounded-lg ${trail.color} mb-4 sm:mb-6`}>
+        <div className="flex flex-col sm:flex-row items-start gap-3 sm:gap-4">
+          <div className="p-2 sm:p-3 bg-white rounded-lg shadow-sm flex-shrink-0 self-center sm:self-start">
+            <Icon className="w-6 h-6 sm:w-8 sm:h-8 text-gray-700" />
           </div>
-          <div className="flex-1">
-            <h2 className="text-2xl font-bold text-gray-800 mb-2">{trail.title}</h2>
-            <p className="text-gray-700 mb-4 leading-relaxed">{trail.description}</p>
-            <div className="flex flex-wrap gap-4 text-sm">
-              <div className="flex items-center gap-1">
-                <Target className="w-4 h-4 text-gray-600" />
-                <span className="font-medium">Nível:</span> {trail.level}
+          <div className="flex-1 w-full text-center sm:text-left">
+            <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-800 mb-2 leading-tight">
+              {trail.title}
+            </h2>
+            <p className="text-gray-700 mb-3 sm:mb-4 leading-relaxed text-sm sm:text-base">
+              {trail.description}
+            </p>
+            <div className="flex flex-col sm:flex-row sm:flex-wrap gap-2 sm:gap-4 text-xs sm:text-sm">
+              <div className="flex items-center justify-center sm:justify-start gap-1">
+                <Target className="w-3 h-3 sm:w-4 sm:h-4 text-gray-600 flex-shrink-0" />
+                <span className="font-medium">Nível:</span>
+                <span className="text-gray-800">{trail.level}</span>
               </div>
-              <div className="flex items-center gap-1">
-                <Clock className="w-4 h-4 text-gray-600" />
-                <span className="font-medium">Duração:</span> {trail.duration}
+              <div className="flex items-center justify-center sm:justify-start gap-1">
+                <Clock className="w-3 h-3 sm:w-4 sm:h-4 text-gray-600 flex-shrink-0" />
+                <span className="font-medium">Duração:</span>
+                <span className="text-gray-800">{trail.duration}</span>
               </div>
-              <div className="flex items-center gap-1">
-                <BookOpen className="w-4 h-4 text-gray-600" />
-                <span className="font-medium">Recursos:</span> {trail.resources.length} conteúdos
+              <div className="flex items-center justify-center sm:justify-start gap-1">
+                <BookOpen className="w-3 h-3 sm:w-4 sm:h-4 text-gray-600 flex-shrink-0" />
+                <span className="font-medium">Recursos:</span>
+                <span className="text-gray-800">{trail.resources.length} conteúdos</span>
               </div>
             </div>
           </div>
@@ -370,7 +379,7 @@ const Trilhas = () => {
             <div className="flex items-center justify-center mb-2">
               <Star className="w-8 h-8 text-yellow-600" />
             </div>
-            <div className="text-2xl font-bold text-gray-800">4.7</div>
+            <div className="text-2xl font-bold text-gray-800">4.8</div>
             <div className="text-sm text-gray-600">Avaliação Média</div>
           </Card>
           <Card className="text-center p-6">
@@ -384,24 +393,31 @@ const Trilhas = () => {
 
         {/* Trail Navigation */}
         <Tabs value={activeTrail} onValueChange={setActiveTrail} className="w-full">
-          <TabsList className="grid w-full grid-cols-1 md:grid-cols-4 mb-8">
+          <TabsList className="grid w-full grid-cols-2 sm:grid-cols-4 mb-6 sm:mb-8 h-auto gap-1 p-1">
             {Object.entries(trails).map(([key, trail]) => {
               const Icon = trail.icon;
               return (
-                <TabsTrigger key={key} value={key} className="flex items-center gap-2 p-4">
-                  <Icon className="w-4 h-4" />
-                  <span className="hidden sm:inline">{trail.title.split(':')[0]}</span>
-                  <span className="sm:hidden">{key === 'fundamentos' ? 'Início' : key === 'economia' ? 'Economia' : key === 'investimentos' ? 'Investir' : 'Mentalidade'}</span>
+                <TabsTrigger 
+                  key={key} 
+                  value={key} 
+                  className="flex flex-col items-center justify-center gap-1 p-2 sm:p-3 h-auto min-h-[60px] sm:min-h-[50px] text-xs sm:text-sm font-medium data-[state=active]:bg-white data-[state=active]:text-gray-900"
+                >
+                  <Icon className="w-4 h-4 flex-shrink-0" />
+                  <span className="text-center leading-tight break-words max-w-full">
+                    {key === 'fundamentos' ? 'Fundamentos' : 
+                     key === 'economia' ? 'Economia' : 
+                     key === 'investimentos' ? 'Investimentos' : 'Mentalidade'}
+                  </span>
                 </TabsTrigger>
               );
             })}
           </TabsList>
 
           {Object.entries(trails).map(([key, trail]) => (
-            <TabsContent key={key} value={key}>
+            <TabsContent key={key} value={key} className="space-y-4 sm:space-y-6 mt-4 sm:mt-6">
               <TrailHeader trail={trail as Trail} />
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6">
                 {trail.resources.map((resource, index) => (
                   <ResourceCard key={index} resource={resource as Resource} />
                 ))}
