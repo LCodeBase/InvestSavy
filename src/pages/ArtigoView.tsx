@@ -1281,7 +1281,7 @@ const ArtigoView = () => {
         title: "Bitcoin para Iniciantes: Um Guia Completo da Primeira Criptomoeda do Mundo",
         description: "O Bitcoin é uma moeda digital descentralizada que permite transações diretas entre pessoas, sem a necessidade de intermediários como bancos ou governos. Criado em 2008 por uma entidade sob o pseudônimo de Satoshi Nakamoto, o Bitcoin surgiu como uma alternativa ao sistema financeiro tradicional, especialmente após a crise econômica global daquele ano.",
         image: "https://images.unsplash.com/photo-1623227413711-25ee4388dae3?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        category: "criptomoedas",
+        category: "cripto",
         author: "Leonardo Figueiredo",
         date: "4 de Junho, 2025",
         publishedAt: new Date("2025-06-04").getTime(),

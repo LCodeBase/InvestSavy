@@ -19,7 +19,7 @@ const Artigos = () => {
     { id: "planejamento", nome: "Planejamento" },
     { id: "carreira", nome: "Carreira" },
     { id: "startups", nome: "Startups" },
-    { id: "criptomoedas", nome: "Criptomoedas" }
+    { id: "cripto", nome: "Cripto" }
   ];
 
   const artigos = [
@@ -124,7 +124,7 @@ const Artigos = () => {
       title: "Startups do Vale do Silício Intensificam a Cultura do Esforço Extremo",
       description: "Empresas emergentes de tecnologia estão adotando jornadas de trabalho extenuantes, desafiando os limites do equilíbrio entre vida profissional e pessoal.",
       image: "https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80",
-      category: "Startups",
+      category: "startups",
       author: "Leonardo Figueiredo",
       date: "4 de Junho, 2025",
       publishedAt: new Date("2025-06-04").getTime(),
@@ -136,7 +136,7 @@ const Artigos = () => {
       title: "Bitcoin para Iniciantes: Um Guia Completo da Primeira Criptomoeda do Mundo",
       description: "O Bitcoin é uma moeda digital descentralizada que permite transações diretas entre pessoas, sem a necessidade de intermediários como bancos ou governos. Criado em 2008 por uma entidade sob o pseudônimo de Satoshi Nakamoto, o Bitcoin surgiu como uma alternativa ao sistema financeiro tradicional, especialmente após a crise econômica global daquele ano.",
       image: "https://images.unsplash.com/photo-1623227413711-25ee4388dae3?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      category: "criptomoedas",
+      category: "cripto",
       author: "Leonardo Figueiredo",
       date: "4 de Junho, 2025",
       publishedAt: new Date("2025-06-04").getTime(),
@@ -222,8 +222,8 @@ const Artigos = () => {
                     artigo.category === "economia" ? "Economia" :
                       artigo.category === "planejamento" ? "Planejamento" :
                         artigo.category === "carreira" ? "Carreira" :
-                          artigo.category === "empreendedorismo" ? "Empreendedorismo" :
-                            artigo.category === "criptomoedas" ? "Criptomoedas" : "Outros"}
+                          artigo.category === "startups" ? "Startups" :
+                            artigo.category === "cripto" ? "Cripto" : "Outros"}
               </div>
             </div>
 
