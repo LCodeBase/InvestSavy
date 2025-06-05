@@ -27,34 +27,34 @@ const Trilhas = () => {
       duration: "2-4 semanas",
       resources: [
         {
-          title: "Cidadania Financeira – Banco Central",
-          description: "Portal oficial do governo com cursos gratuitos sobre educação financeira, planejamento e uso consciente do dinheiro.",
+          title: "Educação Financeira - Fundação Bradesco",
+          description: "Curso gratuito e online que ensina noções básicas de finanças pessoais, com certificado autenticado grátis! Oferecido pela Fundação Bradesco, instituição filantrópica que promove educação de qualidade e inclusão social.",
           type: "course",
-          provider: "Banco Central do Brasil",
-          duration: "Autoestudo",
-          rating: 4.9,
-          url: "https://www.cidadaniafinanceira.gov.br/educacao",
-          highlights: ["Certificado oficial", "Conteúdo atualizado", "Exercícios práticos"]
+          provider: "Fundação Bradesco",
+          duration: "4 horas",
+          rating: 5.0,
+          url: "https://www.ev.org.br/cursos/educacao-financeira",
+          highlights: ["Certificado oficial", "Conteúdo atualizado", "100% Qualidade"]
         },
         {
-          title: "Curso de Educação Financeira – CVM",
-          description: "Aprenda sobre investimentos, mercado de capitais e proteção ao investidor com a autoridade reguladora.",
-          type: "course",
-          provider: "Comissão de Valores Mobiliários",
-          duration: "20 horas",
-          rating: 4.8,
-          url: "https://www.gov.br/cvm/pt-br/assuntos/educacao/cursos-e-eventos",
-          highlights: ["Gratuito", "Certificado", "Órgão oficial"]
-        },
-        {
-          title: "Educação Financeira para Todos – FGV",
-          description: "Curso completo da Fundação Getúlio Vargas sobre planejamento financeiro pessoal e familiar.",
+          title: "Como fazer investimentos - FGV",
+          description: "Curso gratuito e online da FGV que ensina conceitos básicos de investimentos, ideal para quem está começando agora, nesse mundo. Oferecido pela Fundação Getulio Vargas, referência em educação de qualidade no Brasil.",
           type: "course",
           provider: "Fundação Getúlio Vargas",
-          duration: "40 horas",
-          rating: 4.7,
-          url: "https://educacao-executiva.fgv.br/cursos/gratuitos/educacao-financeira",
-          highlights: ["Universidade renomada", "Metodologia acadêmica", "Casos práticos"]
+          duration: "12 horas",
+          rating: 5.0,
+          url: "https://educacao-executiva.fgv.br/cursos/online/curta-media-duracao-online/como-fazer-investimentos-1",
+          highlights: ["Gratuito", "100% Qualidade", "Declaração de Conclusão"]
+        },
+        {
+          title: "Assistente Administrativo - SENAC",
+          description: "Curso que capacita o aluno para atuar em atividades administrativas, como organização de documentos, atendimento ao público e apoio à gestão. Oferecido pelo Senac, referência nacional em educação profissional e inclusão no mercado de trabalho.",
+          type: "course",
+          provider: "Senac",
+          duration: "160 horas",
+          rating: 5.0,
+          url: "https://www.ead.senac.br/gratuito/assistente-administrativo/",
+          highlights: ["Universidade renomada", "Metodologia acadêmica", "Certificado Oficial"]
         },
 
       ]
@@ -69,12 +69,12 @@ const Trilhas = () => {
       resources: [
         {
           title: "Noções de Economia – FGV",
-          description: "Curso introdutório sobre princípios econômicos, mercados e políticas públicas.",
+          description: "Curso introdutório sobre princípios econômicos e matemáticos do  mercado financeiro.",
           type: "course",
           provider: "Fundação Getúlio Vargas",
           duration: "30 horas",
           rating: 4.8,
-          url: "https://educacao-executiva.fgv.br/cursos/gratuitos/nocoes-economia",
+          url: "https://educacao-executiva.fgv.br/cursos/online/curta-media-duracao-online/matematica-conceitos-gerais-sobre-funcoes",
           highlights: ["Base acadêmica sólida", "Professores renomados", "Certificado"]
         },
         {
@@ -397,16 +397,16 @@ const Trilhas = () => {
             {Object.entries(trails).map(([key, trail]) => {
               const Icon = trail.icon;
               return (
-                <TabsTrigger 
-                  key={key} 
-                  value={key} 
+                <TabsTrigger
+                  key={key}
+                  value={key}
                   className="flex flex-col items-center justify-center gap-1 p-2 sm:p-3 h-auto min-h-[60px] sm:min-h-[50px] text-xs sm:text-sm font-medium data-[state=active]:bg-white data-[state=active]:text-gray-900"
                 >
                   <Icon className="w-4 h-4 flex-shrink-0" />
                   <span className="text-center leading-tight break-words max-w-full">
-                    {key === 'fundamentos' ? 'Fundamentos' : 
-                     key === 'economia' ? 'Economia' : 
-                     key === 'investimentos' ? 'Investimentos' : 'Mentalidade'}
+                    {key === 'fundamentos' ? 'Fundamentos' :
+                      key === 'economia' ? 'Economia' :
+                        key === 'investimentos' ? 'Investimentos' : 'Mentalidade'}
                   </span>
                 </TabsTrigger>
               );
