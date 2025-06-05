@@ -146,13 +146,16 @@ const Sobre = () => {
                   </p>
                   <div className="text-gray-600 space-y-4">
                     <p className="text-lg leading-relaxed">
-                      Com mais de 10 anos de experiência no mercado financeiro, Leonardo identificou a necessidade de democratizar o acesso à educação financeira no Brasil.
+                      Sempre fui inconformado com a forma como o conhecimento financeiro é tratado no Brasil — limitado, técnico demais ou simplesmente inexistente nas escolas. A maioria aprende sobre dinheiro da pior forma: com dívidas, frustrações e promessas falsas.
                     </p>
                     <p className="text-lg leading-relaxed">
-                      Formado em Economia pela USP e com especialização em Finanças, ele fundou a InvestSavy com o objetivo de tornar os investimentos mais acessíveis e compreensíveis para todos os brasileiros.
+                      Criei o InvestSavy com o propósito de mudar isso. Quero construir um espaço acessível, prático e direto ao ponto, onde qualquer pessoa possa aprender a pensar financeiramente, entender o mercado e tomar melhores decisões, sem depender de “gurus” ou de soluções mágicas.
                     </p>
                     <p className="text-lg leading-relaxed">
-                      "Acredito que a educação financeira é a chave para a independência e realização dos sonhos. Nossa missão é simplificar conceitos complexos e fornecer ferramentas práticas para que qualquer pessoa possa tomar decisões financeiras inteligentes."
+                      Acreditamos que educação financeira é liberdade. E liberdade não se negocia.
+                    </p>
+                    <p className="text-lg leading-relaxed font-semibold text-black italic">
+                      Quem entende de dinheiro não se vende por migalhas.
                     </p>
                   </div>
                 </div>
