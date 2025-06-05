@@ -224,7 +224,6 @@ const Contato = () => {
               ))}
             </div>
 
-            {/* Resto do componente permanece igual */}
             <div className="grid lg:grid-cols-2 gap-12 items-start max-w-5xl mx-auto">
               {/* Formulário de Contato */}
               <Card className="shadow-lg">
@@ -378,7 +377,6 @@ const Contato = () => {
               </div>
             </div>
           </div>
-
         </section>
       </main>
       <Footer />
