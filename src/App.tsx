@@ -19,6 +19,7 @@ import CalculadoraAposentadoria from "@/pages/CalculadoraAposentadoria";
 import CalculadoraDividas from "@/pages/CalculadoraDividas";
 import SimuladorJurosCompostos from "@/pages/SimuladorJurosCompostos";
 import SimuladorFinanciamentoImobiliario from "@/pages/SimuladorFinanciamentoImobiliario";
+import CalculadoraJuros from "@/pages/CalculadoraJuros";
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
           <Route path="/minhas-trilhas" element={<Trilhas />} />
           <Route path="/calculadora-aposentadoria" element={<CalculadoraAposentadoria />} />
           <Route path="/calculadora-dividas" element={<CalculadoraDividas />} />
+          <Route path="/calculadora-juros" element={<CalculadoraJuros />} />
           <Route path="/simulador-juros-compostos" element={<SimuladorJurosCompostos />} />
           <Route path="/simulador-financiamento-imobiliario" element={<SimuladorFinanciamentoImobiliario />} />
           <Route path="*" element={<NotFound />} />
