@@ -39,15 +39,16 @@ const Ferramentas = () => {
       path: "/calculadora-aposentadoria"
     },
     {
-      title: "Calculadora de Imposto de Renda",
-      description: "Estime quanto você pagará de imposto de renda sobre seus investimentos e rendimentos",
-      icon: <DollarSign className="h-6 w-6" />,
-      usage: "Em desenvolvimento",
+      title: "Calculadora de Juros Simples e Compostos",
+      description: "Compare juros simples e compostos e entenda a diferença entre eles na prática",
+      icon: <Percent className="h-6 w-6" />,
+      usage: "Nova ferramenta",
       color: "finance-blue",
-      features: ["Diferentes tipos de rendimentos", "Deduções automáticas", "Relatório detalhado"],
-      comingSoon: true,
-      path: "/calculadora-imposto-renda"  // Adicionar caminho quando a página for criada
+      features: ["Cálculo de juros simples", "Cálculo de juros compostos", "Comparação visual"],
+      comingSoon: false,
+      path: "/calculadora-juros"  // Caminho para a nova página
     }
+    // Removi a calculadora de imposto de renda que foi substituída
   ];
 
   const simuladores = [
