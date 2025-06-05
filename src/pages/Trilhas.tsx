@@ -90,7 +90,7 @@ const Trilhas = () => {
         {
           title: "Economia em 10 Lições – UNICAMP",
           description: "Perfeito para quem deseja começar a estudar economia, inclusive o composto por não economistas, estudantes e profissionais de outras carreiras ou que estão começando.",
-          type: "video",
+          type: "Ebook",
           provider: "Ebook",
           duration: "473 páginas",
           rating: 4.9,
