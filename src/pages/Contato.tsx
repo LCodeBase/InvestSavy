@@ -4,7 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Mail, MessageSquare, Phone, MapPin, Clock, Send, CheckCircle2, AlertCircle } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -23,10 +23,19 @@ const formSchema = z.object({
 
 type FormValues = z.infer<typeof formSchema>;
 
+// Declaração global para o Tawk.to
+declare global {
+  interface Window {
+    Tawk_API?: any;
+    Tawk_LoadStart?: Date;
+  }
+}
+
 const Contato = () => {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [tawkLoaded, setTawkLoaded] = useState(false);
 
   // Inicializando o formulário com react-hook-form e zod
   const form = useForm<FormValues>({
@@ -38,6 +47,73 @@ const Contato = () => {
       mensagem: "",
     },
   });
+
+  // Função para carregar o Tawk.to
+  const loadTawkTo = () => {
+    if (window.Tawk_API) {
+      setTawkLoaded(true);
+      return;
+    }
+
+    // Substitua pelos seus IDs reais do Tawk.to
+    const TAWK_PROPERTY_ID = "SEU_PROPERTY_ID_AQUI"; // Ex: "1hqr8r8r8"
+    const TAWK_WIDGET_ID = "SEU_WIDGET_ID_AQUI"; // Ex: "5f8a9b2c3d4e5f6g7h8i9j0k"
+
+    window.Tawk_API = window.Tawk_API || {};
+    window.Tawk_LoadStart = new Date();
+
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = `https://embed.tawk.to/${TAWK_PROPERTY_ID}/${TAWK_WIDGET_ID}`;
+    script.charset = 'UTF-8';
+    script.setAttribute('crossorigin', '*');
+
+    script.onload = () => {
+      setTawkLoaded(true);
+      // Configurações opcionais do Tawk.to
+      if (window.Tawk_API) {
+        // Ocultar o widget por padrão (só aparece quando clicamos no botão)
+        window.Tawk_API.hideWidget();
+
+        // Configurar callbacks
+        window.Tawk_API.onLoad = function() {
+          console.log('Tawk.to carregado com sucesso!');
+        };
+
+        window.Tawk_API.onChatStarted = function() {
+          console.log('Chat iniciado!');
+        };
+      }
+    };
+
+    const firstScript = document.getElementsByTagName('script')[0];
+    if (firstScript && firstScript.parentNode) {
+      firstScript.parentNode.insertBefore(script, firstScript);
+    }
+  };
+
+  // Função para abrir o chat do Tawk.to
+  const openTawkChat = () => {
+    if (window.Tawk_API && tawkLoaded) {
+      // Mostra e maximiza o widget
+      window.Tawk_API.showWidget();
+      window.Tawk_API.maximize();
+    } else {
+      // Se ainda não carregou, carrega e depois abre
+      loadTawkTo();
+      setTimeout(() => {
+        if (window.Tawk_API) {
+          window.Tawk_API.showWidget();
+          window.Tawk_API.maximize();
+        }
+      }, 2000);
+    }
+  };
+
+  // Carregar Tawk.to quando o componente monta
+  useEffect(() => {
+    loadTawkTo();
+  }, []);
 
   // Função para enviar os dados para o Supabase
   const onSubmit = async (data: FormValues) => {
@@ -76,9 +152,10 @@ const Contato = () => {
       icon: <Mail className="h-6 w-6" />,
       title: "Email",
       description: "Nossa equipe responde em até 24h",
-      contact: "contato@investsavy.com.br",
+      contact: "contato@investsavy.online",
       action: "Enviar email",
-      link: "mailto:contato@investsavy.com.br"
+      link: "mailto:contato@investsavy.online",
+      onClick: null
     },
     {
       icon: <Phone className="h-6 w-6" />,
@@ -86,7 +163,8 @@ const Contato = () => {
       description: "Segunda a sexta, 9h às 18h",
       contact: "(11) 93201-2181",
       action: "Ligar agora",
-      link: "tel:+5511932012181"
+      link: "tel:+5511932012181",
+      onClick: null
     },
     {
       icon: <MessageSquare className="h-6 w-6" />,
@@ -94,7 +172,8 @@ const Contato = () => {
       description: "Disponível todos os dias",
       contact: "Tempo médio de resposta: 5 min",
       action: "Iniciar chat",
-      link: "#chat"
+      link: "#chat",
+      onClick: openTawkChat
     }
   ];
 
@@ -136,7 +215,7 @@ const Contato = () => {
                     </div>
                     <Button
                       className="w-full bg-finance-blue hover:bg-finance-blue-dark text-white"
-                      onClick={() => window.open(info.link, '_blank')}
+                      onClick={info.onClick || (() => window.open(info.link, '_blank'))}
                     >
                       {info.action}
                     </Button>
@@ -145,6 +224,7 @@ const Contato = () => {
               ))}
             </div>
 
+            {/* Resto do componente permanece igual */}
             <div className="grid lg:grid-cols-2 gap-12 items-start max-w-5xl mx-auto">
               {/* Formulário de Contato */}
               <Card className="shadow-lg">
@@ -271,7 +351,6 @@ const Contato = () => {
               </Card>
 
               {/* Informações adicionais */}
-
               <div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">
                   Perguntas Frequentes
