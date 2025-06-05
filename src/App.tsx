@@ -1,11 +1,13 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "@/contexts/AuthContext";
+import ScrollToTop from "@/components/ScrollToTop";
 import Index from "@/pages/Index";
 import Trilhas from "@/pages/Trilhas";
 import Ferramentas from "@/pages/Ferramentas";
 import Artigos from "@/pages/Artigos";
 import ArtigoView from "@/pages/ArtigoView";
 import Contato from "@/pages/Contato";
+import Sobre from "@/pages/Sobre";
 import Login from "@/pages/Login";
 import Cadastro from "@/pages/Cadastro";
 import NotFound from "@/pages/NotFound";
@@ -16,12 +18,13 @@ import Perfil from "@/pages/Perfil";
 import CalculadoraAposentadoria from "@/pages/CalculadoraAposentadoria";
 import CalculadoraDividas from "@/pages/CalculadoraDividas";
 import SimuladorJurosCompostos from "@/pages/SimuladorJurosCompostos";
-import SimuladorFinanciamentoImobiliario from "@/pages/SimuladorFinanciamentoImobiliario"; // Importando o novo simulador
+import SimuladorFinanciamentoImobiliario from "@/pages/SimuladorFinanciamentoImobiliario";
 
 function App() {
   return (
     <AuthProvider>
       <Router>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/trilhas" element={<Trilhas />} />
@@ -29,6 +32,7 @@ function App() {
           <Route path="/artigos" element={<Artigos />} />
           <Route path="/artigos/:id" element={<ArtigoView />} />
           <Route path="/contato" element={<Contato />} />
+          <Route path="/sobre" element={<Sobre />} />
           <Route path="/login" element={<Login />} />
           <Route path="/cadastro" element={<Cadastro />} />
           <Route path="/ajuda" element={<Ajuda />} />
@@ -39,7 +43,7 @@ function App() {
           <Route path="/calculadora-aposentadoria" element={<CalculadoraAposentadoria />} />
           <Route path="/calculadora-dividas" element={<CalculadoraDividas />} />
           <Route path="/simulador-juros-compostos" element={<SimuladorJurosCompostos />} />
-          <Route path="/simulador-financiamento-imobiliario" element={<SimuladorFinanciamentoImobiliario />} /> {/* Nova rota para o simulador */}
+          <Route path="/simulador-financiamento-imobiliario" element={<SimuladorFinanciamentoImobiliario />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>

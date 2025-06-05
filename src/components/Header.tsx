@@ -31,19 +31,23 @@ const Header = () => {
     navigate("/");
   };
 
+  // Função para garantir scroll ao topo ao clicar em links
+  const handleLinkClick = () => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+    setIsMenuOpen(false);
+  };
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm">
       <div className="container mx-auto px-4 py-3 sm:py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
+          <Link to="/" className="flex items-center space-x-2" onClick={handleLinkClick}>
             <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg to-finance-green flex items-center justify-center">
-
             </div>
             <span className="text-xl sm:text-2xl font-bold" style={{ color: '#1e40af' }}>
               Invest<span style={{ color: '#10b981' }}>Savy</span>
             </span>
-
           </Link>
 
           {/* Desktop Navigation */}
@@ -53,6 +57,7 @@ const Header = () => {
                 key={item.name}
                 to={item.href}
                 className="text-gray-600 hover:text-finance-blue transition-colors duration-200 font-medium"
+                onClick={handleLinkClick}
               >
                 {item.name}
               </Link>
@@ -73,10 +78,10 @@ const Header = () => {
                   <DropdownMenuLabel>Minha Conta</DropdownMenuLabel>
                   <DropdownMenuSeparator />
                   <DropdownMenuItem>
-                    <Link to="/perfil" className="flex w-full">Perfil</Link>
+                    <Link to="/perfil" className="flex w-full" onClick={handleLinkClick}>Perfil</Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem>
-                    <Link to="/minhas-trilhas" className="flex w-full">Minhas Trilhas</Link>
+                    <Link to="/minhas-trilhas" className="flex w-full" onClick={handleLinkClick}>Minhas Trilhas</Link>
                   </DropdownMenuItem>
                   <DropdownMenuSeparator />
                   <DropdownMenuItem onClick={handleSignOut} className="text-red-600 cursor-pointer">
@@ -90,13 +95,19 @@ const Header = () => {
                 <Button
                   variant="ghost"
                   className="text-finance-blue hover:bg-finance-blue/10 text-sm lg:text-base px-2 lg:px-4"
-                  onClick={() => navigate("/login")}
+                  onClick={() => {
+                    navigate("/login");
+                    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+                  }}
                 >
                   Entrar
                 </Button>
                 <Button
                   className="bg-finance-green hover:bg-finance-green-dark text-white text-sm lg:text-base px-2 lg:px-4"
-                  onClick={() => navigate("/cadastro")}
+                  onClick={() => {
+                    navigate("/cadastro");
+                    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+                  }}
                 >
                   Começar Agora
                 </Button>
@@ -124,7 +135,7 @@ const Header = () => {
                   key={item.name}
                   to={item.href}
                   className="text-gray-600 hover:text-finance-blue transition-colors duration-200 font-medium py-2"
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={handleLinkClick}
                 >
                   {item.name}
                 </Link>
@@ -135,14 +146,14 @@ const Header = () => {
                     <Link
                       to="/perfil"
                       className="text-gray-600 hover:text-finance-blue transition-colors duration-200 font-medium py-2"
-                      onClick={() => setIsMenuOpen(false)}
+                      onClick={handleLinkClick}
                     >
                       Perfil
                     </Link>
                     <Link
                       to="/minhas-trilhas"
                       className="text-gray-600 hover:text-finance-blue transition-colors duration-200 font-medium py-2"
-                      onClick={() => setIsMenuOpen(false)}
+                      onClick={handleLinkClick}
                     >
                       Minhas Trilhas
                     </Link>
@@ -165,6 +176,7 @@ const Header = () => {
                       className="text-finance-blue hover:bg-finance-blue/10 justify-start"
                       onClick={() => {
                         navigate("/login");
+                        window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
                         setIsMenuOpen(false);
                       }}
                     >
@@ -174,6 +186,7 @@ const Header = () => {
                       className="bg-finance-green hover:bg-finance-green-dark text-white justify-start"
                       onClick={() => {
                         navigate("/cadastro");
+                        window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
                         setIsMenuOpen(false);
                       }}
                     >

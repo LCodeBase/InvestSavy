@@ -15,6 +15,11 @@ const Footer = () => {
   const [error, setError] = useState<string | null>(null);
   const formRef = useRef<HTMLFormElement>(null);
 
+  // Função para garantir scroll ao topo ao clicar em links
+  const handleLinkClick = () => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  };
+
   const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -100,7 +105,7 @@ const Footer = () => {
     { name: "Trilhas", href: "/trilhas" },
     { name: "Ferramentas", href: "/ferramentas" },
     { name: "Artigos", href: "/artigos" },
-    { name: "Sobre", href: "/" }
+    { name: "Sobre", href: "/sobre" }
   ];
 
   const resources = [
@@ -127,7 +132,11 @@ const Footer = () => {
             <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.name}>
-                  <Link to={link.href} className="text-gray-300 hover:text-white transition-colors duration-200">
+                  <Link
+                    to={link.href}
+                    className="text-gray-300 hover:text-white transition-colors duration-200"
+                    onClick={handleLinkClick}
+                  >
                     {link.name}
                   </Link>
                 </li>
@@ -161,7 +170,11 @@ const Footer = () => {
             <ul className="space-y-3">
               {resources.map((resource) => (
                 <li key={resource.name}>
-                  <Link to={resource.href} className="text-gray-300 hover:text-white transition-colors duration-200">
+                  <Link
+                    to={resource.href}
+                    className="text-gray-300 hover:text-white transition-colors duration-200"
+                    onClick={handleLinkClick}
+                  >
                     {resource.name}
                   </Link>
                 </li>
@@ -202,33 +215,32 @@ const Footer = () => {
                   placeholder="Seu melhor email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="flex-1 px-4 py-2 rounded-lg bg-gray-800 border border-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-finance-blue w-full"
+                  className="flex-1 px-3 py-2 bg-gray-800 border border-gray-700 rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
+                  disabled={loading}
                 />
                 <Button
                   type="submit"
-                  className="bg-finance-blue hover:bg-finance-blue-dark text-white mt-2 sm:mt-0"
                   disabled={loading}
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition-colors duration-200 text-sm whitespace-nowrap"
                 >
-                  {loading ? (
-                    <span className="flex items-center">Enviando...</span>
-                  ) : (
-                    <span className="flex items-center">Inscrever</span>
-                  )}
+                  {loading ? 'Enviando...' : 'Inscrever'}
                 </Button>
               </form>
             </div>
           </div>
         </div>
 
-        {/* Bottom */}
-        <div className="border-t border-gray-800 pt-6 flex justify-center">
-          <div className="text-gray-400 text-sm text-center">
-            © 2025 InvestSavy. Todos os direitos reservados.
+        {/* Bottom Section */}
+        <div className="border-t border-gray-800 pt-6 md:pt-8 md:text-center">
+          <div className="flex flex-col items-center justify-center text-center space-y-4">
+            <p className="text-gray-400 text-sm">
+              © 2025 InvestSavy. Todos os direitos reservados.
+            </p>
           </div>
         </div>
 
       </div>
-    </footer>
+    </footer >
   );
 };
 
