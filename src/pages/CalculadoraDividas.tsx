@@ -5,10 +5,10 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
-import { Slider } from "@/components/ui/slider";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Calculator, HelpCircle, AlertCircle, TrendingUp, Plus, Trash2, ArrowDown, ArrowUp } from "lucide-react";
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, Area, AreaChart, BarChart, Bar } from "recharts";
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import { Calculator, HelpCircle, AlertCircle, TrendingUp, Plus, Trash2, ArrowDown, ArrowUp, CheckCircle, DollarSign, Clock, Target } from "lucide-react";
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, AreaChart, Area, BarChart, Bar } from "recharts";
 
 // Interface para os dados de cada dívida
 interface Divida {
@@ -22,9 +22,9 @@ interface Divida {
 // Interface para os dados do gráfico
 interface DadosGrafico {
   mes: number;
-  dividas: number;
-  juros: number;
-  amortizacao: number;
+  saldoRestante: number;
+  jurosPagos: number;
+  totalPago: number;
 }
 
 // Interface para os resultados da simulação
@@ -32,26 +32,28 @@ interface ResultadoSimulacao {
   tempoQuitacao: number;
   totalJuros: number;
   totalPago: number;
-  economiaProjetada: number;
+  economiaVsMinimo: number;
   dadosGrafico: DadosGrafico[];
+  ordemPagamento: string[];
 }
 
 const CalculadoraDividas = () => {
-  // Estados para os inputs do usuário
+  // Estados para os inputs do usuário - INICIANDO ZERADOS
   const [dividas, setDividas] = useState<Divida[]>([
-    { id: "1", nome: "Cartão de Crédito", valor: 5000, taxaJuros: 12, pagamentoMinimo: 200 },
-    { id: "2", nome: "Empréstimo Pessoal", valor: 10000, taxaJuros: 3.5, pagamentoMinimo: 500 }
+    { id: "1", nome: "", valor: 0, taxaJuros: 0, pagamentoMinimo: 0 }
   ]);
-  const [orcamentoMensal, setOrcamentoMensal] = useState<number>(1000);
+  const [orcamentoMensal, setOrcamentoMensal] = useState<number>(0);
   const [estrategia, setEstrategia] = useState<string>("bola-de-neve");
+  const [mostrarResultados, setMostrarResultados] = useState<boolean>(false);
 
   // Estados para os resultados calculados
   const [resultado, setResultado] = useState<ResultadoSimulacao>({
     tempoQuitacao: 0,
     totalJuros: 0,
     totalPago: 0,
-    economiaProjetada: 0,
-    dadosGrafico: []
+    economiaVsMinimo: 0,
+    dadosGrafico: [],
+    ordemPagamento: []
   });
 
   // Estado para comparação de estratégias
@@ -63,15 +65,17 @@ const CalculadoraDividas = () => {
       tempoQuitacao: 0,
       totalJuros: 0,
       totalPago: 0,
-      economiaProjetada: 0,
-      dadosGrafico: []
+      economiaVsMinimo: 0,
+      dadosGrafico: [],
+      ordemPagamento: []
     },
     avalanche: {
       tempoQuitacao: 0,
       totalJuros: 0,
       totalPago: 0,
-      economiaProjetada: 0,
-      dadosGrafico: []
+      economiaVsMinimo: 0,
+      dadosGrafico: [],
+      ordemPagamento: []
     }
   });
 
@@ -79,10 +83,10 @@ const CalculadoraDividas = () => {
   const adicionarDivida = () => {
     const novaDivida: Divida = {
       id: Date.now().toString(),
-      nome: "Nova Dívida",
-      valor: 1000,
-      taxaJuros: 5,
-      pagamentoMinimo: 100
+      nome: "",
+      valor: 0,
+      taxaJuros: 0,
+      pagamentoMinimo: 0
     };
     setDividas([...dividas, novaDivida]);
   };
@@ -104,25 +108,78 @@ const CalculadoraDividas = () => {
     }));
   };
 
-  // Função para calcular a simulação usando o método bola de neve (menor valor primeiro)
-  const calcularBolaDeNeve = (dividasInput: Divida[], orcamento: number): ResultadoSimulacao => {
-    // Clonar as dívidas para não modificar o estado original
+  // Função para validar se os dados estão completos
+  const validarDados = (): boolean => {
+    if (orcamentoMensal <= 0) return false;
+
+    const dividasValidas = dividas.filter(d =>
+      d.nome.trim() !== "" &&
+      d.valor > 0 &&
+      d.taxaJuros >= 0 &&
+      d.pagamentoMinimo > 0
+    );
+
+    return dividasValidas.length > 0;
+  };
+
+  // Função para calcular pagamento apenas com mínimos
+  const calcularPagamentoMinimo = (dividasInput: Divida[]): ResultadoSimulacao => {
     const dividasSimulacao = JSON.parse(JSON.stringify(dividasInput)) as Divida[];
+    let mes = 0;
+    let totalJuros = 0;
+    let totalPago = 0;
+    const dadosGrafico: DadosGrafico[] = [];
 
-    // Ordenar por valor (menor para maior)
+    while (dividasSimulacao.some(d => d.valor > 0.01) && mes < 600) {
+      mes++;
+      let jurosMes = 0;
+      let pagamentoMes = 0;
+
+      dividasSimulacao.forEach(divida => {
+        if (divida.valor > 0) {
+          const juros = divida.valor * (divida.taxaJuros / 100);
+          divida.valor += juros;
+          jurosMes += juros;
+          totalJuros += juros;
+
+          const pagamento = Math.min(divida.pagamentoMinimo, divida.valor);
+          divida.valor -= pagamento;
+          pagamentoMes += pagamento;
+          totalPago += pagamento;
+        }
+      });
+
+      const saldoTotal = dividasSimulacao.reduce((sum, d) => sum + Math.max(0, d.valor), 0);
+
+      dadosGrafico.push({
+        mes,
+        saldoRestante: saldoTotal,
+        jurosPagos: jurosMes,
+        totalPago: pagamentoMes
+      });
+    }
+
+    return {
+      tempoQuitacao: mes,
+      totalJuros,
+      totalPago,
+      economiaVsMinimo: 0,
+      dadosGrafico,
+      ordemPagamento: []
+    };
+  };
+
+  // Função para calcular a simulação usando o método bola de neve
+  const calcularBolaDeNeve = (dividasInput: Divida[], orcamento: number): ResultadoSimulacao => {
+    const dividasSimulacao = JSON.parse(JSON.stringify(dividasInput)) as Divida[];
     dividasSimulacao.sort((a, b) => a.valor - b.valor);
-
     return simularPagamento(dividasSimulacao, orcamento);
   };
 
-  // Função para calcular a simulação usando o método avalanche (maior taxa de juros primeiro)
+  // Função para calcular a simulação usando o método avalanche
   const calcularAvalanche = (dividasInput: Divida[], orcamento: number): ResultadoSimulacao => {
-    // Clonar as dívidas para não modificar o estado original
     const dividasSimulacao = JSON.parse(JSON.stringify(dividasInput)) as Divida[];
-
-    // Ordenar por taxa de juros (maior para menor)
     dividasSimulacao.sort((a, b) => b.taxaJuros - a.taxaJuros);
-
     return simularPagamento(dividasSimulacao, orcamento);
   };
 
@@ -133,102 +190,122 @@ const CalculadoraDividas = () => {
     let totalPago = 0;
     const dividasRestantes = [...dividasOrdenadas];
     const dadosGrafico: DadosGrafico[] = [];
+    const ordemPagamento: string[] = dividasOrdenadas.map(d => d.nome);
 
-    // Adicionar ponto inicial ao gráfico
-    dadosGrafico.push({
-      mes: 0,
-      dividas: dividasOrdenadas.reduce((sum, divida) => sum + divida.valor, 0),
-      juros: 0,
-      amortizacao: 0
-    });
+    // Verificar se o orçamento é suficiente para os pagamentos mínimos
+    const totalMinimo = dividasRestantes.reduce((sum, d) => sum + d.pagamentoMinimo, 0);
+    if (orcamento < totalMinimo) {
+      return {
+        tempoQuitacao: 0,
+        totalJuros: 0,
+        totalPago: 0,
+        economiaVsMinimo: 0,
+        dadosGrafico: [],
+        ordemPagamento: []
+      };
+    }
 
-    // Simular mês a mês até que todas as dívidas sejam pagas
-    while (dividasRestantes.length > 0 && mes < 240) { // Limite de 20 anos (240 meses)
+    while (dividasRestantes.length > 0 && mes < 600) {
       mes++;
       let orcamentoDisponivel = orcamento;
-      let jurosDoMes = 0;
-      let amortizacaoDoMes = 0;
+      let jurosMes = 0;
+      let pagamentoMes = 0;
 
-      // Calcular juros do mês para cada dívida
+      // Aplicar juros
       dividasRestantes.forEach(divida => {
-        const jurosMensal = divida.valor * (divida.taxaJuros / 100);
-        divida.valor += jurosMensal;
-        totalJuros += jurosMensal;
-        jurosDoMes += jurosMensal;
+        const juros = divida.valor * (divida.taxaJuros / 100);
+        divida.valor += juros;
+        totalJuros += juros;
+        jurosMes += juros;
       });
 
-      // Pagar o mínimo de cada dívida
-      for (let i = 0; i < dividasRestantes.length; i++) {
-        const pagamento = Math.min(dividasRestantes[i].pagamentoMinimo, dividasRestantes[i].valor);
+      // Pagar mínimos
+      for (let i = dividasRestantes.length - 1; i >= 0; i--) {
+        const pagamento = Math.min(dividasRestantes[i].pagamentoMinimo, dividasRestantes[i].valor, orcamentoDisponivel);
         dividasRestantes[i].valor -= pagamento;
         orcamentoDisponivel -= pagamento;
         totalPago += pagamento;
-        amortizacaoDoMes += pagamento;
+        pagamentoMes += pagamento;
 
-        // Se a dívida foi paga completamente
         if (dividasRestantes[i].valor <= 0.01) {
           dividasRestantes.splice(i, 1);
-          i--;
         }
       }
 
-      // Usar o orçamento restante para pagar a dívida prioritária
+      // Usar orçamento extra na primeira dívida (estratégia)
       if (orcamentoDisponivel > 0 && dividasRestantes.length > 0) {
         const pagamentoExtra = Math.min(orcamentoDisponivel, dividasRestantes[0].valor);
         dividasRestantes[0].valor -= pagamentoExtra;
         totalPago += pagamentoExtra;
-        amortizacaoDoMes += pagamentoExtra;
+        pagamentoMes += pagamentoExtra;
 
-        // Se a dívida prioritária foi paga completamente
         if (dividasRestantes[0].valor <= 0.01) {
           dividasRestantes.splice(0, 1);
         }
       }
 
-      // Adicionar dados ao gráfico
+      const saldoTotal = dividasRestantes.reduce((sum, d) => sum + d.valor, 0);
+
       dadosGrafico.push({
         mes,
-        dividas: dividasRestantes.reduce((sum, divida) => sum + divida.valor, 0),
-        juros: jurosDoMes,
-        amortizacao: amortizacaoDoMes
+        saldoRestante: saldoTotal,
+        jurosPagos: jurosMes,
+        totalPago: pagamentoMes
       });
     }
 
-    // Calcular economia projetada (diferença entre o total pago e o valor inicial das dívidas)
-    const valorInicialDividas = dividasOrdenadas.reduce((sum, divida) => sum + divida.valor, 0);
-    const economiaProjetada = valorInicialDividas + totalJuros - totalPago;
+    // Calcular economia vs pagamento mínimo
+    const resultadoMinimo = calcularPagamentoMinimo(dividasOrdenadas);
+    const economiaVsMinimo = resultadoMinimo.totalJuros - totalJuros;
 
     return {
       tempoQuitacao: mes,
       totalJuros,
       totalPago,
-      economiaProjetada,
-      dadosGrafico
+      economiaVsMinimo,
+      dadosGrafico,
+      ordemPagamento
     };
   };
 
   // Função para realizar todos os cálculos
   const calcular = useCallback(() => {
-    // Calcular resultados para ambas as estratégias para comparação
-    const resultadoBolaDeNeve = calcularBolaDeNeve(dividas, orcamentoMensal);
-    const resultadoAvalanche = calcularAvalanche(dividas, orcamentoMensal);
+    if (!validarDados()) {
+      setMostrarResultados(false);
+      return;
+    }
+
+    const dividasValidas = dividas.filter(d =>
+      d.nome.trim() !== "" &&
+      d.valor > 0 &&
+      d.taxaJuros >= 0 &&
+      d.pagamentoMinimo > 0
+    );
+
+    const resultadoBolaDeNeve = calcularBolaDeNeve(dividasValidas, orcamentoMensal);
+    const resultadoAvalanche = calcularAvalanche(dividasValidas, orcamentoMensal);
 
     setResultadoComparativo({
       bolaDeNeve: resultadoBolaDeNeve,
       avalanche: resultadoAvalanche
     });
 
-    // Definir o resultado atual com base na estratégia selecionada
     if (estrategia === "bola-de-neve") {
       setResultado(resultadoBolaDeNeve);
     } else {
       setResultado(resultadoAvalanche);
     }
+
+    setMostrarResultados(true);
   }, [dividas, orcamentoMensal, estrategia]);
 
-  // Calcular os resultados quando os inputs mudam
+  // Calcular automaticamente quando os dados mudam
   useEffect(() => {
-    calcular();
+    if (validarDados()) {
+      calcular();
+    } else {
+      setMostrarResultados(false);
+    }
   }, [dividas, orcamentoMensal, estrategia, calcular]);
 
   // Função para formatar valores monetários
@@ -237,6 +314,27 @@ const CalculadoraDividas = () => {
       style: 'currency',
       currency: 'BRL',
     });
+  };
+
+  // Função para formatar tempo
+  const formatarTempo = (meses: number) => {
+    if (meses === 0) return "Dados insuficientes";
+    const anos = Math.floor(meses / 12);
+    const mesesRestantes = meses % 12;
+
+    if (anos === 0) {
+      return `${meses} ${meses === 1 ? 'mês' : 'meses'}`;
+    } else if (mesesRestantes === 0) {
+      return `${anos} ${anos === 1 ? 'ano' : 'anos'}`;
+    } else {
+      return `${anos} ${anos === 1 ? 'ano' : 'anos'} e ${mesesRestantes} ${mesesRestantes === 1 ? 'mês' : 'meses'}`;
+    }
+  };
+
+  // Verificar se orçamento é suficiente
+  const orcamentoInsuficiente = () => {
+    const totalMinimo = dividas.reduce((sum, d) => sum + (d.pagamentoMinimo || 0), 0);
+    return orcamentoMensal > 0 && orcamentoMensal < totalMinimo;
   };
 
   return (
@@ -249,13 +347,47 @@ const CalculadoraDividas = () => {
               <div className="inline-flex items-center justify-center p-2 bg-finance-green/10 rounded-full mb-4">
                 <Calculator className="h-6 w-6 text-finance-green" />
               </div>
-              <h1 className="text-4xl font-bold text-gray-900 mb-4">Calculadora de Dívidas</h1>
+              <h1 className="text-4xl font-bold text-gray-900 mb-4">Calculadora de Quitação de Dívidas</h1>
               <p className="text-xl text-gray-600 max-w-3xl">
-                Planeje a melhor estratégia para quitar suas dívidas mais rapidamente e economizar nos juros.
+                Descubra a melhor estratégia para quitar suas dívidas mais rapidamente e economizar milhares em juros.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {/* Seção Educativa */}
+            <div className="max-w-4xl mx-auto mb-8">
+              <Card className="bg-blue-50 border-blue-200">
+                <CardHeader>
+                  <CardTitle className="flex items-center text-blue-800">
+                    <HelpCircle className="mr-2 h-5 w-5" />
+                    Como Funciona?
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <h4 className="font-semibold text-blue-700 mb-2 flex items-center">
+                        <ArrowDown className="mr-2 h-4 w-4" />
+                        Método Bola de Neve
+                      </h4>
+                      <p className="text-blue-600 text-sm">
+                        Pague primeiro as dívidas menores. Gera motivação psicológica ao ver dívidas sendo eliminadas rapidamente.
+                      </p>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-blue-700 mb-2 flex items-center">
+                        <ArrowUp className="mr-2 h-4 w-4" />
+                        Método Avalanche
+                      </h4>
+                      <p className="text-blue-600 text-sm">
+                        Pague primeiro as dívidas com maiores juros. Matematicamente mais eficiente, economiza mais dinheiro.
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
               {/* Coluna 1: Formulário de entrada */}
               <div className="lg:col-span-1">
                 <Card>
@@ -265,18 +397,19 @@ const CalculadoraDividas = () => {
                       Suas Dívidas
                     </CardTitle>
                     <CardDescription>
-                      Adicione todas as suas dívidas para obter uma simulação precisa.
+                      Adicione suas dívidas para calcular a melhor estratégia de pagamento.
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-6">
                       {/* Lista de dívidas */}
-                      {dividas.map((divida) => (
+                      {dividas.map((divida, index) => (
                         <div key={divida.id} className="p-4 border rounded-lg bg-gray-50">
                           <div className="flex justify-between items-center mb-4">
                             <div className="flex-1">
                               <Input
                                 type="text"
+                                placeholder={`Dívida ${index + 1} (ex: Cartão de Crédito)`}
                                 value={divida.nome}
                                 onChange={(e) => atualizarDivida(divida.id, "nome", e.target.value)}
                                 className="font-medium"
@@ -294,13 +427,14 @@ const CalculadoraDividas = () => {
 
                           <div className="grid grid-cols-1 gap-4">
                             <div>
-                              <Label htmlFor={`valor-${divida.id}`}>Valor da dívida</Label>
+                              <Label htmlFor={`valor-${divida.id}`}>Valor total da dívida</Label>
                               <div className="relative">
                                 <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500">R$</span>
                                 <Input
                                   id={`valor-${divida.id}`}
                                   type="number"
-                                  value={divida.valor}
+                                  placeholder="0,00"
+                                  value={divida.valor || ""}
                                   onChange={(e) => atualizarDivida(divida.id, "valor", parseFloat(e.target.value) || 0)}
                                   className="pl-10"
                                   min="0"
@@ -314,7 +448,8 @@ const CalculadoraDividas = () => {
                               <Input
                                 id={`juros-${divida.id}`}
                                 type="number"
-                                value={divida.taxaJuros}
+                                placeholder="0,0"
+                                value={divida.taxaJuros || ""}
                                 onChange={(e) => atualizarDivida(divida.id, "taxaJuros", parseFloat(e.target.value) || 0)}
                                 min="0"
                                 step="0.1"
@@ -329,7 +464,8 @@ const CalculadoraDividas = () => {
                                 <Input
                                   id={`pagamento-${divida.id}`}
                                   type="number"
-                                  value={divida.pagamentoMinimo}
+                                  placeholder="0,00"
+                                  value={divida.pagamentoMinimo || ""}
                                   onChange={(e) => atualizarDivida(divida.id, "pagamentoMinimo", parseFloat(e.target.value) || 0)}
                                   className="pl-10"
                                   min="0"
@@ -347,13 +483,14 @@ const CalculadoraDividas = () => {
 
                       <div className="pt-4 border-t mt-6">
                         <div className="mb-6">
-                          <Label htmlFor="orcamento">Orçamento mensal para pagamento de dívidas</Label>
+                          <Label htmlFor="orcamento">Orçamento mensal total para dívidas</Label>
                           <div className="relative mt-2">
                             <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500">R$</span>
                             <Input
                               id="orcamento"
                               type="number"
-                              value={orcamentoMensal}
+                              placeholder="0,00"
+                              value={orcamentoMensal || ""}
                               onChange={(e) => setOrcamentoMensal(parseFloat(e.target.value) || 0)}
                               className="pl-10"
                               min="0"
@@ -365,6 +502,16 @@ const CalculadoraDividas = () => {
                           </p>
                         </div>
 
+                        {orcamentoInsuficiente() && (
+                          <Alert className="mb-4">
+                            <AlertCircle className="h-4 w-4" />
+                            <AlertDescription>
+                              Seu orçamento é menor que a soma dos pagamentos mínimos ({formatarMoeda(dividas.reduce((sum, d) => sum + (d.pagamentoMinimo || 0), 0))}).
+                              Aumente o orçamento ou renegocie suas dívidas.
+                            </AlertDescription>
+                          </Alert>
+                        )}
+
                         <div className="mb-6">
                           <Label htmlFor="estrategia">Estratégia de pagamento</Label>
                           <Select value={estrategia} onValueChange={setEstrategia}>
@@ -375,22 +522,17 @@ const CalculadoraDividas = () => {
                               <SelectItem value="bola-de-neve">
                                 <div className="flex items-center">
                                   <ArrowDown className="mr-2 h-4 w-4" />
-                                  Bola de Neve (menor valor primeiro)
+                                  Bola de Neve (motivação)
                                 </div>
                               </SelectItem>
                               <SelectItem value="avalanche">
                                 <div className="flex items-center">
                                   <ArrowUp className="mr-2 h-4 w-4" />
-                                  Avalanche (maior juros primeiro)
+                                  Avalanche (economia)
                                 </div>
                               </SelectItem>
                             </SelectContent>
                           </Select>
-                          <p className="text-sm text-gray-500 mt-2">
-                            {estrategia === "bola-de-neve"
-                              ? "Método Bola de Neve: Pague primeiro as dívidas de menor valor para ganhar motivação."
-                              : "Método Avalanche: Pague primeiro as dívidas com maiores taxas de juros para economizar mais."}
-                          </p>
                         </div>
                       </div>
                     </div>
@@ -400,218 +542,233 @@ const CalculadoraDividas = () => {
 
               {/* Coluna 2: Resultados e Gráficos */}
               <div className="lg:col-span-2">
-                <div className="space-y-8">
-                  {/* Resultados da simulação */}
-                  <Card>
-                    <CardHeader>
-                      <CardTitle>Resultados da Simulação</CardTitle>
-                      <CardDescription>
-                        Baseado na estratégia {estrategia === "bola-de-neve" ? "Bola de Neve" : "Avalanche"}
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div className="p-4 bg-gray-50 rounded-lg">
-                          <p className="text-sm font-medium text-gray-500">Tempo para quitar todas as dívidas</p>
-                          <div className="mt-1 flex items-baseline">
-                            <p className="text-3xl font-semibold text-gray-900">
-                              {resultado.tempoQuitacao} {resultado.tempoQuitacao === 1 ? "mês" : "meses"}
-                            </p>
-                            <p className="ml-2 text-sm text-gray-500">
-                              ({Math.floor(resultado.tempoQuitacao / 12)} anos e {resultado.tempoQuitacao % 12} meses)
-                            </p>
-                          </div>
-                        </div>
-
-                        <div className="p-4 bg-gray-50 rounded-lg">
-                          <p className="text-sm font-medium text-gray-500">Total de juros pagos</p>
-                          <p className="mt-1 text-3xl font-semibold text-gray-900">
-                            {formatarMoeda(resultado.totalJuros)}
-                          </p>
-                        </div>
-
-                        <div className="p-4 bg-gray-50 rounded-lg">
-                          <p className="text-sm font-medium text-gray-500">Total pago</p>
-                          <p className="mt-1 text-3xl font-semibold text-gray-900">
-                            {formatarMoeda(resultado.totalPago)}
-                          </p>
-                        </div>
-
-                        <div className="p-4 bg-gray-50 rounded-lg">
-                          <p className="text-sm font-medium text-gray-500">Economia projetada</p>
-                          <p className="mt-1 text-3xl font-semibold text-finance-green">
-                            {formatarMoeda(Math.abs(resultado.economiaProjetada))}
-                          </p>
-                        </div>
-                      </div>
-
-                      {/* Comparação de estratégias */}
-                      <div className="mt-8">
-                        <h3 className="text-lg font-medium mb-4">Comparação de Estratégias</h3>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                          <div className="p-4 border rounded-lg">
+                {!mostrarResultados ? (
+                  <Card className="h-full flex items-center justify-center">
+                    <CardContent className="text-center py-12">
+                      <Calculator className="h-16 w-16 text-gray-300 mx-auto mb-4" />
+                      <h3 className="text-xl font-semibold text-gray-500 mb-2">Preencha seus dados</h3>
+                      <p className="text-gray-400">
+                        Complete as informações das suas dívidas e orçamento para ver os resultados da simulação.
+                      </p>
+                    </CardContent>
+                  </Card>
+                ) : (
+                  <div className="space-y-8">
+                    {/* Resultados principais */}
+                    <Card>
+                      <CardHeader>
+                        <CardTitle className="flex items-center">
+                          <Target className="mr-2 h-5 w-5" />
+                          Resultado da Estratégia: {estrategia === "bola-de-neve" ? "Bola de Neve" : "Avalanche"}
+                        </CardTitle>
+                        <CardDescription>
+                          Simulação baseada no seu orçamento e estratégia selecionada
+                        </CardDescription>
+                      </CardHeader>
+                      <CardContent>
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                          <div className="p-4 bg-blue-50 rounded-lg">
                             <div className="flex items-center mb-2">
-                              <ArrowDown className="h-4 w-4 mr-2 text-blue-500" />
-                              <h4 className="font-medium">Bola de Neve</h4>
+                              <Clock className="h-5 w-5 text-blue-600 mr-2" />
+                              <p className="text-sm font-medium text-blue-600">Tempo para quitar</p>
                             </div>
-                            <p className="text-sm text-gray-500 mb-2">Tempo: {resultadoComparativo.bolaDeNeve.tempoQuitacao} meses</p>
-                            <p className="text-sm text-gray-500">Juros: {formatarMoeda(resultadoComparativo.bolaDeNeve.totalJuros)}</p>
+                            <p className="text-2xl font-bold text-blue-800">
+                              {formatarTempo(resultado.tempoQuitacao)}
+                            </p>
+                          </div>
+
+                          <div className="p-4 bg-red-50 rounded-lg">
+                            <div className="flex items-center mb-2">
+                              <AlertCircle className="h-5 w-5 text-red-600 mr-2" />
+                              <p className="text-sm font-medium text-red-600">Total de juros</p>
+                            </div>
+                            <p className="text-2xl font-bold text-red-800">
+                              {formatarMoeda(resultado.totalJuros)}
+                            </p>
+                          </div>
+
+                          <div className="p-4 bg-gray-50 rounded-lg">
+                            <div className="flex items-center mb-2">
+                              <DollarSign className="h-5 w-5 text-gray-600 mr-2" />
+                              <p className="text-sm font-medium text-gray-600">Total pago</p>
+                            </div>
+                            <p className="text-2xl font-bold text-gray-800">
+                              {formatarMoeda(resultado.totalPago)}
+                            </p>
+                          </div>
+
+                          <div className="p-4 bg-green-50 rounded-lg">
+                            <div className="flex items-center mb-2">
+                              <CheckCircle className="h-5 w-5 text-green-600 mr-2" />
+                              <p className="text-sm font-medium text-green-600">Economia vs mínimo</p>
+                            </div>
+                            <p className="text-2xl font-bold text-green-800">
+                              {formatarMoeda(resultado.economiaVsMinimo)}
+                            </p>
+                          </div>
+                        </div>
+
+                        {/* Ordem de pagamento */}
+                        {resultado.ordemPagamento.length > 0 && (
+                          <div className="mt-6">
+                            <h4 className="font-semibold mb-3">Ordem recomendada de pagamento:</h4>
+                            <div className="flex flex-wrap gap-2">
+                              {resultado.ordemPagamento.map((nome, index) => (
+                                <div key={index} className="flex items-center bg-blue-100 px-3 py-1 rounded-full">
+                                  <span className="bg-blue-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs mr-2">
+                                    {index + 1}
+                                  </span>
+                                  <span className="text-blue-800 text-sm">{nome}</span>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+                      </CardContent>
+                    </Card>
+
+                    {/* Comparação de estratégias */}
+                    <Card>
+                      <CardHeader>
+                        <CardTitle>Comparação de Estratégias</CardTitle>
+                        <CardDescription>
+                          Veja qual estratégia é melhor para o seu caso
+                        </CardDescription>
+                      </CardHeader>
+                      <CardContent>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                          <div className="p-4 border rounded-lg">
+                            <div className="flex items-center mb-3">
+                              <ArrowDown className="h-5 w-5 mr-2 text-blue-500" />
+                              <h4 className="font-semibold">Bola de Neve</h4>
+                              {estrategia === "bola-de-neve" && (
+                                <span className="ml-2 bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">Selecionada</span>
+                              )}
+                            </div>
+                            <div className="space-y-2 text-sm">
+                              <p><strong>Tempo:</strong> {formatarTempo(resultadoComparativo.bolaDeNeve.tempoQuitacao)}</p>
+                              <p><strong>Juros:</strong> {formatarMoeda(resultadoComparativo.bolaDeNeve.totalJuros)}</p>
+                              <p><strong>Economia:</strong> {formatarMoeda(resultadoComparativo.bolaDeNeve.economiaVsMinimo)}</p>
+                            </div>
                           </div>
 
                           <div className="p-4 border rounded-lg">
-                            <div className="flex items-center mb-2">
-                              <ArrowUp className="h-4 w-4 mr-2 text-red-500" />
-                              <h4 className="font-medium">Avalanche</h4>
+                            <div className="flex items-center mb-3">
+                              <ArrowUp className="h-5 w-5 mr-2 text-red-500" />
+                              <h4 className="font-semibold">Avalanche</h4>
+                              {estrategia === "avalanche" && (
+                                <span className="ml-2 bg-red-100 text-red-800 px-2 py-1 rounded text-xs">Selecionada</span>
+                              )}
                             </div>
-                            <p className="text-sm text-gray-500 mb-2">Tempo: {resultadoComparativo.avalanche.tempoQuitacao} meses</p>
-                            <p className="text-sm text-gray-500">Juros: {formatarMoeda(resultadoComparativo.avalanche.totalJuros)}</p>
-                          </div>
-                        </div>
-                        <p className="text-sm text-gray-500 mt-4">
-                          {resultadoComparativo.avalanche.totalJuros < resultadoComparativo.bolaDeNeve.totalJuros
-                            ? `A estratégia Avalanche economiza ${formatarMoeda(resultadoComparativo.bolaDeNeve.totalJuros - resultadoComparativo.avalanche.totalJuros)} em juros.`
-                            : `A estratégia Bola de Neve economiza ${formatarMoeda(resultadoComparativo.avalanche.totalJuros - resultadoComparativo.bolaDeNeve.totalJuros)} em juros.`}
-                        </p>
-                      </div>
-                    </CardContent>
-                  </Card>
-
-                  {/* Gráfico de projeção */}
-                  <Card>
-                    <CardHeader>
-                      <CardTitle>Projeção de Pagamento</CardTitle>
-                      <CardDescription>
-                        Acompanhe a evolução do pagamento das suas dívidas ao longo do tempo
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="h-80">
-                        <ResponsiveContainer width="100%" height="100%">
-                          <AreaChart
-                            data={resultado.dadosGrafico.filter((_, index) => index % Math.max(1, Math.floor(resultado.dadosGrafico.length / 30)) === 0)}
-                            margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
-                          >
-                            <CartesianGrid strokeDasharray="3 3" />
-                            <XAxis
-                              dataKey="mes"
-                              label={{ value: 'Meses', position: 'insideBottomRight', offset: -10 }}
-                            />
-                            <YAxis
-                              tickFormatter={(value) => `R$ ${(value / 1000).toFixed(0)}k`}
-                              label={{ value: 'Valor (R$)', angle: -90, position: 'insideLeft' }}
-                            />
-                            <Tooltip
-                              formatter={(value) => [`R$ ${value.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}`, undefined]}
-                              labelFormatter={(label) => `Mês ${label}`}
-                            />
-                            <Legend />
-                            <Area
-                              type="monotone"
-                              dataKey="dividas"
-                              name="Saldo Devedor"
-                              stackId="1"
-                              stroke="#f43f5e"
-                              fill="#f43f5e"
-                              fillOpacity={0.5}
-                            />
-                          </AreaChart>
-                        </ResponsiveContainer>
-                      </div>
-                    </CardContent>
-                  </Card>
-
-                  {/* Gráfico de composição */}
-                  <Card>
-                    <CardHeader>
-                      <CardTitle>Composição do Pagamento</CardTitle>
-                      <CardDescription>
-                        Veja como seus pagamentos são distribuídos entre juros e amortização
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="h-80">
-                        <ResponsiveContainer width="100%" height="100%">
-                          <BarChart
-                            data={resultado.dadosGrafico.filter((_, index) => index % Math.max(1, Math.floor(resultado.dadosGrafico.length / 12)) === 0)}
-                            margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
-                          >
-                            <CartesianGrid strokeDasharray="3 3" />
-                            <XAxis dataKey="mes" label={{ value: 'Meses', position: 'insideBottomRight', offset: -10 }} />
-                            <YAxis tickFormatter={(value) => `R$ ${(value).toFixed(0)}`} />
-                            <Tooltip
-                              formatter={(value) => [`R$ ${value.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}`, undefined]}
-                              labelFormatter={(label) => `Mês ${label}`}
-                            />
-                            <Legend />
-                            <Bar dataKey="juros" name="Juros" stackId="a" fill="#f43f5e" />
-                            <Bar dataKey="amortizacao" name="Amortização" stackId="a" fill="#10b981" />
-                          </BarChart>
-                        </ResponsiveContainer>
-                      </div>
-                    </CardContent>
-                  </Card>
-
-                  {/* Informações adicionais */}
-                  <Card>
-                    <CardHeader>
-                      <CardTitle className="flex items-center">
-                        <HelpCircle className="mr-2 h-5 w-5" />
-                        Informações Adicionais
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="space-y-4">
-                        <div>
-                          <h3 className="text-lg font-medium mb-2">Estratégias de Pagamento</h3>
-                          <div className="space-y-3">
-                            <div className="p-3 bg-blue-50 rounded-lg">
-                              <h4 className="font-medium flex items-center">
-                                <ArrowDown className="h-4 w-4 mr-2 text-blue-500" />
-                                Método Bola de Neve
-                              </h4>
-                              <p className="text-sm text-gray-600 mt-1">
-                                Prioriza o pagamento das dívidas com menor valor total primeiro. Esta estratégia proporciona vitórias rápidas e motivação psicológica ao eliminar dívidas mais rapidamente.
-                              </p>
-                            </div>
-
-                            <div className="p-3 bg-red-50 rounded-lg">
-                              <h4 className="font-medium flex items-center">
-                                <ArrowUp className="h-4 w-4 mr-2 text-red-500" />
-                                Método Avalanche
-                              </h4>
-                              <p className="text-sm text-gray-600 mt-1">
-                                Prioriza o pagamento das dívidas com maiores taxas de juros primeiro. Esta estratégia é matematicamente mais eficiente e geralmente resulta em menos juros pagos no total.
-                              </p>
+                            <div className="space-y-2 text-sm">
+                              <p><strong>Tempo:</strong> {formatarTempo(resultadoComparativo.avalanche.tempoQuitacao)}</p>
+                              <p><strong>Juros:</strong> {formatarMoeda(resultadoComparativo.avalanche.totalJuros)}</p>
+                              <p><strong>Economia:</strong> {formatarMoeda(resultadoComparativo.avalanche.economiaVsMinimo)}</p>
                             </div>
                           </div>
                         </div>
 
-                        <div>
-                          <h3 className="text-lg font-medium mb-2">Dicas para Quitar Dívidas</h3>
-                          <ul className="space-y-2 text-sm text-gray-600">
-                            <li className="flex items-start">
-                              <AlertCircle className="h-4 w-4 mr-2 text-amber-500 mt-0.5" />
-                              <span>Sempre pague pelo menos o valor mínimo de todas as dívidas para evitar multas e danos ao seu crédito.</span>
-                            </li>
-                            <li className="flex items-start">
-                              <AlertCircle className="h-4 w-4 mr-2 text-amber-500 mt-0.5" />
-                              <span>Considere renegociar dívidas com altas taxas de juros para obter melhores condições.</span>
-                            </li>
-                            <li className="flex items-start">
-                              <AlertCircle className="h-4 w-4 mr-2 text-amber-500 mt-0.5" />
-                              <span>Crie um fundo de emergência para evitar novas dívidas em situações inesperadas.</span>
-                            </li>
-                            <li className="flex items-start">
-                              <AlertCircle className="h-4 w-4 mr-2 text-amber-500 mt-0.5" />
-                              <span>Após quitar uma dívida, redirecione o valor que você pagava para a próxima dívida da sua lista.</span>
-                            </li>
-                          </ul>
+                        {/* Recomendação */}
+                        <div className="mt-6 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
+                          <h4 className="font-semibold text-yellow-800 mb-2">💡 Recomendação:</h4>
+                          <p className="text-yellow-700 text-sm">
+                            {resultadoComparativo.avalanche.totalJuros < resultadoComparativo.bolaDeNeve.totalJuros
+                              ? "O método Avalanche economiza mais dinheiro em juros. Recomendado se você tem disciplina financeira."
+                              : "O método Bola de Neve oferece mais motivação psicológica. Recomendado se você precisa de vitórias rápidas."}
+                          </p>
                         </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </div>
+                      </CardContent>
+                    </Card>
+
+                    {/* Gráfico de evolução */}
+                    {resultado.dadosGrafico.length > 0 && (
+                      <Card>
+                        <CardHeader>
+                          <CardTitle>Evolução do Pagamento</CardTitle>
+                          <CardDescription>
+                            Acompanhe como suas dívidas diminuem ao longo do tempo
+                          </CardDescription>
+                        </CardHeader>
+                        <CardContent>
+                          <div className="h-80">
+                            <ResponsiveContainer width="100%" height="100%">
+                              <AreaChart data={resultado.dadosGrafico}>
+                                <CartesianGrid strokeDasharray="3 3" />
+                                <XAxis
+                                  dataKey="mes"
+                                  label={{ value: 'Meses', position: 'insideBottom', offset: -5 }}
+                                />
+                                <YAxis
+                                  tickFormatter={(value) => formatarMoeda(value).replace('R$\u00A0', 'R$ ')}
+                                />
+                                <Tooltip
+                                  formatter={(value: number, name: string) => [
+                                    formatarMoeda(value),
+                                    name === 'saldoRestante' ? 'Saldo Restante' :
+                                      name === 'jurosPagos' ? 'Juros do Mês' : 'Pagamento do Mês'
+                                  ]}
+                                  labelFormatter={(label) => `Mês ${label}`}
+                                />
+                                <Legend />
+                                <Area
+                                  type="monotone"
+                                  dataKey="saldoRestante"
+                                  stackId="1"
+                                  stroke="#ef4444"
+                                  fill="#fecaca"
+                                  name="Saldo Restante"
+                                />
+                                <Area
+                                  type="monotone"
+                                  dataKey="jurosPagos"
+                                  stackId="2"
+                                  stroke="#f59e0b"
+                                  fill="#fed7aa"
+                                  name="Juros do Mês"
+                                />
+                              </AreaChart>
+                            </ResponsiveContainer>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    )}
+                  </div>
+                )}
               </div>
+            </div>
+
+            {/* Seção educativa final */}
+            <div className="max-w-4xl mx-auto mt-12">
+              <Card>
+                <CardHeader>
+                  <CardTitle className="flex items-center">
+                    <HelpCircle className="mr-2 h-5 w-5" />
+                    Dicas para o Sucesso
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <h4 className="font-semibold mb-2">✅ Faça:</h4>
+                      <ul className="text-sm space-y-1 text-gray-600">
+                        <li>• Mantenha disciplina no orçamento</li>
+                        <li>• Evite contrair novas dívidas</li>
+                        <li>• Renegocie taxas quando possível</li>
+                        <li>• Comemore cada dívida quitada</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold mb-2">❌ Evite:</h4>
+                      <ul className="text-sm space-y-1 text-gray-600">
+                        <li>• Pagar apenas o mínimo</li>
+                        <li>• Usar o cartão de crédito</li>
+                        <li>• Desistir no meio do caminho</li>
+                        <li>• Não ter uma reserva de emergência</li>
+                      </ul>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </section>
