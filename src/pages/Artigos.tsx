@@ -124,7 +124,7 @@ const Artigos = () => {
       title: "Startups do Vale do Silício Intensificam a Cultura do Esforço Extremo",
       description: "Empresas emergentes de tecnologia estão adotando jornadas de trabalho extenuantes, desafiando os limites do equilíbrio entre vida profissional e pessoal.",
       image: "https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80",
-      category: "startups",
+      category: "startupsNa página",
       author: "Leonardo Figueiredo",
       date: "4 de Junho, 2025",
       publishedAt: new Date("2025-06-04").getTime(),

@@ -118,13 +118,8 @@ const Ferramentas = () => {
 
   // Função para lidar com o clique nas ferramentas
   const handleToolClick = (path: string) => {
-    if (user) {
-      // Se o usuário estiver logado, navega para a ferramenta
-      navigate(path);
-    } else {
-      // Se não estiver logado, redireciona para a página de login
-      navigate("/login");
-    }
+    // Navega diretamente para a ferramenta sem verificar login
+    navigate(path);
   };
 
   const renderFerramentas = (ferramentas: Ferramenta[]) => {
