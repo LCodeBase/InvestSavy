@@ -52,7 +52,7 @@ const Artigos = () => {
       title: "Entendendo a Taxa Selic e seu Impacto nos Investimentos",
       description: "Descubra o que é a taxa Selic, como ela é definida, por que é considerada a taxa básica de juros da economia brasileira e como suas variações afetam seus investimentos e decisões financeiras.",
       image: "https://images.unsplash.com/photo-1620228885847-9eab2a1adddc?q=80&w=1973&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      category: "economia",
+      category: "iniciantes",
       author: "Leonardo Figueiredo",
       date: "1 de Junho, 2025",
       publishedAt: new Date("2025-06-01").getTime(),
