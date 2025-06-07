@@ -7,158 +7,358 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Users, HelpCircle, AlertCircle, TrendingUp } from "lucide-react";
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, Area, AreaChart } from "recharts";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import { Badge } from "@/components/ui/badge";
+import { Progress } from "@/components/ui/progress";
+import {
+  Users,
+  HelpCircle,
+  AlertCircle,
+  TrendingUp,
+  Calculator,
+  Target,
+  Clock,
+  DollarSign,
+  PiggyBank,
+  Lightbulb,
+  CheckCircle,
+  XCircle,
+  Info
+} from "lucide-react";
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
+  Area,
+  AreaChart,
+  BarChart,
+  Bar,
+  PieChart,
+  Pie,
+  Cell
+} from "recharts";
 
-// Definição da interface para os dados do gráfico
+// Interfaces
 interface DadosGrafico {
   idade: number;
   patrimonio: number;
   contribuicaoAcumulada: number;
   rendimentoAcumulado: number;
+  metaPatrimonio?: number;
+}
+
+interface Cenario {
+  nome: string;
+  contribuicao: number;
+  patrimonio: number;
+  tempo: number;
+  cor: string;
+}
+
+interface DicaPersonalizada {
+  tipo: 'sucesso' | 'alerta' | 'info';
+  titulo: string;
+  descricao: string;
+  acao?: string;
 }
 
 const CalculadoraAposentadoria = () => {
-  // Estados para os inputs do usuário
-  const [idadeAtual, setIdadeAtual] = useState<number>(30);
-  const [idadeAposentadoria, setIdadeAposentadoria] = useState<number>(65);
-  const [rendaMensal, setRendaMensal] = useState<number>(5000);
-  const [rendaDesejada, setRendaDesejada] = useState<number>(5000);
+  // Estados básicos - INICIANDO ZERADOS
+  const [idadeAtual, setIdadeAtual] = useState<number>(25);
+  const [idadeAposentadoria, setIdadeAposentadoria] = useState<number>(60);
+  const [rendaMensal, setRendaMensal] = useState<number>(0);
+  const [rendaDesejada, setRendaDesejada] = useState<number>(0);
   const [patrimonioAtual, setPatrimonioAtual] = useState<number>(0);
-  const [contribuicaoMensal, setContribuicaoMensal] = useState<number>(500);
-  const [taxaRetorno, setTaxaRetorno] = useState<number>(0.5); // 0.5% ao mês = ~6.17% ao ano
-  const [inflacao, setInflacao] = useState<number>(0.32); // 0.32% ao mês = ~3.9% ao ano
+  const [contribuicaoMensal, setContribuicaoMensal] = useState<number>(0);
   const [perfilInvestimento, setPerfilInvestimento] = useState<string>("moderado");
+  const [inflacao, setInflacao] = useState<number>(4); // 4% ao ano
 
-  // Estados para os resultados calculados
-  const [patrimonioFinal, setPatrimonioFinal] = useState<number>(0);
+  // Estados calculados
+  const [patrimonioNecessario, setPatrimonioNecessario] = useState<number>(0);
   const [contribuicaoNecessaria, setContribuicaoNecessaria] = useState<number>(0);
-  // Substituir any[] por DadosGrafico[]
   const [dadosGrafico, setDadosGrafico] = useState<DadosGrafico[]>([]);
-  const [rendaMensalAposentadoria, setRendaMensalAposentadoria] = useState<number>(0);
+  const [rendaMensalProjetada, setRendaMensalProjetada] = useState<number>(0);
+  const [dicasPersonalizadas, setDicasPersonalizadas] = useState<DicaPersonalizada[]>([]);
+  const [cenarios, setCenarios] = useState<Cenario[]>([]);
+  const [progressoMeta, setProgressoMeta] = useState<number>(0);
 
-  // Taxas de retorno reais baseadas no perfil de investimento
-  const taxasRetorno = {
-    conservador: 0.4, // ~4.91% ao ano (acima da inflação)
-    moderado: 0.5,    // ~6.17% ao ano (acima da inflação)
-    agressivo: 0.65   // ~8.11% ao ano (acima da inflação)
+  // Estados de controle
+  const [mostrarResultados, setMostrarResultados] = useState<boolean>(false);
+  const [tabAtiva, setTabAtiva] = useState<string>("basico");
+
+  // Configurações de perfis de investimento
+  const perfisInvestimento = {
+    conservador: {
+      nome: "Conservador",
+      retorno: 6.5, // % ao ano
+      risco: "Baixo",
+      descricao: "Foco em renda fixa e preservação de capital",
+      exemplos: "CDB, Tesouro Direto, LCI/LCA"
+    },
+    moderado: {
+      nome: "Moderado",
+      retorno: 9.0, // % ao ano
+      risco: "Médio",
+      descricao: "Equilibrio entre renda fixa e variável",
+      exemplos: "Fundos multimercado, ações blue chips"
+    },
+    agressivo: {
+      nome: "Agressivo",
+      retorno: 12.0, // % ao ano
+      risco: "Alto",
+      descricao: "Foco em renda variável e crescimento",
+      exemplos: "Ações, fundos de ações, REITs"
+    }
   };
 
-  // Atualiza a taxa de retorno quando o perfil de investimento muda
-  useEffect(() => {
-    setTaxaRetorno(taxasRetorno[perfilInvestimento as keyof typeof taxasRetorno]);
-  }, [perfilInvestimento, taxasRetorno]);
+  // Função para validar se todos os campos essenciais estão preenchidos
+  const validarCampos = () => {
+    return rendaMensal > 0 && rendaDesejada > 0 && contribuicaoMensal > 0;
+  };
 
-  // Função para calcular o patrimônio necessário para a aposentadoria
+  // Função para calcular patrimônio necessário
   const calcularPatrimonioNecessario = () => {
-    // Fórmula: Renda Mensal Desejada / Taxa de Retorno Mensal Real
-    // Considerando a regra dos 4% (taxa de retirada segura anual)
-    const taxaRetornoReal = (taxaRetorno - inflacao) / 100;
-    const taxaRetiradaMensal = 0.0033; // ~4% ao ano
-    return rendaDesejada / taxaRetiradaMensal;
+    if (rendaDesejada <= 0) return 0;
+    // Regra dos 4% - patrimônio necessário = renda anual desejada / 0.04
+    const rendaAnualDesejada = rendaDesejada * 12;
+    return rendaAnualDesejada / 0.04;
   };
 
-  // Função para calcular a contribuição mensal necessária
+  // Função para calcular contribuição necessária
   const calcularContribuicaoNecessaria = () => {
-    const anosAteAposentadoria = idadeAposentadoria - idadeAtual;
-    const mesesAteAposentadoria = anosAteAposentadoria * 12;
+    const anosInvestimento = idadeAposentadoria - idadeAtual;
+    if (anosInvestimento <= 0) return 0;
+
+    const taxaAnual = perfisInvestimento[perfilInvestimento as keyof typeof perfisInvestimento].retorno / 100;
+    const taxaMensal = Math.pow(1 + taxaAnual, 1 / 12) - 1;
+    const meses = anosInvestimento * 12;
     const patrimonioNecessario = calcularPatrimonioNecessario();
-    const taxaRetornoReal = (taxaRetorno - inflacao) / 100;
 
-    // Fórmula para calcular a contribuição mensal necessária
-    // PMT = [FV - PV(1+r)^n] / [(1+r)^n - 1] / r
-    // Onde: PMT = contribuição mensal, FV = valor futuro (patrimônio necessário),
-    // PV = valor presente (patrimônio atual), r = taxa de juros, n = número de períodos
+    if (patrimonioNecessario <= 0) return 0;
 
-    const fatorJuros = Math.pow(1 + taxaRetornoReal, mesesAteAposentadoria);
-    const contribuicao = (patrimonioNecessario - patrimonioAtual * fatorJuros) /
-      ((fatorJuros - 1) / taxaRetornoReal);
+    // Fórmula PMT considerando valor presente
+    const valorFuturoPatrimonioAtual = patrimonioAtual * Math.pow(1 + taxaMensal, meses);
+    const patrimonioRestante = Math.max(0, patrimonioNecessario - valorFuturoPatrimonioAtual);
 
+    if (patrimonioRestante <= 0) return 0;
+
+    const contribuicao = (patrimonioRestante * taxaMensal) / (Math.pow(1 + taxaMensal, meses) - 1);
     return Math.max(0, contribuicao);
   };
 
-  // Função para calcular a projeção do patrimônio ao longo do tempo
-  const calcularProjecaoPatrimonio = () => {
-    const anosAteAposentadoria = idadeAposentadoria - idadeAtual;
-    const mesesAteAposentadoria = anosAteAposentadoria * 12;
-    const taxaRetornoReal = (taxaRetorno - inflacao) / 100;
+  // Função para gerar dados do gráfico
+  const gerarDadosGrafico = () => {
+    const anosInvestimento = idadeAposentadoria - idadeAtual;
+    if (anosInvestimento <= 0) return [];
 
-    let patrimonioProjetado = patrimonioAtual;
-    const dados = [];
+    const taxaAnual = perfisInvestimento[perfilInvestimento as keyof typeof perfisInvestimento].retorno / 100;
+    const taxaMensal = Math.pow(1 + taxaAnual, 1 / 12) - 1;
+    const patrimonioMeta = calcularPatrimonioNecessario();
 
-    // Adiciona o ponto inicial
-    dados.push({
-      idade: idadeAtual,
-      patrimonio: patrimonioProjetado,
-      contribuicaoAcumulada: 0,
-      rendimentoAcumulado: 0
-    });
-
+    let patrimonio = patrimonioAtual;
     let contribuicaoAcumulada = 0;
     let rendimentoAcumulado = 0;
 
-    // Calcula o patrimônio para cada ano até a aposentadoria
-    for (let ano = 1; ano <= anosAteAposentadoria; ano++) {
-      const idadeAtual = dados[ano - 1].idade + 1;
+    const dados: DadosGrafico[] = [];
 
-      // Calcula o patrimônio mês a mês durante o ano
+    // Ponto inicial
+    dados.push({
+      idade: idadeAtual,
+      patrimonio: patrimonio,
+      contribuicaoAcumulada: 0,
+      rendimentoAcumulado: 0,
+      metaPatrimonio: patrimonioMeta
+    });
+
+    // Calcular evolução ano a ano
+    for (let ano = 1; ano <= anosInvestimento; ano++) {
       for (let mes = 1; mes <= 12; mes++) {
-        // Rendimento mensal
-        const rendimentoMensal = patrimonioProjetado * taxaRetornoReal;
-        rendimentoAcumulado += rendimentoMensal;
-
-        // Adiciona a contribuição mensal
-        patrimonioProjetado += contribuicaoMensal + rendimentoMensal;
+        const rendimentoMensal = patrimonio * taxaMensal;
+        patrimonio += contribuicaoMensal + rendimentoMensal;
         contribuicaoAcumulada += contribuicaoMensal;
+        rendimentoAcumulado += rendimentoMensal;
       }
 
-      // Adiciona o ponto para o ano atual
       dados.push({
-        idade: idadeAtual,
-        patrimonio: Math.round(patrimonioProjetado),
+        idade: idadeAtual + ano,
+        patrimonio: Math.round(patrimonio),
         contribuicaoAcumulada: Math.round(contribuicaoAcumulada),
-        rendimentoAcumulado: Math.round(rendimentoAcumulado)
+        rendimentoAcumulado: Math.round(rendimentoAcumulado),
+        metaPatrimonio: patrimonioMeta
       });
     }
 
     return dados;
   };
 
-  // Função para calcular a renda mensal na aposentadoria
-  const calcularRendaMensalAposentadoria = (patrimonioFinal: number) => {
-    // Usando a regra dos 4% (taxa de retirada segura anual)
-    const taxaRetiradaMensal = 0.0033; // ~4% ao ano
-    return patrimonioFinal * taxaRetiradaMensal;
+  // Função para gerar cenários comparativos
+  const gerarCenarios = () => {
+    const contribuicaoBase = contribuicaoMensal;
+    const cenarios: Cenario[] = [];
+
+    [0.5, 1, 1.5, 2].forEach((multiplicador, index) => {
+      const contrib = contribuicaoBase * multiplicador;
+      const anosInvestimento = idadeAposentadoria - idadeAtual;
+      const taxaAnual = perfisInvestimento[perfilInvestimento as keyof typeof perfisInvestimento].retorno / 100;
+      const taxaMensal = Math.pow(1 + taxaAnual, 1 / 12) - 1;
+      const meses = anosInvestimento * 12;
+
+      let patrimonio = patrimonioAtual;
+      for (let mes = 1; mes <= meses; mes++) {
+        patrimonio = patrimonio * (1 + taxaMensal) + contrib;
+      }
+
+      const cores = ['#ef4444', '#f59e0b', '#10b981', '#3b82f6'];
+
+      cenarios.push({
+        nome: `${multiplicador === 1 ? 'Atual' : multiplicador < 1 ? 'Reduzido' : 'Aumentado'} (${(multiplicador * 100).toFixed(0)}%)`,
+        contribuicao: contrib,
+        patrimonio: patrimonio,
+        tempo: anosInvestimento,
+        cor: cores[index]
+      });
+    });
+
+    return cenarios;
   };
 
-  // Função para formatar valores monetários
+  // Função para gerar dicas personalizadas
+  const gerarDicasPersonalizadas = (): DicaPersonalizada[] => {
+    const dicas: DicaPersonalizada[] = [];
+    const anosInvestimento = idadeAposentadoria - idadeAtual;
+    const contribuicaoNecessaria = calcularContribuicaoNecessaria();
+    const percentualRenda = rendaMensal > 0 ? (contribuicaoMensal / rendaMensal) * 100 : 0;
+
+    // Dica sobre tempo
+    if (anosInvestimento < 15) {
+      dicas.push({
+        tipo: 'alerta',
+        titulo: 'Tempo Limitado',
+        descricao: `Com apenas ${anosInvestimento} anos para investir, você precisará de contribuições maiores.`,
+        acao: 'Considere adiar a aposentadoria ou aumentar as contribuições.'
+      });
+    } else if (anosInvestimento > 30) {
+      dicas.push({
+        tipo: 'sucesso',
+        titulo: 'Tempo a Seu Favor',
+        descricao: `Com ${anosInvestimento} anos de investimento, os juros compostos trabalharão muito a seu favor.`,
+        acao: 'Mantenha a disciplina e seja consistente com os aportes.'
+      });
+    }
+
+    // Dica sobre percentual da renda
+    if (percentualRenda < 10) {
+      dicas.push({
+        tipo: 'alerta',
+        titulo: 'Contribuição Baixa',
+        descricao: `Você está poupando apenas ${percentualRenda.toFixed(1)}% da sua renda.`,
+        acao: 'Especialistas recomendam poupar pelo menos 10-20% da renda.'
+      });
+    } else if (percentualRenda >= 20) {
+      dicas.push({
+        tipo: 'sucesso',
+        titulo: 'Excelente Disciplina',
+        descricao: `Parabéns! Você está poupando ${percentualRenda.toFixed(1)}% da sua renda.`,
+        acao: 'Continue assim e considere diversificar seus investimentos.'
+      });
+    }
+
+    // Dica sobre contribuição necessária vs atual
+    if (contribuicaoMensal > 0 && contribuicaoNecessaria > 0) {
+      const diferenca = contribuicaoNecessaria - contribuicaoMensal;
+      if (diferenca > contribuicaoMensal * 0.5) {
+        dicas.push({
+          tipo: 'alerta',
+          titulo: 'Meta Ambiciosa',
+          descricao: `Para atingir sua meta, você precisaria contribuir ${formatarMoeda(diferenca)} a mais por mês.`,
+          acao: 'Considere ajustar sua meta ou aumentar gradualmente as contribuições.'
+        });
+      } else if (diferenca < 0) {
+        dicas.push({
+          tipo: 'sucesso',
+          titulo: 'Meta Alcançável',
+          descricao: 'Suas contribuições atuais são suficientes para atingir sua meta!',
+          acao: 'Considere aumentar sua meta ou aposentar-se mais cedo.'
+        });
+      }
+    }
+
+    // Dica sobre perfil de investimento
+    if (anosInvestimento > 20 && perfilInvestimento === 'conservador') {
+      dicas.push({
+        tipo: 'info',
+        titulo: 'Considere Mais Risco',
+        descricao: 'Com muito tempo até a aposentadoria, você pode considerar um perfil mais agressivo.',
+        acao: 'Avalie aumentar a exposição à renda variável gradualmente.'
+      });
+    }
+
+    return dicas;
+  };
+
+  // Função para calcular progresso da meta
+  const calcularProgressoMeta = () => {
+    const patrimonioNecessario = calcularPatrimonioNecessario();
+    if (patrimonioNecessario <= 0) return 0;
+
+    const patrimonioProjetado = dadosGrafico[dadosGrafico.length - 1]?.patrimonio || 0;
+    return Math.min(100, (patrimonioProjetado / patrimonioNecessario) * 100);
+  };
+
+  // Função para formatar moeda
   const formatarMoeda = (valor: number) => {
     return valor.toLocaleString('pt-BR', {
       style: 'currency',
       currency: 'BRL',
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0
     });
   };
 
-  // Função para realizar todos os cálculos
-  const calcular = () => {
-    const patrimonioNecessario = calcularPatrimonioNecessario();
-    setPatrimonioFinal(patrimonioNecessario);
-
-    const contribuicao = calcularContribuicaoNecessaria();
-    setContribuicaoNecessaria(contribuicao);
-
-    const dados = calcularProjecaoPatrimonio();
-    setDadosGrafico(dados);
-
-    const rendaMensal = calcularRendaMensalAposentadoria(dados[dados.length - 1].patrimonio);
-    setRendaMensalAposentadoria(rendaMensal);
+  // Função para formatar percentual
+  const formatarPercentual = (valor: number) => {
+    return `${valor.toFixed(1)}%`;
   };
 
-  // Calcula os resultados quando os inputs mudam
+  // Função principal de cálculo
+  const calcular = () => {
+    if (!validarCampos()) {
+      setMostrarResultados(false);
+      return;
+    }
+
+    const patrimonio = calcularPatrimonioNecessario();
+    const contribuicao = calcularContribuicaoNecessaria();
+    const dados = gerarDadosGrafico();
+    const rendaProjetada = dados[dados.length - 1]?.patrimonio * 0.04 / 12 || 0;
+    const dicas = gerarDicasPersonalizadas();
+    const cenariosComparativos = gerarCenarios();
+    const progresso = calcularProgressoMeta();
+
+    setPatrimonioNecessario(patrimonio);
+    setContribuicaoNecessaria(contribuicao);
+    setDadosGrafico(dados);
+    setRendaMensalProjetada(rendaProjetada);
+    setDicasPersonalizadas(dicas);
+    setCenarios(cenariosComparativos);
+    setProgressoMeta(progresso);
+    setMostrarResultados(true);
+  };
+
+  // Effect para recalcular quando inputs mudam
   useEffect(() => {
-    calcular();
-  }, [idadeAtual, idadeAposentadoria, rendaMensal, rendaDesejada, patrimonioAtual,
-    contribuicaoMensal, taxaRetorno, inflacao, perfilInvestimento]);
+    if (validarCampos()) {
+      calcular();
+    } else {
+      setMostrarResultados(false);
+    }
+  }, [idadeAtual, idadeAposentadoria, rendaMensal, rendaDesejada, patrimonioAtual, contribuicaoMensal, perfilInvestimento, inflacao]);
 
   return (
     <div className="min-h-screen">
@@ -166,38 +366,51 @@ const CalculadoraAposentadoria = () => {
       <main>
         <section className="pt-32 pb-16 bg-gradient-to-br from-finance-blue/5 via-white to-finance-green/5">
           <div className="container mx-auto px-4">
+            {/* Hero Section */}
             <div className="text-center mb-12">
               <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-                Calculadora de Aposentadoria
+                Planejador de Aposentadoria Inteligente
               </h1>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                Descubra quanto você precisa poupar mensalmente para atingir sua meta de aposentadoria
+              <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-6">
+                Descubra exatamente quanto você precisa poupar para realizar o sonho da aposentadoria.
+                Nossa calculadora oferece análises detalhadas e dicas personalizadas para seu perfil.
               </p>
-              <div className="text-sm text-gray-500 mt-2">
-                950 cálculos realizados
+              <div className="flex justify-center gap-4 text-sm text-gray-500">
+                <span className="flex items-center gap-1">
+                  <Calculator className="h-4 w-4" />
+                  Cálculos Precisos
+                </span>
+                <span className="flex items-center gap-1">
+                  <Lightbulb className="h-4 w-4" />
+                  Dicas Personalizadas
+                </span>
+                <span className="flex items-center gap-1">
+                  <TrendingUp className="h-4 w-4" />
+                  Cenários Comparativos
+                </span>
               </div>
             </div>
 
-            <div className="max-w-6xl mx-auto">
-              <div className="grid md:grid-cols-12 gap-8">
+            <div className="max-w-7xl mx-auto">
+              <div className="grid lg:grid-cols-12 gap-8">
                 {/* Painel de Entrada */}
-                <div className="md:col-span-5">
-                  <Card>
+                <div className="lg:col-span-4">
+                  <Card className="sticky top-4">
                     <CardHeader>
                       <div className="w-12 h-12 rounded-lg bg-finance-green/10 flex items-center justify-center mb-3">
-                        <Users className="h-6 w-6 text-finance-green" />
+                        <PiggyBank className="h-6 w-6 text-finance-green" />
                       </div>
-                      <CardTitle>Seus Dados</CardTitle>
+                      <CardTitle>Seus Dados Financeiros</CardTitle>
                       <CardDescription>
-                        Preencha as informações abaixo para calcular sua aposentadoria
+                        Preencha suas informações para receber um plano personalizado
                       </CardDescription>
                     </CardHeader>
                     <CardContent className="space-y-6">
                       {/* Idade Atual */}
-                      <div className="space-y-2">
-                        <div className="flex justify-between">
-                          <Label htmlFor="idade-atual">Idade Atual</Label>
-                          <span className="text-sm text-gray-500">{idadeAtual} anos</span>
+                      <div className="space-y-3">
+                        <div className="flex justify-between items-center">
+                          <Label htmlFor="idade-atual" className="text-sm font-medium">Sua Idade Atual</Label>
+                          <Badge variant="outline">{idadeAtual} anos</Badge>
                         </div>
                         <Slider
                           id="idade-atual"
@@ -211,296 +424,580 @@ const CalculadoraAposentadoria = () => {
                       </div>
 
                       {/* Idade de Aposentadoria */}
-                      <div className="space-y-2">
-                        <div className="flex justify-between">
-                          <Label htmlFor="idade-aposentadoria">Idade de Aposentadoria</Label>
-                          <span className="text-sm text-gray-500">{idadeAposentadoria} anos</span>
+                      <div className="space-y-3">
+                        <div className="flex justify-between items-center">
+                          <Label htmlFor="idade-aposentadoria" className="text-sm font-medium">Idade Desejada para Aposentadoria</Label>
+                          <Badge variant="outline">{idadeAposentadoria} anos</Badge>
                         </div>
                         <Slider
                           id="idade-aposentadoria"
-                          min={Math.max(idadeAtual + 1, 45)}
-                          max={90}
+                          min={Math.max(idadeAtual + 5, 50)}
+                          max={80}
                           step={1}
                           value={[idadeAposentadoria]}
                           onValueChange={(value) => setIdadeAposentadoria(value[0])}
                           className="cursor-pointer"
                         />
+                        <p className="text-xs text-gray-500">
+                          Tempo para investir: <span className="font-medium">{idadeAposentadoria - idadeAtual} anos</span>
+                        </p>
                       </div>
 
                       {/* Renda Mensal Atual */}
                       <div className="space-y-2">
-                        <Label htmlFor="renda-mensal">Renda Mensal Atual</Label>
+                        <Label htmlFor="renda-mensal" className="text-sm font-medium">Sua Renda Mensal Atual</Label>
                         <div className="relative">
-                          <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500">R$</span>
+                          <DollarSign className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
                           <Input
                             id="renda-mensal"
                             type="number"
                             min={0}
-                            value={rendaMensal}
-                            onChange={(e) => setRendaMensal(Number(e.target.value))}
+                            value={rendaMensal || ''}
+                            onChange={(e) => setRendaMensal(Number(e.target.value) || 0)}
                             className="pl-10"
+                            placeholder="Ex: 5000"
                           />
                         </div>
+                        {rendaMensal > 0 && (
+                          <p className="text-xs text-gray-500">
+                            Renda anual: {formatarMoeda(rendaMensal * 12)}
+                          </p>
+                        )}
                       </div>
 
                       {/* Renda Desejada na Aposentadoria */}
                       <div className="space-y-2">
-                        <Label htmlFor="renda-desejada">Renda Desejada na Aposentadoria</Label>
+                        <Label htmlFor="renda-desejada" className="text-sm font-medium">Renda Mensal Desejada na Aposentadoria</Label>
                         <div className="relative">
-                          <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500">R$</span>
+                          <Target className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
                           <Input
                             id="renda-desejada"
                             type="number"
                             min={0}
-                            value={rendaDesejada}
-                            onChange={(e) => setRendaDesejada(Number(e.target.value))}
+                            value={rendaDesejada || ''}
+                            onChange={(e) => setRendaDesejada(Number(e.target.value) || 0)}
                             className="pl-10"
+                            placeholder="Ex: 8000"
                           />
                         </div>
+                        {rendaDesejada > 0 && rendaMensal > 0 && (
+                          <p className="text-xs text-gray-500">
+                            {((rendaDesejada / rendaMensal) * 100).toFixed(0)}% da sua renda atual
+                          </p>
+                        )}
                       </div>
 
                       {/* Patrimônio Atual */}
                       <div className="space-y-2">
-                        <Label htmlFor="patrimonio-atual">Patrimônio Atual</Label>
+                        <Label htmlFor="patrimonio-atual" className="text-sm font-medium">Patrimônio Atual (Investimentos)</Label>
                         <div className="relative">
-                          <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500">R$</span>
+                          <PiggyBank className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
                           <Input
                             id="patrimonio-atual"
                             type="number"
                             min={0}
-                            value={patrimonioAtual}
-                            onChange={(e) => setPatrimonioAtual(Number(e.target.value))}
+                            value={patrimonioAtual || ''}
+                            onChange={(e) => setPatrimonioAtual(Number(e.target.value) || 0)}
                             className="pl-10"
+                            placeholder="Ex: 50000"
                           />
                         </div>
+                        <p className="text-xs text-gray-500">
+                          Valor que você já tem investido para aposentadoria
+                        </p>
                       </div>
 
                       {/* Contribuição Mensal */}
                       <div className="space-y-2">
-                        <Label htmlFor="contribuicao-mensal">Contribuição Mensal</Label>
+                        <Label htmlFor="contribuicao-mensal" className="text-sm font-medium">Quanto Pode Investir por Mês</Label>
                         <div className="relative">
-                          <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500">R$</span>
+                          <DollarSign className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
                           <Input
                             id="contribuicao-mensal"
                             type="number"
                             min={0}
-                            value={contribuicaoMensal}
-                            onChange={(e) => setContribuicaoMensal(Number(e.target.value))}
+                            value={contribuicaoMensal || ''}
+                            onChange={(e) => setContribuicaoMensal(Number(e.target.value) || 0)}
                             className="pl-10"
+                            placeholder="Ex: 1000"
                           />
                         </div>
+                        {contribuicaoMensal > 0 && rendaMensal > 0 && (
+                          <p className="text-xs text-gray-500">
+                            {formatarPercentual((contribuicaoMensal / rendaMensal) * 100)} da sua renda
+                          </p>
+                        )}
                       </div>
 
                       {/* Perfil de Investimento */}
-                      <div className="space-y-2">
-                        <Label htmlFor="perfil-investimento">Perfil de Investimento</Label>
-                        <Select
-                          value={perfilInvestimento}
-                          onValueChange={setPerfilInvestimento}
-                        >
+                      <div className="space-y-3">
+                        <Label htmlFor="perfil-investimento" className="text-sm font-medium">Seu Perfil de Investidor</Label>
+                        <Select value={perfilInvestimento} onValueChange={setPerfilInvestimento}>
                           <SelectTrigger id="perfil-investimento">
-                            <SelectValue placeholder="Selecione seu perfil" />
+                            <SelectValue />
                           </SelectTrigger>
                           <SelectContent>
-                            <SelectItem value="conservador">Conservador (4,91% a.a.)</SelectItem>
-                            <SelectItem value="moderado">Moderado (6,17% a.a.)</SelectItem>
-                            <SelectItem value="agressivo">Agressivo (8,11% a.a.)</SelectItem>
+                            {Object.entries(perfisInvestimento).map(([key, perfil]) => (
+                              <SelectItem key={key} value={key}>
+                                <div className="flex flex-col">
+                                  <span>{perfil.nome} - {perfil.retorno}% a.a.</span>
+                                  <span className="text-xs text-gray-500">Risco {perfil.risco}</span>
+                                </div>
+                              </SelectItem>
+                            ))}
                           </SelectContent>
                         </Select>
-                      </div>
-
-                      {/* Inflação */}
-                      <div className="space-y-2">
-                        <div className="flex justify-between">
-                          <Label htmlFor="inflacao">Inflação Anual</Label>
-                          <span className="text-sm text-gray-500">{(inflacao * 12).toFixed(2)}%</span>
+                        <div className="p-3 bg-gray-50 rounded-lg">
+                          <p className="text-xs text-gray-600 mb-1">
+                            <span className="font-medium">{perfisInvestimento[perfilInvestimento as keyof typeof perfisInvestimento].descricao}</span>
+                          </p>
+                          <p className="text-xs text-gray-500">
+                            Exemplos: {perfisInvestimento[perfilInvestimento as keyof typeof perfisInvestimento].exemplos}
+                          </p>
                         </div>
-                        <Slider
-                          id="inflacao"
-                          min={0.2}
-                          max={0.6}
-                          step={0.01}
-                          value={[inflacao]}
-                          onValueChange={(value) => setInflacao(value[0])}
-                          className="cursor-pointer"
-                        />
-                        <p className="text-xs text-gray-500 mt-1">
-                          A inflação média no Brasil nos últimos anos tem sido em torno de 3,9% ao ano.
-                        </p>
                       </div>
 
+                      {/* Botão de Calcular */}
                       <Button
                         onClick={calcular}
-                        className="w-full bg-finance-green hover:bg-finance-green-dark text-white"
+                        className="w-full bg-finance-green hover:bg-finance-green-dark text-white h-12"
+                        disabled={!validarCampos()}
                       >
-                        Recalcular
+                        <Calculator className="h-4 w-4 mr-2" />
+                        {validarCampos() ? 'Calcular Meu Plano' : 'Preencha os Campos Obrigatórios'}
                       </Button>
+
+                      {!validarCampos() && (
+                        <Alert>
+                          <Info className="h-4 w-4" />
+                          <AlertDescription>
+                            Preencha sua renda atual, renda desejada e contribuição mensal para ver os resultados.
+                          </AlertDescription>
+                        </Alert>
+                      )}
                     </CardContent>
                   </Card>
                 </div>
 
                 {/* Painel de Resultados */}
-                <div className="md:col-span-7">
-                  <div className="space-y-6">
-                    {/* Resultados Principais */}
-                    <Card>
-                      <CardHeader>
-                        <CardTitle>Resultados da Simulação</CardTitle>
-                        <CardDescription>
-                          Com base nos dados informados, veja os resultados da sua simulação
-                        </CardDescription>
-                      </CardHeader>
-                      <CardContent>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                          <div className="space-y-2">
-                            <p className="text-sm text-gray-500">Contribuição Mensal Necessária</p>
-                            <p className="text-3xl font-bold text-finance-green">
-                              {formatarMoeda(contribuicaoNecessaria)}
-                            </p>
-                            <p className="text-xs text-gray-500">
-                              Valor mensal necessário para atingir sua meta
-                            </p>
-                          </div>
-
-                          <div className="space-y-2">
-                            <p className="text-sm text-gray-500">Patrimônio Projetado</p>
-                            <p className="text-3xl font-bold text-finance-blue">
-                              {formatarMoeda(dadosGrafico[dadosGrafico.length - 1]?.patrimonio || 0)}
-                            </p>
-                            <p className="text-xs text-gray-500">
-                              Patrimônio estimado aos {idadeAposentadoria} anos
-                            </p>
-                          </div>
-
-                          <div className="space-y-2">
-                            <p className="text-sm text-gray-500">Renda Mensal na Aposentadoria</p>
-                            <p className="text-3xl font-bold text-finance-green">
-                              {formatarMoeda(rendaMensalAposentadoria)}
-                            </p>
-                            <p className="text-xs text-gray-500">
-                              Baseado na regra de retirada segura de 4% ao ano
-                            </p>
-                          </div>
-
-                          <div className="space-y-2">
-                            <p className="text-sm text-gray-500">Tempo até a Aposentadoria</p>
-                            <p className="text-3xl font-bold text-finance-blue">
-                              {idadeAposentadoria - idadeAtual} anos
-                            </p>
-                            <p className="text-xs text-gray-500">
-                              Período de acumulação de patrimônio
-                            </p>
-                          </div>
-                        </div>
+                <div className="lg:col-span-8">
+                  {!mostrarResultados ? (
+                    <Card className="h-96 flex items-center justify-center">
+                      <CardContent className="text-center">
+                        <Calculator className="h-16 w-16 text-gray-300 mx-auto mb-4" />
+                        <h3 className="text-xl font-semibold text-gray-600 mb-2">Pronto para Planejar sua Aposentadoria?</h3>
+                        <p className="text-gray-500 max-w-md">
+                          Preencha seus dados no painel ao lado e descubra exatamente quanto você precisa investir para realizar seus sonhos de aposentadoria.
+                        </p>
                       </CardContent>
                     </Card>
+                  ) : (
+                    <Tabs value={tabAtiva} onValueChange={setTabAtiva} className="space-y-6">
+                      <TabsList className="grid w-full grid-cols-4">
+                        <TabsTrigger value="basico">Resultados</TabsTrigger>
+                        <TabsTrigger value="grafico">Evolução</TabsTrigger>
+                        <TabsTrigger value="cenarios">Cenários</TabsTrigger>
+                        <TabsTrigger value="dicas">Dicas</TabsTrigger>
+                      </TabsList>
 
-                    {/* Gráfico */}
-                    <Card>
-                      <CardHeader>
-                        <CardTitle>Projeção do Patrimônio</CardTitle>
-                        <CardDescription>
-                          Evolução do seu patrimônio ao longo do tempo até a aposentadoria
-                        </CardDescription>
-                      </CardHeader>
-                      <CardContent>
-                        <div className="h-80">
-                          <ResponsiveContainer width="100%" height="100%">
-                            <AreaChart
-                              data={dadosGrafico}
-                              margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
-                            >
-                              <CartesianGrid strokeDasharray="3 3" />
-                              <XAxis
-                                dataKey="idade"
-                                label={{ value: 'Idade', position: 'insideBottomRight', offset: -10 }}
-                              />
-                              <YAxis
-                                tickFormatter={(value) => `R$ ${(value / 1000).toFixed(0)}k`}
-                                label={{ value: 'Patrimônio (R$)', angle: -90, position: 'insideLeft' }}
-                              />
-                              <Tooltip
-                                formatter={(value) => [`R$ ${Number(value).toLocaleString('pt-BR')}`, '']}
-                                labelFormatter={(label) => `Idade: ${label} anos`}
-                              />
-                              <Legend />
-                              <Area
-                                type="monotone"
-                                dataKey="patrimonio"
-                                name="Patrimônio Total"
-                                stroke="#10b981"
-                                fill="#10b981"
-                                fillOpacity={0.3}
-                              />
-                              <Area
-                                type="monotone"
-                                dataKey="contribuicaoAcumulada"
-                                name="Contribuições"
-                                stroke="#3b82f6"
-                                fill="#3b82f6"
-                                fillOpacity={0.3}
-                              />
-                              <Area
-                                type="monotone"
-                                dataKey="rendimentoAcumulado"
-                                name="Rendimentos"
-                                stroke="#f59e0b"
-                                fill="#f59e0b"
-                                fillOpacity={0.3}
-                              />
-                            </AreaChart>
-                          </ResponsiveContainer>
-                        </div>
-                      </CardContent>
-                    </Card>
+                      {/* Tab: Resultados Básicos */}
+                      <TabsContent value="basico" className="space-y-6">
+                        {/* Resumo Principal */}
+                        <Card>
+                          <CardHeader>
+                            <CardTitle className="flex items-center gap-2">
+                              <Target className="h-5 w-5 text-finance-green" />
+                              Seu Plano de Aposentadoria
+                            </CardTitle>
+                            <CardDescription>
+                              Análise completa baseada nos seus dados
+                            </CardDescription>
+                          </CardHeader>
+                          <CardContent>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                              <div className="space-y-2">
+                                <p className="text-sm text-gray-500">Patrimônio Necessário</p>
+                                <p className="text-3xl font-bold text-finance-blue">
+                                  {formatarMoeda(patrimonioNecessario)}
+                                </p>
+                                <p className="text-xs text-gray-500">
+                                  Para gerar {formatarMoeda(rendaDesejada)}/mês
+                                </p>
+                              </div>
 
-                    {/* Informações Adicionais */}
-                    <Card>
-                      <CardHeader>
-                        <CardTitle>Informações Importantes</CardTitle>
-                      </CardHeader>
-                      <CardContent className="space-y-4">
-                        <div className="space-y-2">
-                          <h3 className="text-lg font-semibold flex items-center gap-2">
-                            <AlertCircle className="h-5 w-5 text-finance-blue" />
-                            Sobre os Cálculos
-                          </h3>
-                          <p className="text-sm text-gray-600">
-                            Esta calculadora utiliza a regra de retirada segura de 4% ao ano, que sugere que você pode retirar 4% do seu patrimônio total no primeiro ano de aposentadoria e ajustar esse valor pela inflação nos anos seguintes, com baixo risco de esgotar seus recursos durante a aposentadoria.
-                          </p>
+                              <div className="space-y-2">
+                                <p className="text-sm text-gray-500">Contribuição Ideal</p>
+                                <p className="text-3xl font-bold text-finance-green">
+                                  {formatarMoeda(contribuicaoNecessaria)}
+                                </p>
+                                <p className="text-xs text-gray-500">
+                                  {contribuicaoNecessaria > contribuicaoMensal ?
+                                    `${formatarMoeda(contribuicaoNecessaria - contribuicaoMensal)} a mais que o atual` :
+                                    'Sua contribuição atual é suficiente!'
+                                  }
+                                </p>
+                              </div>
+
+                              <div className="space-y-2">
+                                <p className="text-sm text-gray-500">Patrimônio Projetado</p>
+                                <p className="text-3xl font-bold text-finance-blue">
+                                  {formatarMoeda(dadosGrafico[dadosGrafico.length - 1]?.patrimonio || 0)}
+                                </p>
+                                <p className="text-xs text-gray-500">
+                                  Com sua contribuição atual
+                                </p>
+                              </div>
+
+                              <div className="space-y-2">
+                                <p className="text-sm text-gray-500">Renda Mensal Projetada</p>
+                                <p className="text-3xl font-bold text-finance-green">
+                                  {formatarMoeda(rendaMensalProjetada)}
+                                </p>
+                                <p className="text-xs text-gray-500">
+                                  Baseado na regra dos 4%
+                                </p>
+                              </div>
+                            </div>
+
+                            {/* Progresso da Meta */}
+                            <div className="mt-6 space-y-3">
+                              <div className="flex justify-between items-center">
+                                <p className="text-sm font-medium">Progresso da Meta</p>
+                                <p className="text-sm text-gray-500">{formatarPercentual(progressoMeta)}</p>
+                              </div>
+                              <Progress value={progressoMeta} className="h-3" />
+                              <div className="flex justify-between text-xs text-gray-500">
+                                <span>Atual</span>
+                                <span>Meta: {formatarMoeda(patrimonioNecessario)}</span>
+                              </div>
+                            </div>
+                          </CardContent>
+                        </Card>
+
+                        {/* Status da Meta */}
+                        <Card>
+                          <CardContent className="pt-6">
+                            {progressoMeta >= 100 ? (
+                              <div className="flex items-center gap-3 p-4 bg-green-50 rounded-lg">
+                                <CheckCircle className="h-8 w-8 text-green-600" />
+                                <div>
+                                  <h3 className="font-semibold text-green-800">Parabéns! Meta Alcançada</h3>
+                                  <p className="text-sm text-green-600">
+                                    Suas contribuições atuais são suficientes para atingir sua meta de aposentadoria.
+                                  </p>
+                                </div>
+                              </div>
+                            ) : progressoMeta >= 80 ? (
+                              <div className="flex items-center gap-3 p-4 bg-yellow-50 rounded-lg">
+                                <AlertCircle className="h-8 w-8 text-yellow-600" />
+                                <div>
+                                  <h3 className="font-semibold text-yellow-800">Quase Lá!</h3>
+                                  <p className="text-sm text-yellow-600">
+                                    Você está no caminho certo. Considere aumentar um pouco as contribuições.
+                                  </p>
+                                </div>
+                              </div>
+                            ) : (
+                              <div className="flex items-center gap-3 p-4 bg-red-50 rounded-lg">
+                                <XCircle className="h-8 w-8 text-red-600" />
+                                <div>
+                                  <h3 className="font-semibold text-red-800">Ajustes Necessários</h3>
+                                  <p className="text-sm text-red-600">
+                                    Para atingir sua meta, você precisará aumentar as contribuições ou ajustar suas expectativas.
+                                  </p>
+                                </div>
+                              </div>
+                            )}
+                          </CardContent>
+                        </Card>
+                      </TabsContent>
+
+                      {/* Tab: Gráfico de Evolução */}
+                      <TabsContent value="grafico" className="space-y-6">
+                        <Card>
+                          <CardHeader>
+                            <CardTitle>Evolução do Patrimônio</CardTitle>
+                            <CardDescription>
+                              Projeção da evolução do seu patrimônio até a aposentadoria
+                            </CardDescription>
+                          </CardHeader>
+                          <CardContent>
+                            <div className="h-96">
+                              <ResponsiveContainer width="100%" height="100%">
+                                <AreaChart data={dadosGrafico}>
+                                  <CartesianGrid strokeDasharray="3 3" />
+                                  <XAxis
+                                    dataKey="idade"
+                                    label={{ value: 'Idade', position: 'insideBottom', offset: -10 }}
+                                  />
+                                  <YAxis
+                                    tickFormatter={(value) => `${(value / 1000000).toFixed(1)}M`}
+                                    label={{ value: 'Patrimônio (R$)', angle: -90, position: 'insideLeft' }}
+                                  />
+                                  <Tooltip
+                                    formatter={(value, name) => [
+                                      formatarMoeda(Number(value)),
+                                      name === 'patrimonio' ? 'Patrimônio Total' :
+                                        name === 'contribuicaoAcumulada' ? 'Contribuições' :
+                                          name === 'rendimentoAcumulado' ? 'Rendimentos' : 'Meta'
+                                    ]}
+                                    labelFormatter={(label) => `Idade: ${label} anos`}
+                                  />
+                                  <Legend />
+                                  <Area
+                                    type="monotone"
+                                    dataKey="contribuicaoAcumulada"
+                                    stackId="1"
+                                    stroke="#3b82f6"
+                                    fill="#3b82f6"
+                                    fillOpacity={0.6}
+                                    name="Contribuições"
+                                  />
+                                  <Area
+                                    type="monotone"
+                                    dataKey="rendimentoAcumulado"
+                                    stackId="1"
+                                    stroke="#10b981"
+                                    fill="#10b981"
+                                    fillOpacity={0.6}
+                                    name="Rendimentos"
+                                  />
+                                  <Line
+                                    type="monotone"
+                                    dataKey="metaPatrimonio"
+                                    stroke="#ef4444"
+                                    strokeWidth={2}
+                                    strokeDasharray="5 5"
+                                    dot={false}
+                                    name="Meta"
+                                  />
+                                </AreaChart>
+                              </ResponsiveContainer>
+                            </div>
+                          </CardContent>
+                        </Card>
+
+                        {/* Breakdown do Patrimônio Final */}
+                        <Card>
+                          <CardHeader>
+                            <CardTitle>Composição do Patrimônio Final</CardTitle>
+                          </CardHeader>
+                          <CardContent>
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                              <div className="text-center p-4 bg-blue-50 rounded-lg">
+                                <p className="text-2xl font-bold text-blue-600">
+                                  {formatarMoeda(dadosGrafico[dadosGrafico.length - 1]?.contribuicaoAcumulada || 0)}
+                                </p>
+                                <p className="text-sm text-blue-600">Suas Contribuições</p>
+                                <p className="text-xs text-gray-500 mt-1">
+                                  {((dadosGrafico[dadosGrafico.length - 1]?.contribuicaoAcumulada || 0) /
+                                    (dadosGrafico[dadosGrafico.length - 1]?.patrimonio || 1) * 100).toFixed(0)}% do total
+                                </p>
+                              </div>
+                              <div className="text-center p-4 bg-green-50 rounded-lg">
+                                <p className="text-2xl font-bold text-green-600">
+                                  {formatarMoeda(dadosGrafico[dadosGrafico.length - 1]?.rendimentoAcumulado || 0)}
+                                </p>
+                                <p className="text-sm text-green-600">Rendimentos</p>
+                                <p className="text-xs text-gray-500 mt-1">
+                                  {((dadosGrafico[dadosGrafico.length - 1]?.rendimentoAcumulado || 0) /
+                                    (dadosGrafico[dadosGrafico.length - 1]?.patrimonio || 1) * 100).toFixed(0)}% do total
+                                </p>
+                              </div>
+                              <div className="text-center p-4 bg-purple-50 rounded-lg">
+                                <p className="text-2xl font-bold text-purple-600">
+                                  {formatarMoeda(patrimonioAtual)}
+                                </p>
+                                <p className="text-sm text-purple-600">Patrimônio Inicial</p>
+                                <p className="text-xs text-gray-500 mt-1">
+                                  Valor que você já possui
+                                </p>
+                              </div>
+                            </div>
+                          </CardContent>
+                        </Card>
+                      </TabsContent>
+
+                      {/* Tab: Cenários Comparativos */}
+                      <TabsContent value="cenarios" className="space-y-6">
+                        <Card>
+                          <CardHeader>
+                            <CardTitle>Cenários de Contribuição</CardTitle>
+                            <CardDescription>
+                              Veja como diferentes valores de contribuição afetam seu patrimônio final
+                            </CardDescription>
+                          </CardHeader>
+                          <CardContent>
+                            <div className="h-80">
+                              <ResponsiveContainer width="100%" height="100%">
+                                <BarChart data={cenarios}>
+                                  <CartesianGrid strokeDasharray="3 3" />
+                                  <XAxis dataKey="nome" />
+                                  <YAxis tickFormatter={(value) => `${(value / 1000000).toFixed(1)}M`} />
+                                  <Tooltip formatter={(value) => [formatarMoeda(Number(value)), 'Patrimônio Final']} />
+                                  <Bar dataKey="patrimonio" fill="#10b981" />
+                                </BarChart>
+                              </ResponsiveContainer>
+                            </div>
+                          </CardContent>
+                        </Card>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          {cenarios.map((cenario, index) => (
+                            <Card key={index} className={cenario.nome.includes('Atual') ? 'ring-2 ring-finance-green' : ''}>
+                              <CardContent className="pt-6">
+                                <div className="flex justify-between items-start mb-3">
+                                  <h3 className="font-semibold">{cenario.nome}</h3>
+                                  {cenario.nome.includes('Atual') && (
+                                    <Badge className="bg-finance-green text-white">Atual</Badge>
+                                  )}
+                                </div>
+                                <div className="space-y-2">
+                                  <div className="flex justify-between">
+                                    <span className="text-sm text-gray-500">Contribuição Mensal:</span>
+                                    <span className="font-medium">{formatarMoeda(cenario.contribuicao)}</span>
+                                  </div>
+                                  <div className="flex justify-between">
+                                    <span className="text-sm text-gray-500">Patrimônio Final:</span>
+                                    <span className="font-bold text-finance-blue">{formatarMoeda(cenario.patrimonio)}</span>
+                                  </div>
+                                  <div className="flex justify-between">
+                                    <span className="text-sm text-gray-500">Renda Mensal:</span>
+                                    <span className="font-medium">{formatarMoeda(cenario.patrimonio * 0.04 / 12)}</span>
+                                  </div>
+                                </div>
+                              </CardContent>
+                            </Card>
+                          ))}
+                        </div>
+                      </TabsContent>
+
+                      {/* Tab: Dicas Personalizadas */}
+                      <TabsContent value="dicas" className="space-y-6">
+                        {/* Dicas Personalizadas */}
+                        <div className="space-y-4">
+                          {dicasPersonalizadas.map((dica, index) => (
+                            <Alert key={index} className={
+                              dica.tipo === 'sucesso' ? 'border-green-200 bg-green-50' :
+                                dica.tipo === 'alerta' ? 'border-yellow-200 bg-yellow-50' :
+                                  'border-blue-200 bg-blue-50'
+                            }>
+                              {dica.tipo === 'sucesso' ? <CheckCircle className="h-4 w-4 text-green-600" /> :
+                                dica.tipo === 'alerta' ? <AlertCircle className="h-4 w-4 text-yellow-600" /> :
+                                  <Info className="h-4 w-4 text-blue-600" />}
+                              <div>
+                                <h4 className="font-semibold mb-1">{dica.titulo}</h4>
+                                <p className="text-sm mb-2">{dica.descricao}</p>
+                                {dica.acao && (
+                                  <p className="text-sm font-medium">{dica.acao}</p>
+                                )}
+                              </div>
+                            </Alert>
+                          ))}
                         </div>
 
-                        <div className="space-y-2">
-                          <h3 className="text-lg font-semibold flex items-center gap-2">
-                            <TrendingUp className="h-5 w-5 text-finance-green" />
-                            Taxas de Retorno
-                          </h3>
-                          <p className="text-sm text-gray-600">
-                            As taxas de retorno utilizadas são baseadas em dados históricos do mercado brasileiro, considerando diferentes perfis de investimento:
-                          </p>
-                          <ul className="text-sm text-gray-600 list-disc pl-5 space-y-1">
-                            <li><span className="font-medium">Conservador:</span> 4,91% ao ano (acima da inflação) - Títulos públicos, CDBs e fundos de renda fixa</li>
-                            <li><span className="font-medium">Moderado:</span> 6,17% ao ano (acima da inflação) - Mix de renda fixa e variável</li>
-                            <li><span className="font-medium">Agressivo:</span> 8,11% ao ano (acima da inflação) - Maior alocação em renda variável</li>
-                          </ul>
-                        </div>
+                        {/* Dicas Gerais */}
+                        <Card>
+                          <CardHeader>
+                            <CardTitle className="flex items-center gap-2">
+                              <Lightbulb className="h-5 w-5 text-finance-green" />
+                              Dicas para Maximizar sua Aposentadoria
+                            </CardTitle>
+                          </CardHeader>
+                          <CardContent>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                              <div className="space-y-4">
+                                <h4 className="font-semibold text-finance-blue">Estratégias de Investimento</h4>
+                                <ul className="space-y-2 text-sm">
+                                  <li className="flex items-start gap-2">
+                                    <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
+                                    <span>Diversifique entre renda fixa e variável</span>
+                                  </li>
+                                  <li className="flex items-start gap-2">
+                                    <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
+                                    <span>Aproveite benefícios fiscais (PGBL/VGBL)</span>
+                                  </li>
+                                  <li className="flex items-start gap-2">
+                                    <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
+                                    <span>Reinvista dividendos e rendimentos</span>
+                                  </li>
+                                  <li className="flex items-start gap-2">
+                                    <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
+                                    <span>Revise periodicamente sua carteira</span>
+                                  </li>
+                                </ul>
+                              </div>
 
-                        <div className="space-y-2">
-                          <h3 className="text-lg font-semibold flex items-center gap-2">
-                            <HelpCircle className="h-5 w-5 text-finance-blue" />
-                            Dicas para Melhorar sua Aposentadoria
-                          </h3>
-                          <ul className="text-sm text-gray-600 list-disc pl-5 space-y-1">
-                            <li>Comece a poupar o quanto antes para aproveitar o poder dos juros compostos</li>
-                            <li>Aumente gradualmente suas contribuições mensais, especialmente após aumentos salariais</li>
-                            <li>Diversifique seus investimentos para equilibrar risco e retorno</li>
-                            <li>Considere a inflação em seu planejamento, pois ela reduz o poder de compra ao longo do tempo</li>
-                            <li>Reavalie seu plano periodicamente e ajuste conforme necessário</li>
-                          </ul>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </div>
+                              <div className="space-y-4">
+                                <h4 className="font-semibold text-finance-blue">Disciplina Financeira</h4>
+                                <ul className="space-y-2 text-sm">
+                                  <li className="flex items-start gap-2">
+                                    <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
+                                    <span>Automatize seus investimentos</span>
+                                  </li>
+                                  <li className="flex items-start gap-2">
+                                    <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
+                                    <span>Aumente contribuições com aumentos salariais</span>
+                                  </li>
+                                  <li className="flex items-start gap-2">
+                                    <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
+                                    <span>Evite resgates desnecessários</span>
+                                  </li>
+                                  <li className="flex items-start gap-2">
+                                    <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
+                                    <span>Mantenha uma reserva de emergência</span>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                          </CardContent>
+                        </Card>
+
+                        {/* Simulador de Impacto */}
+                        <Card>
+                          <CardHeader>
+                            <CardTitle>O Poder do Tempo</CardTitle>
+                            <CardDescription>
+                              Veja como começar mais cedo faz diferença
+                            </CardDescription>
+                          </CardHeader>
+                          <CardContent>
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                              {[5, 10, 15].map((anosAtraso) => {
+                                const idadeInicio = idadeAtual + anosAtraso;
+                                const anosInvestimento = Math.max(0, idadeAposentadoria - idadeInicio);
+                                const taxaAnual = perfisInvestimento[perfilInvestimento as keyof typeof perfisInvestimento].retorno / 100;
+                                const taxaMensal = Math.pow(1 + taxaAnual, 1 / 12) - 1;
+                                const meses = anosInvestimento * 12;
+
+                                let patrimonio = 0;
+                                for (let mes = 1; mes <= meses; mes++) {
+                                  patrimonio = patrimonio * (1 + taxaMensal) + contribuicaoMensal;
+                                }
+
+                                return (
+                                  <div key={anosAtraso} className="text-center p-4 bg-gray-50 rounded-lg">
+                                    <p className="text-lg font-bold text-gray-800">
+                                      {formatarMoeda(patrimonio)}
+                                    </p>
+                                    <p className="text-sm text-gray-600">
+                                      Começando aos {idadeInicio} anos
+                                    </p>
+                                    <p className="text-xs text-gray-500">
+                                      ({anosInvestimento} anos investindo)
+                                    </p>
+                                  </div>
+                                );
+                              })}
+                            </div>
+                            <p className="text-sm text-gray-600 mt-4 text-center">
+                              Cada ano de atraso pode custar milhares de reais no futuro!
+                            </p>
+                          </CardContent>
+                        </Card>
+                      </TabsContent>
+                    </Tabs>
+                  )}
                 </div>
               </div>
             </div>
