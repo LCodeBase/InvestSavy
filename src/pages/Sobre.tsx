@@ -149,7 +149,7 @@ const Sobre = () => {
                       Sempre fui inconformado com a forma como o conhecimento financeiro é tratado no Brasil — limitado, técnico demais ou simplesmente inexistente nas escolas. A maioria aprende sobre dinheiro da pior forma: com dívidas, frustrações e promessas falsas.
                     </p>
                     <p className="text-lg leading-relaxed">
-                      Criei o InvestSavy com o propósito de mudar isso. Quero construir um espaço acessível, prático e direto ao ponto, onde qualquer pessoa possa aprender a pensar financeiramente, entender o mercado e tomar melhores decisões, sem depender de “gurus” ou de soluções mágicas.
+                      Criei o InvestSavy com o propósito de mudar isso. Quero construir um espaço gratuito, prático e direto ao ponto, onde qualquer pessoa possa aprender a pensar financeiramente, entender o mercado e tomar melhores decisões, sem depender de “gurus” ou de soluções mágicas.
                     </p>
                     <p className="text-lg leading-relaxed">
                       Acreditamos que educação financeira é liberdade. E liberdade não se negocia.
