@@ -1,39 +1,41 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Analytics Tracker Enhancer</title>
-    
+
     <!-- Google Analytics Enhanced Tracking -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-D158406530"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+        function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
-        gtag('config', 'GA_MEASUREMENT_ID', {
+        gtag('config', 'G-D158406530', {
             send_page_view: true,
             anonymize_ip: false,
             allow_google_signals: true,
             cookie_flags: 'SameSite=None;Secure'
         });
     </script>
-    
+
     <!-- Microsoft Clarity Enhanced Tracking -->
     <script type="text/javascript">
-        (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-        })(window, document, "clarity", "script", "CLARITY_PROJECT_ID");
+        (function (c, l, a, r, i, t, y) {
+            c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+            t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+            y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+        })(window, document, "clarity", "script", "rx032mvw1z");
     </script>
 </head>
+
 <body>
     <div id="tracker-enhancer" style="display: none;">
         <h1>Analytics Tracker Enhancer</h1>
         <p>Este arquivo força o tracking no Google Analytics e Microsoft Clarity</p>
     </div>
-    
+
     <script>
         // Enhanced Analytics Tracker
         class AnalyticsEnhancer {
@@ -43,27 +45,27 @@
                 this.interactions = 0;
                 this.init();
             }
-            
+
             generateSessionId() {
                 return 'session_' + Math.random().toString(36).substr(2, 9) + '_' + Date.now();
             }
-            
+
             init() {
                 console.log('🚀 Analytics Enhancer iniciado - Session:', this.sessionId);
-                
+
                 // Força eventos imediatos
                 this.forceInitialTracking();
-                
+
                 // Simula interações humanas
                 this.simulateHumanBehavior();
-                
+
                 // Força eventos periódicos
                 this.startPeriodicTracking();
-                
+
                 // Tracking de saída
                 this.setupExitTracking();
             }
-            
+
             forceInitialTracking() {
                 // Google Analytics - Força page_view
                 if (typeof gtag !== 'undefined') {
@@ -73,39 +75,39 @@
                         custom_parameter_1: 'enhanced_tracking',
                         session_id: this.sessionId
                     });
-                    
+
                     gtag('event', 'enhanced_visit', {
                         event_category: 'engagement',
                         event_label: 'bot_enhanced',
                         value: 1
                     });
                 }
-                
+
                 // Microsoft Clarity - Força tracking
                 if (typeof clarity !== 'undefined') {
                     clarity('set', 'session_id', this.sessionId);
                     clarity('set', 'enhanced_tracking', 'true');
                 }
             }
-            
+
             simulateHumanBehavior() {
                 // Simula scroll
                 setTimeout(() => {
                     this.simulateScroll();
                 }, Math.random() * 3000 + 1000);
-                
+
                 // Simula cliques
                 setTimeout(() => {
                     this.simulateClicks();
                 }, Math.random() * 5000 + 2000);
-                
+
                 // Simula movimento do mouse
                 this.simulateMouseMovement();
-                
+
                 // Simula foco na página
                 this.simulatePageFocus();
             }
-            
+
             simulateScroll() {
                 const scrollEvents = [
                     { top: 100, behavior: 'smooth' },
@@ -113,7 +115,7 @@
                     { top: 500, behavior: 'smooth' },
                     { top: 0, behavior: 'smooth' }
                 ];
-                
+
                 scrollEvents.forEach((scroll, index) => {
                     setTimeout(() => {
                         window.scrollTo(scroll);
@@ -121,7 +123,7 @@
                     }, index * 2000);
                 });
             }
-            
+
             simulateClicks() {
                 // Simula cliques em elementos invisíveis
                 const clickEvent = new MouseEvent('click', {
@@ -129,36 +131,36 @@
                     cancelable: true,
                     view: window
                 });
-                
+
                 document.body.dispatchEvent(clickEvent);
                 this.trackInteraction('click', 'simulated');
             }
-            
+
             simulateMouseMovement() {
                 let x = 0, y = 0;
                 const moveInterval = setInterval(() => {
                     x += Math.random() * 10 - 5;
                     y += Math.random() * 10 - 5;
-                    
+
                     const moveEvent = new MouseEvent('mousemove', {
                         clientX: Math.max(0, Math.min(window.innerWidth, x)),
                         clientY: Math.max(0, Math.min(window.innerHeight, y))
                     });
-                    
+
                     document.dispatchEvent(moveEvent);
                 }, 100);
-                
+
                 // Para após 10 segundos
                 setTimeout(() => clearInterval(moveInterval), 10000);
             }
-            
+
             simulatePageFocus() {
                 // Simula foco e desfoco da página
                 setTimeout(() => {
                     window.dispatchEvent(new Event('focus'));
                     this.trackInteraction('focus', 'page');
                 }, 1000);
-                
+
                 setTimeout(() => {
                     window.dispatchEvent(new Event('blur'));
                     setTimeout(() => {
@@ -166,10 +168,10 @@
                     }, 2000);
                 }, 5000);
             }
-            
+
             trackInteraction(type, value) {
                 this.interactions++;
-                
+
                 if (typeof gtag !== 'undefined') {
                     gtag('event', 'user_interaction', {
                         event_category: 'engagement',
@@ -179,19 +181,19 @@
                         session_id: this.sessionId
                     });
                 }
-                
+
                 if (typeof clarity !== 'undefined') {
                     clarity('set', 'interaction_' + this.interactions, type + '_' + value);
                 }
-                
+
                 console.log('📊 Interação rastreada:', type, value);
             }
-            
+
             startPeriodicTracking() {
                 // Envia eventos a cada 10 segundos
                 const interval = setInterval(() => {
                     const timeOnPage = Math.floor((Date.now() - this.startTime) / 1000);
-                    
+
                     if (typeof gtag !== 'undefined') {
                         gtag('event', 'time_on_page', {
                             event_category: 'engagement',
@@ -199,18 +201,18 @@
                             session_id: this.sessionId
                         });
                     }
-                    
+
                     // Para após 2 minutos
                     if (timeOnPage > 120) {
                         clearInterval(interval);
                     }
                 }, 10000);
             }
-            
+
             setupExitTracking() {
                 window.addEventListener('beforeunload', () => {
                     const sessionDuration = Math.floor((Date.now() - this.startTime) / 1000);
-                    
+
                     if (typeof gtag !== 'undefined') {
                         gtag('event', 'session_end', {
                             event_category: 'engagement',
@@ -222,7 +224,7 @@
                 });
             }
         }
-        
+
         // Inicia o enhancer quando a página carrega
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', () => {
@@ -231,7 +233,7 @@
         } else {
             new AnalyticsEnhancer();
         }
-        
+
         // Força tracking adicional após 1 segundo
         setTimeout(() => {
             if (typeof gtag !== 'undefined') {
@@ -244,4 +246,5 @@
         }, 1000);
     </script>
 </body>
+
 </html>
