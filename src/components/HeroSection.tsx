@@ -12,13 +12,14 @@ const HeroSection = () => {
           <div className="space-y-8 animate-fade-in">
             <div className="space-y-4">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                Domine suas
-                <span className="text-gradient block">finanças</span>
-                com conhecimento prático
+                Aprenda <span className="text-gradient">Educação Financeira</span> e
+                <span className="text-gradient block">Investimentos</span>
+                do Zero - 100% Gratuito
               </h1>
               <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
-                Artigos especializados, ferramentas interativas e guias práticos
-                para transformar sua relação com o dinheiro. Sem cursos complexos,
+                <strong>Calculadoras financeiras</strong>, <strong>simuladores de investimento</strong> e 
+                <strong>guias práticos</strong> para iniciantes, estudantes e endividados. 
+                Transforme sua relação com o dinheiro sem cursos complexos - 
                 apenas conhecimento direto ao ponto.
               </p>
             </div>
@@ -29,7 +30,9 @@ const HeroSection = () => {
                 className="bg-finance-green hover:bg-finance-green-dark text-white px-8 py-6 text-lg"
                 asChild
               >
-                <Link to="/trilhas">Explorar Conteúdo Gratuito</Link>
+                <Link to="/trilhas" title="Acesse trilhas gratuitas de educação financeira para iniciantes">
+                  Começar Educação Financeira Grátis
+                </Link>
               </Button>
               <Button
                 variant="outline"
@@ -37,7 +40,9 @@ const HeroSection = () => {
                 className="border-finance-blue text-finance-blue hover:bg-finance-blue hover:text-white px-8 py-6 text-lg"
                 asChild
               >
-                <Link to="/ferramentas">Usar Ferramentas Grátis</Link>
+                <Link to="/ferramentas" title="Use calculadoras e simuladores financeiros gratuitos">
+                  Calculadoras e Simuladores
+                </Link>
               </Button>
             </div>
 

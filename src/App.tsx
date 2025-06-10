@@ -1,6 +1,10 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "@/contexts/AuthContext";
 import ScrollToTop from "@/components/ScrollToTop";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import { useEffect } from "react";
+import { preloadCriticalResources, measureWebVitals, optimizeScroll } from "@/utils/performance";
+import { registerServiceWorker, setupNetworkStatusListeners } from "@/utils/serviceWorker";
 import Index from "@/pages/Index";
 import Trilhas from "@/pages/Trilhas";
 import Ferramentas from "@/pages/Ferramentas";
@@ -22,10 +26,29 @@ import SimuladorFinanciamentoImobiliario from "@/pages/SimuladorFinanciamentoImo
 import CalculadoraJuros from "@/pages/CalculadoraJuros";
 
 function App() {
+  useEffect(() => {
+    // Inicializar otimizações de performance
+    preloadCriticalResources();
+    measureWebVitals();
+    const cleanupScroll = optimizeScroll();
+    
+    // Registrar Service Worker
+    registerServiceWorker();
+    
+    // Configurar listeners de status de rede
+    const cleanupNetwork = setupNetworkStatusListeners();
+
+    return () => {
+      cleanupScroll?.();
+      cleanupNetwork?.();
+    };
+   }, []);
+
   return (
     <AuthProvider>
       <Router>
         <ScrollToTop />
+        <Breadcrumbs />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/trilhas" element={<Trilhas />} />

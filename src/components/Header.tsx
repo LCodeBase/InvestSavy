@@ -19,12 +19,12 @@ const Header = () => {
   const navigate = useNavigate();
 
   const navItems = [
-    { name: "Home", href: "/" },
-    { name: "Trilhas", href: "/trilhas" },
-    { name: "Sobre Nós", href: "/sobre" },
-    { name: "Ferramentas", href: "/ferramentas" },
-    { name: "Artigos", href: "/artigos" },
-    { name: "Contato", href: "/contato" },
+    { name: "Home", href: "/", title: "Página inicial - InvestSavy Educação Financeira" },
+    { name: "Trilhas", href: "/trilhas", title: "Trilhas de aprendizado em educação financeira e investimentos" },
+    { name: "Ferramentas", href: "/ferramentas", title: "Calculadoras e simuladores financeiros gratuitos" },
+    { name: "Artigos", href: "/artigos", title: "Artigos sobre educação financeira e investimentos" },
+    { name: "Sobre Nós", href: "/sobre", title: "Conheça a InvestSavy e nossa missão" },
+    { name: "Contato", href: "/contato", title: "Entre em contato conosco" },
   ];
 
   const handleSignOut = async () => {
@@ -52,11 +52,12 @@ const Header = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-4 lg:space-x-8">
+          <nav className="hidden md:flex items-center space-x-4 lg:space-x-8" role="navigation" aria-label="Menu principal">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 to={item.href}
+                title={item.title}
                 className="text-gray-600 hover:text-finance-blue transition-colors duration-200 font-medium"
                 onClick={handleLinkClick}
               >
