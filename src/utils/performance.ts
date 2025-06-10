@@ -34,12 +34,12 @@ export const preloadCriticalResources = () => {
 };
 
 // Lazy loading de componentes não críticos
-export const lazyLoadComponent = (importFunc: () => Promise<any>) => {
+export const lazyLoadComponent = <T extends React.ComponentType<unknown>>(importFunc: () => Promise<{ default: T }>) => {
   return React.lazy(() => {
-    return new Promise(resolve => {
+    return new Promise<{ default: T }>(resolve => {
       // Adicionar delay mínimo para evitar flash
       setTimeout(() => {
-        resolve(importFunc());
+        importFunc().then(resolve);
       }, 100);
     });
   });
@@ -53,7 +53,7 @@ export const optimizeImage = (src: string, options: {
   format?: 'webp' | 'avif' | 'jpg' | 'png';
 } = {}) => {
   const { width, height, quality = 80, format = 'webp' } = options;
-  
+
   // Se for SVG, retornar como está
   if (src.includes('.svg')) {
     return src;
@@ -78,7 +78,7 @@ export const measureWebVitals = () => {
     const observer = new PerformanceObserver((list) => {
       const entries = list.getEntries();
       const lastEntry = entries[entries.length - 1];
-      
+
       // Enviar para analytics
       if (window.gtag) {
         window.gtag('event', 'web_vitals', {
@@ -88,7 +88,7 @@ export const measureWebVitals = () => {
         });
       }
     });
-    
+
     observer.observe({ entryTypes: ['largest-contentful-paint'] });
   };
 
@@ -96,17 +96,18 @@ export const measureWebVitals = () => {
   const observeFID = () => {
     const observer = new PerformanceObserver((list) => {
       const entries = list.getEntries();
-      entries.forEach((entry: any) => {
-        if (window.gtag) {
+      entries.forEach((entry) => {
+        const fidEntry = entry as PerformanceEventTiming;
+        if (window.gtag && fidEntry.processingStart) {
           window.gtag('event', 'web_vitals', {
             event_category: 'Web Vitals',
             event_label: 'FID',
-            value: Math.round(entry.processingStart - entry.startTime)
+            value: Math.round(fidEntry.processingStart - fidEntry.startTime)
           });
         }
       });
     });
-    
+
     observer.observe({ entryTypes: ['first-input'] });
   };
 
@@ -115,12 +116,13 @@ export const measureWebVitals = () => {
     let clsValue = 0;
     const observer = new PerformanceObserver((list) => {
       const entries = list.getEntries();
-      entries.forEach((entry: any) => {
-        if (!entry.hadRecentInput) {
-          clsValue += entry.value;
+      entries.forEach((entry) => {
+        const clsEntry = entry as LayoutShift;
+        if (!clsEntry.hadRecentInput) {
+          clsValue += clsEntry.value;
         }
       });
-      
+
       if (window.gtag) {
         window.gtag('event', 'web_vitals', {
           event_category: 'Web Vitals',
@@ -129,7 +131,7 @@ export const measureWebVitals = () => {
         });
       }
     });
-    
+
     observer.observe({ entryTypes: ['layout-shift'] });
   };
 
@@ -167,13 +169,13 @@ export const optimizeScroll = () => {
 };
 
 // Cache de recursos
-export const cacheResource = (key: string, data: any, ttl: number = 3600000) => {
+export const cacheResource = (key: string, data: unknown, ttl: number = 3600000) => {
   const item = {
     data,
     timestamp: Date.now(),
     ttl
   };
-  
+
   try {
     localStorage.setItem(`cache_${key}`, JSON.stringify(item));
   } catch (error) {
@@ -185,15 +187,15 @@ export const getCachedResource = (key: string) => {
   try {
     const item = localStorage.getItem(`cache_${key}`);
     if (!item) return null;
-    
+
     const parsed = JSON.parse(item);
     const now = Date.now();
-    
+
     if (now - parsed.timestamp > parsed.ttl) {
       localStorage.removeItem(`cache_${key}`);
       return null;
     }
-    
+
     return parsed.data;
   } catch (error) {
     console.warn('Failed to get cached resource:', error);
@@ -204,8 +206,14 @@ export const getCachedResource = (key: string) => {
 // Declaração de tipos para TypeScript
 declare global {
   interface Window {
-    gtag: (...args: any[]) => void;
+    gtag: (command: string, targetId: string, config?: Record<string, unknown>) => void;
   }
+}
+
+// Interfaces para Performance API
+interface LayoutShift extends PerformanceEntry {
+  value: number;
+  hadRecentInput: boolean;
 }
 
 // Importar React para lazy loading

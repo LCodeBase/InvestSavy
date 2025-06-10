@@ -81,8 +81,8 @@ const showUpdateNotification = () => {
       font-family: system-ui, -apple-system, sans-serif;
     ">
       <span>Nova versão disponível!</span>
-      <button 
-        onclick="window.location.reload()" 
+      <button
+        onclick="window.location.reload()"
         style="
           margin-left: 12px;
           background: white;
@@ -96,8 +96,8 @@ const showUpdateNotification = () => {
       >
         Atualizar
       </button>
-      <button 
-        onclick="this.parentElement.parentElement.remove()" 
+      <button
+        onclick="this.parentElement.parentElement.remove()"
         style="
           margin-left: 8px;
           background: transparent;
@@ -112,7 +112,7 @@ const showUpdateNotification = () => {
       </button>
     </div>
   `;
-  
+
   document.body.appendChild(updateBanner);
 
   // Remover automaticamente após 10 segundos
@@ -147,10 +147,10 @@ export const unregisterServiceWorker = async (): Promise<boolean> => {
 export const setupNetworkStatusListeners = () => {
   const updateOnlineStatus = () => {
     const isOnline = navigator.onLine;
-    
+
     // Adicionar classe CSS baseada no status
     document.body.classList.toggle('offline', !isOnline);
-    
+
     // Disparar evento customizado
     window.dispatchEvent(new CustomEvent('networkstatuschange', {
       detail: { isOnline }
@@ -166,7 +166,7 @@ export const setupNetworkStatusListeners = () => {
 
   window.addEventListener('online', updateOnlineStatus);
   window.addEventListener('offline', updateOnlineStatus);
-  
+
   // Verificar status inicial
   updateOnlineStatus();
 
@@ -201,7 +201,7 @@ const showOfflineNotification = () => {
       📡 Você está offline. Algumas funcionalidades podem estar limitadas.
     </div>
   `;
-  
+
   document.body.appendChild(notification);
 };
 
@@ -224,7 +224,7 @@ export const clearServiceWorkerCache = async (): Promise<void> => {
     await Promise.all(
       cacheNames.map(cacheName => caches.delete(cacheName))
     );
-    
+
     console.log('Cache do Service Worker limpo');
   } catch (error) {
     console.error('Erro ao limpar cache:', error);
@@ -232,7 +232,7 @@ export const clearServiceWorkerCache = async (): Promise<void> => {
 };
 
 // Enviar mensagem para o Service Worker
-export const sendMessageToServiceWorker = (message: any): Promise<any> => {
+export const sendMessageToServiceWorker = (message: unknown): Promise<unknown> => {
   return new Promise((resolve, reject) => {
     if (!navigator.serviceWorker.controller) {
       reject(new Error('Nenhum Service Worker ativo'));

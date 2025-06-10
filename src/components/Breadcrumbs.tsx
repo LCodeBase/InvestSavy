@@ -15,11 +15,11 @@ interface BreadcrumbsProps {
 
 const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ items, className = '' }) => {
   const location = useLocation();
-  
+
   // Gerar breadcrumbs automaticamente se não fornecidos
   const generateBreadcrumbs = (): BreadcrumbItem[] => {
     const pathnames = location.pathname.split('/').filter(x => x);
-    
+
     const breadcrumbs: BreadcrumbItem[] = [
       { label: 'Home', href: '/' }
     ];
@@ -46,7 +46,7 @@ const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ items, className = '' }) => {
     pathnames.forEach((pathname, index) => {
       const href = `/${pathnames.slice(0, index + 1).join('/')}`;
       const isLast = index === pathnames.length - 1;
-      
+
       breadcrumbs.push({
         label: routeNames[pathname] || pathname.charAt(0).toUpperCase() + pathname.slice(1),
         href: isLast ? undefined : href,
@@ -58,11 +58,6 @@ const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ items, className = '' }) => {
   };
 
   const breadcrumbItems = items || generateBreadcrumbs();
-
-  // Não mostrar breadcrumbs na home
-  if (location.pathname === '/') {
-    return null;
-  }
 
   // Gerar dados estruturados para SEO
   React.useEffect(() => {
@@ -98,9 +93,14 @@ const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ items, className = '' }) => {
     };
   }, [breadcrumbItems, location.pathname]);
 
+  // Não mostrar breadcrumbs na home
+  if (location.pathname === '/') {
+    return null;
+  }
+
   return (
-    <nav 
-      aria-label="Breadcrumb" 
+    <nav
+      aria-label="Breadcrumb"
       className={`bg-gray-50 border-b border-gray-200 ${className}`}
     >
       <div className="container mx-auto px-4 py-3">
@@ -110,7 +110,7 @@ const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ items, className = '' }) => {
               {index > 0 && (
                 <ChevronRight className="h-4 w-4 text-gray-400 mx-2" aria-hidden="true" />
               )}
-              
+
               {item.href ? (
                 <Link
                   to={item.href}
@@ -121,7 +121,7 @@ const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ items, className = '' }) => {
                   {item.label}
                 </Link>
               ) : (
-                <span 
+                <span
                   className="text-gray-600 font-medium flex items-center"
                   aria-current="page"
                 >
