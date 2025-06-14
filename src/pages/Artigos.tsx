@@ -1,8 +1,8 @@
-
 import React from 'react';
 import Layout from '../components/Layout';
 import { FileText, BookOpen, GraduationCap, Heart, Clock, Calendar, ArrowRight, Lightbulb } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const Artigos = () => {
   const categories = [
@@ -39,6 +39,7 @@ const Artigos = () => {
   const featuredArticles = [
     {
       title: 'Resenha Completa: "Pai Rico, Pai Pobre" - Lições que Transformam a Mentalidade Financeira',
+      slug: 'resenha-pai-rico-pai-pobre',
       category: 'Livros Lidos',
       excerpt: 'Uma análise crítica e honesta do clássico de Robert Kiyosaki, explorando como aplicar seus ensinamentos práticos no contexto brasileiro atual.',
       readTime: '12 min',
@@ -47,6 +48,7 @@ const Artigos = () => {
     },
     {
       title: 'Minha Jornada com a Certificação CPA-20: Vale a Pena o Investimento?',
+      slug: 'certificacao-cpa-20',
       category: 'Cursos Feitos',
       excerpt: 'Compartilho minha experiência completa estudando para o CPA-20, incluindo custos, tempo dedicado e como isso mudou minha visão sobre investimentos.',
       readTime: '8 min',
@@ -55,6 +57,7 @@ const Artigos = () => {
     },
     {
       title: 'Como Transformei Minha Relação com Dinheiro aos 30 Anos',
+      slug: 'transformacao-relacao-dinheiro',
       category: 'Reflexões Pessoais',
       excerpt: 'Uma reflexão profunda e sincera sobre os erros financeiros que cometi na juventude e as lições valiosas que aprendi ao longo do caminho.',
       readTime: '15 min',
@@ -66,6 +69,7 @@ const Artigos = () => {
   const recentArticles = [
     {
       title: 'Análise: "O Investidor Inteligente" de Benjamin Graham - Guia Definitivo',
+      slug: 'investidor-inteligente-graham',
       category: 'Livros Lidos',
       excerpt: 'Desvendando os conceitos fundamentais do value investing através da obra-prima de Benjamin Graham.',
       readTime: '10 min',
@@ -73,6 +77,7 @@ const Artigos = () => {
     },
     {
       title: 'Reflexões sobre Consumismo: Como Mudei Meus Hábitos de Compra',
+      slug: 'reflexoes-consumismo',
       category: 'Reflexões Pessoais',
       excerpt: 'Estratégias práticas que usei para reduzir gastos desnecessários e focar no que realmente importa.',
       readTime: '7 min',
@@ -80,6 +85,7 @@ const Artigos = () => {
     },
     {
       title: 'Minha Experiência com Ações: Primeiros Passos na Bolsa de Valores',
+      slug: 'experiencia-acoes-bolsa',
       category: 'Análises de Mercado',
       excerpt: 'Compartilho minha jornada inicial no mercado de ações, incluindo acertos, erros e lições aprendidas.',
       readTime: '9 min',
@@ -186,42 +192,44 @@ const Artigos = () => {
                   whileHover={{ y: -8, transition: { duration: 0.3 } }}
                   className="group cursor-pointer"
                 >
-                  <div className={`${article.featured ? 'bg-gradient-to-br from-green-50 to-white border-2 border-green-200' : 'bg-white border border-gray-100'} rounded-2xl p-8 h-full hover:shadow-2xl transition-all duration-500`}>
-                    <div className="flex items-center justify-between text-sm text-gray-500 mb-6">
-                      <div className="flex items-center space-x-3">
-                        <span className={`${article.featured ? 'bg-green-200 text-green-800' : 'bg-gray-100 text-gray-600'} px-3 py-1 rounded-full text-xs font-medium`}>
-                          {article.category}
-                        </span>
-                        {article.featured && (
-                          <span className="bg-green-600 text-white px-2 py-1 rounded-full text-xs font-bold">
-                            DESTAQUE
+                  <Link to={`/artigos/${article.slug}`}>
+                    <div className={`${article.featured ? 'bg-gradient-to-br from-green-50 to-white border-2 border-green-200' : 'bg-white border border-gray-100'} rounded-2xl p-8 h-full hover:shadow-2xl transition-all duration-500`}>
+                      <div className="flex items-center justify-between text-sm text-gray-500 mb-6">
+                        <div className="flex items-center space-x-3">
+                          <span className={`${article.featured ? 'bg-green-200 text-green-800' : 'bg-gray-100 text-gray-600'} px-3 py-1 rounded-full text-xs font-medium`}>
+                            {article.category}
                           </span>
-                        )}
-                      </div>
-                      <div className="flex items-center space-x-4">
-                        <div className="flex items-center">
-                          <Clock className="w-4 h-4 mr-1" />
-                          <span>{article.readTime}</span>
+                          {article.featured && (
+                            <span className="bg-green-600 text-white px-2 py-1 rounded-full text-xs font-bold">
+                              DESTAQUE
+                            </span>
+                          )}
+                        </div>
+                        <div className="flex items-center space-x-4">
+                          <div className="flex items-center">
+                            <Clock className="w-4 h-4 mr-1" />
+                            <span>{article.readTime}</span>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    
-                    <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-green-600 transition-colors leading-tight">
-                      {article.title}
-                    </h3>
-                    
-                    <p className="text-gray-600 mb-6 leading-relaxed">
-                      {article.excerpt}
-                    </p>
-                    
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center text-sm text-gray-500">
-                        <Calendar className="w-4 h-4 mr-1" />
-                        <span>{article.date}</span>
+                      
+                      <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-green-600 transition-colors leading-tight">
+                        {article.title}
+                      </h3>
+                      
+                      <p className="text-gray-600 mb-6 leading-relaxed">
+                        {article.excerpt}
+                      </p>
+                      
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center text-sm text-gray-500">
+                          <Calendar className="w-4 h-4 mr-1" />
+                          <span>{article.date}</span>
+                        </div>
+                        <ArrowRight className="w-5 h-5 text-green-600 group-hover:translate-x-2 transition-transform duration-300" />
                       </div>
-                      <ArrowRight className="w-5 h-5 text-green-600 group-hover:translate-x-2 transition-transform duration-300" />
                     </div>
-                  </div>
+                  </Link>
                 </motion.article>
               ))}
             </div>
@@ -248,31 +256,33 @@ const Artigos = () => {
                   whileHover={{ x: 8, transition: { duration: 0.3 } }}
                   className="group cursor-pointer"
                 >
-                  <div className="bg-white rounded-2xl p-8 hover:shadow-lg transition-all duration-500 border border-gray-100 hover:border-green-200">
-                    <div className="flex flex-col md:flex-row md:items-center justify-between mb-4">
-                      <div className="flex items-center space-x-4 mb-4 md:mb-0">
-                        <span className="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-xs font-medium">
-                          {article.category}
-                        </span>
+                  <Link to={`/artigos/${article.slug}`}>
+                    <div className="bg-white rounded-2xl p-8 hover:shadow-lg transition-all duration-500 border border-gray-100 hover:border-green-200">
+                      <div className="flex flex-col md:flex-row md:items-center justify-between mb-4">
+                        <div className="flex items-center space-x-4 mb-4 md:mb-0">
+                          <span className="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-xs font-medium">
+                            {article.category}
+                          </span>
+                          <div className="flex items-center text-sm text-gray-500">
+                            <Clock className="w-4 h-4 mr-1" />
+                            <span>{article.readTime}</span>
+                          </div>
+                        </div>
                         <div className="flex items-center text-sm text-gray-500">
-                          <Clock className="w-4 h-4 mr-1" />
-                          <span>{article.readTime}</span>
+                          <Calendar className="w-4 h-4 mr-1" />
+                          <span>{article.date}</span>
                         </div>
                       </div>
-                      <div className="flex items-center text-sm text-gray-500">
-                        <Calendar className="w-4 h-4 mr-1" />
-                        <span>{article.date}</span>
-                      </div>
+                      
+                      <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-green-600 transition-colors">
+                        {article.title}
+                      </h3>
+                      
+                      <p className="text-gray-600 leading-relaxed">
+                        {article.excerpt}
+                      </p>
                     </div>
-                    
-                    <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-green-600 transition-colors">
-                      {article.title}
-                    </h3>
-                    
-                    <p className="text-gray-600 leading-relaxed">
-                      {article.excerpt}
-                    </p>
-                  </div>
+                  </Link>
                 </motion.article>
               ))}
             </div>
