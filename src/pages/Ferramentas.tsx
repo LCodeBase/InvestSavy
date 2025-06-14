@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Layout from '../components/Layout';
 import JurosCalculator from '../components/JurosCalculator';
 import { Calculator, TrendingUp, CreditCard, Target, PiggyBank, Receipt, DollarSign, BarChart3, Zap, Clock, Users, Star } from 'lucide-react';
@@ -16,7 +17,9 @@ const Ferramentas = () => {
       time: '2 min',
       popularity: 95,
       color: 'bg-green-50 border-green-200',
-      iconColor: 'text-green-600'
+      iconColor: 'text-green-600',
+      href: '/ferramentas/calculadora-juros',
+      isActive: true
     },
     {
       id: 'juros-simples', 
@@ -255,69 +258,91 @@ const Ferramentas = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {tools.map((tool, index) => (
-                <motion.div
-                  key={tool.id}
-                  variants={itemVariants}
-                  whileHover={{ y: -5, transition: { duration: 0.3 } }}
-                  className={`${tool.color} rounded-2xl p-6 border hover:shadow-lg transition-all duration-300 cursor-pointer group`}
-                >
-                  <div className="flex items-start justify-between mb-4">
-                    <div className="flex items-center">
-                      <div className="p-3 bg-white rounded-xl shadow-sm mr-4">
-                        <tool.icon className={`w-6 h-6 ${tool.iconColor}`} />
-                      </div>
-                      <div className="flex flex-col gap-2">
-                        <div className="flex items-center gap-2">
-                          <span className={`px-2 py-1 rounded-full text-xs font-medium ${getDifficultyColor(tool.difficulty)}`}>
-                            {tool.difficulty}
-                          </span>
-                          <div className="flex items-center text-gray-500 text-xs">
-                            <Clock className="w-3 h-3 mr-1" />
-                            {tool.time}
+              {tools.map((tool, index) => {
+                const Component = tool.isActive ? Link : 'div';
+                const componentProps = tool.isActive ? { to: tool.href } : {};
+                
+                return (
+                  <motion.div
+                    key={tool.id}
+                    variants={itemVariants}
+                    whileHover={{ y: -5, transition: { duration: 0.3 } }}
+                    className={`${tool.color} rounded-2xl p-6 border hover:shadow-lg transition-all duration-300 ${tool.isActive ? 'cursor-pointer' : 'cursor-default'} group`}
+                  >
+                    <Component {...componentProps} className={tool.isActive ? 'block h-full' : ''}>
+                      <div className="flex items-start justify-between mb-4">
+                        <div className="flex items-center">
+                          <div className="p-3 bg-white rounded-xl shadow-sm mr-4">
+                            <tool.icon className={`w-6 h-6 ${tool.iconColor}`} />
+                          </div>
+                          <div className="flex flex-col gap-2">
+                            <div className="flex items-center gap-2">
+                              <span className={`px-2 py-1 rounded-full text-xs font-medium ${getDifficultyColor(tool.difficulty)}`}>
+                                {tool.difficulty}
+                              </span>
+                              <div className="flex items-center text-gray-500 text-xs">
+                                <Clock className="w-3 h-3 mr-1" />
+                                {tool.time}
+                              </div>
+                            </div>
+                            <div className="flex items-center text-xs text-gray-500">
+                              <div className="flex items-center mr-3">
+                                <div className="w-2 h-2 rounded-full bg-green-500 mr-1"></div>
+                                {tool.popularity}% de aprovação
+                              </div>
+                            </div>
                           </div>
                         </div>
-                        <div className="flex items-center text-xs text-gray-500">
-                          <div className="flex items-center mr-3">
-                            <div className="w-2 h-2 rounded-full bg-green-500 mr-1"></div>
-                            {tool.popularity}% de aprovação
+                      </div>
+                      
+                      <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-green-600 transition-colors">
+                        {tool.title}
+                      </h3>
+                      
+                      <p className="text-gray-600 text-sm leading-relaxed mb-6">
+                        {tool.description}
+                      </p>
+
+                      {/* Tool Preview */}
+                      {tool.isActive ? (
+                        <div className="bg-white rounded-xl p-4 border-2 border-green-200 mb-4">
+                          <div className="text-center text-green-600">
+                            <div className="flex items-center justify-center mb-2">
+                              <Calculator className="w-6 h-6 mr-2" />
+                              <Zap className="w-4 h-4" />
+                            </div>
+                            <p className="text-sm font-medium">Ferramenta Ativa</p>
+                            <p className="text-xs">Clique para usar agora</p>
                           </div>
                         </div>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-green-600 transition-colors">
-                    {tool.title}
-                  </h3>
-                  
-                  <p className="text-gray-600 text-sm leading-relaxed mb-6">
-                    {tool.description}
-                  </p>
+                      ) : (
+                        <div className="bg-white rounded-xl p-4 border-2 border-dashed border-gray-200 mb-4">
+                          <div className="text-center text-gray-500">
+                            <div className="flex items-center justify-center mb-2">
+                              <Calculator className="w-6 h-6 mr-2" />
+                              <Zap className="w-4 h-4" />
+                            </div>
+                            <p className="text-sm font-medium">Ferramenta em Desenvolvimento</p>
+                            <p className="text-xs">Interface intuitiva em breve</p>
+                          </div>
+                        </div>
+                      )}
 
-                  {/* Tool Preview */}
-                  <div className="bg-white rounded-xl p-4 border-2 border-dashed border-gray-200 mb-4">
-                    <div className="text-center text-gray-500">
-                      <div className="flex items-center justify-center mb-2">
-                        <Calculator className="w-6 h-6 mr-2" />
-                        <Zap className="w-4 h-4" />
+                      <div className="flex items-center justify-between">
+                        <span className="inline-block px-3 py-1 bg-white rounded-full text-xs font-medium text-gray-600">
+                          {tool.category}
+                        </span>
+                        {tool.isActive && (
+                          <div className="flex items-center text-green-600 font-medium text-sm opacity-0 group-hover:opacity-100 transition-opacity">
+                            <span>Usar ferramenta</span>
+                            <Zap className="w-4 h-4 ml-1" />
+                          </div>
+                        )}
                       </div>
-                      <p className="text-sm font-medium">Ferramenta em Desenvolvimento</p>
-                      <p className="text-xs">Interface intuitiva em breve</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center justify-between">
-                    <span className="inline-block px-3 py-1 bg-white rounded-full text-xs font-medium text-gray-600">
-                      {tool.category}
-                    </span>
-                    <div className="flex items-center text-green-600 font-medium text-sm opacity-0 group-hover:opacity-100 transition-opacity">
-                      <span>Usar ferramenta</span>
-                      <Zap className="w-4 h-4 ml-1" />
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
+                    </Component>
+                  </motion.div>
+                );
+              })}
             </div>
           </motion.section>
 

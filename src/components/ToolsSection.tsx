@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Calculator, PiggyBank, CreditCard, TrendingUp, Target, Receipt, Zap, Wrench } from 'lucide-react';
@@ -10,7 +9,7 @@ const ToolsSection = () => {
       title: 'Juros Compostos',
       description: 'Veja como seu dinheiro cresce ao longo do tempo',
       icon: TrendingUp,
-      href: '/ferramentas#juros-compostos',
+      href: '/ferramentas/calculadora-juros',
       color: 'text-green-600',
       bgColor: 'bg-green-50'
     },
