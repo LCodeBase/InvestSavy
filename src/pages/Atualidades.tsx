@@ -1,8 +1,9 @@
 
 import React from 'react';
 import Layout from '../components/Layout';
-import { TrendingUp, Clock, DollarSign, BarChart3, Newspaper, Target, AlertCircle } from 'lucide-react';
+import { TrendingUp, Clock, DollarSign, BarChart3, Newspaper, Target, AlertCircle, ArrowRight } from 'lucide-react';
 import { Card, CardContent, CardHeader } from '../components/ui/card';
+import { Link } from 'react-router-dom';
 
 const Atualidades = () => {
   const sampleNews = [
@@ -13,7 +14,9 @@ const Atualidades = () => {
       date: '15 Jan 2025',
       category: 'Taxa de Juros',
       categoryColor: 'bg-blue-100 text-blue-700',
-      priority: 'high'
+      priority: 'high',
+      slug: 'banco-central-selic-janeiro-2025',
+      readTime: '6 min'
     },
     {
       title: 'Nova Regra do PIX: Transações Acima de R$ 5 mil Serão Informadas à Receita',
@@ -22,7 +25,9 @@ const Atualidades = () => {
       date: '12 Jan 2025',
       category: 'Regulamentação',
       categoryColor: 'bg-purple-100 text-purple-700',
-      priority: 'medium'
+      priority: 'medium',
+      slug: 'pix-nova-regra-receita-federal',
+      readTime: '4 min'
     },
     {
       title: 'Inflação de Dezembro Fica em 0,21%, Acumulando 4,83% no Ano',
@@ -31,7 +36,9 @@ const Atualidades = () => {
       date: '10 Jan 2025',
       category: 'Inflação',
       categoryColor: 'bg-orange-100 text-orange-700',
-      priority: 'high'
+      priority: 'high',
+      slug: 'inflacao-dezembro-2024',
+      readTime: '5 min'
     }
   ];
 
@@ -105,15 +112,22 @@ const Atualidades = () => {
                         {getPriorityIcon(news.priority)}
                       </div>
                       
-                      <div className="flex items-center text-sm text-gray-500">
-                        <Clock className="w-4 h-4 mr-2" />
-                        <span>{news.date}</span>
+                      <div className="flex items-center gap-4 text-sm text-gray-500">
+                        <div className="flex items-center">
+                          <Clock className="w-4 h-4 mr-2" />
+                          <span>{news.readTime}</span>
+                        </div>
+                        <div className="flex items-center">
+                          <span>{news.date}</span>
+                        </div>
                       </div>
                     </div>
 
-                    <h3 className="text-2xl md:text-3xl font-bold text-gray-900 leading-tight group-hover:text-green-700 transition-colors">
-                      {news.title}
-                    </h3>
+                    <Link to={`/atualidades/${news.slug}`}>
+                      <h3 className="text-2xl md:text-3xl font-bold text-gray-900 leading-tight group-hover:text-green-700 transition-colors cursor-pointer">
+                        {news.title}
+                      </h3>
+                    </Link>
                   </CardHeader>
 
                   <CardContent className="space-y-6">
@@ -141,6 +155,17 @@ const Atualidades = () => {
                       <p className="text-green-800 leading-relaxed text-base font-medium">
                         {news.impact}
                       </p>
+                    </div>
+
+                    {/* Read More Link */}
+                    <div className="pt-4">
+                      <Link
+                        to={`/atualidades/${news.slug}`}
+                        className="inline-flex items-center space-x-2 text-green-600 hover:text-green-700 font-medium transition-colors group"
+                      >
+                        <span>Ler análise completa</span>
+                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                      </Link>
                     </div>
                   </CardContent>
                 </Card>
