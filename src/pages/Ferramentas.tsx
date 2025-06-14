@@ -1,6 +1,6 @@
-
 import React from 'react';
 import Layout from '../components/Layout';
+import JurosCalculator from '../components/JurosCalculator';
 import { Calculator, TrendingUp, CreditCard, Target, PiggyBank, Receipt, DollarSign, BarChart3, Zap, Clock, Users, Star } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -233,6 +233,9 @@ const Ferramentas = () => {
               ))}
             </div>
           </motion.section>
+
+          {/* Nova Seção: Calculadora de Juros */}
+          <JurosCalculator />
 
           {/* Tools Grid */}
           <motion.section
