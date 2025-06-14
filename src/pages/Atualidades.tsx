@@ -1,7 +1,8 @@
 
 import React from 'react';
 import Layout from '../components/Layout';
-import { TrendingUp, Clock, DollarSign } from 'lucide-react';
+import { TrendingUp, Clock, DollarSign, BarChart3, Newspaper, Target, AlertCircle } from 'lucide-react';
+import { Card, CardContent, CardHeader } from '../components/ui/card';
 
 const Atualidades = () => {
   const sampleNews = [
@@ -10,111 +11,226 @@ const Atualidades = () => {
       summary: 'Em decisão unânime, o Copom manteve a taxa básica de juros, sinalizando preocupação com a inflação e cenário econômico global.',
       impact: 'Com a Selic alta, investimentos em renda fixa como Tesouro Selic e CDBs ficam mais atrativos. Se você tem dívidas com juros variáveis, elas podem ficar mais caras.',
       date: '15 Jan 2025',
-      category: 'Economia'
+      category: 'Taxa de Juros',
+      categoryColor: 'bg-blue-100 text-blue-700',
+      priority: 'high'
     },
     {
       title: 'Nova Regra do PIX: Transações Acima de R$ 5 mil Serão Informadas à Receita',
       summary: 'A Receita Federal implementou nova regra de monitoramento para transações PIX de valores elevados, visando maior controle fiscal.',
       impact: 'Se você faz transferências acima de R$ 5 mil, a Receita será notificada. Não é um imposto novo, mas mantenha seus comprovantes organizados para a declaração do IR.',
       date: '12 Jan 2025',
-      category: 'Regulamentação'
+      category: 'Regulamentação',
+      categoryColor: 'bg-purple-100 text-purple-700',
+      priority: 'medium'
     },
     {
       title: 'Inflação de Dezembro Fica em 0,21%, Acumulando 4,83% no Ano',
       summary: 'IPCA de dezembro ficou dentro das expectativas, mas inflação anual superou o teto da meta de 4,5% estabelecida pelo governo.',
       impact: 'Inflação acima da meta corrói seu poder de compra. Considere investimentos que protegem contra inflação, como Tesouro IPCA+ ou fundos imobiliários.',
       date: '10 Jan 2025',
-      category: 'Inflação'
+      category: 'Inflação',
+      categoryColor: 'bg-orange-100 text-orange-700',
+      priority: 'high'
     }
   ];
 
+  const getPriorityIcon = (priority: string) => {
+    if (priority === 'high') return <AlertCircle className="w-4 h-4 text-red-500" />;
+    return <Target className="w-4 h-4 text-gray-500" />;
+  };
+
   return (
     <Layout>
-      <div className="py-12 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Header */}
-          <div className="text-center mb-16">
-            <TrendingUp className="w-16 h-16 text-blue-600 mx-auto mb-4" />
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Análise de Atualidades
+      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-green-50/30">
+        {/* Hero Section */}
+        <section className="pt-20 pb-16 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-5xl mx-auto text-center">
+            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl shadow-lg mb-8">
+              <TrendingUp className="w-10 h-10 text-white" />
+            </div>
+            
+            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+              Análise de
+              <span className="block bg-gradient-to-r from-green-600 to-green-700 bg-clip-text text-transparent">
+                Atualidades
+              </span>
             </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Traduzo as principais notícias econômicas para uma linguagem simples, 
-              explicando como cada acontecimento pode afetar sua vida financeira.
+            
+            <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto mb-8 leading-relaxed">
+              Acompanhe as principais notícias econômicas traduzidas para uma linguagem simples. 
+              Entenda como cada acontecimento pode impactar diretamente sua vida financeira.
             </p>
-          </div>
 
-          {/* News Articles */}
-          <div className="space-y-8 mb-16">
-            {sampleNews.map((news, index) => (
-              <article key={index} className="bg-gray-50 rounded-xl p-8 hover:bg-white hover:shadow-md transition-all">
-                <div className="flex items-center text-sm text-gray-500 mb-4">
-                  <span className="bg-blue-100 text-blue-600 px-2 py-1 rounded text-xs font-medium">
-                    {news.category}
-                  </span>
-                  <span className="mx-2">•</span>
-                  <Clock className="w-4 h-4 mr-1" />
-                  <span>{news.date}</span>
-                </div>
-
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">
-                  {news.title}
-                </h2>
-
-                <div className="space-y-6">
-                  {/* Resumo */}
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2 flex items-center">
-                      📰 Resumo da Notícia
-                    </h3>
-                    <p className="text-gray-700 leading-relaxed">
-                      {news.summary}
-                    </p>
-                  </div>
-
-                  {/* Impacto */}
-                  <div className="bg-blue-50 rounded-lg p-6">
-                    <h3 className="text-lg font-semibold text-blue-900 mb-3 flex items-center">
-                      <DollarSign className="w-5 h-5 mr-2" />
-                      Como Isso Afeta Seu Bolso?
-                    </h3>
-                    <p className="text-blue-800 leading-relaxed">
-                      {news.impact}
-                    </p>
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
-
-          {/* Newsletter Signup */}
-          <div className="bg-gradient-to-r from-blue-600 to-green-600 rounded-2xl p-8 text-white text-center">
-            <h2 className="text-2xl font-bold mb-4">
-              Quer Receber Análises Semanais?
-            </h2>
-            <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-              Cadastre-se para receber toda semana um resumo das principais notícias econômicas 
-              e como elas podem impactar suas finanças pessoais.
-            </p>
-            <div className="bg-white p-4 rounded-lg inline-block">
-              <p className="text-gray-500 text-sm">
-                Em breve: Newsletter semanal "Economia no Seu Bolso"
-              </p>
+            <div className="flex flex-wrap justify-center gap-6 text-sm text-gray-500">
+              <div className="flex items-center gap-2">
+                <Newspaper className="w-5 h-5 text-green-600" />
+                <span>Análises Semanais</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <BarChart3 className="w-5 h-5 text-green-600" />
+                <span>Impacto no Bolso</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Target className="w-5 h-5 text-green-600" />
+                <span>Linguagem Simples</span>
+              </div>
             </div>
           </div>
+        </section>
 
-          {/* Coming Soon */}
-          <div className="mt-16 bg-gray-50 rounded-2xl p-8 text-center">
-            <TrendingUp className="w-12 h-12 text-gray-500 mx-auto mb-4" />
-            <h2 className="text-xl font-bold text-gray-900 mb-4">
-              Mais Análises em Breve
-            </h2>
-            <p className="text-gray-600">
-              Estou preparando análises regulares sobre decisões do Banco Central, 
-              mudanças na economia e novos produtos financeiros. Fique ligado!
-            </p>
+        {/* News Section */}
+        <section className="pb-20 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-5xl mx-auto">
+            <div className="flex items-center justify-between mb-12">
+              <div>
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
+                  Últimas Análises
+                </h2>
+                <p className="text-lg text-gray-600">
+                  Principais acontecimentos econômicos e seus impactos práticos
+                </p>
+              </div>
+            </div>
+
+            <div className="space-y-8">
+              {sampleNews.map((news, index) => (
+                <Card key={index} className="group hover:shadow-xl transition-all duration-300 border-0 shadow-md bg-white/80 backdrop-blur-sm">
+                  <CardHeader className="pb-4">
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4">
+                      <div className="flex items-center gap-3">
+                        <span className={`px-3 py-1 rounded-full text-xs font-semibold ${news.categoryColor}`}>
+                          {news.category}
+                        </span>
+                        {getPriorityIcon(news.priority)}
+                      </div>
+                      
+                      <div className="flex items-center text-sm text-gray-500">
+                        <Clock className="w-4 h-4 mr-2" />
+                        <span>{news.date}</span>
+                      </div>
+                    </div>
+
+                    <h3 className="text-2xl md:text-3xl font-bold text-gray-900 leading-tight group-hover:text-green-700 transition-colors">
+                      {news.title}
+                    </h3>
+                  </CardHeader>
+
+                  <CardContent className="space-y-6">
+                    {/* Summary Section */}
+                    <div className="bg-gray-50 rounded-xl p-6">
+                      <div className="flex items-center gap-2 mb-4">
+                        <Newspaper className="w-5 h-5 text-gray-600" />
+                        <h4 className="text-lg font-semibold text-gray-900">
+                          O que aconteceu?
+                        </h4>
+                      </div>
+                      <p className="text-gray-700 leading-relaxed text-base">
+                        {news.summary}
+                      </p>
+                    </div>
+
+                    {/* Impact Section */}
+                    <div className="bg-gradient-to-r from-green-50 to-green-100/50 rounded-xl p-6 border border-green-100">
+                      <div className="flex items-center gap-2 mb-4">
+                        <DollarSign className="w-5 h-5 text-green-600" />
+                        <h4 className="text-lg font-semibold text-green-900">
+                          Como isso afeta seu bolso?
+                        </h4>
+                      </div>
+                      <p className="text-green-800 leading-relaxed text-base font-medium">
+                        {news.impact}
+                      </p>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
           </div>
-        </div>
+        </section>
+
+        {/* Info Section */}
+        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white/50">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-xl shadow-lg mb-6">
+                <BarChart3 className="w-8 h-8 text-white" />
+              </div>
+              
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                Por que acompanhar atualidades?
+              </h2>
+              
+              <p className="text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto">
+                O mercado financeiro muda constantemente. Decisões do governo, 
+                mudanças na economia e novas regulamentações podem impactar 
+                diretamente seus investimentos e planejamento financeiro.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              <div className="text-center p-6">
+                <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <TrendingUp className="w-6 h-6 text-blue-600" />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                  Decisões Informadas
+                </h3>
+                <p className="text-gray-600 leading-relaxed">
+                  Tome decisões financeiras baseadas em informações atualizadas sobre o mercado.
+                </p>
+              </div>
+
+              <div className="text-center p-6">
+                <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <DollarSign className="w-6 h-6 text-green-600" />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                  Proteção Patrimonial
+                </h3>
+                <p className="text-gray-600 leading-relaxed">
+                  Proteja seu dinheiro entendendo como mudanças econômicas afetam seus investimentos.
+                </p>
+              </div>
+
+              <div className="text-center p-6">
+                <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <Target className="w-6 h-6 text-purple-600" />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                  Oportunidades
+                </h3>
+                <p className="text-gray-600 leading-relaxed">
+                  Identifique oportunidades de investimento e momentos ideais para agir.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Coming Soon Section */}
+        <section className="py-16 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto">
+            <Card className="text-center p-8 bg-gradient-to-br from-gray-50 to-green-50/30 border-0 shadow-lg">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-gray-400 to-gray-500 rounded-xl shadow-lg mb-6">
+                <Newspaper className="w-8 h-8 text-white" />
+              </div>
+              
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+                Mais Conteúdo em Breve
+              </h2>
+              
+              <p className="text-lg text-gray-600 leading-relaxed mb-6">
+                Estamos preparando análises regulares sobre decisões do Banco Central, 
+                mudanças na economia e novos produtos financeiros. 
+              </p>
+              
+              <p className="text-sm text-gray-500 font-medium">
+                🚀 Newsletter semanal "Economia no Seu Bolso" em desenvolvimento
+              </p>
+            </Card>
+          </div>
+        </section>
       </div>
     </Layout>
   );
