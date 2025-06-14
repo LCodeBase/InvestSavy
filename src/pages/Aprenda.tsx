@@ -1,7 +1,7 @@
 
 import React from 'react';
 import Layout from '../components/Layout';
-import { BookOpen, DollarSign, TrendingUp, BarChart3, HelpCircle, ArrowRight, Clock, Users, Target } from 'lucide-react';
+import { BookOpen, TrendingUp, Calculator, Lightbulb, User, PiggyBank, DollarSign, Building, Target, Zap, ArrowRight, Star, CheckCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const Aprenda = () => {
@@ -10,360 +10,407 @@ const Aprenda = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2
+        staggerChildren: 0.1
       }
     }
   };
 
   const itemVariants = {
-    hidden: { y: 30, opacity: 0 },
+    hidden: { y: 20, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut"
-      }
+      transition: { duration: 0.5 }
     }
   };
 
-  const sections = [
+  const financeTopics = [
     {
-      id: 'financas-pessoais',
-      title: 'Finanças Pessoais',
+      title: 'Orçamento Pessoal',
+      description: 'Aprenda a controlar suas receitas e despesas de forma simples e eficaz',
+      icon: Calculator,
+      level: 'Básico',
+      time: '15 min',
+      color: 'bg-green-50 border-green-200',
+      iconColor: 'text-green-600'
+    },
+    {
+      title: 'Reserva de Emergência',
+      description: 'Como formar e manter uma reserva para situações imprevistas',
+      icon: PiggyBank,
+      level: 'Básico',
+      time: '20 min',
+      color: 'bg-emerald-50 border-emerald-200',
+      iconColor: 'text-emerald-600'
+    },
+    {
+      title: 'Controle de Dívidas',
+      description: 'Estratégias para quitar dívidas e não se endividar novamente',
+      icon: Target,
+      level: 'Intermediário',
+      time: '25 min',
+      color: 'bg-teal-50 border-teal-200',
+      iconColor: 'text-teal-600'
+    }
+  ];
+
+  const investmentTopics = [
+    {
+      title: 'Tesouro Direto',
+      description: 'Seu primeiro passo no mundo dos investimentos com segurança',
+      icon: Building,
+      level: 'Básico',
+      time: '30 min',
+      color: 'bg-green-50 border-green-200',
+      iconColor: 'text-green-600'
+    },
+    {
+      title: 'CDB e Renda Fixa',
+      description: 'Entenda certificados de depósito e outros investimentos conservadores',
       icon: DollarSign,
-      description: 'Domine os fundamentos para organizar sua vida financeira e conquistar seus objetivos',
-      color: 'from-green-500 to-emerald-600',
-      topics: [
-        {
-          title: 'Orçamento Pessoal na Prática',
-          description: 'Aprenda a criar e manter um orçamento que funciona na vida real',
-          time: '15 min'
-        },
-        {
-          title: 'Estratégias para Quitar Dívidas',
-          description: 'Métodos comprovados para se livrar das dívidas de forma inteligente',
-          time: '20 min'
-        },
-        {
-          title: 'Reserva de Emergência',
-          description: 'Como construir sua segurança financeira passo a passo',
-          time: '12 min'
-        },
-        {
-          title: 'Controle de Gastos Eficiente',
-          description: 'Técnicas para monitorar e otimizar seus gastos mensais',
-          time: '18 min'
-        },
-        {
-          title: 'Educação Financeira Familiar',
-          description: 'Envolva toda a família no planejamento financeiro',
-          time: '25 min'
-        }
-      ]
+      level: 'Básico',
+      time: '25 min',
+      color: 'bg-emerald-50 border-emerald-200',
+      iconColor: 'text-emerald-600'
     },
     {
-      id: 'investimentos',
-      title: 'Investimentos Básicos',
+      title: 'Ações e Bolsa',
+      description: 'Primeiros passos na renda variável com consciência de risco',
       icon: TrendingUp,
-      description: 'Seus primeiros passos no mundo dos investimentos, sem complicação',
-      color: 'from-blue-500 to-cyan-600',
-      topics: [
-        {
-          title: 'Tesouro Direto Descomplicado',
-          description: 'Seu primeiro investimento: seguro, rentável e fácil de entender',
-          time: '22 min'
-        },
-        {
-          title: 'CDB e Renda Fixa',
-          description: 'Explore outras opções de investimentos conservadores',
-          time: '18 min'
-        },
-        {
-          title: 'Introdução à Bolsa de Valores',
-          description: 'Primeiros conceitos sobre ações e mercado de capitais',
-          time: '30 min'
-        },
-        {
-          title: 'Fundos de Investimento',
-          description: 'Como escolher e investir em fundos de forma inteligente',
-          time: '25 min'
-        },
-        {
-          title: 'Diversificação de Carteira',
-          description: 'A arte de não colocar todos os ovos na mesma cesta',
-          time: '20 min'
-        }
-      ]
+      level: 'Intermediário',
+      time: '45 min',
+      color: 'bg-teal-50 border-teal-200',
+      iconColor: 'text-teal-600'
+    }
+  ];
+
+  const economyTopics = [
+    {
+      title: 'Inflação e IPCA',
+      description: 'Como a inflação afeta seu dinheiro e seus investimentos',
+      icon: TrendingUp,
+      level: 'Básico',
+      time: '20 min',
+      color: 'bg-green-50 border-green-200',
+      iconColor: 'text-green-600'
     },
     {
-      id: 'economia',
-      title: 'Economia no Dia a Dia',
-      icon: BarChart3,
-      description: 'Entenda como a economia brasileira impacta diretamente seu bolso',
-      color: 'from-purple-500 to-violet-600',
-      topics: [
-        {
-          title: 'PIB e Você',
-          description: 'Como o crescimento do país afeta sua vida financeira',
-          time: '16 min'
-        },
-        {
-          title: 'Inflação Descomplicada',
-          description: 'Por que os preços sobem e como se proteger',
-          time: '20 min'
-        },
-        {
-          title: 'Taxa Selic Explicada',
-          description: 'A taxa básica de juros e seu impacto nos investimentos',
-          time: '18 min'
-        },
-        {
-          title: 'Dólar e Economia Doméstica',
-          description: 'Como a variação cambial afeta seu orçamento',
-          time: '14 min'
-        },
-        {
-          title: 'Ciclos Econômicos',
-          description: 'Entenda os altos e baixos da economia brasileira',
-          time: '22 min'
-        }
-      ]
+      title: 'Taxa Selic',
+      description: 'A taxa básica de juros e seu impacto na economia',
+      icon: Calculator,
+      level: 'Básico',
+      time: '15 min',
+      color: 'bg-emerald-50 border-emerald-200',
+      iconColor: 'text-emerald-600'
+    },
+    {
+      title: 'PIB e Indicadores',
+      description: 'Principais indicadores econômicos e como interpretá-los',
+      icon: Building,
+      level: 'Intermediário',
+      time: '30 min',
+      color: 'bg-teal-50 border-teal-200',
+      iconColor: 'text-teal-600'
     }
   ];
 
   const glossaryTerms = [
-    { term: 'CDI', definition: 'Certificado de Depósito Interbancário', category: 'Indicadores' },
-    { term: 'IPCA', definition: 'Índice de Preços ao Consumidor Amplo', category: 'Inflação' },
-    { term: 'SELIC', definition: 'Sistema Especial de Liquidação', category: 'Juros' },
-    { term: 'CDB', definition: 'Certificado de Depósito Bancário', category: 'Investimentos' },
-    { term: 'LCI/LCA', definition: 'Letras de Crédito Imobiliário/Agronegócio', category: 'Investimentos' },
-    { term: 'IOF', definition: 'Imposto sobre Operações Financeiras', category: 'Impostos' },
-    { term: 'IR', definition: 'Imposto de Renda', category: 'Impostos' },
-    { term: 'FGTS', definition: 'Fundo de Garantia por Tempo de Serviço', category: 'Trabalhista' },
-    { term: 'INSS', definition: 'Instituto Nacional do Seguro Social', category: 'Previdência' }
+    { term: 'CDI', definition: 'Certificado de Depósito Interbancário - taxa de referência do mercado' },
+    { term: 'IPCA', definition: 'Índice de Preços ao Consumidor Amplo - medida oficial da inflação' },
+    { term: 'Selic', definition: 'Sistema Especial de Liquidação e Custódia - taxa básica de juros' },
+    { term: 'CDB', definition: 'Certificado de Depósito Bancário - investimento de renda fixa' },
+    { term: 'LCI/LCA', definition: 'Letras de Crédito Imobiliário e do Agronegócio - isentas de IR' },
+    { term: 'Volatilidade', definition: 'Medida de oscilação de preços de um ativo financeiro' }
   ];
 
   return (
     <Layout>
-      <div className="bg-gradient-to-br from-green-50 via-white to-blue-50 min-h-screen">
-        {/* Hero Section */}
-        <motion.section 
-          initial="hidden"
-          animate="visible"
-          variants={containerVariants}
-          className="relative py-20 lg:py-32 overflow-hidden"
-        >
-          <div className="absolute inset-0 bg-gradient-to-r from-green-600/5 to-blue-600/5"></div>
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-            <div className="text-center">
-              <motion.div 
-                variants={itemVariants}
-                className="inline-flex items-center px-6 py-3 bg-green-100 rounded-full text-green-700 font-medium mb-8"
-              >
-                <BookOpen className="w-5 h-5 mr-2" />
-                Centro de Educação Financeira
-              </motion.div>
-              
-              <motion.h1 
-                variants={itemVariants}
-                className="text-5xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight"
-              >
-                Aprenda <span className="bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">Finanças</span>
-                <br />de Forma Simples
-              </motion.h1>
-              
-              <motion.p 
-                variants={itemVariants}
-                className="text-xl md:text-2xl text-gray-600 mb-12 max-w-4xl mx-auto leading-relaxed"
-              >
-                Transforme sua relação com o dinheiro através de conteúdo prático, 
-                direto e sem economês. Aprenda no seu ritmo e mude sua vida financeira.
-              </motion.p>
-
-              <motion.div 
-                variants={itemVariants}
-                className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto"
-              >
-                <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-                  <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mb-4 mx-auto">
-                    <Users className="w-6 h-6 text-green-600" />
-                  </div>
-                  <div className="text-2xl font-bold text-gray-900 mb-1">50k+</div>
-                  <div className="text-gray-600">Pessoas já aprenderam</div>
-                </div>
-                
-                <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-                  <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4 mx-auto">
-                    <Clock className="w-6 h-6 text-blue-600" />
-                  </div>
-                  <div className="text-2xl font-bold text-gray-900 mb-1">3h</div>
-                  <div className="text-gray-600">Tempo médio de estudo</div>
-                </div>
-                
-                <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-                  <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-4 mx-auto">
-                    <Target className="w-6 h-6 text-purple-600" />
-                  </div>
-                  <div className="text-2xl font-bold text-gray-900 mb-1">100%</div>
-                  <div className="text-gray-600">Conteúdo gratuito</div>
-                </div>
-              </motion.div>
+      <div className="py-12 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Header Section */}
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <div className="inline-flex items-center px-4 py-2 bg-green-100 rounded-full text-green-700 text-sm font-medium mb-6">
+              <BookOpen className="w-4 h-4 mr-2" />
+              Educação Financeira
             </div>
-          </div>
-        </motion.section>
+            
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              Aprenda a Cuidar do 
+              <span className="text-green-600"> Seu Dinheiro</span>
+            </h1>
+            
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+              Conteúdo educativo simples, direto e sem economês. Desde o básico até conceitos mais avançados, 
+              tudo explicado de forma clara para você tomar melhores decisões financeiras.
+            </p>
 
-        {/* Learning Paths */}
-        <section className="py-20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div 
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={containerVariants}
-              className="text-center mb-16"
-            >
-              <motion.h2 
-                variants={itemVariants}
-                className="text-4xl md:text-5xl font-bold text-gray-900 mb-6"
-              >
-                Trilhas de Aprendizado
-              </motion.h2>
-              <motion.p 
-                variants={itemVariants}
-                className="text-xl text-gray-600 max-w-3xl mx-auto"
-              >
-                Conteúdo estruturado em etapas lógicas para você evoluir do básico ao avançado
-              </motion.p>
-            </motion.div>
+            <div className="flex flex-wrap justify-center gap-4 text-sm">
+              <div className="flex items-center text-green-600">
+                <CheckCircle className="w-4 h-4 mr-2" />
+                <span>100% Gratuito</span>
+              </div>
+              <div className="flex items-center text-green-600">
+                <CheckCircle className="w-4 h-4 mr-2" />
+                <span>Linguagem Simples</span>
+              </div>
+              <div className="flex items-center text-green-600">
+                <CheckCircle className="w-4 h-4 mr-2" />
+                <span>Aplicação Prática</span>
+              </div>
+            </div>
+          </motion.div>
 
-            <div className="space-y-12">
-              {sections.map((section, index) => (
+          {/* Finanças Pessoais */}
+          <motion.section 
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="mb-20"
+          >
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                Finanças Pessoais
+              </h2>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                O primeiro passo para uma vida financeira saudável. Aprenda a organizar, controlar e planejar suas finanças.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {financeTopics.map((topic, index) => (
                 <motion.div
-                  key={section.id}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, margin: "-100px" }}
+                  key={index}
                   variants={itemVariants}
-                  className="bg-white rounded-3xl p-8 lg:p-12 shadow-sm border border-gray-100 hover:shadow-lg transition-shadow duration-300"
+                  whileHover={{ y: -5, transition: { duration: 0.3 } }}
+                  className={`${topic.color} rounded-2xl p-6 border hover:shadow-lg transition-all duration-300`}
                 >
-                  <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-8">
-                    <div className="flex items-center mb-6 lg:mb-0">
-                      <div className={`p-4 bg-gradient-to-r ${section.color} rounded-2xl mr-6 shadow-lg`}>
-                        <section.icon className="w-8 h-8 text-white" />
-                      </div>
-                      <div>
-                        <h3 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-2">
-                          {section.title}
-                        </h3>
-                        <p className="text-lg text-gray-600 max-w-2xl">
-                          {section.description}
-                        </p>
-                      </div>
+                  <div className="flex items-center justify-between mb-4">
+                    <div className={`p-3 bg-white rounded-xl shadow-sm`}>
+                      <topic.icon className={`w-6 h-6 ${topic.iconColor}`} />
                     </div>
-                    <div className="text-sm text-gray-500 bg-gray-50 px-4 py-2 rounded-full">
-                      {section.topics.length} módulos
+                    <div className="text-right">
+                      <span className="inline-block px-2 py-1 bg-white rounded-full text-xs font-medium text-gray-600 mb-1">
+                        {topic.level}
+                      </span>
+                      <p className="text-xs text-gray-500">{topic.time}</p>
                     </div>
                   </div>
+                  
+                  <h3 className="text-lg font-bold text-gray-900 mb-3">
+                    {topic.title}
+                  </h3>
+                  
+                  <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                    {topic.description}
+                  </p>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {section.topics.map((topic, topicIndex) => (
-                      <motion.div
-                        key={topicIndex}
-                        whileHover={{ y: -4 }}
-                        className="group bg-gray-50 rounded-2xl p-6 hover:bg-gray-100 transition-all duration-300 cursor-pointer"
-                      >
-                        <div className="flex items-start justify-between mb-4">
-                          <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center shadow-sm group-hover:shadow-md transition-shadow">
-                            <BookOpen className="w-5 h-5 text-gray-600" />
-                          </div>
-                          <span className="text-xs bg-white px-3 py-1 rounded-full text-gray-600 shadow-sm">
-                            {topic.time}
-                          </span>
-                        </div>
-                        <h4 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-green-600 transition-colors">
-                          {topic.title}
-                        </h4>
-                        <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                          {topic.description}
-                        </p>
-                        <div className="flex items-center text-green-600 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
-                          Começar módulo <ArrowRight className="w-4 h-4 ml-1" />
-                        </div>
-                      </motion.div>
-                    ))}
-                  </div>
-
-                  <div className="mt-8 p-6 bg-gradient-to-r from-gray-50 to-green-50 rounded-2xl border border-green-100">
-                    <div className="flex items-center text-green-700 mb-2">
-                      <div className="w-2 h-2 bg-green-500 rounded-full mr-3 animate-pulse"></div>
-                      <span className="font-semibold">Em Desenvolvimento</span>
-                    </div>
-                    <p className="text-green-700 text-sm">
-                      Este conteúdo está sendo preparado com muito carinho. Em breve você terá acesso a 
-                      vídeos explicativos, exercícios práticos e materiais complementares.
-                    </p>
+                  <div className="flex items-center text-green-600 font-medium text-sm opacity-0 group-hover:opacity-100 transition-opacity">
+                    <ArrowRight className="w-4 h-4 mr-2" />
+                    Começar agora
                   </div>
                 </motion.div>
               ))}
             </div>
-          </div>
-        </section>
+          </motion.section>
 
-        {/* Glossário */}
-        <section className="py-20 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={containerVariants}
-            >
-              <motion.div variants={itemVariants} className="text-center mb-16">
-                <div className="inline-flex items-center px-6 py-3 bg-green-100 rounded-full text-green-700 font-medium mb-6">
-                  <HelpCircle className="w-5 h-5 mr-2" />
-                  Dicionário Financeiro
-                </div>
-                <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                  Glossário Completo
-                </h2>
-                <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                  Principais termos financeiros explicados de forma clara e objetiva. 
-                  Nunca mais fique perdido com o "economês".
-                </p>
-              </motion.div>
-              
-              <motion.div variants={itemVariants} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {glossaryTerms.map((item, index) => (
-                  <motion.div
-                    key={index}
-                    whileHover={{ scale: 1.02 }}
-                    className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-6 border border-gray-100 hover:border-green-200 hover:shadow-md transition-all duration-300"
-                  >
-                    <div className="flex items-center justify-between mb-4">
-                      <h3 className="text-lg font-bold text-gray-900">{item.term}</h3>
-                      <span className="text-xs bg-green-100 text-green-700 px-3 py-1 rounded-full">
-                        {item.category}
-                      </span>
+          {/* Investimentos Básicos */}
+          <motion.section 
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="mb-20"
+          >
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                Investimentos Básicos
+              </h2>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                Depois de organizar suas finanças, aprenda a fazer seu dinheiro trabalhar para você de forma segura e inteligente.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {investmentTopics.map((topic, index) => (
+                <motion.div
+                  key={index}
+                  variants={itemVariants}
+                  whileHover={{ y: -5, transition: { duration: 0.3 } }}
+                  className={`${topic.color} rounded-2xl p-6 border hover:shadow-lg transition-all duration-300 group`}
+                >
+                  <div className="flex items-center justify-between mb-4">
+                    <div className={`p-3 bg-white rounded-xl shadow-sm`}>
+                      <topic.icon className={`w-6 h-6 ${topic.iconColor}`} />
                     </div>
-                    <p className="text-gray-600 text-sm leading-relaxed">
-                      {item.definition}
-                    </p>
-                  </motion.div>
-                ))}
-              </motion.div>
+                    <div className="text-right">
+                      <span className="inline-block px-2 py-1 bg-white rounded-full text-xs font-medium text-gray-600 mb-1">
+                        {topic.level}
+                      </span>
+                      <p className="text-xs text-gray-500">{topic.time}</p>
+                    </div>
+                  </div>
+                  
+                  <h3 className="text-lg font-bold text-gray-900 mb-3">
+                    {topic.title}
+                  </h3>
+                  
+                  <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                    {topic.description}
+                  </p>
 
-              <motion.div 
-                variants={itemVariants}
-                className="text-center mt-12"
-              >
-                <div className="inline-flex items-center text-green-600 font-medium hover:text-green-700 transition-colors cursor-pointer">
-                  Ver glossário completo <ArrowRight className="w-4 h-4 ml-2" />
+                  <div className="flex items-center text-green-600 font-medium text-sm opacity-0 group-hover:opacity-100 transition-opacity">
+                    <ArrowRight className="w-4 h-4 mr-2" />
+                    Aprender mais
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.section>
+
+          {/* Economia Básica */}
+          <motion.section 
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="mb-20"
+          >
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                Economia Básica
+              </h2>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                Entenda como a economia funciona e como ela impacta diretamente suas decisões financeiras e investimentos.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {economyTopics.map((topic, index) => (
+                <motion.div
+                  key={index}
+                  variants={itemVariants}
+                  whileHover={{ y: -5, transition: { duration: 0.3 } }}
+                  className={`${topic.color} rounded-2xl p-6 border hover:shadow-lg transition-all duration-300 group`}
+                >
+                  <div className="flex items-center justify-between mb-4">
+                    <div className={`p-3 bg-white rounded-xl shadow-sm`}>
+                      <topic.icon className={`w-6 h-6 ${topic.iconColor}`} />
+                    </div>
+                    <div className="text-right">
+                      <span className="inline-block px-2 py-1 bg-white rounded-full text-xs font-medium text-gray-600 mb-1">
+                        {topic.level}
+                      </span>
+                      <p className="text-xs text-gray-500">{topic.time}</p>
+                    </div>
+                  </div>
+                  
+                  <h3 className="text-lg font-bold text-gray-900 mb-3">
+                    {topic.title}
+                  </h3>
+                  
+                  <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                    {topic.description}
+                  </p>
+
+                  <div className="flex items-center text-green-600 font-medium text-sm opacity-0 group-hover:opacity-100 transition-opacity">
+                    <ArrowRight className="w-4 h-4 mr-2" />
+                    Entender melhor
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.section>
+
+          {/* Glossário Financeiro */}
+          <motion.section 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="mb-20"
+          >
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                Glossário Financeiro
+              </h2>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                Os termos mais importantes do mundo financeiro explicados de forma simples e direta.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {glossaryTerms.map((item, index) => (
+                <motion.div
+                  key={index}
+                  variants={itemVariants}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="bg-gray-50 rounded-xl p-6 hover:bg-white hover:shadow-md transition-all duration-300"
+                >
+                  <div className="flex items-start">
+                    <div className="p-2 bg-green-100 rounded-lg mr-4 flex-shrink-0">
+                      <Lightbulb className="w-5 h-5 text-green-600" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-bold text-gray-900 mb-2">
+                        {item.term}
+                      </h3>
+                      <p className="text-gray-600 text-sm leading-relaxed">
+                        {item.definition}
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.section>
+
+          {/* CTA Section */}
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl p-8 md:p-12 text-center border border-green-100"
+          >
+            <div className="max-w-2xl mx-auto">
+              <div className="p-4 bg-green-100 rounded-full w-fit mx-auto mb-6">
+                <Zap className="w-8 h-8 text-green-600" />
+              </div>
+              
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+                Pronto para Transformar sua Vida Financeira?
+              </h2>
+              
+              <p className="text-gray-600 text-lg mb-6">
+                Comece pelo básico e evolua no seu ritmo. Cada conceito aprendido é um passo em direção à sua independência financeira.
+              </p>
+
+              <div className="flex flex-wrap justify-center gap-4 text-sm">
+                <div className="flex items-center text-green-600">
+                  <Star className="w-4 h-4 mr-2" />
+                  <span>Conteúdo atualizado</span>
                 </div>
-              </motion.div>
-            </motion.div>
-          </div>
-        </section>
+                <div className="flex items-center text-green-600">
+                  <Star className="w-4 h-4 mr-2" />
+                  <span>Exemplos práticos</span>
+                </div>
+                <div className="flex items-center text-green-600">
+                  <Star className="w-4 h-4 mr-2" />
+                  <span>Suporte contínuo</span>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
       </div>
     </Layout>
   );
