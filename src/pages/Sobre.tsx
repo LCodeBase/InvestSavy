@@ -1,189 +1,322 @@
 
 import React from 'react';
 import Layout from '../components/Layout';
-import { User, BookOpen, Target, Heart, Award, TrendingUp } from 'lucide-react';
+import { User, BookOpen, Target, Heart, Award, TrendingUp, CheckCircle, Lightbulb, Users, Coffee } from 'lucide-react';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
 
 const Sobre = () => {
-  const journey = [
+  const values = [
     {
-      category: 'Livros que me Formaram',
-      items: [
-        'Pai Rico, Pai Pobre - Robert Kiyosaki',
-        'O Investidor Inteligente - Benjamin Graham', 
-        'Psicologia Financeira - Morgan Housel',
-        'O Jeito Peter Lynch de Investir',
-        'Dinheiro: Os Segredos de Quem Tem - Gustavo Cerbasi'
-      ]
+      icon: Heart,
+      title: 'Simplicidade',
+      description: 'Transformamos conceitos complexos em linguagem clara e acessível para todos.'
     },
     {
-      category: 'Certificações e Cursos',
-      items: [
-        'CPA-20 - Certificação ANBIMA',
-        'Curso de Análise de Investimentos',
-        'Especialização em Planejamento Financeiro',
-        'Curso de Educação Financeira',
-        'Workshops sobre Comportamento Financeiro'
-      ]
+      icon: CheckCircle,
+      title: 'Transparência',
+      description: 'Compartilhamos conhecimento de forma honesta, sem promessas mirabolantes.'
     },
     {
-      category: 'O que Ainda Quero Aprender',
-      items: [
-        'CFA - Chartered Financial Analyst',
-        'Análise Técnica Avançada',
-        'Fundos Imobiliários e REITs',
-        'Criptomoedas e Blockchain',
-        'Planejamento Sucessório'
-      ]
+      icon: Users,
+      title: 'Acessibilidade',
+      description: 'Educação financeira deve ser para todos, independente da renda ou idade.'
     }
+  ];
+
+  const learningBooks = [
+    'Pai Rico, Pai Pobre - Robert Kiyosaki',
+    'O Investidor Inteligente - Benjamin Graham', 
+    'Psicologia Financeira - Morgan Housel',
+    'O Jeito Peter Lynch de Investir',
+    'Dinheiro: Os Segredos de Quem Tem - Gustavo Cerbasi'
+  ];
+
+  const certifications = [
+    'CPA-20 - Certificação ANBIMA',
+    'Curso de Análise de Investimentos',
+    'Especialização em Planejamento Financeiro',
+    'Curso de Educação Financeira',
+    'Workshops sobre Comportamento Financeiro'
+  ];
+
+  const futureGoals = [
+    'CFA - Chartered Financial Analyst',
+    'Análise Técnica Avançada',
+    'Fundos Imobiliários e REITs',
+    'Criptomoedas e Blockchain',
+    'Planejamento Sucessório'
   ];
 
   return (
     <Layout>
-      <div className="py-12 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Header */}
-          <div className="text-center mb-16">
-            <User className="w-16 h-16 text-blue-600 mx-auto mb-4" />
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Sobre o InvestSavy
+      <div className="min-h-screen bg-gradient-to-b from-white to-green-50">
+        {/* Hero Section */}
+        <div className="relative py-20 bg-white">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-green-500 to-green-600 rounded-full mb-8 shadow-lg">
+              <User className="w-10 h-10 text-white" />
+            </div>
+            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+              Sobre o <span className="text-green-600">InvestSavy</span>
             </h1>
-            <p className="text-xl text-gray-600">
-              Conheça a história por trás do projeto e quem está compartilhando conhecimento com você.
+            <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              A história por trás da plataforma que está democratizando a educação financeira no Brasil
             </p>
           </div>
+        </div>
 
-          {/* Quem Sou Eu */}
-          <section className="mb-16">
-            <div className="bg-gradient-to-r from-blue-50 to-green-50 rounded-2xl p-8">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6 flex items-center">
-                <Heart className="w-8 h-8 text-red-500 mr-3" />
-                Quem Sou Eu
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          {/* Quem Sou Section */}
+          <div className="mb-20">
+            <Card className="border-0 shadow-lg bg-gradient-to-br from-green-50 to-white">
+              <CardHeader className="text-center pb-8">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-green-100 rounded-full mb-4">
+                  <Coffee className="w-8 h-8 text-green-600" />
+                </div>
+                <CardTitle className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                  Olá, eu sou o Leo!
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="prose prose-lg mx-auto max-w-4xl">
+                <div className="text-gray-700 space-y-6 text-lg leading-relaxed">
+                  <p>
+                    Criador do InvestSavy e apaixonado por educação financeira. Não sou economista, 
+                    consultor financeiro ou influenciador — sou apenas uma pessoa comum que decidiu 
+                    levar a sério sua relação com o dinheiro.
+                  </p>
+                  <p>
+                    Minha jornada começou aos 25 anos, quando percebi que não sabia absolutamente 
+                    nada sobre investimentos, planejamento financeiro ou como fazer o dinheiro trabalhar a meu favor. 
+                    Desde então, tenho me dedicado intensamente a aprender e aplicar conceitos financeiros na vida real.
+                  </p>
+                  <p>
+                    Acredito profundamente que educação financeira deve ser acessível a todas as pessoas, 
+                    por isso criei este espaço para compartilhar conhecimento de forma simples, clara e sem complicação.
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Missão e Propósito */}
+          <div className="mb-20">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                Nossa Missão & Propósito
               </h2>
-              <div className="prose prose-lg text-gray-700">
-                <p className="mb-4">
-                  Oi! Eu sou o <strong>Leo</strong>, criador do InvestSavy. Não sou economista, 
-                  consultor financeiro ou influenciador. Sou apenas uma pessoa comum que decidiu 
-                  levar a sério sua educação financeira e agora quer compartilhar esse conhecimento.
-                </p>
-                <p className="mb-4">
-                  Minha jornada começou aos 25 anos, quando percebi que não sabia absolutamente 
-                  nada sobre dinheiro, investimentos ou planejamento financeiro. Desde então, 
-                  tenho me dedicado a aprender e aplicar conceitos de finanças pessoais na prática.
-                </p>
-                <p>
-                  Acredito que educação financeira deve ser acessível a todos, por isso criei 
-                  este espaço para compartilhar o que aprendo de forma simples e sem complicação.
-                </p>
-              </div>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                Entenda o que nos move e por que criamos o InvestSavy
+              </p>
             </div>
-          </section>
 
-          {/* Por Que Criei */}
-          <section className="mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6 flex items-center">
-              <Target className="w-8 h-8 text-blue-600 mr-3" />
-              Por Que Criei o InvestSavy
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="bg-gray-50 rounded-xl p-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">❌ O Problema</h3>
-                <ul className="space-y-2 text-gray-700">
-                  <li>• Conteúdo financeiro cheio de jargões técnicos</li>
-                  <li>• Informações dispersas e difíceis de encontrar</li>
-                  <li>• Falta de ferramentas práticas gratuitas</li>
-                  <li>• Educação financeira vista como "coisa de rico"</li>
-                </ul>
-              </div>
-              <div className="bg-blue-50 rounded-xl p-6">
-                <h3 className="text-xl font-semibold text-blue-900 mb-3">✅ A Solução</h3>
-                <ul className="space-y-2 text-blue-800">
-                  <li>• Conteúdo simples e em linguagem clara</li>
-                  <li>• Tudo em um só lugar, organizado e estruturado</li>
-                  <li>• Ferramentas práticas e totalmente gratuitas</li>
-                  <li>• Educação financeira para todos os públicos</li>
-                </ul>
-              </div>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+              {/* Problema */}
+              <Card className="border-red-100 bg-red-50">
+                <CardHeader>
+                  <CardTitle className="text-2xl text-red-800 flex items-center">
+                    <span className="text-3xl mr-3">❌</span>
+                    O Problema
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-3 text-red-700">
+                    <li className="flex items-start">
+                      <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                      Conteúdo financeiro cheio de jargões técnicos incompreensíveis
+                    </li>
+                    <li className="flex items-start">
+                      <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                      Informações dispersas e difíceis de encontrar
+                    </li>
+                    <li className="flex items-start">
+                      <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                      Falta de ferramentas práticas e gratuitas
+                    </li>
+                    <li className="flex items-start">
+                      <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                      Educação financeira vista como "privilégio de poucos"
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
+
+              {/* Solução */}
+              <Card className="border-green-100 bg-green-50">
+                <CardHeader>
+                  <CardTitle className="text-2xl text-green-800 flex items-center">
+                    <span className="text-3xl mr-3">✅</span>
+                    Nossa Solução
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-3 text-green-700">
+                    <li className="flex items-start">
+                      <span className="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                      Conteúdo simples e em linguagem clara para todos
+                    </li>
+                    <li className="flex items-start">
+                      <span className="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                      Tudo centralizado, organizado e bem estruturado
+                    </li>
+                    <li className="flex items-start">
+                      <span className="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                      Ferramentas práticas e 100% gratuitas
+                    </li>
+                    <li className="flex items-start">
+                      <span className="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                      Educação financeira democrática e acessível
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
             </div>
-          </section>
+          </div>
 
-          {/* Missão e Valores */}
-          <section className="mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8 flex items-center">
-              <TrendingUp className="w-8 h-8 text-green-600 mr-3" />
-              Missão, Valores e Público
-            </h2>
+          {/* Valores */}
+          <div className="mb-20">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                Nossos Valores
+              </h2>
+              <p className="text-xl text-gray-600">
+                Os princípios que guiam nosso trabalho
+              </p>
+            </div>
+
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="text-center">
-                <div className="p-4 bg-blue-100 rounded-full inline-block mb-4">
-                  <Target className="w-8 h-8 text-blue-600" />
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">Nossa Missão</h3>
-                <p className="text-gray-600">
-                  Democratizar a educação financeira no Brasil, tornando-a acessível e 
-                  aplicável para pessoas de todas as idades e rendas.
-                </p>
-              </div>
-              <div className="text-center">
-                <div className="p-4 bg-green-100 rounded-full inline-block mb-4">
-                  <Heart className="w-8 h-8 text-green-600" />
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">Nossos Valores</h3>
-                <p className="text-gray-600">
-                  Simplicidade, transparência e praticidade. Nada de promessas mirabolantes 
-                  ou fórmulas mágicas - apenas conhecimento sólido.
-                </p>
-              </div>
-              <div className="text-center">
-                <div className="p-4 bg-purple-100 rounded-full inline-block mb-4">
-                  <User className="w-8 h-8 text-purple-600" />
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">Nosso Público</h3>
-                <p className="text-gray-600">
-                  Pessoas iniciantes ou intermediárias que querem entender melhor sua 
-                  vida financeira e tomar decisões mais conscientes.
-                </p>
-              </div>
+              {values.map((value, index) => (
+                <Card key={index} className="text-center border-0 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                  <CardHeader>
+                    <div className="inline-flex items-center justify-center w-16 h-16 bg-green-100 rounded-full mx-auto mb-4">
+                      <value.icon className="w-8 h-8 text-green-600" />
+                    </div>
+                    <CardTitle className="text-xl font-bold text-gray-900">
+                      {value.title}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-gray-600 leading-relaxed">
+                      {value.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              ))}
             </div>
-          </section>
+          </div>
 
-          {/* Minha Jornada */}
-          <section>
-            <h2 className="text-3xl font-bold text-gray-900 mb-8 flex items-center">
-              <BookOpen className="w-8 h-8 text-purple-600 mr-3" />
-              Minha Jornada de Aprendizado
-            </h2>
-            <div className="space-y-8">
-              {journey.map((section, index) => (
-                <div key={index} className="bg-gray-50 rounded-xl p-6">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center">
-                    <Award className="w-5 h-5 text-yellow-500 mr-2" />
-                    {section.category}
-                  </h3>
-                  <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                    {section.items.map((item, itemIndex) => (
-                      <li key={itemIndex} className="flex items-center text-gray-700">
-                        <span className="w-2 h-2 bg-blue-600 rounded-full mr-3 flex-shrink-0"></span>
-                        {item}
+          {/* Jornada de Aprendizado */}
+          <div className="mb-20">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 flex items-center justify-center">
+                <BookOpen className="w-10 h-10 text-green-600 mr-4" />
+                Minha Jornada de Aprendizado
+              </h2>
+              <p className="text-xl text-gray-600">
+                O conhecimento que me formou e continua me inspirando
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+              {/* Livros */}
+              <Card className="border-0 shadow-lg">
+                <CardHeader className="text-center">
+                  <div className="inline-flex items-center justify-center w-12 h-12 bg-blue-100 rounded-full mb-3">
+                    <BookOpen className="w-6 h-6 text-blue-600" />
+                  </div>
+                  <CardTitle className="text-xl font-bold text-gray-900">
+                    Livros que me Formaram
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-3">
+                    {learningBooks.map((book, index) => (
+                      <li key={index} className="flex items-start text-gray-700">
+                        <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                        <span className="text-sm leading-relaxed">{book}</span>
                       </li>
                     ))}
                   </ul>
-                </div>
-              ))}
-            </div>
-          </section>
+                </CardContent>
+              </Card>
 
-          {/* Call to Action */}
-          <div className="mt-16 bg-gradient-to-r from-blue-600 to-green-600 rounded-2xl p-8 text-white text-center">
-            <h2 className="text-2xl font-bold mb-4">
-              Vamos Aprender Juntos?
-            </h2>
-            <p className="text-blue-100 mb-6">
-              Esta é uma jornada de aprendizado contínuo. Tenho muito a aprender ainda, 
-              e você pode fazer parte dessa caminhada compartilhando suas dúvidas e experiências.
-            </p>
-            <button className="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors">
-              Entre em Contato
-            </button>
+              {/* Certificações */}
+              <Card className="border-0 shadow-lg">
+                <CardHeader className="text-center">
+                  <div className="inline-flex items-center justify-center w-12 h-12 bg-yellow-100 rounded-full mb-3">
+                    <Award className="w-6 h-6 text-yellow-600" />
+                  </div>
+                  <CardTitle className="text-xl font-bold text-gray-900">
+                    Certificações & Cursos
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-3">
+                    {certifications.map((cert, index) => (
+                      <li key={index} className="flex items-start text-gray-700">
+                        <span className="w-2 h-2 bg-yellow-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                        <span className="text-sm leading-relaxed">{cert}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+
+              {/* Próximos Objetivos */}
+              <Card className="border-0 shadow-lg">
+                <CardHeader className="text-center">
+                  <div className="inline-flex items-center justify-center w-12 h-12 bg-green-100 rounded-full mb-3">
+                    <Target className="w-6 h-6 text-green-600" />
+                  </div>
+                  <CardTitle className="text-xl font-bold text-gray-900">
+                    Próximos Objetivos
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-3">
+                    {futureGoals.map((goal, index) => (
+                      <li key={index} className="flex items-start text-gray-700">
+                        <span className="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                        <span className="text-sm leading-relaxed">{goal}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+
+          {/* Convite Final */}
+          <div className="text-center">
+            <Card className="border-0 shadow-xl bg-gradient-to-br from-green-500 to-green-600 text-white">
+              <CardContent className="py-12">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-white bg-opacity-20 rounded-full mb-6">
+                  <Lightbulb className="w-8 h-8 text-white" />
+                </div>
+                <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                  Vamos Aprender Juntos?
+                </h2>
+                <p className="text-xl text-green-100 mb-8 max-w-3xl mx-auto leading-relaxed">
+                  Esta é uma jornada de aprendizado contínuo. Ainda tenho muito a descobrir, 
+                  e você pode fazer parte dessa caminhada compartilhando suas dúvidas, 
+                  experiências e conhecimentos. Juntos, construímos uma comunidade mais 
+                  consciente financeiramente.
+                </p>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-2xl mx-auto">
+                  <div className="text-center">
+                    <div className="text-3xl font-bold mb-1">15+</div>
+                    <div className="text-green-100 text-sm">Ferramentas Gratuitas</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-3xl font-bold mb-1">100%</div>
+                    <div className="text-green-100 text-sm">Conteúdo Gratuito</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-3xl font-bold mb-1">∞</div>
+                    <div className="text-green-100 text-sm">Aprendizado Contínuo</div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </div>
