@@ -47,7 +47,7 @@ export const navItems = [
   },
   {
     title: "Calculadora de Juros",
-    to: "/calculadora-juros",
+    to: "/ferramentas/calculadora-juros",
     component: CalculadoraJuros,
   },
   {
