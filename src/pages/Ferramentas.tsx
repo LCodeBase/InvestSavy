@@ -1,16 +1,53 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Layout from '../components/Layout';
+import SEOHead from '../components/SEOHead';
+import { seoConfig } from '../config/seo';
 import JurosCalculator from '../components/JurosCalculator';
 import { Calculator, TrendingUp, CreditCard, Target, PiggyBank, Receipt, DollarSign, BarChart3, Zap, Clock, Users, Star } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const Ferramentas = () => {
+  // SEO and Structured Data
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebApplication',
+    name: 'Ferramentas de Investimento InvestSavy',
+    description: 'Ferramentas gratuitas para investidores: calculadoras, simuladores e análises financeiras',
+    url: 'https://investsavy.com.br/ferramentas',
+    applicationCategory: 'FinanceApplication',
+    operatingSystem: 'Web Browser',
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'BRL',
+      availability: 'https://schema.org/InStock'
+    },
+    provider: {
+      '@type': 'Organization',
+      name: 'InvestSavy',
+      url: 'https://investsavy.com.br'
+    },
+    featureList: [
+      'Calculadora de Juros Compostos',
+      'Simulador de Quitação de Dívidas',
+      'Comparador de Empréstimos',
+      'Calculadora de Aposentadoria',
+      'Simulador de Carteira de Investimentos'
+    ],
+    audience: {
+      '@type': 'Audience',
+      audienceType: 'Investors and Financial Planners'
+    },
+    inLanguage: 'pt-BR',
+    isAccessibleForFree: true
+  };
+
   const tools = [
     {
       id: 'juros-compostos',
-      title: 'Calculadora de Juros Compostos',
-      description: 'Descubra o poder dos juros compostos e veja como pequenas quantias podem se transformar em grandes valores ao longo do tempo',
+      title: 'Calculadora de Juros',
+      description: 'Descubra o poder dos juros, compostos e simples, e veja como pequenas quantias podem se transformar em grandes valores ao longo do tempo',
       icon: TrendingUp,
       category: 'Investimentos',
       difficulty: 'Básico',
@@ -22,40 +59,18 @@ const Ferramentas = () => {
       isActive: true
     },
     {
-      id: 'juros-simples', 
-      title: 'Calculadora de Juros Simples',
-      description: 'Calcule rendimentos com juros simples para empréstimos, financiamentos e aplicações de curto prazo',
-      icon: Calculator,
-      category: 'Básico',
+      id: 'parcelamento',
+      title: 'Parcelado vs À Vista',
+      description: 'Descubra matematicamente se é mais vantajoso parcelar uma compra ou pagar à vista considerando juros e desconto',
+      icon: Receipt,
+      category: 'Consumo',
       difficulty: 'Básico',
-      time: '1 min',
-      popularity: 78,
-      color: 'bg-blue-50 border-blue-200',
-      iconColor: 'text-blue-600'
-    },
-    {
-      id: 'dividas',
-      title: 'Simulador de Quitação de Dívidas',
-      description: 'Compare diferentes estratégias para quitar suas dívidas: método bola de neve, avalanche e pagamento mínimo',
-      icon: CreditCard,
-      category: 'Planejamento',
-      difficulty: 'Intermediário',
-      time: '5 min',
-      popularity: 89,
-      color: 'bg-orange-50 border-orange-200',
-      iconColor: 'text-orange-600'
-    },
-    {
-      id: 'comparador-emprestimos',
-      title: 'Comparador de Empréstimos',
-      description: 'Analise e compare taxas, condições e custos totais de diferentes modalidades de crédito disponíveis no mercado',
-      icon: BarChart3,
-      category: 'Crédito',
-      difficulty: 'Intermediário',
-      time: '4 min',
-      popularity: 72,
-      color: 'bg-purple-50 border-purple-200',
-      iconColor: 'text-purple-600'
+      time: '2 min',
+      popularity: 83,
+      color: 'bg-indigo-50 border-indigo-200',
+      iconColor: 'text-indigo-600',
+      href: '/ferramentas/parcelado-vs-avista',
+      isActive: true
     },
     {
       id: 'meta-investimento',
@@ -82,16 +97,28 @@ const Ferramentas = () => {
       iconColor: 'text-red-600'
     },
     {
-      id: 'parcelamento',
-      title: 'Parcelado vs À Vista',
-      description: 'Descubra matematicamente se é mais vantajoso parcelar uma compra ou pagar à vista considerando juros e desconto',
-      icon: Receipt,
-      category: 'Consumo',
-      difficulty: 'Básico',
-      time: '2 min',
-      popularity: 83,
-      color: 'bg-indigo-50 border-indigo-200',
-      iconColor: 'text-indigo-600'
+      id: 'dividas',
+      title: 'Simulador de Quitação de Dívidas',
+      description: 'Compare diferentes estratégias para quitar suas dívidas: método bola de neve, avalanche e pagamento mínimo',
+      icon: CreditCard,
+      category: 'Planejamento',
+      difficulty: 'Intermediário',
+      time: '5 min',
+      popularity: 89,
+      color: 'bg-orange-50 border-orange-200',
+      iconColor: 'text-orange-600'
+    },
+    {
+      id: 'comparador-emprestimos',
+      title: 'Comparador de Empréstimos',
+      description: 'Analise e compare taxas, condições e custos totais de diferentes modalidades de crédito disponíveis no mercado',
+      icon: BarChart3,
+      category: 'Crédito',
+      difficulty: 'Intermediário',
+      time: '4 min',
+      popularity: 72,
+      color: 'bg-purple-50 border-purple-200',
+      iconColor: 'text-purple-600'
     },
     {
       id: 'conversor',
@@ -153,6 +180,16 @@ const Ferramentas = () => {
 
   return (
     <Layout>
+      <SEOHead
+        title={seoConfig.pages.ferramentas.title}
+        description={seoConfig.pages.ferramentas.description}
+        keywords={seoConfig.pages.ferramentas.keywords}
+        url="https://investsavy.com.br/ferramentas"
+        type="website"
+        section={seoConfig.pages.ferramentas.section}
+        canonical="https://investsavy.com.br/ferramentas"
+        jsonLd={jsonLd}
+      />
       <div className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header Section */}
@@ -237,8 +274,6 @@ const Ferramentas = () => {
             </div>
           </motion.section>
 
-          {/* Nova Seção: Calculadora de Juros */}
-          <JurosCalculator />
 
           {/* Tools Grid */}
           <motion.section
@@ -269,7 +304,7 @@ const Ferramentas = () => {
                     whileHover={{ y: -5, transition: { duration: 0.3 } }}
                     className={`${tool.color} rounded-2xl p-6 border hover:shadow-lg transition-all duration-300 ${tool.isActive ? 'cursor-pointer' : 'cursor-default'} group`}
                   >
-                    <Component {...componentProps} className={tool.isActive ? 'block h-full' : ''}>
+                    <Component {...(componentProps as any)} className={tool.isActive ? 'block h-full' : ''}>
                       <div className="flex items-start justify-between mb-4">
                         <div className="flex items-center">
                           <div className="p-3 bg-white rounded-xl shadow-sm mr-4">

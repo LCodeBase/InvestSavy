@@ -1,14 +1,44 @@
 User-agent: Googlebot
 Allow: /
 
-User-agent: Bingbot
+# Robots.txt for InvestSavy - Financial Education Platform
+# https://investsavy.com.br
+
+# Allow all crawlers access to all content
+User-agent: *
 Allow: /
 
+# Specific rules for major search engines
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 1
+
+# Social media crawlers
 User-agent: Twitterbot
 Allow: /
 
 User-agent: facebookexternalhit
 Allow: /
 
-User-agent: *
+User-agent: LinkedInBot
 Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+# Disallow admin or sensitive areas (if any exist in the future)
+# User-agent: *
+# Disallow: /admin/
+# Disallow: /api/
+# Disallow: /private/
+
+# Sitemap location
+Sitemap: https://investsavy.com.br/sitemap.xml

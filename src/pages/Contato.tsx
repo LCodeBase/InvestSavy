@@ -1,6 +1,8 @@
 
 import React, { useState } from 'react';
 import Layout from '../components/Layout';
+import SEOHead from '../components/SEOHead';
+import { seoConfig } from '../config/seo';
 import { Mail, MessageCircle, Send, Check, Clock, Heart, Users, Lightbulb, Calculator, BookOpen, HelpCircle, Handshake } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card';
 import { Input } from '../components/ui/input';
@@ -8,6 +10,44 @@ import { Textarea } from '../components/ui/textarea';
 import { Button } from '../components/ui/button';
 
 const Contato = () => {
+  // SEO and Structured Data
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'ContactPage',
+    name: 'Contato InvestSavy',
+    description: 'Entre em contato com a InvestSavy para dúvidas, sugestões e parcerias',
+    url: 'https://investsavy.com.br/contato',
+    mainEntity: {
+      '@type': 'Organization',
+      name: 'InvestSavy',
+      url: 'https://investsavy.com.br',
+      contactPoint: {
+        '@type': 'ContactPoint',
+        contactType: 'customer service',
+        availableLanguage: 'Portuguese',
+        areaServed: 'BR',
+        serviceType: [
+          'Educação Financeira',
+          'Consultoria em Investimentos',
+          'Ferramentas Financeiras',
+          'Suporte Técnico'
+        ]
+      }
+    },
+    potentialAction: {
+      '@type': 'CommunicateAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: 'https://investsavy.com.br/contato',
+        actionPlatform: [
+          'http://schema.org/DesktopWebPlatform',
+          'http://schema.org/MobileWebPlatform'
+        ]
+      }
+    },
+    inLanguage: 'pt-BR'
+  };
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -63,6 +103,16 @@ const Contato = () => {
 
   return (
     <Layout>
+      <SEOHead
+        title={seoConfig.pages.contato.title}
+        description={seoConfig.pages.contato.description}
+        keywords={seoConfig.pages.contato.keywords}
+        url="https://investsavy.com.br/contato"
+        type="website"
+        section={seoConfig.pages.contato.section}
+        canonical="https://investsavy.com.br/contato"
+        jsonLd={jsonLd}
+      />
       <div className="min-h-screen bg-gradient-to-br from-white via-green-50/30 to-white">
         {/* Hero Section */}
         <div className="relative py-16 sm:py-20 lg:py-24">

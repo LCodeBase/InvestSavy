@@ -1,10 +1,52 @@
 import React from 'react';
 import Layout from '../components/Layout';
+import SEOHead from '../components/SEOHead';
+import { seoConfig } from '../config/seo';
 import { FileText, BookOpen, GraduationCap, Heart, Clock, Calendar, ArrowRight, Lightbulb } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
 const Artigos = () => {
+  // SEO and Structured Data
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Blog',
+    name: 'Artigos InvestSavy',
+    description: 'Blog com artigos sobre educação financeira, investimentos e análises de mercado',
+    url: 'https://investsavy.online/artigos',
+    publisher: {
+      '@type': 'Organization',
+      name: 'InvestSavy',
+      url: 'https://investsavy.online',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://investsavy.online/logo.png'
+      }
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': 'https://investsavy.online/artigos'
+    },
+    blogPost: [
+      {
+        '@type': 'BlogPosting',
+        headline: 'Resenha Completa: "Pai Rico, Pai Pobre" - Lições que Transformam a Mentalidade Financeira',
+        description: 'Uma análise crítica e honesta do clássico de Robert Kiyosaki',
+        url: 'https://investsavy.online/artigos/resenha-pai-rico-pai-pobre',
+        datePublished: '2025-01-15',
+        author: {
+          '@type': 'Person',
+          name: 'InvestSavy'
+        }
+      }
+    ],
+    inLanguage: 'pt-BR',
+    audience: {
+      '@type': 'Audience',
+      audienceType: 'Investors and Financial Education Seekers'
+    }
+  };
+
   const categories = [
     {
       id: 'livros',
@@ -114,6 +156,16 @@ const Artigos = () => {
 
   return (
     <Layout>
+      <SEOHead
+        title="Artigos sobre Investimentos e Educação Financeira | InvestSavy"
+        description="Artigos completos sobre educação financeira, resenhas de livros, análises de cursos e reflexões sobre investimentos. Conteúdo prático e fundamentado."
+        keywords="artigos investimentos, educação financeira, resenhas livros financeiros, análises mercado, blog investimentos, pai rico pai pobre, cursos investimento"
+        url="https://investsavy.com.br/artigos"
+        type="website"
+        section="Artigos"
+        canonical="https://investsavy.com.br/artigos"
+        jsonLd={jsonLd}
+      />
       <div className="py-16 bg-gradient-to-br from-green-50 via-white to-green-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}

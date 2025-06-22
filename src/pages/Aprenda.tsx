@@ -1,10 +1,45 @@
 
 import React from 'react';
 import Layout from '../components/Layout';
+import SEOHead from '../components/SEOHead';
+import { seoConfig } from '../config/seo';
 import { BookOpen, TrendingUp, Calculator, Lightbulb, User, PiggyBank, DollarSign, Building, Target, Zap, ArrowRight, Star, CheckCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const Aprenda = () => {
+  // SEO and Structured Data
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'EducationalOrganization',
+    name: 'InvestSavy - Educação Financeira',
+    description: 'Cursos completos de investimentos e educação financeira',
+    url: 'https://investsavy.com.br/aprenda',
+    provider: {
+      '@type': 'Organization',
+      name: 'InvestSavy',
+      url: 'https://investsavy.com.br'
+    },
+    educationalLevel: 'Beginner to Advanced',
+    teaches: [
+      'Investimentos em Ações',
+      'Fundos de Investimento',
+      'Renda Fixa',
+      'Análise Fundamentalista',
+      'Análise Técnica',
+      'Planejamento Financeiro',
+      'Educação Financeira'
+    ],
+    courseMode: 'online',
+    availableLanguage: 'pt-BR',
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'BRL',
+      availability: 'https://schema.org/InStock'
+    }
+  };
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -32,7 +67,8 @@ const Aprenda = () => {
       level: 'Básico',
       time: '15 min',
       color: 'bg-green-50 border-green-200',
-      iconColor: 'text-green-600'
+      iconColor: 'text-green-600',
+      available: true
     },
     {
       title: 'Reserva de Emergência',
@@ -40,8 +76,9 @@ const Aprenda = () => {
       icon: PiggyBank,
       level: 'Básico',
       time: '20 min',
-      color: 'bg-emerald-50 border-emerald-200',
-      iconColor: 'text-emerald-600'
+      color: 'bg-gray-50 border-gray-200',
+      iconColor: 'text-gray-500',
+      available: false
     },
     {
       title: 'Controle de Dívidas',
@@ -49,8 +86,9 @@ const Aprenda = () => {
       icon: Target,
       level: 'Intermediário',
       time: '25 min',
-      color: 'bg-teal-50 border-teal-200',
-      iconColor: 'text-teal-600'
+      color: 'bg-gray-50 border-gray-200',
+      iconColor: 'text-gray-500',
+      available: false
     }
   ];
 
@@ -61,8 +99,9 @@ const Aprenda = () => {
       icon: Building,
       level: 'Básico',
       time: '30 min',
-      color: 'bg-green-50 border-green-200',
-      iconColor: 'text-green-600'
+      color: 'bg-gray-50 border-gray-200',
+      iconColor: 'text-gray-500',
+      available: false
     },
     {
       title: 'CDB e Renda Fixa',
@@ -70,8 +109,9 @@ const Aprenda = () => {
       icon: DollarSign,
       level: 'Básico',
       time: '25 min',
-      color: 'bg-emerald-50 border-emerald-200',
-      iconColor: 'text-emerald-600'
+      color: 'bg-gray-50 border-gray-200',
+      iconColor: 'text-gray-500',
+      available: false
     },
     {
       title: 'Ações e Bolsa',
@@ -79,8 +119,9 @@ const Aprenda = () => {
       icon: TrendingUp,
       level: 'Intermediário',
       time: '45 min',
-      color: 'bg-teal-50 border-teal-200',
-      iconColor: 'text-teal-600'
+      color: 'bg-gray-50 border-gray-200',
+      iconColor: 'text-gray-500',
+      available: false
     }
   ];
 
@@ -91,8 +132,9 @@ const Aprenda = () => {
       icon: TrendingUp,
       level: 'Básico',
       time: '20 min',
-      color: 'bg-green-50 border-green-200',
-      iconColor: 'text-green-600'
+      color: 'bg-gray-50 border-gray-200',
+      iconColor: 'text-gray-500',
+      available: false
     },
     {
       title: 'Taxa Selic',
@@ -100,8 +142,9 @@ const Aprenda = () => {
       icon: Calculator,
       level: 'Básico',
       time: '15 min',
-      color: 'bg-emerald-50 border-emerald-200',
-      iconColor: 'text-emerald-600'
+      color: 'bg-gray-50 border-gray-200',
+      iconColor: 'text-gray-500',
+      available: false
     },
     {
       title: 'PIB e Indicadores',
@@ -109,8 +152,9 @@ const Aprenda = () => {
       icon: Building,
       level: 'Intermediário',
       time: '30 min',
-      color: 'bg-teal-50 border-teal-200',
-      iconColor: 'text-teal-600'
+      color: 'bg-gray-50 border-gray-200',
+      iconColor: 'text-gray-500',
+      available: false
     }
   ];
 
@@ -125,6 +169,16 @@ const Aprenda = () => {
 
   return (
     <Layout>
+      <SEOHead
+        title={seoConfig.pages.aprenda.title}
+        description={seoConfig.pages.aprenda.description}
+        keywords={seoConfig.pages.aprenda.keywords}
+        url="https://investsavy.com.br/aprenda"
+        type="website"
+        section={seoConfig.pages.aprenda.section}
+        canonical="https://investsavy.com.br/aprenda"
+        jsonLd={jsonLd}
+      />
       <div className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header Section */}
@@ -183,39 +237,85 @@ const Aprenda = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {financeTopics.map((topic, index) => (
-                <motion.div
-                  key={index}
-                  variants={itemVariants}
-                  whileHover={{ y: -5, transition: { duration: 0.3 } }}
-                  className={`${topic.color} rounded-2xl p-6 border hover:shadow-lg transition-all duration-300`}
-                >
-                  <div className="flex items-center justify-between mb-4">
-                    <div className={`p-3 bg-white rounded-xl shadow-sm`}>
-                      <topic.icon className={`w-6 h-6 ${topic.iconColor}`} />
-                    </div>
-                    <div className="text-right">
-                      <span className="inline-block px-2 py-1 bg-white rounded-full text-xs font-medium text-gray-600 mb-1">
-                        {topic.level}
-                      </span>
-                      <p className="text-xs text-gray-500">{topic.time}</p>
-                    </div>
-                  </div>
-                  
-                  <h3 className="text-lg font-bold text-gray-900 mb-3">
-                    {topic.title}
-                  </h3>
-                  
-                  <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                    {topic.description}
-                  </p>
+              {financeTopics.map((topic, index) => {
+                const isAvailable = topic.available;
+                
+                return (
+                  <motion.div
+                    key={index}
+                    variants={itemVariants}
+                    whileHover={isAvailable ? { y: -5, transition: { duration: 0.3 } } : {}}
+                    className={`${topic.color} rounded-2xl border transition-all duration-300 group relative ${
+                      isAvailable ? 'hover:shadow-lg cursor-pointer' : 'opacity-75'
+                    }`}
+                  >
+                    {isAvailable ? (
+                      <Link
+                        to="/aprenda/orcamento-pessoal"
+                        className="block p-6"
+                      >
+                        <div className="flex items-center justify-between mb-4">
+                          <div className={`p-3 bg-white rounded-xl shadow-sm`}>
+                            <topic.icon className={`w-6 h-6 ${topic.iconColor}`} />
+                          </div>
+                          <div className="text-right">
+                            <span className="inline-block px-2 py-1 bg-white rounded-full text-xs font-medium text-gray-600 mb-1">
+                              {topic.level}
+                            </span>
+                            <p className="text-xs text-gray-500">{topic.time}</p>
+                          </div>
+                        </div>
+                        
+                        <h3 className="text-lg font-bold text-gray-900 mb-3">
+                          {topic.title}
+                        </h3>
+                        
+                        <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                          {topic.description}
+                        </p>
 
-                  <div className="flex items-center text-green-600 font-medium text-sm opacity-0 group-hover:opacity-100 transition-opacity">
-                    <ArrowRight className="w-4 h-4 mr-2" />
-                    Começar agora
-                  </div>
-                </motion.div>
-              ))}
+                        <div className="flex items-center text-green-600 font-medium text-sm transition-opacity">
+                          <ArrowRight className="w-4 h-4 mr-2" />
+                          Ler artigo
+                        </div>
+                      </Link>
+                    ) : (
+                      <div className="block p-6">
+                        <div className="absolute top-4 right-4">
+                          <span className="inline-block px-3 py-1 bg-orange-100 text-orange-700 rounded-full text-xs font-medium">
+                            Em breve
+                          </span>
+                        </div>
+                        
+                        <div className="flex items-center justify-between mb-4">
+                          <div className={`p-3 bg-white rounded-xl shadow-sm`}>
+                            <topic.icon className={`w-6 h-6 ${topic.iconColor}`} />
+                          </div>
+                          <div className="text-right">
+                            <span className="inline-block px-2 py-1 bg-white rounded-full text-xs font-medium text-gray-600 mb-1">
+                              {topic.level}
+                            </span>
+                            <p className="text-xs text-gray-500">{topic.time}</p>
+                          </div>
+                        </div>
+                        
+                        <h3 className="text-lg font-bold text-gray-600 mb-3">
+                          {topic.title}
+                        </h3>
+                        
+                        <p className="text-gray-500 text-sm leading-relaxed mb-4">
+                          {topic.description}
+                        </p>
+
+                        <div className="flex items-center text-gray-400 font-medium text-sm">
+                          <ArrowRight className="w-4 h-4 mr-2" />
+                          Em desenvolvimento
+                        </div>
+                      </div>
+                    )}
+                  </motion.div>
+                );
+              })}
             </div>
           </motion.section>
 
@@ -241,9 +341,14 @@ const Aprenda = () => {
                 <motion.div
                   key={index}
                   variants={itemVariants}
-                  whileHover={{ y: -5, transition: { duration: 0.3 } }}
-                  className={`${topic.color} rounded-2xl p-6 border hover:shadow-lg transition-all duration-300 group`}
+                  className={`${topic.color} rounded-2xl p-6 border transition-all duration-300 group relative opacity-75`}
                 >
+                  <div className="absolute top-4 right-4">
+                    <span className="inline-block px-3 py-1 bg-orange-100 text-orange-700 rounded-full text-xs font-medium">
+                      Em breve
+                    </span>
+                  </div>
+                  
                   <div className="flex items-center justify-between mb-4">
                     <div className={`p-3 bg-white rounded-xl shadow-sm`}>
                       <topic.icon className={`w-6 h-6 ${topic.iconColor}`} />
@@ -256,17 +361,17 @@ const Aprenda = () => {
                     </div>
                   </div>
                   
-                  <h3 className="text-lg font-bold text-gray-900 mb-3">
+                  <h3 className="text-lg font-bold text-gray-600 mb-3">
                     {topic.title}
                   </h3>
                   
-                  <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                  <p className="text-gray-500 text-sm leading-relaxed mb-4">
                     {topic.description}
                   </p>
 
-                  <div className="flex items-center text-green-600 font-medium text-sm opacity-0 group-hover:opacity-100 transition-opacity">
+                  <div className="flex items-center text-gray-400 font-medium text-sm">
                     <ArrowRight className="w-4 h-4 mr-2" />
-                    Aprender mais
+                    Em desenvolvimento
                   </div>
                 </motion.div>
               ))}
@@ -295,9 +400,14 @@ const Aprenda = () => {
                 <motion.div
                   key={index}
                   variants={itemVariants}
-                  whileHover={{ y: -5, transition: { duration: 0.3 } }}
-                  className={`${topic.color} rounded-2xl p-6 border hover:shadow-lg transition-all duration-300 group`}
+                  className={`${topic.color} rounded-2xl p-6 border transition-all duration-300 group relative opacity-75`}
                 >
+                  <div className="absolute top-4 right-4">
+                    <span className="inline-block px-3 py-1 bg-orange-100 text-orange-700 rounded-full text-xs font-medium">
+                      Em breve
+                    </span>
+                  </div>
+                  
                   <div className="flex items-center justify-between mb-4">
                     <div className={`p-3 bg-white rounded-xl shadow-sm`}>
                       <topic.icon className={`w-6 h-6 ${topic.iconColor}`} />
@@ -310,17 +420,17 @@ const Aprenda = () => {
                     </div>
                   </div>
                   
-                  <h3 className="text-lg font-bold text-gray-900 mb-3">
+                  <h3 className="text-lg font-bold text-gray-600 mb-3">
                     {topic.title}
                   </h3>
                   
-                  <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                  <p className="text-gray-500 text-sm leading-relaxed mb-4">
                     {topic.description}
                   </p>
 
-                  <div className="flex items-center text-green-600 font-medium text-sm opacity-0 group-hover:opacity-100 transition-opacity">
+                  <div className="flex items-center text-gray-400 font-medium text-sm">
                     <ArrowRight className="w-4 h-4 mr-2" />
-                    Entender melhor
+                    Em desenvolvimento
                   </div>
                 </motion.div>
               ))}
@@ -415,5 +525,7 @@ const Aprenda = () => {
     </Layout>
   );
 };
+
+Aprenda.displayName = 'Aprenda';
 
 export default Aprenda;

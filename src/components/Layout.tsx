@@ -2,19 +2,23 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { BookOpen, Calculator, FileText, TrendingUp, User, Mail, Menu, X } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+  // Scroll para o topo sempre que a rota mudar
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
   const navItems = [
     { href: '/', label: 'Início', icon: BookOpen },
     { href: '/aprenda', label: 'Aprenda', icon: BookOpen },
     { href: '/ferramentas', label: 'Ferramentas', icon: Calculator },
-    { href: '/artigos', label: 'Artigos', icon: FileText },
-    { href: '/atualidades', label: 'Atualidades', icon: TrendingUp },
+    { href: '/atualidades', label: 'Notícias', icon: TrendingUp },
     { href: '/sobre', label: 'Sobre', icon: User },
     { href: '/contato', label: 'Contato', icon: Mail },
   ];
@@ -35,9 +39,6 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             {/* Logo */}
             <motion.div whileHover={{ scale: 1.05 }}>
               <Link to="/" className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-gradient-to-br from-green-600 to-green-700 rounded-xl flex items-center justify-center shadow-lg">
-                  <TrendingUp className="w-6 h-6 text-white" />
-                </div>
                 <span className="text-2xl font-bold bg-gradient-to-r from-green-600 to-green-700 bg-clip-text text-transparent">
                   InvestSavy
                 </span>
@@ -118,9 +119,6 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             {/* Logo e Descrição */}
             <div className="col-span-1 md:col-span-2">
               <Link to="/" className="flex items-center space-x-3 mb-6">
-                <div className="w-10 h-10 bg-gradient-to-br from-green-600 to-green-700 rounded-xl flex items-center justify-center shadow-lg">
-                  <TrendingUp className="w-6 h-6 text-white" />
-                </div>
                 <span className="text-2xl font-bold bg-gradient-to-r from-green-600 to-green-700 bg-clip-text text-transparent">
                   InvestSavy
                 </span>
@@ -157,8 +155,8 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             <div>
               <h3 className="text-lg font-bold text-gray-900 mb-6">Informações</h3>
               <ul className="space-y-3">
-                <li><Link to="/politica" className="text-gray-600 hover:text-green-600 transition-colors flex items-center space-x-2"><span>•</span><span>Política de Privacidade</span></Link></li>
-                <li><Link to="/termos" className="text-gray-600 hover:text-green-600 transition-colors flex items-center space-x-2"><span>•</span><span>Termos de Uso</span></Link></li>
+                <li><Link to="/politica-privacidade" className="text-gray-600 hover:text-green-600 transition-colors flex items-center space-x-2"><span>•</span><span>Política de Privacidade</span></Link></li>
+                <li><Link to="/termos-uso" className="text-gray-600 hover:text-green-600 transition-colors flex items-center space-x-2"><span>•</span><span>Termos de Uso</span></Link></li>
               </ul>
             </div>
           </div>

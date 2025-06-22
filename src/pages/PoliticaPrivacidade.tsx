@@ -2,11 +2,43 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Layout from '../components/Layout';
+import SEOHead from '../components/SEOHead';
 import { Shield, Clock, Mail, Eye } from 'lucide-react';
 
 const PoliticaPrivacidade = () => {
+  // SEO and Structured Data for privacy policy
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: 'Política de Privacidade',
+    description: 'Política de privacidade da InvestSavy - Como coletamos, usamos e protegemos suas informações pessoais',
+    url: 'https://investsavy.com.br/politica-privacidade',
+    mainEntity: {
+      '@type': 'PrivacyPolicy',
+      name: 'Política de Privacidade InvestSavy',
+      datePublished: '2025-01-01',
+      dateModified: '2025-01-01',
+      publisher: {
+        '@type': 'Organization',
+        name: 'InvestSavy',
+        url: 'https://investsavy.com.br'
+      }
+    },
+    inLanguage: 'pt-BR'
+  };
+
   return (
     <Layout>
+      <SEOHead
+        title="Política de Privacidade | InvestSavy"
+        description="Conheça nossa política de privacidade e como protegemos suas informações pessoais na InvestSavy. Transparência e segurança em primeiro lugar."
+        keywords="política de privacidade, proteção de dados, LGPD, privacidade online, segurança de dados"
+        url="https://investsavy.com.br/politica-privacidade"
+        type="website"
+        section="Legal"
+        canonical="https://investsavy.com.br/politica-privacidade"
+        jsonLd={jsonLd}
+      />
       <div className="min-h-screen bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           {/* Header */}
@@ -30,7 +62,7 @@ const PoliticaPrivacidade = () => {
             </p>
             <div className="flex items-center justify-center mt-6 text-sm text-gray-500">
               <Clock className="w-4 h-4 mr-2" />
-              Última atualização: Janeiro de 2025
+              Última atualização: Junho de 2025
             </div>
           </motion.div>
 
@@ -217,9 +249,7 @@ const PoliticaPrivacidade = () => {
                     seus dados pessoais, entre em contato conosco:
                   </p>
                   <ul className="space-y-2">
-                    <li><strong>E-mail:</strong> privacidade@investsavy.com</li>
-                    <li><strong>Telefone:</strong> (11) 1234-5678</li>
-                    <li><strong>Endereço:</strong> São Paulo, SP - Brasil</li>
+                    <li><strong>E-mail:</strong> contato@investsavy.online</li>
                   </ul>
                 </div>
               </section>
