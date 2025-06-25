@@ -14,19 +14,19 @@ const Atualidades = () => {
     '@type': 'NewsMediaOrganization',
     name: 'InvestSavy Atualidades',
     description: 'Notícias e análises atualizadas sobre mercado financeiro, economia e investimentos',
-    url: 'https://investsavy.com.br/atualidades',
+    url: 'https://investsavy.online/atualidades',
     publisher: {
       '@type': 'Organization',
       name: 'InvestSavy',
-      url: 'https://investsavy.com.br',
+      url: 'https://investsavy.online',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://investsavy.com.br/logo.png'
+        url: 'https://investsavy.online/logo.png'
       }
     },
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': 'https://investsavy.com.br/atualidades'
+      '@id': 'https://investsavy.online/atualidades'
     },
     articleSection: [
       'Política Monetária',
@@ -170,10 +170,10 @@ const Atualidades = () => {
         title="Atualidades do Mercado Financeiro | Notícias de Investimentos - InvestSavy"
         description="Acompanhe as principais notícias do mercado financeiro, análises econômicas e impactos nos investimentos. Informações atualizadas sobre Selic, Bitcoin, economia brasileira e mais."
         keywords="notícias mercado financeiro, selic, bitcoin, economia brasil, investimentos notícias, política monetária, criptomoedas, análise econômica, mercado ações"
-        url="https://investsavy.com.br/atualidades"
+        url="https://investsavy.online/atualidades"
         type="website"
         section="Atualidades"
-        canonical="https://investsavy.com.br/atualidades"
+        canonical="https://investsavy.online/atualidades"
         jsonLd={jsonLd}
       />
       <div className="min-h-screen bg-gradient-to-br from-gray-50 to-green-50/30">
@@ -185,14 +185,14 @@ const Atualidades = () => {
             </div>
             
             <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-              Análise de
+            Análise
               <span className="block bg-gradient-to-r from-green-600 to-green-700 bg-clip-text text-transparent">
-              Notícias
+              Semanal de Noticias
               </span>
             </h1>
             
             <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto mb-8 leading-relaxed">
-              Acompanhe as principais notícias econômicas traduzidas para uma linguagem simples. 
+              Acompanhe as principais notícias econômicas da semana traduzidas para uma linguagem simples. 
               Entenda como cada acontecimento pode impactar diretamente sua vida financeira.
             </p>
 

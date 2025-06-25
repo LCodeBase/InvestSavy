@@ -49,7 +49,7 @@ const Ferramentas = () => {
       title: 'Calculadora de Juros',
       description: 'Descubra o poder dos juros, compostos e simples, e veja como pequenas quantias podem se transformar em grandes valores ao longo do tempo',
       icon: TrendingUp,
-      category: 'Investimentos',
+      category: 'Calculadoras',
       difficulty: 'Básico',
       time: '2 min',
       popularity: 95,
@@ -134,13 +134,18 @@ const Ferramentas = () => {
     }
   ];
 
+  // Calcular automaticamente o número de ferramentas por categoria
+  const getCategoryCount = (categoryName: string) => {
+    return tools.filter(tool => tool.category === categoryName).length;
+  };
+
   const categories = [
-    { name: 'Investimentos', count: 3, icon: TrendingUp, description: 'Ferramentas para planejar e calcular seus investimentos' },
-    { name: 'Planejamento', count: 2, icon: Target, description: 'Organize suas metas e estratégias financeiras' },
-    { name: 'Básico', count: 1, icon: Calculator, description: 'Cálculos fundamentais para o dia a dia' },
-    { name: 'Crédito', count: 1, icon: CreditCard, description: 'Análise de empréstimos e financiamentos' },
-    { name: 'Impostos', count: 1, icon: DollarSign, description: 'Cálculos de tributos sobre investimentos' },
-    { name: 'Consumo', count: 1, icon: Receipt, description: 'Decisões inteligentes de compra' }
+    { name: 'Investimentos', count: getCategoryCount('Investimentos'), icon: TrendingUp, description: 'Ferramentas para planejar e calcular seus investimentos' },
+    { name: 'Planejamento', count: getCategoryCount('Planejamento'), icon: Target, description: 'Organize suas metas e estratégias financeiras' },
+    { name: 'Calculadoras', count: getCategoryCount('Calculadoras'), icon: Calculator, description: 'Cálculos fundamentais para o dia a dia' },
+    { name: 'Crédito', count: getCategoryCount('Crédito'), icon: CreditCard, description: 'Análise de empréstimos e financiamentos' },
+    { name: 'Impostos', count: getCategoryCount('Impostos'), icon: DollarSign, description: 'Cálculos de tributos sobre investimentos' },
+    { name: 'Consumo', count: getCategoryCount('Consumo'), icon: Receipt, description: 'Decisões inteligentes de compra' }
   ];
 
   const stats = [

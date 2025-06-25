@@ -8,8 +8,8 @@ const OrcamentoPessoal = () => {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Article',
-    headline: 'Como organizar o seu dinheiro mesmo ganhando pouco',
-    description: 'Aprenda a fazer um orçamento pessoal simples e eficaz, mesmo com pouca renda. Guia prático para controlar receitas e despesas.',
+    headline: 'Orçamento Pessoal: Comece com o que você tem',
+    description: '4 passos reais para montar seu orçamento pessoal do jeito mais simples possível. Sem planilha difícil, sem frescura. Só com o que você tem hoje.',
     author: {
       '@type': 'Organization',
       name: 'InvestSavy'
@@ -33,29 +33,33 @@ const OrcamentoPessoal = () => {
   const passos = [
     {
       numero: '1',
-      titulo: 'Anote tudo que você ganha',
-      descricao: 'Salário, bicos, vendas, ajuda da família. Tudo que entra no seu bolso.',
+      titulo: 'Anote tudo o que você ganha',
+      descricao: 'Pode ser salário, bico, mesada, pensão, trocado do freela, vale-refeição… qualquer valor que entra. Escreve tudo. Mesmo que pareça pouco. Se você não sabe exatamente quanto ganha no mês, vai viver sempre no escuro.',
+      dica: '📌 Dica: Pode anotar no papel, no bloco de notas do celular, ou usar um app simples. O importante é ter tudo no mesmo lugar.',
       icon: DollarSign,
       cor: 'bg-green-50 border-green-200 text-green-600'
     },
     {
       numero: '2',
-      titulo: 'Anote tudo que você gasta',
-      descricao: 'Aluguel, luz, água, comida, transporte, remédio. Até o cafezinho conta.',
+      titulo: 'Anote tudo o que você gasta',
+      descricao: 'Aqui é sem dó. Do pão na padaria até a conta de luz. Passagem, PIX pros outros, delivery, crédito no celular, parcelinha da Shopee… tudo entra.',
+      extra: 'Você vai se assustar. E é aí que começa a virada.',
       icon: Calculator,
       cor: 'bg-blue-50 border-blue-200 text-blue-600'
     },
     {
       numero: '3',
-      titulo: 'Veja onde dá para economizar',
-      descricao: 'Olhe os gastos e veja o que pode diminuir ou cortar sem prejudicar sua vida.',
+      titulo: 'Encare o que dá pra cortar (mesmo que doa)',
+      descricao: 'Depois que você olhar onde seu dinheiro tá indo, vai ver coisa que nem lembrava. É nessa hora que você pergunta: "Disso aqui, o que dá pra diminuir ou cortar?"',
+      extra: 'Talvez seja o lanche fora de casa todo dia. Talvez aquele streaming que ninguém usa. Talvez comprar menos "só porque tava barato". Você não precisa virar um monge, mas precisa escolher melhor.',
       icon: Target,
       cor: 'bg-orange-50 border-orange-200 text-orange-600'
     },
     {
       numero: '4',
-      titulo: 'Defina um valor para guardar',
-      descricao: 'Mesmo que seja R$ 10, R$ 20. O importante é começar a guardar todo mês.',
+      titulo: 'Separe um valor por mês (qualquer valor mesmo)',
+      descricao: 'Não importa se são R$5, R$10, R$20. O importante é criar o hábito. Guardar dinheiro não é sobre quanto você tem, mas sobre começar agora. Com o tempo, o valor aumenta. Mas o mais difícil é dar o primeiro passo.',
+      extra: 'Se você guardar R$10 por mês, em um ano já são R$120. Parece pouco? Pode ser. Mas é mais do que zero. E isso muda o jogo.',
       icon: PiggyBank,
       cor: 'bg-purple-50 border-purple-200 text-purple-600'
     }
@@ -72,8 +76,8 @@ const OrcamentoPessoal = () => {
   return (
     <Layout>
       <SEOHead
-        title="Como organizar o seu dinheiro mesmo ganhando pouco | InvestSavy"
-        description="Aprenda a fazer um orçamento pessoal simples e eficaz, mesmo com pouca renda. Guia prático para controlar receitas e despesas sem complicação."
+        title="Orçamento Pessoal: Comece com o que você tem | InvestSavy"
+        description="4 passos reais para montar seu orçamento pessoal do jeito mais simples possível. Sem planilha difícil, sem frescura. Só com o que você tem hoje."
         keywords="orçamento pessoal, controle financeiro, organizar dinheiro, baixa renda, educação financeira, finanças pessoais"
         url="https://investsavy.com.br/aprenda/orcamento-pessoal"
         type="article"
@@ -96,13 +100,13 @@ const OrcamentoPessoal = () => {
             </div>
             
             <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              Como organizar o seu dinheiro mesmo ganhando pouco
+              Orçamento Pessoal: Comece com o que você tem
             </h1>
             
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Você não precisa ser rico para começar a cuidar do seu dinheiro. 
-              Vamos te ensinar um jeito simples de organizar o que você ganha e gasta, 
-              para sobrar um pouquinho no final do mês.
+              Se você está aqui, provavelmente sente que o dinheiro mal entra e já vai embora. E eu entendo isso. 
+              Porque eu também já passei (e ainda passo) por esse aperto. A verdade é que ninguém ensinou pra gente 
+              como cuidar bem do dinheiro. Mas a boa notícia é que dá pra começar — mesmo com pouco.
             </p>
           </motion.div>
 
@@ -199,8 +203,12 @@ const OrcamentoPessoal = () => {
             className="mb-12"
           >
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8 text-center">
-              Passo a passo simples (tipo receita de bolo)
+              Aqui vão 4 passos reais pra montar seu orçamento pessoal
             </h2>
+            
+            <p className="text-lg text-gray-600 text-center mb-8 max-w-2xl mx-auto">
+              Do jeito mais simples possível, sem planilha difícil, sem frescura. Só com o que você tem hoje.
+            </p>
             
             <div className="space-y-6">
               {passos.map((passo, index) => (
@@ -229,9 +237,23 @@ const OrcamentoPessoal = () => {
                         </h3>
                       </div>
                       
-                      <p className="text-gray-700 text-lg">
+                      <p className="text-gray-700 text-lg mb-3">
                         {passo.descricao}
                       </p>
+                      
+                      {passo.dica && (
+                        <div className="bg-white rounded-lg p-3 border border-gray-200 mb-3">
+                          <p className="text-gray-600 text-sm font-medium">
+                            {passo.dica}
+                          </p>
+                        </div>
+                      )}
+                      
+                      {passo.extra && (
+                        <p className="text-gray-600 text-base italic">
+                          {passo.extra}
+                        </p>
+                      )}
                     </div>
                   </div>
                 </motion.div>
@@ -412,37 +434,23 @@ const OrcamentoPessoal = () => {
               </div>
               
               <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
-                Entendemos que está difícil
+                Lembrete final:
               </h2>
               
               <p className="text-lg text-gray-700 max-w-2xl mx-auto mb-6">
-                Sabemos que muita gente no Brasil hoje não consegue guardar dinheiro. 
-                E tudo bem. O importante é você não ficar devendo.
+                <strong>Você não precisa ser rico pra cuidar do seu dinheiro.</strong>
               </p>
               
               <p className="text-lg text-gray-700 max-w-2xl mx-auto mb-6">
-                Se você conseguir fechar o mês no zero, sem ficar no vermelho, 
-                já está no caminho certo. Quando a situação melhorar, 
-                aí sim você pensa em guardar.
+                Mas se você aprender a cuidar do pouco, vai estar muito mais preparado quando vier o muito.
               </p>
               
-              <div className="bg-green-100 rounded-xl p-6 border border-green-300 mb-6">
-                <p className="text-xl font-bold text-green-800 text-center mb-2">
-                  💡 "Não se compare com quem investe milhares. Compare-se com você de um ano atrás."
-                </p>
-                <p className="text-base text-green-700 text-center">
-                  Se hoje você termina no zero, mas antes ficava no vermelho, você já evoluiu muito!
+              <div className="bg-green-100 rounded-xl p-6 border border-green-300">
+                <p className="text-lg text-green-800 text-center font-medium">
+                  Esse site aqui é pra isso: te ajudar a construir uma base financeira, 
+                  mesmo que ninguém tenha te ensinado isso antes.
                 </p>
               </div>
-              
-              <p className="text-lg font-semibold text-green-700 mb-4">
-                Lembre-se: não ficar no negativo é mais importante que guardar dinheiro.
-              </p>
-              
-              <p className="text-base text-gray-600">
-                E se você ganha muito pouco mesmo, foque primeiro em aumentar a renda. 
-                Seja com um trabalho extra, uma habilidade nova, ou qualquer oportunidade que aparecer.
-              </p>
             </div>
           </motion.section>
 
