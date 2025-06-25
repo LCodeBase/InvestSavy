@@ -8,7 +8,7 @@
 
   <!-- Homepage -->
   <url>
-    <loc>https://investsavy.com.br/</loc>
+    <loc>https://investsavy.online/</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
@@ -16,42 +16,42 @@
 
   <!-- Main Pages -->
   <url>
-    <loc>https://investsavy.com.br/artigos</loc>
+    <loc>https://investsavy.online/artigos</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://investsavy.com.br/atualidades</loc>
+    <loc>https://investsavy.online/atualidades</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://investsavy.com.br/ferramentas</loc>
+    <loc>https://investsavy.online/ferramentas</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://investsavy.com.br/aprenda</loc>
+    <loc>https://investsavy.online/aprenda</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://investsavy.com.br/sobre</loc>
+    <loc>https://investsavy.online/sobre</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://investsavy.com.br/contato</loc>
+    <loc>https://investsavy.online/contato</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -59,7 +59,7 @@
 
   <!-- Tools -->
   <url>
-    <loc>https://investsavy.com.br/calculadora-juros</loc>
+    <loc>https://investsavy.online/calculadora-juros</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -67,14 +67,14 @@
 
   <!-- Legal Pages -->
   <url>
-    <loc>https://investsavy.com.br/politica-privacidade</loc>
+    <loc>https://investsavy.online/politica-privacidade</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
 
   <url>
-    <loc>https://investsavy.com.br/termos-uso</loc>
+    <loc>https://investsavy.online/termos-uso</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -82,42 +82,42 @@
 
   <!-- Individual Articles -->
   <url>
-    <loc>https://investsavy.com.br/artigos/como-investir-tesouro-direto-iniciantes</loc>
+    <loc>https://investsavy.online/artigos/como-investir-tesouro-direto-iniciantes</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://investsavy.com.br/artigos/certificacao-cpa-20-vale-pena-investimento</loc>
+    <loc>https://investsavy.online/artigos/certificacao-cpa-20-vale-pena-investimento</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://investsavy.com.br/artigos/diversificacao-carteira-investimentos-guia-completo</loc>
+    <loc>https://investsavy.online/artigos/diversificacao-carteira-investimentos-guia-completo</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://investsavy.com.br/artigos/fundos-imobiliarios-guia-iniciantes</loc>
+    <loc>https://investsavy.online/artigos/fundos-imobiliarios-guia-iniciantes</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://investsavy.com.br/artigos/acoes-dividendos-renda-passiva</loc>
+    <loc>https://investsavy.online/artigos/acoes-dividendos-renda-passiva</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://investsavy.com.br/artigos/planejamento-financeiro-aposentadoria</loc>
+    <loc>https://investsavy.online/artigos/planejamento-financeiro-aposentadoria</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -125,21 +125,21 @@
 
   <!-- Individual News -->
   <url>
-    <loc>https://investsavy.com.br/atualidades/banco-central-corta-taxa-selic</loc>
+    <loc>https://investsavy.online/atualidades/banco-central-corta-taxa-selic</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://investsavy.com.br/atualidades/nova-regulamentacao-fundos-investimento</loc>
+    <loc>https://investsavy.online/atualidades/nova-regulamentacao-fundos-investimento</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://investsavy.com.br/atualidades/mercado-acoes-volatilidade-cenario-economico</loc>
+    <loc>https://investsavy.online/atualidades/mercado-acoes-volatilidade-cenario-economico</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>

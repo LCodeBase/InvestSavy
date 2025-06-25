@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Layout from '../components/Layout';
 import SEOHead from '../components/SEOHead';
 import { seoConfig } from '../config/seo';
@@ -411,7 +412,7 @@ const Sobre = () => {
                   
                   <CardHeader className="relative z-10 pb-8">
                     <div className={`inline-flex items-center justify-center w-24 h-24 ${value.iconBg} rounded-[2rem] mx-auto mb-8 group-hover/value:scale-125 transition-all duration-500 shadow-xl`}>
-                      <value.icon className={`w-12 h-12 bg-gradient-to-br ${value.color} bg-clip-text text-transparent`} />
+                      <value.icon className={`w-12 h-12 ${value.textColor}`} />
                     </div>
                     <CardTitle className="text-3xl font-black text-gray-900 group-hover/value:scale-105 transition-transform duration-300">
                       {value.title}
@@ -580,10 +581,10 @@ const Sobre = () => {
                   
                   {/* Call to Action */}
                   <div className="pt-6">
-                    <div className="inline-flex items-center space-x-2 px-6 py-3 bg-white/20 backdrop-blur-sm rounded-xl border border-white/30 hover:bg-white/25 transition-all duration-300 group/button cursor-pointer">
+                    <Link to="/ferramentas" className="inline-flex items-center space-x-2 px-6 py-3 bg-white/20 backdrop-blur-sm rounded-xl border border-white/30 hover:bg-white/25 transition-all duration-300 group/button cursor-pointer">
                       <span className="text-lg font-bold">Explore nossas ferramentas</span>
                       <ArrowRight className="w-5 h-5 group-hover/button:translate-x-1 transition-transform duration-300" />
-                    </div>
+                    </Link>
                   </div>
                 </div>
               </CardContent>

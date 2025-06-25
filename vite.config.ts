@@ -19,7 +19,7 @@ export default defineConfig(({ mode }) => ({
       ...SECURITY_HEADERS,
       'Content-Security-Policy': generateCSPString(),
       // Permitir conexões locais em desenvolvimento
-      'Access-Control-Allow-Origin': mode === 'development' ? '*' : 'https://investsavy.com.br',
+      'Access-Control-Allow-Origin': mode === 'development' ? '*' : 'https://investsavy.online',
       'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
       'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-Requested-With, X-CSRF-Token'
     }

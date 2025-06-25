@@ -92,8 +92,8 @@ export const SECURITY_HEADERS = {
 // Configurações de CORS
 export const CORS_CONFIG = {
   origin: [
-    'https://investsavy.com.br',
-    'https://www.investsavy.com.br',
+    'https://investsavy.online',
+    'https://www.investsavy.online',
     'http://localhost:8080', // Para desenvolvimento
     'http://localhost:3000', // Para desenvolvimento
     'http://127.0.0.1:8080' // Para desenvolvimento

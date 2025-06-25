@@ -337,8 +337,8 @@ export const SecurityProvider: React.FC<SecurityProviderProps> = ({
   // Verificar se a fonte é permitida
   const isAllowedSource = (src: string): boolean => {
     const allowedDomains = [
-      'investsavy.com.br',
-      'www.investsavy.com.br',
+      'investsavy.online',
+      'www.investsavy.online',
       'localhost',
       '127.0.0.1',
       'fonts.googleapis.com',
