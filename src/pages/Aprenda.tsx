@@ -414,9 +414,7 @@ const Aprenda = () => {
                       <Link to={topic.href || '/aprenda'} className="block">
                         <div className={`${topic.color} rounded-2xl p-6 border hover:shadow-lg transition-all duration-300 group relative`}>
                           <div className="absolute top-4 right-4">
-                            <span className="inline-block px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs font-medium">
-                              Disponível
-                            </span>
+
                           </div>
                           
                           <div className="flex items-center justify-between mb-4">

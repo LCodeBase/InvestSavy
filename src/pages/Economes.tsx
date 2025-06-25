@@ -416,7 +416,6 @@ const Economes = () => {
               </div>
             )}
           </motion.div>
-
           {/* Seções de termos */}
           {(!selectedCategory || selectedCategory === 'basico') && renderTermSection(
             "Termos Básicos",

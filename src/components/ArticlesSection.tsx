@@ -10,25 +10,27 @@ const ArticlesSection = () => {
       title: 'Orçamento Pessoal',
       excerpt: 'Um guia prático para começar a cuidar do dinheiro e tentar sair do vermelho.',
       readTime: '11 min',
-      date: '15 Jan 2025',
+      date: '24 de Junho de 2025',
       category: 'Investimentos',
       href: '/aprenda',
-      featured: true
-    },
-    {
-      title: 'Por Que a Reserva de Emergência É Mais Importante Que Investir',
-      excerpt: 'Entenda por que você deve priorizar sua segurança financeira antes de buscar rentabilidade.',
-      readTime: '6 min',
-      date: '12 Jan 2025',
-      category: 'Finanças Pessoais',
       featured: false
     },
     {
-      title: 'Reflexão: Como Mudei Minha Relação com o Dinheiro',
-      excerpt: 'Uma reflexão pessoal sobre os erros que cometi e as lições que aprendi na minha jornada financeira.',
+      title: 'Economês Descomplicado',
+      excerpt: 'Dicionário completo dos termos financeiros explicados de forma simples',
+      readTime: '15 min',
+      date: '25 de Junho de 2025',
+      category: 'Investimentos',
+     href: '/aprenda',
+      featured: true
+    },
+    {
+      title: 'Reflexão: Como o Dinheiro Controla Sua Vida e Você nem sabe',
+      excerpt: 'Reflexão completa sobre como o dinheiro pode influenciar sua vida.',
       readTime: '10 min',
-      date: '08 Jan 2025',
+      date: '24 de Junho de 2025',
       category: 'Reflexões',
+            href: '/aprenda',
       featured: false
     }
   ];
