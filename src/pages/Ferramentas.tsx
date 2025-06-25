@@ -149,7 +149,7 @@ const Ferramentas = () => {
   ];
 
   const stats = [
-    { label: 'Ferramentas Disponíveis', value: '12+', icon: Calculator },
+    { label: 'Ferramentas Disponíveis', value: '5+', icon: Calculator },
     { label: 'Usuários Ativos', value: '50k+', icon: Users },
     { label: 'Cálculos Realizados', value: '2M+', icon: Zap },
     { label: 'Avaliação Média', value: '4.9', icon: Star }

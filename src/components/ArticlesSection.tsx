@@ -7,11 +7,12 @@ import { motion } from 'framer-motion';
 const ArticlesSection = () => {
   const articles = [
     {
-      title: 'Como Montar Sua Primera Carteira de Investimentos',
-      excerpt: 'Um guia prático para começar a investir com segurança, mesmo com pouco dinheiro.',
-      readTime: '8 min',
+      title: 'Orçamento Pessoal',
+      excerpt: 'Um guia prático para começar a cuidar do dinheiro e tentar sair do vermelho.',
+      readTime: '11 min',
       date: '15 Jan 2025',
       category: 'Investimentos',
+      href: '/aprenda',
       featured: true
     },
     {
@@ -89,38 +90,75 @@ const ArticlesSection = () => {
               whileHover={{ y: -8, transition: { duration: 0.3 } }}
               className="group cursor-pointer"
             >
-              <div className={`${article.featured ? 'bg-white border-2 border-green-200' : 'bg-white border border-gray-100'} rounded-2xl p-6 h-full hover:shadow-2xl transition-all duration-500`}>
-                <div className="flex items-center justify-between text-sm text-gray-500 mb-4">
-                  <div className="flex items-center">
-                    <span className={`${article.featured ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-600'} px-3 py-1 rounded-full text-xs font-medium`}>
-                      {article.category}
-                    </span>
-                    {article.featured && (
-                      <Star className="w-4 h-4 text-green-500 ml-2 fill-current" />
-                    )}
+              {article.href ? (
+                <Link to={article.href} className="block h-full">
+                  <div className={`${article.featured ? 'bg-white border-2 border-green-200' : 'bg-white border border-gray-100'} rounded-2xl p-6 h-full hover:shadow-2xl transition-all duration-500`}>
+                    <div className="flex items-center justify-between text-sm text-gray-500 mb-4">
+                      <div className="flex items-center">
+                        <span className={`${article.featured ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-600'} px-3 py-1 rounded-full text-xs font-medium`}>
+                          {article.category}
+                        </span>
+                        {article.featured && (
+                          <Star className="w-4 h-4 text-green-500 ml-2 fill-current" />
+                        )}
+                      </div>
+                      <div className="flex items-center">
+                        <Clock className="w-4 h-4 mr-1" />
+                        <span>{article.readTime}</span>
+                      </div>
+                    </div>
+                    
+                    <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-green-600 transition-colors leading-tight">
+                      {article.title}
+                    </h3>
+                    
+                    <p className="text-gray-600 mb-6 leading-relaxed">
+                      {article.excerpt}
+                    </p>
+                    
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center text-sm text-gray-500">
+                        <Calendar className="w-4 h-4 mr-1" />
+                        <span>{article.date}</span>
+                      </div>
+                      <ArrowRight className="w-5 h-5 text-green-600 group-hover:translate-x-2 transition-transform duration-300" />
+                    </div>
                   </div>
-                  <div className="flex items-center">
-                    <Clock className="w-4 h-4 mr-1" />
-                    <span>{article.readTime}</span>
+                </Link>
+              ) : (
+                <div className={`${article.featured ? 'bg-white border-2 border-green-200' : 'bg-white border border-gray-100'} rounded-2xl p-6 h-full hover:shadow-2xl transition-all duration-500`}>
+                  <div className="flex items-center justify-between text-sm text-gray-500 mb-4">
+                    <div className="flex items-center">
+                      <span className={`${article.featured ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-600'} px-3 py-1 rounded-full text-xs font-medium`}>
+                        {article.category}
+                      </span>
+                      {article.featured && (
+                        <Star className="w-4 h-4 text-green-500 ml-2 fill-current" />
+                      )}
+                    </div>
+                    <div className="flex items-center">
+                      <Clock className="w-4 h-4 mr-1" />
+                      <span>{article.readTime}</span>
+                    </div>
+                  </div>
+                  
+                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-green-600 transition-colors leading-tight">
+                    {article.title}
+                  </h3>
+                  
+                  <p className="text-gray-600 mb-6 leading-relaxed">
+                    {article.excerpt}
+                  </p>
+                  
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center text-sm text-gray-500">
+                      <Calendar className="w-4 h-4 mr-1" />
+                      <span>{article.date}</span>
+                    </div>
+                    <ArrowRight className="w-5 h-5 text-green-600 group-hover:translate-x-2 transition-transform duration-300" />
                   </div>
                 </div>
-                
-                <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-green-600 transition-colors leading-tight">
-                  {article.title}
-                </h3>
-                
-                <p className="text-gray-600 mb-6 leading-relaxed">
-                  {article.excerpt}
-                </p>
-                
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center text-sm text-gray-500">
-                    <Calendar className="w-4 h-4 mr-1" />
-                    <span>{article.date}</span>
-                  </div>
-                  <ArrowRight className="w-5 h-5 text-green-600 group-hover:translate-x-2 transition-transform duration-300" />
-                </div>
-              </div>
+              )}
             </motion.article>
           ))}
         </motion.div>
