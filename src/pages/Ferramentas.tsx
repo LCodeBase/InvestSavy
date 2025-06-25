@@ -150,8 +150,8 @@ const Ferramentas = () => {
 
   const stats = [
     { label: 'Ferramentas Disponíveis', value: '5+', icon: Calculator },
-    { label: 'Usuários Ativos', value: '50k+', icon: Users },
-    { label: 'Cálculos Realizados', value: '2M+', icon: Zap },
+    { label: 'Usuários Ativos', value: '100+', icon: Users },
+    { label: 'Cálculos Realizados', value: '2000+', icon: Zap },
     { label: 'Avaliação Média', value: '4.9', icon: Star }
   ];
 
