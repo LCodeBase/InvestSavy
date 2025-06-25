@@ -7,6 +7,7 @@ import AtualidadeIndividual from "./pages/AtualidadeIndividual";
 import CalculadoraJuros from "./pages/CalculadoraJuros";
 import ParceladoVsAVista from './pages/ParceladoVsAVista';
 import OrcamentoPessoal from './pages/OrcamentoPessoal';
+import Economes from './pages/Economes';
 import Contato from "./pages/Contato";
 import Ferramentas from "./pages/Ferramentas";
 import NotFound from "./pages/NotFound";
@@ -59,6 +60,11 @@ export const navItems = [
     title: "Orçamento Pessoal",
     to: "/aprenda/orcamento-pessoal",
     component: OrcamentoPessoal,
+  },
+  {
+    title: "Economês Descomplicado",
+    to: "/aprenda/economes",
+    component: Economes,
   },
   {
     title: "Contato",

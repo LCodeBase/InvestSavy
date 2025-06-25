@@ -127,6 +127,17 @@ const Aprenda = () => {
 
   const economyTopics = [
     {
+      title: 'Economês Descomplicado',
+      description: 'Dicionário completo dos termos financeiros explicados de forma simples',
+      icon: BookOpen,
+      level: 'Básico',
+      time: '25 min',
+      color: 'bg-blue-50 border-blue-200',
+      iconColor: 'text-blue-600',
+      available: true,
+      href: '/aprenda/economes'
+    },
+    {
       title: 'Inflação e IPCA',
       description: 'Como a inflação afeta seu dinheiro e seus investimentos',
       icon: TrendingUp,
@@ -396,44 +407,87 @@ const Aprenda = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {economyTopics.map((topic, index) => (
-                <motion.div
-                  key={index}
-                  variants={itemVariants}
-                  className={`${topic.color} rounded-2xl p-6 border transition-all duration-300 group relative opacity-75`}
-                >
-                  <div className="absolute top-4 right-4">
-                    <span className="inline-block px-3 py-1 bg-orange-100 text-orange-700 rounded-full text-xs font-medium">
-                      Em breve
-                    </span>
-                  </div>
-                  
-                  <div className="flex items-center justify-between mb-4">
-                    <div className={`p-3 bg-white rounded-xl shadow-sm`}>
-                      <topic.icon className={`w-6 h-6 ${topic.iconColor}`} />
-                    </div>
-                    <div className="text-right">
-                      <span className="inline-block px-2 py-1 bg-white rounded-full text-xs font-medium text-gray-600 mb-1">
-                        {topic.level}
-                      </span>
-                      <p className="text-xs text-gray-500">{topic.time}</p>
-                    </div>
-                  </div>
-                  
-                  <h3 className="text-lg font-bold text-gray-600 mb-3">
-                    {topic.title}
-                  </h3>
-                  
-                  <p className="text-gray-500 text-sm leading-relaxed mb-4">
-                    {topic.description}
-                  </p>
+              {economyTopics.map((topic, index) => {
+                if (topic.available) {
+                  return (
+                    <motion.div key={index} variants={itemVariants}>
+                      <Link to={topic.href || '/aprenda'} className="block">
+                        <div className={`${topic.color} rounded-2xl p-6 border hover:shadow-lg transition-all duration-300 group relative`}>
+                          <div className="absolute top-4 right-4">
+                            <span className="inline-block px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs font-medium">
+                              Disponível
+                            </span>
+                          </div>
+                          
+                          <div className="flex items-center justify-between mb-4">
+                            <div className={`p-3 bg-white rounded-xl shadow-sm group-hover:shadow-md transition-shadow`}>
+                              <topic.icon className={`w-6 h-6 ${topic.iconColor}`} />
+                            </div>
+                            <div className="text-right">
+                              <span className="inline-block px-2 py-1 bg-white rounded-full text-xs font-medium text-gray-600 mb-1">
+                                {topic.level}
+                              </span>
+                              <p className="text-xs text-gray-500">{topic.time}</p>
+                            </div>
+                          </div>
+                          
+                          <h3 className="text-lg font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
+                            {topic.title}
+                          </h3>
+                          
+                          <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                            {topic.description}
+                          </p>
 
-                  <div className="flex items-center text-gray-400 font-medium text-sm">
-                    <ArrowRight className="w-4 h-4 mr-2" />
-                    Em desenvolvimento
-                  </div>
-                </motion.div>
-              ))}
+                          <div className="flex items-center text-blue-600 font-medium text-sm group-hover:text-blue-700 transition-colors">
+                            <ArrowRight className="w-4 h-4 mr-2 group-hover:translate-x-1 transition-transform" />
+                            Começar agora
+                          </div>
+                        </div>
+                      </Link>
+                    </motion.div>
+                  );
+                } else {
+                  return (
+                    <motion.div
+                      key={index}
+                      variants={itemVariants}
+                      className={`${topic.color} rounded-2xl p-6 border transition-all duration-300 group relative opacity-75`}
+                    >
+                      <div className="absolute top-4 right-4">
+                        <span className="inline-block px-3 py-1 bg-orange-100 text-orange-700 rounded-full text-xs font-medium">
+                          Em breve
+                        </span>
+                      </div>
+                      
+                      <div className="flex items-center justify-between mb-4">
+                        <div className={`p-3 bg-white rounded-xl shadow-sm`}>
+                          <topic.icon className={`w-6 h-6 ${topic.iconColor}`} />
+                        </div>
+                        <div className="text-right">
+                          <span className="inline-block px-2 py-1 bg-white rounded-full text-xs font-medium text-gray-600 mb-1">
+                            {topic.level}
+                          </span>
+                          <p className="text-xs text-gray-500">{topic.time}</p>
+                        </div>
+                      </div>
+                      
+                      <h3 className="text-lg font-bold text-gray-600 mb-3">
+                        {topic.title}
+                      </h3>
+                      
+                      <p className="text-gray-500 text-sm leading-relaxed mb-4">
+                        {topic.description}
+                      </p>
+
+                      <div className="flex items-center text-gray-400 font-medium text-sm">
+                        <ArrowRight className="w-4 h-4 mr-2" />
+                        Em desenvolvimento
+                      </div>
+                    </motion.div>
+                  );
+                }
+              })}
             </div>
           </motion.section>
 
