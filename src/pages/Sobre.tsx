@@ -277,16 +277,11 @@ const Sobre = () => {
 
                     <div className="space-y-6 text-gray-700 text-base lg:text-lg leading-relaxed">
                       <p className="border-l-4 border-emerald-500 pl-4 py-2">
-                        <strong className="text-gray-900">Não sou economista ou consultor financeiro</strong> - sou apenas uma pessoa comum que decidiu levar a sério sua relação com o dinheiro e transformar esse aprendizado em algo acessível para todos.
+                        <strong className="text-gray-900">Não sou economista ou consultor financeiro</strong> - Sou só um jovem de 18 anos que decidiu levar a sério a própria vida financeira e começar a entender como o dinheiro realmente funciona.
+                        <br></br><br></br>Hoje, estou fazendo faculdade e buscando entrar no mercado financeiro. Tenho estudado bastante e, mais do que isso, venho tentando aplicar esse aprendizado no dia a dia — de um jeito prático, direto, e pé no chão.
+                        <br></br> <br></br>O InvestSavy nasceu dessa vontade de aprender e de compartilhar esse caminho com quem também quer melhorar de vida, mesmo sem ter muito pra começar. Aqui não tem promessa de fórmula mágica. Tem conteúdo simples, real, feito por alguém que também está começando — mas com vontade de ir longe.
                       </p>
-                      
-                      <p className="border-l-4 border-blue-500 pl-4 py-2">
-                        <strong className="text-gray-900">Minha jornada começou aos 24 anos</strong>, quando percebi que não sabia praticamente nada sobre investimentos ou planejamento financeiro. Desde então, me dedico a estudar e aplicar conceitos de finanças de forma prática.
-                      </p>
-                      
-                      <p className="border-l-4 border-purple-500 pl-4 py-2">
-                        <strong className="text-gray-900">O InvestSavy nasceu dessa jornada</strong> - da vontade de compartilhar tudo que venho aprendendo de forma simples e direta. Sem promessas de riqueza rápida ou soluções milagrosas.
-                      </p>
+                  
                     </div>
 
                     {/* Simple Quote */}
