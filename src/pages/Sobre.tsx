@@ -253,11 +253,11 @@ const Sobre = () => {
                   {/* Photo */}
                   <div className="lg:col-span-2 flex justify-center">
                     <div className="relative">
-                      <div className="w-72 h-72 lg:w-80 lg:h-80 rounded-2xl bg-gray-100 shadow-lg overflow-hidden">
+                      <div className="w-80 h-96 lg:w-96 lg:h-[570px] rounded-2xl bg-gray-100 shadow-lg overflow-hidden">
                         <img
                           src="/me.png"
                           alt="Leonardo - Fundador do InvestSavy"
-                          className="w-full h-full object-cover"
+                          className="w-full h-full object-cover object-center"
                         />
                       </div>
                     </div>
