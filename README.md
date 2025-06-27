@@ -1,73 +1,119 @@
-# Welcome to your Lovable project
+# 💸 Learn Invest Savy
 
-## Project info
+[![Deploy Status](https://img.shields.io/badge/deploy-lovable.dev-green?style=flat-square)](https://lovable.dev/projects/e81e3a83-481b-4cff-8dff-b95030e51e88)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](LICENSE)
+[![Made with React](https://img.shields.io/badge/Made%20with-React-61DAFB?logo=react&logoColor=white&style=flat-square)](https://react.dev/)
+[![Tailwind CSS](https://img.shields.io/badge/TailwindCSS-38B2AC?logo=tailwind-css&logoColor=white&style=flat-square)](https://tailwindcss.com/)
 
-**URL**: https://lovable.dev/projects/e81e3a83-481b-4cff-8dff-b95030e51e88
+Bem-vindo ao **Learn Invest Savy**!  
+Uma plataforma moderna para aprender sobre investimentos, construída com as melhores tecnologias do mercado.
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## 📌 Projeto
 
-**Use Lovable**
+**URL de produção:**  
+[https://lovable.dev/projects/e81e3a83-481b-4cff-8dff-b95030e51e88](https://lovable.dev/projects/e81e3a83-481b-4cff-8dff-b95030e51e88)
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/e81e3a83-481b-4cff-8dff-b95030e51e88) and start prompting.
+O objetivo deste projeto é democratizar o acesso à educação financeira, oferecendo conteúdos, artigos e ferramentas para quem deseja aprender a investir de forma inteligente.
 
-Changes made via Lovable will be committed automatically to this repo.
+---
 
-**Use your preferred IDE**
+## 🚀 Tecnologias
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+Este projeto foi desenvolvido com:
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+- [Vite](https://vitejs.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [React](https://react.dev/)
+- [shadcn/ui](https://ui.shadcn.com/)
+- [Tailwind CSS](https://tailwindcss.com/)
 
-Follow these steps:
+---
+
+## ✨ Funcionalidades
+
+- 📚 Seção de artigos sobre investimentos
+- 👤 Área institucional
+- 🎯 Interface responsiva e moderna
+- ⚡️ Carregamento rápido com Vite
+- 🎨 UI customizável com Tailwind e shadcn/ui
+
+---
+
+## 🛠️ Como rodar localmente
+
+### Pré-requisitos
+
+- [Node.js](https://nodejs.org/) (recomendado usar [nvm](https://github.com/nvm-sh/nvm#installing-and-updating))
+- [npm](https://www.npmjs.com/)
+
+### Passo a passo
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+# 1. Clone o repositório
+git clone <URL_DO_SEU_REPOSITORIO>
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# 2. Acesse a pasta do projeto
+cd learn-invest-savy
 
-# Step 3: Install the necessary dependencies.
-npm i
+# 3. Instale as dependências
+npm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# 4. Inicie o servidor de desenvolvimento
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+Acesse [http://localhost:5173](http://localhost:5173) para ver o projeto rodando!
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+---
 
-**Use GitHub Codespaces**
+## 📝 Como contribuir
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+1. Faça um fork do projeto
+2. Crie uma branch para sua feature (`git checkout -b feature/nome-da-feature`)
+3. Commit suas alterações (`git commit -m 'feat: minha nova feature'`)
+4. Faça push para a sua branch (`git push origin feature/nome-da-feature`)
+5. Abra um Pull Request
 
-## What technologies are used for this project?
+---
 
-This project is built with:
+## 🖥️ Outras formas de editar
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+- **Via Lovable:**  
+  Edite diretamente em [Lovable](https://lovable.dev/projects/e81e3a83-481b-4cff-8dff-b95030e51e88) e as alterações serão salvas automaticamente neste repositório.
 
-## How can I deploy this project?
+- **Via GitHub:**  
+  Edite arquivos diretamente pelo GitHub usando o botão de lápis nos arquivos.
 
-Simply open [Lovable](https://lovable.dev/projects/e81e3a83-481b-4cff-8dff-b95030e51e88) and click on Share -> Publish.
+- **Via Codespaces:**  
+  Use o GitHub Codespaces para editar e rodar o projeto na nuvem.
 
-## Can I connect a custom domain to my Lovable project?
+---
 
-Yes, you can!
+## 🌐 Deploy
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+O deploy é feito automaticamente via [Lovable](https://lovable.dev/projects/e81e3a83-481b-4cff-8dff-b95030e51e88).  
+Para publicar, clique em **Share → Publish** dentro do painel do Lovable.
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+---
+
+## 🔗 Domínio personalizado
+
+Você pode conectar um domínio próprio ao projeto:
+
+1. Vá em **Project > Settings > Domains** no Lovable.
+2. Clique em **Connect Domain**.
+3. Siga o [guia oficial](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide).
+
+---
+
+## 📄 Licença
+
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+
+---
+
+<div align="center">
+  <sub>Feito com 💚 por <a href="https://github.com/seu-usuario">Seu Nome</a></sub>
+</div>
