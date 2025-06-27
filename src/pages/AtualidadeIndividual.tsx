@@ -2,112 +2,113 @@ import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Layout from '../components/Layout';
 import SEOHead from '../components/SEOHead';
-import { ArrowLeft, Clock, Calendar, TrendingUp, DollarSign, AlertCircle, Target, BarChart3, Lightbulb, CheckCircle, XCircle, Info } from 'lucide-react';
+import { ArrowLeft, Clock, Calendar, TrendingUp, TrendingDown, DollarSign, AlertCircle, AlertTriangle, Target, BarChart3, Lightbulb, CheckCircle, XCircle, Info, User } from 'lucide-react';
 import { Card, CardContent, CardHeader } from '../components/ui/card';
+import { seoConfig } from '../config/seo';
 
 const AtualidadeIndividual = () => {
   const { slug } = useParams<{ slug: string }>();
 
   // Base de dados das notícias (em um projeto real, isso viria de uma API)
   const newsDatabase = {
-    'selic-15-junho-2025': {
-      title: "Selic sobe para 15% ao ano em decisão esperada pelo Copom",
-      summary: "O Banco Central elevou a taxa Selic em 0,25 ponto percentual para 15% ao ano em junho de 2025, maior patamar desde 2006. A decisão visa conter a inflação que permanece acima da meta de 4,5%, com IPCA acumulando alta preocupante nos últimos 12 meses.",
-      impact: "Empréstimos pessoais, financiamentos e cartão de crédito ficam mais caros. Por outro lado, investimentos em renda fixa como CDB, LCI e Tesouro Direto tornam-se mais atrativos. Se você tem dívidas, priorize quitá-las. Se tem dinheiro guardado, considere renda fixa.",
-      date: "18 de junho de 2025",
+    'politica-monetaria-galipolo-2025': {
+      title: "Galípolo indica que Selic deve permanecer em 15% por mais tempo",
+      summary: "O presidente do Banco Central, Gabriel Galípolo, sinalizou que a taxa Selic, atualmente em 15%, deve permanecer estável devido ao processo de desaceleração da inflação. A decisão busca equilibrar o controle inflacionário com o crescimento econômico.",
+      impact: "Com a Selic alta por mais tempo, seus investimentos em renda fixa (CDB, Tesouro Direto) continuam rendendo bem. Porém, financiamentos e cartão de crédito ficam mais caros. É hora de quitar dívidas e aproveitar a renda fixa.",
+      date: "27 de junho de 2025",
       category: "Política Monetária",
       categoryColor: 'bg-blue-100 text-blue-700',
       priority: "high",
-      readTime: "8 min",
-      author: "Equipe InvestSavy",
+      readTime: "6 min",
+      author: "Redação InvestSavy",
       fullContent: {
-        context: "O Comitê de Política Monetária (Copom) do Banco Central do Brasil decidiu elevar a taxa Selic de 14,75% para 15% ao ano, em uma decisão unânime que marca o maior patamar da taxa básica de juros desde 2006. Esta foi a terceira alta consecutiva em 2025, totalizando um aumento de 1,25 ponto percentual desde março.",
+        context: "Em entrevista coletiva, o presidente do Banco Central, Gabriel Galípolo, indicou que a taxa Selic deve permanecer em 15% por um período mais longo do que inicialmente previsto. A decisão reflete a estratégia do BC de garantir que a inflação converja de forma sustentável para a meta de 3%, mesmo que isso signifique manter os juros elevados por mais tempo.",
         details: [
           {
-            subtitle: "Por que a Selic subiu?",
-            content: "A decisão foi motivada principalmente pela persistência da inflação acima da meta. O IPCA (Índice Nacional de Preços ao Consumidor Amplo) acumula alta de 6,8% nos últimos 12 meses, bem acima da meta de 4,5% estabelecida pelo governo. Os principais vilões têm sido os preços de alimentos, energia elétrica e combustíveis, que pressionaram os índices de inflação."
+            subtitle: "Estratégia de manutenção da Selic",
+            content: "Galípolo enfatizou que a desaceleração da inflação precisa ser consistente e duradoura antes de qualquer movimento de redução dos juros. O BC monitora de perto as expectativas de inflação, que ainda estão acima da meta de 3% para 2025."
           },
           {
-            subtitle: "Contexto econômico atual",
-            content: "O Brasil enfrenta um cenário desafiador com crescimento econômico moderado (PIB de 1,4% no primeiro trimestre) e inflação persistente. O mercado de trabalho aquecido, com taxa de desemprego em mínimas históricas, contribui para a pressão inflacionária através do aumento do consumo e da massa salarial."
+            subtitle: "Fatores que influenciam a decisão",
+            content: "A autoridade monetária quer evitar cortes prematuros que possam comprometer o controle inflacionário. O cenário internacional, com incertezas geopolíticas e volatilidade nos mercados, também influencia a decisão de manter a cautela."
           },
           {
-            subtitle: "Comparação histórica",
-            content: "A última vez que a Selic esteve em 15% foi em 2006, durante o governo Lula. Desde então, o Brasil passou por diferentes ciclos econômicos, incluindo a crise de 2008, o período de juros baixos entre 2012-2015, e a recessão de 2015-2016. O atual patamar reflete a necessidade de combater uma inflação que se mostrou mais resistente do que o esperado."
+            subtitle: "Impacto no mercado financeiro",
+            content: "A sinalização de que os juros permanecerão altos por mais tempo fortalece a renda fixa brasileira e pode atrair capital estrangeiro, mas também pressiona setores sensíveis aos juros como o imobiliário e de consumo."
           }
         ],
         analysis: {
           positiveImpacts: [
-            "Investimentos em renda fixa ficam mais atrativos, com CDBs podendo render acima de 16% ao ano",
-            "Tesouro Direto oferece rentabilidade real positiva para quem consegue aplicar",
-            "Poupança, mesmo com regra antiga, oferece retorno real positivo",
-            "Controle da inflação no médio prazo protege o poder de compra"
+            "Renda fixa continua oferecendo rentabilidade atrativa por mais tempo",
+            "CDBs de bancos médios podem render mais de 16% ao ano",
+            "Tesouro Direto Selic oferece segurança com boa rentabilidade",
+            "Controle inflacionário preserva poder de compra no longo prazo"
           ],
           negativeImpacts: [
-            "Empréstimos pessoais podem ultrapassar 200% ao ano em algumas instituições",
-            "Financiamentos imobiliários ficam mais caros, reduzindo demanda por imóveis",
-            "Cartão de crédito rotativo pode chegar a 400% ao ano",
-            "Empresas enfrentam maior custo de capital, podendo reduzir investimentos e empregos"
+            "Financiamentos continuam caros, dificultando compra de imóveis e veículos",
+            "Cartão de crédito mantém juros elevadíssimos, podendo superar 400% ao ano",
+            "Empresas enfrentam dificuldades para investir devido ao alto custo do capital",
+            "Consumo pode permanecer fraco, afetando o crescimento econômico"
           ],
           recommendations: [
-            "Quite dívidas de cartão de crédito e empréstimos pessoais imediatamente",
-            "Considere antecipar parcelas de financiamentos se tiver recursos",
-            "Aplique dinheiro parado em CDBs de bancos médios que oferecem 110-120% do CDI",
-            "Evite novos financiamentos até a Selic começar a cair",
-            "Mantenha reserva de emergência em investimentos líquidos como Tesouro Selic"
+            "Mantenha foco na quitação de dívidas caras como cartão e cheque especial",
+            "Aproveite os juros altos para investir em renda fixa de qualidade",
+            "Considere CDBs com liquidez diária que rendem mais que a poupança",
+            "Evite novos financiamentos, especialmente para consumo",
+            "Monte uma reserva de emergência robusta em Tesouro Selic"
           ]
         },
-        futureOutlook: "O Banco Central sinalizou que pode manter a Selic em patamar elevado por mais tempo do que inicialmente previsto. As próximas decisões dependerão da evolução da inflação, especialmente dos preços de alimentos e energia. Economistas projetam que a Selic pode permanecer acima de 14% até o final de 2025, com possibilidade de novos aumentos se a inflação não ceder."
+        futureOutlook: "A sinalização de Galípolo indica que os juros altos devem persistir até pelo menos o final de 2025. Isso é positivo para quem investe em renda fixa, mas desafiador para quem tem dívidas. O BC só deve considerar cortes quando houver sinais claros de que a inflação está sob controle de forma duradoura."
       }
     },
-    'bitcoin-111mil-junho-2025': {
-      title: "Fim da isenção fiscal para criptomoedas no Brasil",
-      summary: "O governo brasileiro acabou com a isenção de imposto de renda para ganhos até R$ 35 mil mensais com criptomoedas. A partir de 2026, qualquer lucro com Bitcoin e outras moedas digitais será tributado em 17,5%, com apuração trimestral obrigatória.",
-      impact: "Se você investe em criptomoedas, prepare-se para pagar mais impostos. Organize seus registros de compra e venda desde já. Para novos investidores, considere esse custo adicional ao calcular a rentabilidade. A tributação pode reduzir significativamente seus ganhos líquidos.",
-      date: "15 de junho de 2025",
+    'bitcoin-estavel-stablecoins-criminosos': {
+      title: "Bitcoin opera quase estável enquanto stablecoins preocupam autoridades",
+      summary: "O Bitcoin teve leve alta semanal de aproximadamente 1%, mantendo relativa estabilidade. Porém, o GAFI (Grupo de Ação Financeira Internacional) alertou sobre o crescente uso de stablecoins por organizações criminosas para lavagem de dinheiro.",
+      impact: "Se você investe em Bitcoin, a estabilidade é positiva para planejamento. Porém, fique atento às regulamentações sobre stablecoins que podem afetar todo o mercado cripto. Diversifique seus investimentos e evite concentrar tudo em criptomoedas.",
+      date: "26 de junho de 2025",
       category: "Criptomoedas",
-      categoryColor: 'bg-purple-100 text-purple-700',
-      priority: "high",
-      readTime: "6 min",
-      author: "Equipe InvestSavy",
+      categoryColor: 'bg-orange-100 text-orange-700',
+      priority: "medium",
+      readTime: "5 min",
+      author: "Redação InvestSavy",
       fullContent: {
-        context: "Em uma decisão que impacta milhões de brasileiros investidores em criptomoedas, o governo federal publicou nova regulamentação que elimina a isenção de imposto de renda para ganhos mensais de até R$ 35 mil com moedas digitais. A medida, que entra em vigor em janeiro de 2026, representa uma mudança significativa no tratamento fiscal das criptomoedas no país.",
+        context: "O mercado de criptomoedas apresentou relativa estabilidade na semana, com o Bitcoin registrando leve alta de 1%. Paralelamente, o GAFI divulgou relatório alertando sobre o aumento significativo do uso de stablecoins por organizações criminosas, levantando preocupações sobre a necessidade de maior regulamentação no setor.",
         details: [
           {
-            subtitle: "Como funcionava antes",
-            content: "Até dezembro de 2025, investidores em criptomoedas não pagavam imposto de renda sobre ganhos de capital quando as vendas mensais não ultrapassavam R$ 35 mil. Essa isenção, similar à aplicada em ações na bolsa, tornava o investimento em Bitcoin e outras moedas digitais mais atrativo para pequenos investidores."
+            subtitle: "Estabilidade do Bitcoin",
+            content: "O Bitcoin manteve-se próximo aos US$ 65.000, com volatilidade reduzida em comparação às semanas anteriores. A estabilidade reflete maior maturidade do mercado e crescente adoção institucional, mas também pode indicar consolidação antes de movimentos mais significativos."
           },
           {
-            subtitle: "As novas regras",
-            content: "A partir de 2026, qualquer ganho com criptomoedas será tributado em 17,5%, independentemente do valor. A apuração será trimestral, e os investidores deverão manter registros detalhados de todas as transações. Perdas poderão ser compensadas com ganhos, mas apenas dentro da categoria de criptomoedas."
+            subtitle: "Alerta sobre stablecoins",
+            content: "O GAFI identificou aumento de 60% no uso de stablecoins para atividades ilícitas em 2025. Essas moedas digitais, que mantêm valor atrelado ao dólar, são preferidas por criminosos devido à facilidade de transferência e menor rastreabilidade em algumas redes."
           },
           {
-            subtitle: "Justificativa do governo",
-            content: "O governo argumenta que a medida visa aumentar a arrecadação e equalizar o tratamento tributário entre diferentes classes de ativos. Estima-se que a nova tributação possa gerar R$ 8 bilhões anuais em receita adicional, considerando o crescimento do mercado de criptomoedas no Brasil."
+            subtitle: "Impacto regulatório",
+            content: "O relatório do GAFI pode acelerar regulamentações mais rígidas para stablecoins globalmente. Países como Estados Unidos e União Europeia já estudam regras específicas para esses ativos, o que pode afetar sua disponibilidade e uso."
           }
         ],
         analysis: {
           positiveImpacts: [
-            "Maior regulamentação pode trazer mais segurança jurídica ao setor",
-            "Equalização tributária entre diferentes investimentos",
-            "Possível redução da volatilidade especulativa no mercado",
-            "Maior controle sobre lavagem de dinheiro e evasão fiscal"
+            "Estabilidade do Bitcoin oferece maior previsibilidade para investidores",
+            "Menor volatilidade pode atrair investidores mais conservadores",
+            "Regulamentação adequada pode trazer mais segurança ao mercado",
+            "Combate ao uso criminoso fortalece a legitimidade das criptomoedas"
           ],
           negativeImpacts: [
-            "Redução significativa da rentabilidade líquida dos investimentos",
-            "Maior complexidade na declaração de imposto de renda",
-            "Possível migração de investidores para exchanges internacionais",
-            "Impacto negativo no desenvolvimento do setor de blockchain no Brasil"
+            "Regulamentações rígidas podem limitar o acesso a stablecoins",
+            "Possível redução da liquidez em alguns mercados",
+            "Maior burocracia para uso de criptomoedas",
+            "Risco de proibição de certas stablecoins em alguns países"
           ],
           recommendations: [
-            "Organize todos os registros de transações desde o início dos investimentos",
-            "Considere realizar ganhos ainda em 2025 para aproveitar a isenção",
-            "Avalie se vale a pena manter investimentos em criptomoedas com a nova tributação",
-            "Procure orientação de contador especializado em criptomoedas",
-            "Compare a rentabilidade líquida com outros investimentos após os impostos"
+            "Diversifique entre diferentes criptomoedas, não concentre apenas em Bitcoin",
+            "Use apenas exchanges regulamentadas e confiáveis",
+            "Mantenha registros detalhados de todas as transações",
+            "Evite stablecoins de origem duvidosa ou não regulamentadas",
+            "Considere também investimentos tradicionais para equilibrar o portfólio"
           ]
         },
-        futureOutlook: "A nova tributação pode levar a uma consolidação do mercado brasileiro de criptomoedas, com maior participação de investidores institucionais e redução do interesse de pequenos investidores. O governo também estuda a criação de uma moeda digital do Banco Central (CBDC), que pode ter tratamento tributário diferenciado."
+        futureOutlook: "A tendência é de maior regulamentação do mercado de stablecoins, o que pode trazer mais segurança mas também limitar algumas funcionalidades. O Bitcoin deve continuar se beneficiando de sua posição como 'ouro digital', especialmente se regulamentações forem favoráveis às criptomoedas estabelecidas."
       }
     },
     'fmi-crescimento-brasil-2025': {
@@ -195,119 +196,154 @@ const AtualidadeIndividual = () => {
         futureOutlook: "A situação geopolítica permanece volátil, exigindo acompanhamento constante dos investidores."
       }
     },
-    'real-depreciacao-2024-2025': {
-      title: "Wall Street reavalia projeções para S&P 500 em meio a tensões",
-      summary: "As tensões geopolíticas no Oriente Médio causaram queda no S&P 500 e cautela nos mercados globais. Wall Street está reavaliando as projeções para 2025 devido a incertezas geopolíticas e possíveis mudanças nas políticas comerciais americanas.",
-      impact: "Mercados internacionais mais voláteis podem afetar seus investimentos em fundos globais ou ações americanas. Mantenha a calma e não tome decisões impulsivas. Se investe no exterior, considere diversificar mais em ativos brasileiros para reduzir riscos.",
-      date: "14 de junho de 2025",
-      category: "Investimentos",
-      categoryColor: 'bg-indigo-100 text-indigo-700',
-      priority: "medium",
+    'mercado-focus-inflacao-pib': {
+      title: "Mercado reduz projeção de inflação e eleva PIB para 2025",
+      summary: "O Boletim Focus desta semana trouxe revisões importantes: inflação estimada em 5,24% e PIB em 2,21% para 2025. O dólar deve fechar o ano em R$ 5,72, segundo analistas do mercado financeiro.",
+      impact: "Inflação mais baixa é boa notícia para seu dinheiro render mais. PIB maior significa economia crescendo e mais oportunidades de emprego. Para investimentos, ações brasileiras podem se beneficiar do crescimento.",
+      date: "26 de junho de 2025",
+      category: "Economia",
+      categoryColor: 'bg-green-100 text-green-700',
+      priority: "high",
       readTime: "5 min",
-      author: "Equipe InvestSavy",
+      author: "Redação InvestSavy",
       fullContent: {
-        context: "Os mercados americanos enfrentam período de incerteza com reavaliação das projeções para 2025 em meio a tensões geopolíticas crescentes.",
+        context: "O Boletim Focus desta semana apresentou revisões significativas nas projeções econômicas para 2025. Os analistas do mercado financeiro reduziram a estimativa de inflação (IPCA) de 5,31% para 5,24% e elevaram a projeção de crescimento do PIB de 2,15% para 2,21%. A estimativa para o dólar no final do ano permaneceu em R$ 5,72.",
         details: [
           {
-            subtitle: "Impacto no S&P 500",
-            content: "O índice S&P 500 registrou quedas significativas, com investidores buscando ativos mais seguros em meio às incertezas."
+            subtitle: "Inflação em trajetória de melhora",
+            content: "A redução na projeção de inflação reflete a eficácia das medidas do Banco Central e a desaceleração de alguns preços importantes. Combustíveis e alimentos têm mostrado estabilidade, enquanto serviços ainda pressionam o índice. A meta do BC é de 3% com tolerância até 4,5%."
+          },
+          {
+            subtitle: "PIB com perspectivas otimistas",
+            content: "O aumento na projeção do PIB para 2,21% indica confiança na recuperação econômica. Setores como serviços, construção civil e agronegócio têm mostrado sinais positivos. O consumo das famílias e os investimentos empresariais são os principais motores do crescimento."
+          },
+          {
+            subtitle: "Dólar estável em cenário desafiador",
+            content: "A manutenção da projeção do dólar em R$ 5,72 sugere expectativa de estabilidade cambial. Isso depende da continuidade das políticas econômicas atuais e do cenário internacional, especialmente as decisões do Federal Reserve americano."
           }
         ],
         analysis: {
           positiveImpacts: [
-            "Oportunidades de compra em ativos descontados",
-            "Fortalecimento de ativos brasileiros"
+            "Inflação menor preserva poder de compra das famílias",
+            "PIB maior indica mais empregos e oportunidades",
+            "Ambiente favorável para investimentos em ações brasileiras",
+            "Possibilidade de cortes futuros na taxa Selic"
           ],
           negativeImpacts: [
-            "Volatilidade em investimentos internacionais",
-            "Incerteza sobre retornos futuros"
+            "Inflação ainda acima da meta do Banco Central",
+            "Crescimento do PIB pode pressionar preços",
+            "Incertezas sobre sustentabilidade do crescimento",
+            "Dependência de fatores externos para manter projeções"
           ],
           recommendations: [
-            "Mantenha a calma",
-            "Diversifique geograficamente",
-            "Considere ativos brasileiros",
-            "Evite decisões impulsivas"
+            "Considere aumentar exposição a ações de empresas brasileiras",
+            "Avalie fundos de ações focados no mercado doméstico",
+            "Mantenha parte da carteira em renda fixa para proteção",
+            "Acompanhe setores beneficiados pelo crescimento (varejo, bancos)",
+            "Diversifique entre diferentes classes de ativos"
           ]
         },
-        futureOutlook: "A volatilidade deve persistir enquanto as tensões geopolíticas não se resolverem."
+        futureOutlook: "As projeções do Focus indicam um cenário moderadamente otimista para a economia brasileira. O desafio será manter o crescimento sem pressionar demais a inflação. O Banco Central deve continuar vigilante, e cortes na Selic só devem ocorrer se a inflação convergir consistentemente para a meta."
       }
     },
-    'ia-tokens-cripto-2025': {
-      title: "Inteligência Artificial pode impactar 31 milhões de empregos no Brasil",
-      summary: "Estudo revela que a IA generativa pode afetar 31,3 milhões de empregos no Brasil, atingindo 13 áreas profissionais. Porém, a tendência é de reestruturação de tarefas, não extinção de funções. 72% das empresas já adotaram IA em 2024, e 54% dos brasileiros já usaram IA generativa.",
-      impact: "Invista em qualificação e aprendizado contínuo. Profissões que exigem criatividade, relacionamento humano e pensamento crítico são menos vulneráveis. Considere cursos de tecnologia e desenvolva habilidades que complementem a IA, não que competem com ela.",
-      date: "16 de junho de 2025",
-      category: "Tecnologia",
-      categoryColor: 'bg-cyan-100 text-cyan-700',
+    'bc-eleva-previsao-pib-2025': {
+      title: "Banco Central eleva previsão de crescimento do PIB para 2,1%",
+      summary: "O Relatório de Política Monetária do Banco Central ajustou a estimativa de crescimento econômico para 2025, elevando de 1,9% para 2,1%. A revisão reflete sinais positivos da economia brasileira.",
+      impact: "PIB maior significa economia mais forte e mais oportunidades de trabalho. Para seus investimentos, isso é positivo para ações de empresas brasileiras. Bancos e varejo podem se beneficiar especialmente.",
+      date: "24 de junho de 2025",
+      category: "Economia",
+      categoryColor: 'bg-green-100 text-green-700',
       priority: "medium",
       readTime: "4 min",
-      author: "Equipe InvestSavy",
+      author: "Redação InvestSavy",
       fullContent: {
-        context: "Estudo abrangente revela o impacto da inteligência artificial no mercado de trabalho brasileiro, mostrando tanto desafios quanto oportunidades.",
+        context: "O Banco Central do Brasil divulgou seu Relatório de Política Monetária (RPM) com revisão para cima na projeção de crescimento do PIB em 2025. A estimativa passou de 1,9% para 2,1%, refletindo dados econômicos mais positivos que o esperado e maior confiança na recuperação da economia brasileira.",
         details: [
           {
-            subtitle: "Áreas mais afetadas",
-            content: "13 áreas profissionais podem ser impactadas, incluindo atendimento ao cliente, análise de dados e produção de conteúdo."
+            subtitle: "Fatores que motivaram a revisão",
+            content: "A elevação da projeção se baseia em dados recentes que mostram maior dinamismo do consumo das famílias, recuperação do mercado de trabalho e aumento dos investimentos empresariais. O setor de serviços tem mostrado especial vigor, contribuindo para o otimismo."
+          },
+          {
+            subtitle: "Setores em destaque",
+            content: "Serviços, construção civil e agronegócio são os setores que mais contribuem para a revisão positiva. O consumo das famílias, impulsionado pela melhora do emprego e renda, é um dos principais motores do crescimento esperado."
+          },
+          {
+            subtitle: "Comparação com outros países",
+            content: "A projeção de 2,1% coloca o Brasil em linha com outras economias emergentes da região. Argentina projeta 1,8%, México 2,3% e Chile 2,0%. O crescimento brasileiro está dentro da média regional, mas acima das expectativas iniciais."
           }
         ],
         analysis: {
           positiveImpacts: [
-            "Automatização de tarefas repetitivas",
-            "Criação de novas oportunidades",
-            "Aumento da produtividade"
+            "Maior geração de empregos e oportunidades",
+            "Aumento da renda e consumo das famílias",
+            "Ambiente favorável para investimentos em ações",
+            "Maior arrecadação de impostos para investimentos públicos"
           ],
           negativeImpacts: [
-            "Necessidade de requalificação",
-            "Possível desemprego temporário",
-            "Mudanças nas estruturas de trabalho"
+            "Possível pressão inflacionária com aquecimento da economia",
+            "Risco de Banco Central manter juros altos por mais tempo",
+            "Aumento da demanda pode pressionar preços",
+            "Dependência de fatores externos para sustentar crescimento"
           ],
           recommendations: [
-            "Invista em qualificação contínua",
-            "Desenvolva habilidades humanas",
-            "Aprenda a usar IA como ferramenta",
-            "Foque em criatividade e relacionamento"
+            "Considere aumentar exposição a ações de empresas brasileiras",
+            "Avalie setores beneficiados: bancos, varejo, construção",
+            "Mantenha diversificação entre renda fixa e variável",
+            "Acompanhe indicadores de inflação para ajustar estratégia",
+            "Considere fundos de ações focados no mercado doméstico"
           ]
         },
-        futureOutlook: "A adaptação será fundamental para profissionais em todas as áreas."
+        futureOutlook: "A revisão para cima é um sinal positivo, mas o BC mantém cautela. O crescimento sustentável depende do controle da inflação e da continuidade das reformas estruturais. A política monetária seguirá vigilante para equilibrar crescimento e estabilidade de preços."
       }
     },
-    'deficit-fiscal-brasil-2024': {
-      title: "Governo lança pacote fiscal que pode gerar R$ 40 bilhões anuais",
-      summary: "O governo publicou medidas tributárias incluindo aumento da taxação de Juros sobre Capital Próprio de 15% para 20%, regulamentação de apostas online (R$ 20 bi em impostos) e limitação de compensações tributárias. A reforma tributária continua em votação no Congresso.",
-      impact: "Se você recebe JCP de ações, seus rendimentos serão mais tributados. Apostas online ficarão mais caras com maior carga tributária. Para investidores, analise como essas mudanças afetam a rentabilidade líquida de seus investimentos em ações que pagam JCP.",
-      date: "8 de junho de 2025",
-      category: "Fiscal",
-      categoryColor: 'bg-yellow-100 text-yellow-700',
-      priority: "medium",
+    'intervencao-cambial-corte-iof': {
+      title: "Intervenção cambial e corte de IOF marcam a semana",
+      summary: "Banco Central vendeu US$ 1 bilhão e usou swaps cambiais para conter a alta do dólar, enquanto o Congresso derrubou decreto do governo sobre IOF. As medidas visam estabilizar o câmbio e reduzir custos para empresas.",
+      impact: "Dólar mais estável é bom para controlar a inflação e seus investimentos. Corte do IOF reduz custos para empresas que fazem negócios no exterior. Para você, pode significar produtos importados mais baratos.",
+      date: "23 de junho de 2025",
+      category: "Política Monetária",
+      categoryColor: 'bg-blue-100 text-blue-700',
+      priority: "high",
       readTime: "5 min",
-      author: "Equipe InvestSavy",
+      author: "Redação InvestSavy",
       fullContent: {
-        context: "O governo federal lançou um amplo pacote de medidas fiscais visando aumentar a arrecadação e equilibrar as contas públicas.",
+        context: "O Banco Central intensificou suas intervenções no mercado cambial vendendo US$ 1 bilhão à vista e realizando leilões de swaps cambiais para conter a pressão sobre o dólar. Paralelamente, o Congresso Nacional derrubou decreto do governo que aumentava o IOF (Imposto sobre Operações Financeiras) para determinadas operações.",
         details: [
           {
-            subtitle: "Principais medidas",
-            content: "Aumento da tributação sobre JCP, regulamentação de apostas online e limitação de compensações tributárias são os pilares do pacote."
+            subtitle: "Estratégia do Banco Central",
+            content: "O BC vendeu US$ 1 bilhão no mercado à vista e ofereceu mais US$ 2 bilhões em swaps cambiais. A estratégia visa sinalizar ao mercado que a autoridade monetária está disposta a intervir para evitar volatilidade excessiva do câmbio, especialmente em momentos de stress."
+          },
+          {
+            subtitle: "Derrubada do decreto do IOF",
+            content: "O Congresso rejeitou decreto que aumentava o IOF sobre operações de câmbio de 0,38% para 1,1%. A medida era vista como prejudicial à competitividade das empresas brasileiras no comércio exterior e foi amplamente criticada pelo setor produtivo."
+          },
+          {
+            subtitle: "Impacto no mercado",
+            content: "As intervenções ajudaram a estabilizar o dólar em torno de R$ 5,45, evitando que a moeda americana ultrapassasse R$ 5,50. A derrubada do IOF foi bem recebida por exportadores e importadores, que viam a medida como um custo adicional desnecessário."
           }
         ],
         analysis: {
           positiveImpacts: [
-            "Melhoria das contas públicas",
-            "Maior controle sobre apostas",
-            "Arrecadação adicional para investimentos"
+            "Maior estabilidade cambial reduz incertezas",
+            "Corte do IOF diminui custos para empresas",
+            "Controle da inflação via câmbio mais estável",
+            "Melhora do ambiente de negócios para comércio exterior"
           ],
           negativeImpacts: [
-            "Menor rentabilidade líquida de JCP",
-            "Apostas online mais caras",
-            "Pressão sobre investidores"
+            "Uso de reservas internacionais para intervenção",
+            "Possível pressão sobre contas públicas sem o IOF",
+            "Dependência de intervenções para estabilizar câmbio",
+            "Incerteza sobre sustentabilidade das medidas"
           ],
           recommendations: [
-            "Reavalie investimentos em ações com JCP",
-            "Considere outros tipos de dividendos",
-            "Analise impacto na rentabilidade",
-            "Diversifique estratégias de investimento"
+            "Aproveite câmbio mais estável para planejar investimentos",
+            "Considere empresas exportadoras beneficiadas pelo corte do IOF",
+            "Monitore reservas internacionais do país",
+            "Avalie impacto em setores dependentes de importação",
+            "Mantenha diversificação cambial na carteira"
           ]
         },
-        futureOutlook: "As mudanças fiscais devem impactar estratégias de investimento no médio prazo."
+        futureOutlook: "As intervenções mostram o compromisso do BC com a estabilidade cambial, mas o uso frequente pode pressionar as reservas. O corte do IOF é positivo para a competitividade, mas o governo precisará encontrar outras fontes de receita para compensar a perda arrecadatória."
       }
     },
     'commodities-guerra-comercial-2025': {
@@ -388,60 +424,182 @@ const AtualidadeIndividual = () => {
         futureOutlook: "A digitalização do governo deve criar novas oportunidades profissionais e melhorar a eficiência dos serviços públicos."
       }
     },
-    'etfs-bitcoin-investimentos-2025': {
-      title: "Economia global desacelera com tensões e volatilidade do petróleo",
-      summary: "Projeções de crescimento global para 2025 foram revisadas para baixo devido a tensões comerciais e geopolíticas. A volatilidade do dólar e do petróleo torna a política monetária mais difícil de prever, com bancos centrais como Fed e BCE mantendo cautela sobre cortes de juros.",
-      impact: "Economia global mais fraca pode afetar exportações brasileiras e crescimento do país. Para seus investimentos, isso significa mais volatilidade e necessidade de diversificação. Evite apostas muito arriscadas e mantenha parte do dinheiro em investimentos mais seguros.",
-      date: "17 de junho de 2025",
-      category: "Economia Global",
-      categoryColor: 'bg-slate-100 text-slate-700',
-      priority: "medium",
-      readTime: "5 min",
-      author: "Equipe InvestSavy",
+    'selic-pico-cortes-adiados': {
+      title: "Selic no pico: início de cortes adiado para 2026",
+      summary: "Analistas da Empiricus afirmam que a taxa Selic chegou ao seu teto atual de 15%, mas os cortes só devem começar no primeiro trimestre de 2026. A inflação persistente e o cenário global mantêm o Banco Central cauteloso.",
+      impact: "Juros altos por mais tempo significa que renda fixa continua atrativa. Se você tem dívidas, tente quitá-las. Para investimentos, CDBs e Tesouro Direto ainda oferecem bons retornos, mas ações podem ficar pressionadas.",
+      date: "22 de junho de 2025",
+      category: "Política Monetária",
+      categoryColor: 'bg-red-100 text-red-700',
+      priority: "high",
+      readTime: "6 min",
+      author: "Redação InvestSavy",
       fullContent: {
-        context: "A economia global enfrenta desafios crescentes com revisões para baixo nas projeções de crescimento para 2025.",
+        context: "Analistas da Empiricus Research divulgaram relatório indicando que a taxa Selic atingiu seu pico no ciclo atual em 15%, mas os cortes só devem começar no primeiro trimestre de 2026. A avaliação considera a persistência da inflação acima da meta e o cenário internacional desafiador.",
         details: [
           {
-            subtitle: "Fatores de desaceleração",
-            content: "Tensões comerciais, volatilidade do petróleo e incertezas geopolíticas contribuem para o cenário mais cauteloso."
+            subtitle: "Razões para manter juros altos",
+            content: "A inflação ainda está em 5,2%, bem acima da meta de 3%. Serviços continuam pressionando os preços, e o mercado de trabalho aquecido sustenta a demanda. Além disso, incertezas sobre política fiscal e cenário externo recomendam cautela do Banco Central."
+          },
+          {
+            subtitle: "Comparação internacional",
+            content: "Enquanto alguns bancos centrais já iniciaram cortes, o Brasil mantém postura mais conservadora. O Federal Reserve americano sinaliza possíveis cortes, mas ainda há incertezas. A diferença de juros entre Brasil e exterior permanece elevada."
+          },
+          {
+            subtitle: "Impacto nos investimentos",
+            content: "Juros altos por mais tempo favorecem renda fixa, com CDBs e Tesouro oferecendo retornos atrativos. Ações de empresas endividadas podem sofrer pressão, enquanto bancos se beneficiam das margens elevadas de spread."
           }
         ],
         analysis: {
           positiveImpacts: [
-            "Possíveis cortes de juros futuros",
-            "Oportunidades em ativos descontados"
+            "Renda fixa continua oferecendo retornos atrativos",
+            "Controle mais efetivo da inflação no médio prazo",
+            "Bancos se beneficiam de margens elevadas",
+            "Maior estabilidade macroeconômica"
           ],
           negativeImpacts: [
-            "Menor crescimento global",
-            "Impacto nas exportações brasileiras",
-            "Maior volatilidade nos mercados"
+            "Pressão sobre empresas endividadas",
+            "Menor atratividade de ações no curto prazo",
+            "Custo de crédito elevado para consumidores",
+            "Possível desaceleração do crescimento econômico"
           ],
           recommendations: [
-            "Diversifique investimentos",
-            "Evite apostas muito arriscadas",
-            "Mantenha reservas em ativos seguros",
-            "Acompanhe indicadores globais"
+            "Mantenha boa exposição à renda fixa de qualidade",
+            "Evite empresas com alta alavancagem financeira",
+            "Considere bancos que se beneficiam de juros altos",
+            "Quite dívidas caras enquanto juros estão altos",
+            "Para ações, foque em empresas com baixo endividamento"
           ]
         },
-        futureOutlook: "A cautela deve prevalecer enquanto as incertezas globais não se resolverem."
-      }
-    }
-  };
+        futureOutlook: "A manutenção de juros altos por mais tempo é uma estratégia prudente do Banco Central para garantir convergência da inflação à meta. Quando os cortes começarem em 2026, devem ser graduais e dependentes de dados econômicos consistentes."
+       }
+     },
+     'wirex-appchain-tanssi-brasileiro': {
+       title: "Wirex lança 'appchain' na Tanssi com brasileiro no comando",
+       summary: "A plataforma de pagamentos Wirex lançou uma nova estrutura blockchain (appchain) na rede Tanssi para aumentar sua capacidade de processamento. O projeto tem um vice-presidente brasileiro liderando a iniciativa.",
+       impact: "Inovações em blockchain podem revolucionar pagamentos digitais. Se você investe em criptomoedas ou fintechs, acompanhe essas tecnologias. Para o dia a dia, pode significar pagamentos mais rápidos e baratos no futuro.",
+       date: "21 de junho de 2025",
+       category: "Tecnologia",
+       categoryColor: 'bg-purple-100 text-purple-700',
+       priority: "medium",
+       readTime: "4 min",
+       author: "Redação InvestSavy",
+       fullContent: {
+         context: "A Wirex, uma das principais plataformas de pagamentos digitais do mundo, anunciou o lançamento de sua própria 'appchain' (blockchain de aplicação) na rede Tanssi. A iniciativa é liderada por um vice-presidente brasileiro e visa aumentar significativamente a capacidade de processamento da plataforma.",
+         details: [
+           {
+             subtitle: "O que é uma appchain",
+             content: "Uma appchain é uma blockchain dedicada a uma aplicação específica, oferecendo maior controle, personalização e escalabilidade. No caso da Wirex, permitirá processar milhões de transações por segundo com custos muito baixos, melhorando a experiência do usuário."
+           },
+           {
+             subtitle: "Liderança brasileira",
+             content: "O projeto é comandado por um vice-presidente brasileiro da Wirex, destacando o crescente papel do Brasil no cenário global de inovação em blockchain e fintechs. Isso reforça a posição do país como hub de tecnologia financeira na América Latina."
+           },
+           {
+             subtitle: "Impacto na indústria",
+             content: "A iniciativa representa um avanço significativo na infraestrutura de pagamentos digitais, podendo influenciar outras empresas a adotarem soluções similares. A escalabilidade melhorada pode acelerar a adoção de criptomoedas no dia a dia."
+           }
+         ],
+         analysis: {
+           positiveImpacts: [
+             "Maior velocidade e menor custo em transações",
+             "Avanço da tecnologia blockchain no Brasil",
+             "Oportunidades para desenvolvedores brasileiros",
+             "Melhoria na infraestrutura de pagamentos digitais"
+           ],
+           negativeImpacts: [
+             "Complexidade técnica pode limitar adoção inicial",
+             "Necessidade de regulamentação adequada",
+             "Competição acirrada no setor de pagamentos",
+             "Riscos tecnológicos inerentes a novas soluções"
+           ],
+           recommendations: [
+             "Acompanhe desenvolvimentos em blockchain e fintechs",
+             "Considere investimentos em empresas de tecnologia financeira",
+             "Mantenha-se informado sobre regulamentações de criptomoedas",
+             "Avalie oportunidades em startups brasileiras do setor",
+             "Diversifique entre tecnologias tradicionais e emergentes"
+           ]
+         },
+         futureOutlook: "O lançamento da appchain da Wirex pode ser um marco na evolução dos pagamentos digitais. Com liderança brasileira, o projeto pode abrir portas para mais inovações nacionais no setor blockchain e fortalecer a posição do Brasil no cenário global de fintechs."
+       }
+     },
+     'fed-debate-cortes-noruega-age': {
+       title: "Fed debate cortes de juros enquanto Banco Central da Noruega já age",
+       summary: "Dirigentes do Federal Reserve americano pedem cortes nas taxas de juros, enquanto o Banco Central da Noruega surpreendeu ao reduzir sua taxa básica para 4,25%. As decisões refletem diferentes cenários econômicos globais.",
+       impact: "Cortes de juros nos EUA podem fortalecer mercados emergentes como o Brasil. Dólar mais fraco é bom para nossas exportações e pode atrair investimento estrangeiro. Para seus investimentos, ações podem se beneficiar.",
+       date: "20 de junho de 2025",
+       category: "Economia Global",
+       categoryColor: 'bg-blue-100 text-blue-700',
+       priority: "high",
+       readTime: "5 min",
+       author: "Redação InvestSavy",
+       fullContent: {
+         context: "O cenário de política monetária global apresenta movimentos divergentes: enquanto dirigentes do Federal Reserve americano sinalizam possíveis cortes nas taxas de juros, o Banco Central da Noruega surpreendeu o mercado ao reduzir sua taxa básica de 4,5% para 4,25%, contrariando expectativas de manutenção.",
+         details: [
+           {
+             subtitle: "Sinalizações do Federal Reserve",
+             content: "Membros do Fed têm indicado que cortes podem ser necessários se a inflação continuar desacelerando e o mercado de trabalho mostrar sinais de enfraquecimento. A decisão final dependerá dos dados econômicos dos próximos meses, especialmente inflação e emprego."
+           },
+           {
+             subtitle: "Surpresa norueguesa",
+             content: "O Banco Central da Noruega cortou juros citando menor pressão inflacionária e preocupações com o crescimento econômico. A decisão foi unânime e marca o início de um ciclo de flexibilização monetária no país nórdico."
+           },
+           {
+             subtitle: "Impactos globais",
+             content: "Cortes de juros em economias desenvolvidas tendem a beneficiar mercados emergentes, incluindo o Brasil. Menor diferencial de juros pode reduzir a pressão sobre o real e atrair fluxos de capital para ativos brasileiros."
+           }
+         ],
+         analysis: {
+           positiveImpacts: [
+             "Possível fortalecimento de moedas emergentes",
+             "Maior fluxo de capital para mercados emergentes",
+             "Ambiente mais favorável para ações brasileiras",
+             "Redução da pressão sobre commodities"
+           ],
+           negativeImpacts: [
+             "Incerteza sobre timing dos cortes americanos",
+             "Possível volatilidade cambial no curto prazo",
+             "Dependência de fatores externos para benefícios",
+             "Risco de reversão rápida das políticas"
+           ],
+           recommendations: [
+             "Considere aumentar exposição a ativos brasileiros",
+             "Monitore comunicações do Federal Reserve",
+             "Avalie oportunidades em ações de exportadoras",
+             "Mantenha diversificação geográfica na carteira",
+             "Acompanhe fluxos de capital estrangeiro"
+           ]
+         },
+         futureOutlook: "As divergências nas políticas monetárias globais criam oportunidades e riscos. O Brasil pode se beneficiar de um ambiente externo mais favorável se os cortes americanos se materializarem, mas é importante manter cautela até que as tendências se confirmem."
+       }
+     }
+   };
+
+  if (!slug) {
+    return (
+      <Layout>
+        <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+          <div className="text-center">
+            <h1 className="text-2xl font-bold text-gray-900 mb-4">Notícia não encontrada</h1>
+            <Link to="/atualidades" className="text-blue-600 hover:text-blue-800">
+              Voltar para Atualidades
+            </Link>
+          </div>
+        </div>
+      </Layout>
+    );
+  }
 
   const news = newsDatabase[slug as keyof typeof newsDatabase];
 
   if (!news) {
     return (
       <Layout>
-        <div className="min-h-screen bg-gradient-to-br from-gray-50 to-green-50/30 flex items-center justify-center">
+        <div className="min-h-screen bg-gray-50 flex items-center justify-center">
           <div className="text-center">
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">Notícia não encontrada</h1>
-            <p className="text-gray-600 mb-8">A notícia que você está procurando não existe ou foi removida.</p>
-            <Link 
-              to="/atualidades" 
-              className="inline-flex items-center px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
-            >
-              <ArrowLeft className="w-5 h-5 mr-2" />
+            <h1 className="text-2xl font-bold text-gray-900 mb-4">Notícia não encontrada</h1>
+            <Link to="/atualidades" className="text-blue-600 hover:text-blue-800">
               Voltar para Atualidades
             </Link>
           </div>
@@ -451,261 +609,196 @@ const AtualidadeIndividual = () => {
   }
 
   const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'NewsArticle',
-    headline: news.title,
-    description: news.summary,
-    author: {
-      '@type': 'Organization',
-      name: news.author
+    "@context": "https://schema.org",
+    "@type": "NewsArticle",
+    "headline": news.title,
+    "description": news.summary,
+    "author": {
+      "@type": "Organization",
+      "name": news.author
     },
-    publisher: {
-      '@type': 'Organization',
-      name: 'InvestSavy',
-      logo: {
-        '@type': 'ImageObject',
-        url: 'https://www.investsavy.online/logo.png'
+    "publisher": {
+      "@type": "Organization",
+      "name": "InvestSavy",
+      "logo": {
+        "@type": "ImageObject",
+        "url": `${seoConfig.siteUrl}/logo.png`
       }
     },
-    datePublished: news.date,
-    dateModified: news.date,
-    mainEntityOfPage: {
-      '@type': 'WebPage',
-      '@id': `https://www.investsavy.online/atualidades/${slug}`
+    "datePublished": news.date,
+    "dateModified": news.date,
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `${seoConfig.siteUrl}/atualidades/${slug}`
     },
-    articleSection: news.category,
-    inLanguage: 'pt-BR'
-  };
-
-  const getPriorityIcon = (priority: string) => {
-    if (priority === 'high') return <AlertCircle className="w-5 h-5 text-red-500" />;
-    return <Target className="w-5 h-5 text-gray-500" />;
+    "image": `${seoConfig.siteUrl}/news-default.jpg`,
+    "articleSection": news.category,
+    "keywords": `${news.category}, investimentos, economia, Brasil`
   };
 
   return (
     <Layout>
-      <SEOHead
+      <SEOHead 
         title={`${news.title} | InvestSavy`}
         description={news.summary}
-        keywords={`${news.category.toLowerCase()}, mercado financeiro, investimentos, economia brasil`}
-        url={`https://www.investsavy.online/atualidades/${slug}`}
-        type="article"
-        section="Atualidades"
-        canonical={`https://www.investsavy.online/atualidades/${slug}`}
+        canonical={`${seoConfig.siteUrl}/atualidades/${slug}`}
         jsonLd={jsonLd}
       />
       
-      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-green-50/30">
-        {/* Header */}
-        <div className="pt-20 pb-8 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
+      <div className="min-h-screen bg-gray-50 py-8">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Navigation */}
+          <div className="mb-8">
             <Link 
               to="/atualidades" 
-              className="inline-flex items-center text-green-600 hover:text-green-700 font-medium mb-8 transition-colors group"
+              className="inline-flex items-center text-blue-600 hover:text-blue-800 transition-colors"
             >
-              <ArrowLeft className="w-5 h-5 mr-2 group-hover:-translate-x-1 transition-transform" />
+              <ArrowLeft className="h-4 w-4 mr-2" />
               Voltar para Atualidades
             </Link>
+          </div>
 
-            {/* Article Header */}
-            <div className="mb-8">
+          {/* Article Header */}
+          <article className="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div className="p-8">
+              {/* Category and Meta */}
               <div className="flex flex-wrap items-center gap-4 mb-6">
-                <span className={`px-4 py-2 rounded-full text-sm font-semibold ${news.categoryColor}`}>
+                <span className={`px-3 py-1 rounded-full text-sm font-medium ${news.categoryColor}`}>
                   {news.category}
                 </span>
-                {getPriorityIcon(news.priority)}
                 <div className="flex items-center text-gray-500 text-sm">
-                  <Calendar className="w-4 h-4 mr-2" />
+                  <Calendar className="h-4 w-4 mr-1" />
                   {news.date}
                 </div>
                 <div className="flex items-center text-gray-500 text-sm">
-                  <Clock className="w-4 h-4 mr-2" />
+                  <Clock className="h-4 w-4 mr-1" />
                   {news.readTime}
+                </div>
+                <div className="flex items-center text-gray-500 text-sm">
+                  <User className="h-4 w-4 mr-1" />
+                  {news.author}
                 </div>
               </div>
 
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-6">
+              {/* Title */}
+              <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-tight">
                 {news.title}
               </h1>
 
-              <p className="text-xl text-gray-600 leading-relaxed mb-6">
-                {news.summary}
-              </p>
-
-              <div className="flex items-center text-gray-500 text-sm">
-                <span>Por {news.author}</span>
+              {/* Summary */}
+              <div className="bg-blue-50 border-l-4 border-blue-400 p-6 mb-8">
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  {news.summary}
+                </p>
               </div>
-            </div>
-          </div>
-        </div>
 
-        {/* Content */}
-        <div className="pb-20 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto space-y-8">
-            
-            {/* Impact Summary */}
-            <Card className="bg-gradient-to-r from-green-50 to-green-100/50 border border-green-200">
-              <CardHeader>
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-green-600 rounded-lg flex items-center justify-center">
-                    <DollarSign className="w-6 h-6 text-white" />
-                  </div>
-                  <h2 className="text-2xl font-bold text-green-900">
-                    Como isso afeta seu bolso?
-                  </h2>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-green-800 text-lg leading-relaxed font-medium">
+              {/* Impact Section */}
+              <div className="bg-yellow-50 border-l-4 border-yellow-400 p-6 mb-8">
+                <h2 className="text-xl font-semibold text-gray-900 mb-3 flex items-center">
+                  <AlertTriangle className="h-5 w-5 mr-2 text-yellow-600" />
+                  O que isso significa para você?
+                </h2>
+                <p className="text-gray-700 leading-relaxed">
                   {news.impact}
                 </p>
-              </CardContent>
-            </Card>
+              </div>
 
-            {/* Context */}
-            <Card className="shadow-lg">
-              <CardHeader>
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
-                    <Info className="w-6 h-6 text-white" />
-                  </div>
-                  <h2 className="text-2xl font-bold text-gray-900">
-                    Contexto da Notícia
-                  </h2>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-700 text-lg leading-relaxed">
+              {/* Context */}
+              <div className="mb-8">
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">Contexto</h2>
+                <p className="text-gray-700 leading-relaxed text-lg">
                   {news.fullContent.context}
                 </p>
-              </CardContent>
-            </Card>
+              </div>
 
-            {/* Detailed Analysis */}
-            <div className="space-y-6">
-              <h2 className="text-3xl font-bold text-gray-900 flex items-center gap-3">
-                <BarChart3 className="w-8 h-8 text-green-600" />
-                Análise Detalhada
-              </h2>
-              
-              {news.fullContent.details.map((detail, index) => (
-                <Card key={index} className="shadow-lg">
-                  <CardHeader>
-                    <h3 className="text-xl font-bold text-gray-900">
-                      {detail.subtitle}
-                    </h3>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-gray-700 leading-relaxed">
-                      {detail.content}
-                    </p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
+              {/* Details */}
+              <div className="mb-8">
+                <h2 className="text-2xl font-bold text-gray-900 mb-6">Detalhes</h2>
+                <div className="space-y-6">
+                  {news.fullContent.details.map((detail, index) => (
+                    <div key={index} className="border-l-4 border-gray-200 pl-6">
+                      <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                        {detail.subtitle}
+                      </h3>
+                      <p className="text-gray-700 leading-relaxed">
+                        {detail.content}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
 
-            {/* Impact Analysis */}
-            <div className="grid md:grid-cols-2 gap-6">
-              {/* Positive Impacts */}
-              <Card className="shadow-lg border-green-200">
-                <CardHeader>
-                  <div className="flex items-center gap-3">
-                    <CheckCircle className="w-6 h-6 text-green-600" />
-                    <h3 className="text-xl font-bold text-green-900">
+              {/* Analysis */}
+              <div className="mb-8">
+                <h2 className="text-2xl font-bold text-gray-900 mb-6">Análise</h2>
+                
+                <div className="grid md:grid-cols-2 gap-6 mb-6">
+                  {/* Positive Impacts */}
+                  <div className="bg-green-50 rounded-lg p-6">
+                    <h3 className="text-lg font-semibold text-green-800 mb-4 flex items-center">
+                      <TrendingUp className="h-5 w-5 mr-2" />
                       Impactos Positivos
                     </h3>
+                    <ul className="space-y-2">
+                      {news.fullContent.analysis.positiveImpacts.map((impact, index) => (
+                        <li key={index} className="flex items-start">
+                          <CheckCircle className="h-4 w-4 text-green-600 mr-2 mt-1 flex-shrink-0" />
+                          <span className="text-green-700">{impact}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-3">
-                    {news.fullContent.analysis.positiveImpacts.map((impact, index) => (
-                      <li key={index} className="flex items-start gap-3">
-                        <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
-                        <span className="text-gray-700">{impact}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
 
-              {/* Negative Impacts */}
-              <Card className="shadow-lg border-red-200">
-                <CardHeader>
-                  <div className="flex items-center gap-3">
-                    <XCircle className="w-6 h-6 text-red-600" />
-                    <h3 className="text-xl font-bold text-red-900">
+                  {/* Negative Impacts */}
+                  <div className="bg-red-50 rounded-lg p-6">
+                    <h3 className="text-lg font-semibold text-red-800 mb-4 flex items-center">
+                      <TrendingDown className="h-5 w-5 mr-2" />
                       Impactos Negativos
                     </h3>
+                    <ul className="space-y-2">
+                      {news.fullContent.analysis.negativeImpacts.map((impact, index) => (
+                        <li key={index} className="flex items-start">
+                          <AlertTriangle className="h-4 w-4 text-red-600 mr-2 mt-1 flex-shrink-0" />
+                          <span className="text-red-700">{impact}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-3">
-                    {news.fullContent.analysis.negativeImpacts.map((impact, index) => (
-                      <li key={index} className="flex items-start gap-3">
-                        <XCircle className="w-5 h-5 text-red-600 mt-0.5 flex-shrink-0" />
-                        <span className="text-gray-700">{impact}</span>
+                </div>
+
+                {/* Recommendations */}
+                <div className="bg-blue-50 rounded-lg p-6">
+                  <h3 className="text-lg font-semibold text-blue-800 mb-4">Recomendações</h3>
+                  <ul className="space-y-2">
+                    {news.fullContent.analysis.recommendations.map((recommendation, index) => (
+                      <li key={index} className="flex items-start">
+                        <CheckCircle className="h-4 w-4 text-blue-600 mr-2 mt-1 flex-shrink-0" />
+                        <span className="text-blue-700">{recommendation}</span>
                       </li>
                     ))}
                   </ul>
-                </CardContent>
-              </Card>
-            </div>
-
-            {/* Recommendations */}
-            <Card className="shadow-lg bg-gradient-to-r from-yellow-50 to-orange-50 border border-yellow-200">
-              <CardHeader>
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-yellow-600 rounded-lg flex items-center justify-center">
-                    <Lightbulb className="w-6 h-6 text-white" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-yellow-900">
-                    Nossas Recomendações
-                  </h3>
                 </div>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-4">
-                  {news.fullContent.analysis.recommendations.map((recommendation, index) => (
-                    <li key={index} className="flex items-start gap-3">
-                      <div className="w-6 h-6 bg-yellow-600 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <span className="text-white text-sm font-bold">{index + 1}</span>
-                      </div>
-                      <span className="text-yellow-800 font-medium">{recommendation}</span>
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
+              </div>
 
-            {/* Future Outlook */}
-            <Card className="shadow-lg bg-gradient-to-r from-purple-50 to-indigo-50 border border-purple-200">
-              <CardHeader>
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-purple-600 rounded-lg flex items-center justify-center">
-                    <TrendingUp className="w-6 h-6 text-white" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-purple-900">
-                    Perspectivas Futuras
-                  </h3>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-purple-800 text-lg leading-relaxed">
+              {/* Future Outlook */}
+              <div className="bg-gray-50 rounded-lg p-6">
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">Perspectivas Futuras</h2>
+                <p className="text-gray-700 leading-relaxed text-lg">
                   {news.fullContent.futureOutlook}
                 </p>
-              </CardContent>
-            </Card>
-
-            {/* Back to News */}
-            <div className="text-center pt-8">
-              <Link 
-                to="/atualidades" 
-                className="inline-flex items-center px-8 py-4 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors font-medium text-lg"
-              >
-                <ArrowLeft className="w-5 h-5 mr-3" />
-                Ver Mais Notícias
-              </Link>
+              </div>
             </div>
+          </article>
+
+          {/* Back to News */}
+          <div className="mt-8 text-center">
+            <Link 
+              to="/atualidades" 
+              className="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+            >
+              <ArrowLeft className="h-4 w-4 mr-2" />
+              Ver mais notícias
+            </Link>
           </div>
         </div>
       </div>
