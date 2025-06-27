@@ -215,12 +215,12 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para ma
 
 ## 👥 Equipe
 
-- **Desenvolvedor**: [Leonardo F. Figueiredo]
+- **Desenvolvedor**: Leonardo F. Figueiredo
 
 
 ## 📞 Contato
 
-- **Website**: [https://investsavy.online](https://investsavy.online)
+- **Website**: [https://www.investsavy.online](https://www.investsavy.online)
 - **Email**: contato@investsavy.online
 - **LinkedIn**: [Criador](https://linkedin.com/in/leonardo-fe-figueiredo)
 
