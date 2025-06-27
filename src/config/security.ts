@@ -34,7 +34,7 @@ export const CSP_POLICY = {
   ],
   'connect-src': [
     "'self'",
-    'https://api.investsavy.com.br',
+    'https://api.investsavy.online',
     'https://www.google-analytics.com',
     'https://analytics.google.com',
     'https://stats.g.doubleclick.net',

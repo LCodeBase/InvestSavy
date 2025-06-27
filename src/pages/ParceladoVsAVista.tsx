@@ -18,7 +18,7 @@ const ParceladoVsAVista = () => {
     '@type': 'WebApplication',
     name: 'Calculadora Parcelado vs À Vista',
     description: 'Compare matematicamente se é melhor pagar parcelado ou à vista considerando juros e oportunidade de investimento',
-    url: 'https://investsavy.com.br/ferramentas/parcelado-vs-avista',
+    url: 'https://www.investsavy.online/ferramentas/parcelado-vs-avista',
     applicationCategory: 'FinanceApplication',
     operatingSystem: 'Web Browser',
     offers: {
@@ -29,7 +29,7 @@ const ParceladoVsAVista = () => {
     provider: {
       '@type': 'Organization',
       name: 'InvestSavy',
-      url: 'https://investsavy.com.br'
+      url: 'https://www.investsavy.online/'
     },
     featureList: [
       'Comparação parcelado vs à vista',
@@ -142,10 +142,10 @@ const ParceladoVsAVista = () => {
         title="Parcelado vs À Vista - Calculadora Gratuita | InvestSavy"
         description="Descubra matematicamente se é melhor pagar parcelado ou à vista. Compare juros, descontos e oportunidade de investimento."
         keywords="parcelado vs à vista, calculadora financeira, juros parcelamento, desconto à vista, custo oportunidade"
-        url="https://investsavy.com.br/ferramentas/parcelado-vs-avista"
+        url="https://www.investsavy.online/ferramentas/parcelado-vs-avista"
         type="website"
         section="Ferramentas"
-        canonical="https://investsavy.com.br/ferramentas/parcelado-vs-avista"
+        canonical="https://www.investsavy.online/ferramentas/parcelado-vs-avista"
         jsonLd={jsonLd}
       />
       

@@ -14,11 +14,11 @@ const Aprenda = () => {
     '@type': 'EducationalOrganization',
     name: 'InvestSavy - Educação Financeira',
     description: 'Cursos completos de investimentos e educação financeira',
-    url: 'https://investsavy.com.br/aprenda',
+    url: 'https://www.investsavy.online/aprenda',
     provider: {
       '@type': 'Organization',
       name: 'InvestSavy',
-      url: 'https://investsavy.com.br'
+      url: 'https://www.investsavy.online/'
     },
     educationalLevel: 'Beginner to Advanced',
     teaches: [
@@ -184,10 +184,10 @@ const Aprenda = () => {
         title={seoConfig.pages.aprenda.title}
         description={seoConfig.pages.aprenda.description}
         keywords={seoConfig.pages.aprenda.keywords}
-        url="https://investsavy.com.br/aprenda"
+        url="https://www.investsavy.online/aprenda"
         type="website"
         section={seoConfig.pages.aprenda.section}
-        canonical="https://investsavy.com.br/aprenda"
+        canonical="https://www.investsavy.online/aprenda"
         jsonLd={jsonLd}
       />
       <div className="py-12 bg-white">

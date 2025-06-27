@@ -49,7 +49,7 @@ function sanitizeUrl(url: string): string {
 
 // Configurações padrão seguras
 const DEFAULT_CONFIG: EnvironmentConfig = {
-  API_BASE_URL: 'https://api.investsavy.com.br',
+  API_BASE_URL: 'https://api.investsavy.online',
   APP_NAME: 'InvestSavy',
   APP_VERSION: '1.0.0',
   ENVIRONMENT: 'development',

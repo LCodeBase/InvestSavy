@@ -32,14 +32,14 @@ const Economes = () => {
       name: 'InvestSavy',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://investsavy.com.br/logo.png'
+        url: 'https://www.investsavy.online/logo.png'
       }
     },
     datePublished: new Date().toISOString(),
     dateModified: new Date().toISOString(),
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': 'https://investsavy.com.br/aprenda/economes'
+      '@id': 'https://www.investsavy.online/aprenda/economes'
     },
     articleSection: 'Educação Financeira',
     keywords: ['economês', 'termos financeiros', 'educação financeira', 'investimentos', 'economia básica']
@@ -296,9 +296,9 @@ const Economes = () => {
         title="Economês Descomplicado: Entenda os Termos Financeiros de Uma Vez por Todas"
         description="Guia completo e simples dos principais termos do mundo financeiro. Aprenda economês sem complicação e tome melhores decisões com seu dinheiro."
         keywords="economês, termos financeiros, educação financeira, investimentos, economia básica, dicionário financeiro"
-        url="https://investsavy.com.br/aprenda/economes"
+        url="https://www.investsavy.online/aprenda/economes"
         type="article"
-        canonical="https://investsavy.com.br/aprenda/economes"
+        canonical="https://www.investsavy.online/aprenda/economes"
         jsonLd={jsonLd}
       />
       

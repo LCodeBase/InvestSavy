@@ -131,10 +131,10 @@ const Sobre = () => {
         title={seoConfig.pages.sobre.title}
         description={seoConfig.pages.sobre.description}
         keywords={seoConfig.pages.sobre.keywords}
-        url="https://investsavy.com.br/sobre"
+        url="https://www.investsavy.online/sobre"
         type="website"
         section={seoConfig.pages.sobre.section}
-        canonical="https://investsavy.com.br/sobre"
+        canonical="https://www.investsavy.online/sobre"
         jsonLd={jsonLd}
       />
       

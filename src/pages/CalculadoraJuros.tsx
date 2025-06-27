@@ -11,7 +11,7 @@ const CalculadoraJuros = () => {
     '@type': 'WebApplication',
     name: 'Calculadora de Juros Compostos',
     description: 'Calculadora gratuita de juros compostos para simular investimentos e planejamento financeiro',
-    url: 'https://investsavy.com.br/calculadora-juros',
+    url: 'https://www.investsavy.online/calculadora-juros',
     applicationCategory: 'FinanceApplication',
     operatingSystem: 'Web Browser',
     offers: {
@@ -22,7 +22,7 @@ const CalculadoraJuros = () => {
     provider: {
       '@type': 'Organization',
       name: 'InvestSavy',
-      url: 'https://investsavy.com.br'
+      url: 'https://www.investsavy.online/'
     },
     featureList: [
       'Cálculo de juros compostos',
@@ -40,10 +40,10 @@ const CalculadoraJuros = () => {
         title="Calculadora de Juros Compostos Gratuita | InvestSavy"
         description="Calcule juros compostos de forma simples e gratuita. Simule seus investimentos e planeje seu futuro financeiro com nossa calculadora online."
         keywords="calculadora juros compostos, simulador investimentos, planejamento financeiro, calculadora financeira, juros compostos online"
-        url="https://investsavy.com.br/calculadora-juros"
+        url="https://www.investsavy.online/calculadora-juros"
         type="website"
         section="Ferramentas"
-        canonical="https://investsavy.com.br/calculadora-juros"
+        canonical="https://www.investsavy.online/calculadora-juros"
         jsonLd={jsonLd}
       />
       <JurosCalculator />

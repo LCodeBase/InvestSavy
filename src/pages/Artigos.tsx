@@ -160,10 +160,10 @@ const Artigos = () => {
         title="Artigos sobre Investimentos e Educação Financeira | InvestSavy"
         description="Artigos completos sobre educação financeira, resenhas de livros, análises de cursos e reflexões sobre investimentos. Conteúdo prático e fundamentado."
         keywords="artigos investimentos, educação financeira, resenhas livros financeiros, análises mercado, blog investimentos, pai rico pai pobre, cursos investimento"
-        url="https://investsavy.com.br/artigos"
+        url="https://www.investsavy.online/artigos"
         type="website"
         section="Artigos"
-        canonical="https://investsavy.com.br/artigos"
+        canonical="https://www.investsavy.online/artigos"
         jsonLd={jsonLd}
       />
       <div className="py-16 bg-gradient-to-br from-green-50 via-white to-green-50">

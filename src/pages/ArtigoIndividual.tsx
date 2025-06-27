@@ -759,8 +759,8 @@ const ArtigoIndividual = () => {
       content: articleContent,
       author: artigo.author,
       publishedTime: new Date(artigo.publishDate).toISOString(),
-      image: `https://investsavy.com.br${artigo.coverImage}`,
-      url: `https://investsavy.com.br/artigos/${slug}`,
+      image: `https://www.investsavy.online${artigo.coverImage}`,
+      url: `https://www.investsavy.online/artigos/${slug}`,
       tags: [artigo.category, 'Investimentos', 'Educação Financeira']
     });
 
@@ -768,8 +768,8 @@ const ArtigoIndividual = () => {
       title: `${artigo.title} | InvestSavy`,
       description: artigo.excerpt,
       keywords: `${artigo.category.toLowerCase()}, investimentos, educação financeira, ${artigo.title.toLowerCase()}`,
-      url: `https://investsavy.com.br/artigos/${slug}`,
-      image: `https://investsavy.com.br${artigo.coverImage}`,
+      url: `https://www.investsavy.online/artigos/${slug}`,
+      image: `https://www.investsavy.online${artigo.coverImage}`,
       type: 'article',
       section: artigo.category,
       publishedTime: new Date(artigo.publishDate).toISOString(),
@@ -787,9 +787,9 @@ const ArtigoIndividual = () => {
           title="Artigo não encontrado | InvestSavy"
           description="O artigo que você procura não foi encontrado. Explore outros conteúdos sobre investimentos e educação financeira."
           keywords="artigo não encontrado, investimentos, educação financeira"
-          url={`https://investsavy.com.br/artigos/${slug}`}
+          url={`https://www.investsavy.online/artigos/${slug}`}
           type="website"
-          canonical="https://investsavy.com.br/artigos"
+          canonical="https://www.investsavy.online/artigos"
         />
         <div className="py-32 text-center">
           <h1 className="text-2xl font-bold text-gray-900 mb-4">Artigo não encontrado</h1>

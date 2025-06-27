@@ -12,7 +12,7 @@ const PoliticaPrivacidade = () => {
     '@type': 'WebPage',
     name: 'Política de Privacidade',
     description: 'Política de privacidade da InvestSavy - Como coletamos, usamos e protegemos suas informações pessoais',
-    url: 'https://investsavy.com.br/politica-privacidade',
+    url: 'https://www.investsavy.online/politica-privacidade',
     mainEntity: {
       '@type': 'PrivacyPolicy',
       name: 'Política de Privacidade InvestSavy',
@@ -21,7 +21,7 @@ const PoliticaPrivacidade = () => {
       publisher: {
         '@type': 'Organization',
         name: 'InvestSavy',
-        url: 'https://investsavy.com.br'
+        url: 'https://www.investsavy.online/'
       }
     },
     inLanguage: 'pt-BR'
@@ -33,10 +33,10 @@ const PoliticaPrivacidade = () => {
         title="Política de Privacidade | InvestSavy"
         description="Conheça nossa política de privacidade e como protegemos suas informações pessoais na InvestSavy. Transparência e segurança em primeiro lugar."
         keywords="política de privacidade, proteção de dados, LGPD, privacidade online, segurança de dados"
-        url="https://investsavy.com.br/politica-privacidade"
+        url="https://www.investsavy.online/politica-privacidade"
         type="website"
         section="Legal"
-        canonical="https://investsavy.com.br/politica-privacidade"
+        canonical="https://www.investsavy.online/politica-privacidade"
         jsonLd={jsonLd}
       />
       <div className="min-h-screen bg-white">

@@ -16,11 +16,11 @@ const Contato = () => {
     '@type': 'ContactPage',
     name: 'Contato InvestSavy',
     description: 'Entre em contato com a InvestSavy para dúvidas, sugestões e parcerias',
-    url: 'https://investsavy.com.br/contato',
+    url: 'https://www.investsavy.online/contato',
     mainEntity: {
       '@type': 'Organization',
       name: 'InvestSavy',
-      url: 'https://investsavy.com.br',
+      url: 'https://www.investsavy.online/',
       contactPoint: {
         '@type': 'ContactPoint',
         contactType: 'customer service',
@@ -38,7 +38,7 @@ const Contato = () => {
       '@type': 'CommunicateAction',
       target: {
         '@type': 'EntryPoint',
-        urlTemplate: 'https://investsavy.com.br/contato',
+        urlTemplate: 'https://www.investsavy.online/contato',
         actionPlatform: [
           'http://schema.org/DesktopWebPlatform',
           'http://schema.org/MobileWebPlatform'
@@ -107,10 +107,10 @@ const Contato = () => {
         title={seoConfig.pages.contato.title}
         description={seoConfig.pages.contato.description}
         keywords={seoConfig.pages.contato.keywords}
-        url="https://investsavy.com.br/contato"
+        url="https://www.investsavy.online/contato"
         type="website"
         section={seoConfig.pages.contato.section}
-        canonical="https://investsavy.com.br/contato"
+        canonical="https://www.investsavy.online/contato"
         jsonLd={jsonLd}
       />
       <div className="min-h-screen bg-gradient-to-br from-white via-green-50/30 to-white">

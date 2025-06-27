@@ -1,10 +1,10 @@
 export const seoConfig = {
   siteName: 'InvestSavy',
-  siteUrl: 'https://investsavy.com.br',
+  siteUrl: 'https://www.investsavy.online/',
   defaultTitle: 'InvestSavy - Aprenda a Investir com Inteligência',
   defaultDescription: 'Plataforma completa de educação financeira e investimentos. Aprenda sobre ações, fundos, renda fixa e muito mais com ferramentas práticas e conteúdo atualizado.',
   defaultKeywords: 'investimentos, educação financeira, ações, fundos, renda fixa, bolsa de valores, economia, finanças pessoais, calculadora de juros, análise de investimentos, B3, tesouro direto, CDB, LCI, LCA, fundos imobiliários, dividendos, análise fundamentalista, análise técnica, carteira de investimentos',
-  defaultImage: 'https://investsavy.com.br/og-image.jpg',
+  defaultImage: 'https://www.investsavy.online/og-image.jpg',
   author: 'InvestSavy',
   twitterSite: '@investsavy',
   twitterCreator: '@investsavy',
@@ -17,8 +17,8 @@ export const seoConfig = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: 'InvestSavy',
-    url: 'https://investsavy.com.br',
-    logo: 'https://investsavy.com.br/logo.png',
+    url: 'https://www.investsavy.online/',
+    logo: 'https://www.investsavy.online/logo.png',
     description: 'Plataforma de educação financeira e investimentos',
     foundingDate: '2024',
     contactPoint: {
@@ -47,19 +47,19 @@ export const seoConfig = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: 'InvestSavy',
-    url: 'https://investsavy.com.br',
+    url: 'https://www.investsavy.online/',
     description: 'Plataforma completa de educação financeira e investimentos',
     publisher: {
       '@type': 'Organization',
       name: 'InvestSavy',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://investsavy.com.br/logo.png'
+        url: 'https://www.investsavy.online/logo.png'
       }
     },
     potentialAction: {
       '@type': 'SearchAction',
-      target: 'https://investsavy.com.br/buscar?q={search_term_string}',
+      target: 'https://www.investsavy.online/buscar?q={search_term_string}',
       'query-input': 'required name=search_term_string'
     }
   },
@@ -69,7 +69,7 @@ export const seoConfig = {
     '@context': 'https://schema.org',
     '@type': 'EducationalOrganization',
     name: 'InvestSavy',
-    url: 'https://investsavy.com.br',
+    url: 'https://www.investsavy.online/',
     description: 'Organização educacional especializada em educação financeira e investimentos',
     educationalCredentialAwarded: 'Certificado de Educação Financeira',
     hasCredential: {
@@ -147,7 +147,7 @@ export const generateArticleSchema = (article: {
     name: 'InvestSavy',
     logo: {
       '@type': 'ImageObject',
-      url: 'https://investsavy.com.br/logo.png'
+      url: 'https://www.investsavy.online/logo.png'
     }
   },
   datePublished: article.publishedTime,
@@ -187,7 +187,7 @@ export const generateNewsSchema = (news: {
     name: 'InvestSavy',
     logo: {
       '@type': 'ImageObject',
-      url: 'https://investsavy.com.br/logo.png'
+      url: 'https://www.investsavy.online/logo.png'
     }
   },
   datePublished: news.publishedTime,

@@ -2,7 +2,7 @@ User-agent: Googlebot
 Allow: /
 
 # Robots.txt for InvestSavy - Financial Education Platform
-# https://investsavy.com.br
+# https://www.investsavy.online/
 
 # Allow all crawlers access to all content
 User-agent: *
@@ -41,4 +41,4 @@ Allow: /
 # Disallow: /private/
 
 # Sitemap location
-Sitemap: https://investsavy.com.br/sitemap.xml
+Sitemap: https://www.investsavy.online/sitemap.xml

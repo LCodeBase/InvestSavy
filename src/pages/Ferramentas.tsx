@@ -14,7 +14,7 @@ const Ferramentas = () => {
     '@type': 'WebApplication',
     name: 'Ferramentas de Investimento InvestSavy',
     description: 'Ferramentas gratuitas para investidores: calculadoras, simuladores e análises financeiras',
-    url: 'https://investsavy.com.br/ferramentas',
+    url: 'https://www.investsavy.online/ferramentas',
     applicationCategory: 'FinanceApplication',
     operatingSystem: 'Web Browser',
     offers: {
@@ -26,7 +26,7 @@ const Ferramentas = () => {
     provider: {
       '@type': 'Organization',
       name: 'InvestSavy',
-      url: 'https://investsavy.com.br'
+      url: 'https://www.investsavy.online/'
     },
     featureList: [
       'Calculadora de Juros Compostos',
@@ -189,10 +189,10 @@ const Ferramentas = () => {
         title={seoConfig.pages.ferramentas.title}
         description={seoConfig.pages.ferramentas.description}
         keywords={seoConfig.pages.ferramentas.keywords}
-        url="https://investsavy.com.br/ferramentas"
+        url="https://www.investsavy.online/ferramentas"
         type="website"
         section={seoConfig.pages.ferramentas.section}
-        canonical="https://investsavy.com.br/ferramentas"
+        canonical="https://www.investsavy.online/ferramentas"
         jsonLd={jsonLd}
       />
       <div className="py-12 bg-white">

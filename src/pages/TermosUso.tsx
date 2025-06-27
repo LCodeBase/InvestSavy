@@ -12,7 +12,7 @@ const TermosUso = () => {
     '@type': 'WebPage',
     name: 'Termos de Uso',
     description: 'Termos de uso da InvestSavy - Condições para utilização da plataforma de educação financeira',
-    url: 'https://investsavy.com.br/termos-uso',
+    url: 'https://www.investsavy.online/termos-uso',
     mainEntity: {
       '@type': 'TermsOfService',
       name: 'Termos de Uso InvestSavy',
@@ -21,7 +21,7 @@ const TermosUso = () => {
       publisher: {
         '@type': 'Organization',
         name: 'InvestSavy',
-        url: 'https://investsavy.com.br'
+        url: 'https://www.investsavy.online/'
       }
     },
     inLanguage: 'pt-BR'
@@ -33,10 +33,10 @@ const TermosUso = () => {
         title="Termos de Uso | InvestSavy"
         description="Conheça os termos de uso da InvestSavy. Condições e diretrizes para utilização da nossa plataforma de educação financeira."
         keywords="termos de uso, condições de uso, diretrizes, regulamento, termos de serviço"
-        url="https://investsavy.com.br/termos-uso"
+        url="https://www.investsavy.online/termos-uso"
         type="website"
         section="Legal"
-        canonical="https://investsavy.com.br/termos-uso"
+        canonical="https://www.investsavy.online/termos-uso"
         jsonLd={jsonLd}
       />
       <div className="min-h-screen bg-white">

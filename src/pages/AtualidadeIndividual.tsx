@@ -464,14 +464,14 @@ const AtualidadeIndividual = () => {
       name: 'InvestSavy',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://investsavy.com.br/logo.png'
+        url: 'https://www.investsavy.online/logo.png'
       }
     },
     datePublished: news.date,
     dateModified: news.date,
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': `https://investsavy.com.br/atualidades/${slug}`
+      '@id': `https://www.investsavy.online/atualidades/${slug}`
     },
     articleSection: news.category,
     inLanguage: 'pt-BR'
@@ -488,10 +488,10 @@ const AtualidadeIndividual = () => {
         title={`${news.title} | InvestSavy`}
         description={news.summary}
         keywords={`${news.category.toLowerCase()}, mercado financeiro, investimentos, economia brasil`}
-        url={`https://investsavy.com.br/atualidades/${slug}`}
+        url={`https://www.investsavy.online/atualidades/${slug}`}
         type="article"
         section="Atualidades"
-        canonical={`https://investsavy.com.br/atualidades/${slug}`}
+        canonical={`https://www.investsavy.online/atualidades/${slug}`}
         jsonLd={jsonLd}
       />
       

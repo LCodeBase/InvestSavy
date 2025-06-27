@@ -19,14 +19,14 @@ const OrcamentoPessoal = () => {
       name: 'InvestSavy',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://investsavy.com.br/logo.png'
+        url: 'https://www.investsavy.online/logo.png'
       }
     },
     datePublished: new Date().toISOString(),
     dateModified: new Date().toISOString(),
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': 'https://investsavy.com.br/aprenda/orcamento-pessoal'
+      '@id': 'https://www.investsavy.online/aprenda/orcamento-pessoal'
     }
   };
 
@@ -79,9 +79,9 @@ const OrcamentoPessoal = () => {
         title="Orçamento Pessoal: Comece com o que você tem | InvestSavy"
         description="4 passos reais para montar seu orçamento pessoal do jeito mais simples possível. Sem planilha difícil, sem frescura. Só com o que você tem hoje."
         keywords="orçamento pessoal, controle financeiro, organizar dinheiro, baixa renda, educação financeira, finanças pessoais"
-        url="https://investsavy.com.br/aprenda/orcamento-pessoal"
+        url="https://www.investsavy.online/aprenda/orcamento-pessoal"
         type="article"
-        canonical="https://investsavy.com.br/aprenda/orcamento-pessoal"
+        canonical="https://www.investsavy.online/aprenda/orcamento-pessoal"
         jsonLd={jsonLd}
       />
       

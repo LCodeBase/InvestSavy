@@ -26,7 +26,7 @@ const useSEO = ({
   title = 'InvestSavy - Aprenda a Investir com Inteligência',
   description = 'Plataforma completa de educação financeira e investimentos. Aprenda sobre ações, fundos, renda fixa e muito mais com ferramentas práticas e conteúdo atualizado.',
   keywords = 'investimentos, educação financeira, ações, fundos, renda fixa, bolsa de valores, economia, finanças pessoais, calculadora de juros, análise de investimentos',
-  image = 'https://investsavy.com.br/og-image.jpg',
+  image = 'https://www.investsavy.online/og-image.jpg',
   url,
   type = 'website',
   author = 'InvestSavy',
