@@ -1,119 +1,241 @@
-# 💸 Learn Invest Savy
+# 📈 InvestSavy - Plataforma de Educação Financeira
 
-[![Deploy Status](https://img.shields.io/badge/deploy-lovable.dev-green?style=flat-square)](https://lovable.dev/projects/e81e3a83-481b-4cff-8dff-b95030e51e88)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](LICENSE)
-[![Made with React](https://img.shields.io/badge/Made%20with-React-61DAFB?logo=react&logoColor=white&style=flat-square)](https://react.dev/)
-[![Tailwind CSS](https://img.shields.io/badge/TailwindCSS-38B2AC?logo=tailwind-css&logoColor=white&style=flat-square)](https://tailwindcss.com/)
+> Uma plataforma completa para educação financeira e ferramentas de investimento, desenvolvida para ajudar brasileiros a tomar decisões financeiras mais inteligentes.
 
-Bem-vindo ao **Learn Invest Savy**!  
-Uma plataforma moderna para aprender sobre investimentos, construída com as melhores tecnologias do mercado.
+## 🎯 Sobre o Projeto
 
----
+O **InvestSavy** é uma plataforma web moderna e segura dedicada à educação financeira no Brasil. Nosso objetivo é democratizar o conhecimento sobre investimentos, planejamento financeiro e gestão de patrimônio através de conteúdo educativo de qualidade e ferramentas práticas.
 
-## 📌 Projeto
+### ✨ Principais Funcionalidades
 
-**URL de produção:**  
-[https://lovable.dev/projects/e81e3a83-481b-4cff-8dff-b95030e51e88](https://lovable.dev/projects/e81e3a83-481b-4cff-8dff-b95030e51e88)
+- 📚 **Centro de Aprendizado**: Conteúdo educativo estruturado sobre investimentos
+- 📰 **Artigos Especializados**: Análises e insights do mercado financeiro
+- 🗞️ **Atualidades**: Notícias e tendências do mercado em tempo real
+- 🧮 **Ferramentas Financeiras**: Calculadoras e simuladores interativos
+- 📱 **Interface Responsiva**: Experiência otimizada para todos os dispositivos
+- 🔒 **Segurança Avançada**: Proteção contra ameaças e vulnerabilidades
 
-O objetivo deste projeto é democratizar o acesso à educação financeira, oferecendo conteúdos, artigos e ferramentas para quem deseja aprender a investir de forma inteligente.
+## 🛠️ Ferramentas Disponíveis
 
----
+### Calculadoras Financeiras
+- **Juros Compostos**: Simule o crescimento dos seus investimentos
+- **Parcelado vs À Vista**: Compare as melhores formas de pagamento
+- **Orçamento Pessoal**: Organize suas finanças mensais
+- **Simulador de Dívidas**: Estratégias para quitação de débitos
+- **Meta de Investimento**: Calcule quanto investir para seus objetivos
+- **Reserva de Emergência**: Determine o valor ideal para sua reserva
 
-## 🚀 Tecnologias
+### Recursos Educacionais
+- **Economes**: Dicas práticas de economia doméstica
+- **Guias de Investimento**: Conteúdo estruturado por nível de conhecimento
+- **Análises de Mercado**: Insights e tendências atualizadas
 
-Este projeto foi desenvolvido com:
+## 🚀 Tecnologias Utilizadas
 
-- [Vite](https://vitejs.dev/)
-- [TypeScript](https://www.typescriptlang.org/)
-- [React](https://react.dev/)
-- [shadcn/ui](https://ui.shadcn.com/)
-- [Tailwind CSS](https://tailwindcss.com/)
+### Frontend
+- **React 18** - Biblioteca para interfaces de usuário
+- **TypeScript** - Tipagem estática para JavaScript
+- **Vite** - Build tool moderna e rápida
+- **Tailwind CSS** - Framework CSS utilitário
+- **Framer Motion** - Animações fluidas e interativas
 
----
+### UI/UX
+- **Shadcn/ui** - Componentes de interface modernos
+- **Radix UI** - Primitivos acessíveis para UI
+- **Lucide React** - Ícones consistentes e elegantes
+- **React Hook Form** - Gerenciamento de formulários
 
-## ✨ Funcionalidades
+### Roteamento e Estado
+- **React Router** - Navegação SPA
+- **TanStack Query** - Gerenciamento de estado servidor
+- **Zustand** - Gerenciamento de estado local
 
-- 📚 Seção de artigos sobre investimentos
-- 👤 Área institucional
-- 🎯 Interface responsiva e moderna
-- ⚡️ Carregamento rápido com Vite
-- 🎨 UI customizável com Tailwind e shadcn/ui
+### Segurança e Performance
+- **Content Security Policy (CSP)** - Proteção contra XSS
+- **Headers de Segurança** - Proteção contra vulnerabilidades
+- **Lazy Loading** - Carregamento otimizado de componentes
+- **SEO Otimizado** - Meta tags e structured data
 
----
+## 📋 Pré-requisitos
 
-## 🛠️ Como rodar localmente
+Antes de começar, certifique-se de ter instalado:
 
-### Pré-requisitos
+- **Node.js** (versão 18 ou superior)
+- **npm** ou **yarn** ou **bun**
+- **Git**
 
-- [Node.js](https://nodejs.org/) (recomendado usar [nvm](https://github.com/nvm-sh/nvm#installing-and-updating))
-- [npm](https://www.npmjs.com/)
+## ⚡ Instalação e Configuração
 
-### Passo a passo
-
-```sh
-# 1. Clone o repositório
-git clone <URL_DO_SEU_REPOSITORIO>
-
-# 2. Acesse a pasta do projeto
+### 1. Clone o repositório
+```bash
+git clone https://github.com/seu-usuario/learn-invest-savy.git
 cd learn-invest-savy
-
-# 3. Instale as dependências
-npm install
-
-# 4. Inicie o servidor de desenvolvimento
-npm run dev
 ```
 
-Acesse [http://localhost:5173](http://localhost:5173) para ver o projeto rodando!
+### 2. Instale as dependências
+```bash
+# Com npm
+npm install
 
----
+# Com yarn
+yarn install
 
-## 📝 Como contribuir
+# Com bun
+bun install
+```
 
-1. Faça um fork do projeto
-2. Crie uma branch para sua feature (`git checkout -b feature/nome-da-feature`)
-3. Commit suas alterações (`git commit -m 'feat: minha nova feature'`)
-4. Faça push para a sua branch (`git push origin feature/nome-da-feature`)
-5. Abra um Pull Request
+### 3. Configure as variáveis de ambiente
+```bash
+# Copie o arquivo de exemplo
+cp .env.example .env.local
 
----
+# Edite as variáveis necessárias
+# VITE_API_URL=sua_api_url
+# VITE_SITE_URL=http://localhost:8080
+```
 
-## 🖥️ Outras formas de editar
+### 4. Execute o projeto
+```bash
+# Modo desenvolvimento
+npm run dev
 
-- **Via Lovable:**  
-  Edite diretamente em [Lovable](https://lovable.dev/projects/e81e3a83-481b-4cff-8dff-b95030e51e88) e as alterações serão salvas automaticamente neste repositório.
+# O projeto estará disponível em http://localhost:8080
+```
 
-- **Via GitHub:**  
-  Edite arquivos diretamente pelo GitHub usando o botão de lápis nos arquivos.
+## 🏗️ Scripts Disponíveis
 
-- **Via Codespaces:**  
-  Use o GitHub Codespaces para editar e rodar o projeto na nuvem.
+```bash
+# Desenvolvimento
+npm run dev          # Inicia servidor de desenvolvimento
 
----
+# Build
+npm run build        # Build para produção
+npm run build:dev    # Build para desenvolvimento
 
-## 🌐 Deploy
+# Qualidade de Código
+npm run lint         # Executa ESLint
+npm run preview      # Preview do build de produção
+```
 
-O deploy é feito automaticamente via [Lovable](https://lovable.dev/projects/e81e3a83-481b-4cff-8dff-b95030e51e88).  
-Para publicar, clique em **Share → Publish** dentro do painel do Lovable.
+## 📁 Estrutura do Projeto
 
----
+```
+src/
+├── components/          # Componentes reutilizáveis
+│   ├── ui/             # Componentes de interface (shadcn/ui)
+│   ├── HeroSection.tsx # Seção principal da homepage
+│   ├── Layout.tsx      # Layout base da aplicação
+│   └── ...
+├── pages/              # Páginas da aplicação
+│   ├── Index.tsx       # Página inicial
+│   ├── Aprenda.tsx     # Centro de aprendizado
+│   ├── Artigos.tsx     # Lista de artigos
+│   ├── Ferramentas.tsx # Ferramentas financeiras
+│   └── ...
+├── hooks/              # Custom hooks
+│   ├── use-mobile.tsx  # Hook para detecção mobile
+│   ├── use-toast.ts    # Hook para notificações
+│   └── ...
+├── lib/                # Utilitários e configurações
+│   └── utils.ts        # Funções utilitárias
+├── config/             # Configurações da aplicação
+│   ├── seo.ts         # Configurações de SEO
+│   ├── security.ts    # Configurações de segurança
+│   └── environment.ts # Variáveis de ambiente
+├── utils/              # Utilitários de segurança
+│   ├── encryption.ts   # Criptografia
+│   ├── firewall.ts    # Proteção de firewall
+│   └── ...
+└── middleware/         # Middlewares de segurança
+    └── security.ts     # Middleware principal
+```
 
-## 🔗 Domínio personalizado
+## 🔒 Recursos de Segurança
 
-Você pode conectar um domínio próprio ao projeto:
+O projeto implementa múltiplas camadas de segurança:
 
-1. Vá em **Project > Settings > Domains** no Lovable.
-2. Clique em **Connect Domain**.
-3. Siga o [guia oficial](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide).
+- **Content Security Policy (CSP)** - Prevenção de ataques XSS
+- **Headers de Segurança** - HSTS, X-Frame-Options, etc.
+- **Proteção contra CSRF** - Tokens de validação
+- **Rate Limiting** - Proteção contra ataques de força bruta
+- **Sanitização de Dados** - Validação e limpeza de inputs
+- **Criptografia** - Proteção de dados sensíveis
+- **Monitoramento** - Logs de segurança e alertas
 
----
+## 📱 Responsividade
+
+O projeto é totalmente responsivo e otimizado para:
+
+- 📱 **Mobile** (320px+)
+- 📱 **Tablet** (768px+)
+- 💻 **Desktop** (1024px+)
+- 🖥️ **Large Desktop** (1440px+)
+
+## 🎨 Design System
+
+### Cores Principais
+- **Verde Principal**: `#10B981` (Emerald-500)
+- **Verde Secundário**: `#059669` (Emerald-600)
+- **Cinza**: `#6B7280` (Gray-500)
+- **Branco**: `#FFFFFF`
+
+### Tipografia
+- **Fonte Principal**: Inter (Google Fonts)
+- **Tamanhos**: 12px, 14px, 16px, 18px, 20px, 24px, 32px, 48px
+
+## 🌐 SEO e Performance
+
+- **Meta Tags Otimizadas** - Títulos e descrições únicos
+- **Structured Data** - Schema.org para melhor indexação
+- **Open Graph** - Compartilhamento otimizado em redes sociais
+- **Sitemap XML** - Mapeamento completo do site
+- **Lazy Loading** - Carregamento otimizado de imagens
+- **Code Splitting** - Divisão inteligente do código
+
+## 🤝 Contribuindo
+
+1. **Fork** o projeto
+2. Crie uma **branch** para sua feature (`git checkout -b feature/AmazingFeature`)
+3. **Commit** suas mudanças (`git commit -m 'Add some AmazingFeature'`)
+4. **Push** para a branch (`git push origin feature/AmazingFeature`)
+5. Abra um **Pull Request**
+
+### Padrões de Código
+
+- Use **TypeScript** para tipagem
+- Siga as convenções do **ESLint**
+- Escreva **componentes funcionais** com hooks
+- Mantenha **componentes pequenos** (< 50 linhas)
+- Use **Tailwind CSS** para estilização
+- Implemente **testes** para novas funcionalidades
 
 ## 📄 Licença
 
 Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
+## 👥 Equipe
+
+- **Desenvolvedor Principal**: [Seu Nome]
+- **Design**: [Nome do Designer]
+- **Conteúdo**: [Nome do Especialista]
+
+## 📞 Contato
+
+- **Website**: [https://investsavy.com.br](https://investsavy.com.br)
+- **Email**: contato@investsavy.com.br
+- **LinkedIn**: [InvestSavy](https://linkedin.com/company/investsavy)
+
+## 🙏 Agradecimentos
+
+- **Shadcn/ui** - Pelos componentes de interface
+- **Radix UI** - Pelos primitivos acessíveis
+- **Tailwind CSS** - Pelo framework CSS
+- **Vercel** - Pela plataforma de deploy
+- **Comunidade Open Source** - Por todas as bibliotecas utilizadas
+
 ---
 
 <div align="center">
-  <sub>Feito com 💚 por <a href="https://github.com/seu-usuario">Seu Nome</a></sub>
+  <p>Feito com ❤️ para democratizar a educação financeira no Brasil</p>
+  <p>⭐ Se este projeto te ajudou, considere dar uma estrela!</p>
 </div>

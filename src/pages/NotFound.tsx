@@ -20,14 +20,14 @@ const NotFound = () => {
     '@type': 'WebPage',
     name: 'Página Não Encontrada - 404',
     description: 'A página que você procura não foi encontrada. Explore outros conteúdos sobre investimentos e educação financeira.',
-    url: `https://investsavy.com.br${location.pathname}`,
+    url: `https://investsavy.online${location.pathname}`,
     mainEntity: {
       '@type': 'ErrorPage',
       name: '404 - Página Não Encontrada',
       publisher: {
         '@type': 'Organization',
         name: 'InvestSavy',
-        url: 'https://investsavy.com.br'
+        url: 'https://investsavy.online'
       }
     },
     inLanguage: 'pt-BR'
@@ -39,9 +39,9 @@ const NotFound = () => {
         title="Página Não Encontrada - 404 | InvestSavy"
         description="A página que você procura não foi encontrada. Explore outros conteúdos sobre investimentos e educação financeira na InvestSavy."
         keywords="404, página não encontrada, erro, investimentos, educação financeira"
-        url={`https://investsavy.com.br${location.pathname}`}
+        url={`https://investsavy.online${location.pathname}`}
         type="website"
-        canonical="https://investsavy.com.br"
+        canonical="https://investsavy.online"
         jsonLd={jsonLd}
       />
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-white via-green-50/30 to-white">
