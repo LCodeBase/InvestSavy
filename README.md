@@ -215,27 +215,19 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para ma
 
 ## 👥 Equipe
 
-- **Desenvolvedor Principal**: [Seu Nome]
-- **Design**: [Nome do Designer]
-- **Conteúdo**: [Nome do Especialista]
+- **Desenvolvedor**: [Leonardo F. Figueiredo]
+
 
 ## 📞 Contato
 
-- **Website**: [https://investsavy.com.br](https://investsavy.com.br)
-- **Email**: contato@investsavy.com.br
-- **LinkedIn**: [InvestSavy](https://linkedin.com/company/investsavy)
+- **Website**: [https://investsavy.online](https://investsavy.online)
+- **Email**: contato@investsavy.online
+- **LinkedIn**: [Criador](https://linkedin.com/in/leonardo-fe-figueiredo)
 
-## 🙏 Agradecimentos
-
-- **Shadcn/ui** - Pelos componentes de interface
-- **Radix UI** - Pelos primitivos acessíveis
-- **Tailwind CSS** - Pelo framework CSS
-- **Vercel** - Pela plataforma de deploy
-- **Comunidade Open Source** - Por todas as bibliotecas utilizadas
 
 ---
 
 <div align="center">
-  <p>Feito com ❤️ para democratizar a educação financeira no Brasil</p>
+  <p>Feito para democratizar a educação financeira no Brasil</p>
   <p>⭐ Se este projeto te ajudou, considere dar uma estrela!</p>
 </div>
