@@ -301,24 +301,7 @@ const ComingSoon = () => {
             </AnimatePresence>
           </motion.div>
 
-          {/* Ícones sociais */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.8, duration: 0.8 }}
-            className="flex justify-center space-x-6"
-          >
-            {['instagram', 'twitter', 'linkedin', 'youtube'].map((social, index) => (
-              <motion.div
-                key={social}
-                whileHover={{ scale: 1.1, y: -2 }}
-                transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                className="w-12 h-12 bg-green-100 hover:bg-green-200 rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 border border-green-200"
-              >
-                <div className="w-6 h-6 bg-green-600 rounded-full opacity-70" />
-              </motion.div>
-            ))}
-          </motion.div>
+          
 
           {/* Footer */}
           <motion.div
